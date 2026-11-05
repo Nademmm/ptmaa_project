@@ -52,7 +52,7 @@
                                 decoding="async"
                                 width="800"
                                 height="500"
-                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                class="w-full h-full object-cover"
                             />
                         </a>
 

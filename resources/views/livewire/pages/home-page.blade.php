@@ -51,12 +51,12 @@
             <template x-for="(slide, index) in slides" :key="index">
                 <div
                     x-show="currentSlide === index"
-                    x-transition:enter="transition ease-out duration-700"
-                    x-transition:enter-start="opacity-0 scale-105"
-                    x-transition:enter-end="opacity-100 scale-100"
-                    x-transition:leave="transition ease-in duration-500"
-                    x-transition:leave-start="opacity-100 scale-100"
-                    x-transition:leave-end="opacity-0 scale-95"
+                    x-transition:enter="transition-opacity ease-out duration-500"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition-opacity ease-in duration-300"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
                     class="absolute inset-0 w-full h-full"
                 >
                     <img
@@ -189,11 +189,9 @@
             @endphp
             <div
                 x-show="activePillar === {{ $idx }}"
-                x-transition:enter="transition ease-out duration-300"
-                x-transition:enter-start="opacity-0 translate-y-2"
-                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition.opacity.duration.200ms
                 style="{{ $idx !== 0 ? 'display: none;' : '' }}"
-                class="glass-bright rounded-3xl md:rounded-[40px] p-6 sm:p-8 md:p-10 border border-primary/15 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+                class="bg-white rounded-3xl p-6 sm:p-8 md:p-10 border border-primary/10 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
             >
                 <div class="lg:col-span-4">
                     <div class="aspect-[4/5] rounded-2xl md:rounded-3xl overflow-hidden border-2 border-primary/10 shadow-lg relative bg-primary-dark">
@@ -405,7 +403,7 @@
                         decoding="async"
                         width="600"
                         height="800"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        class="w-full h-full object-cover"
                     />
                     <div class="absolute inset-0 bg-gradient-to-t from-[#0F1048] via-[#1B1B6C]/45 to-transparent opacity-95 flex flex-col justify-end p-5">
                         <h3 class="text-sm font-black text-white uppercase tracking-tight leading-snug line-clamp-2">

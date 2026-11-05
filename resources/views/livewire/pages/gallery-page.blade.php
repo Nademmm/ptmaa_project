@@ -79,7 +79,7 @@
                         decoding="async"
                         width="800"
                         height="600"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        class="w-full h-full object-cover"
                     />
                     <div class="absolute bottom-3 right-3 w-9 h-9 rounded-xl bg-white/90 text-primary flex items-center justify-center shadow-md group-hover:bg-primary group-hover:text-white transition-colors">
                         <i class="bx bx-fullscreen text-lg"></i>

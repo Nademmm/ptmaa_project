@@ -65,7 +65,7 @@
                                     decoding="async"
                                     width="128"
                                     height="128"
-                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    class="w-full h-full object-cover"
                                 />
                             </div>
                             <h3 class="text-xs font-black uppercase tracking-tight leading-snug text-text-main group-hover:text-primary transition-colors line-clamp-2">
