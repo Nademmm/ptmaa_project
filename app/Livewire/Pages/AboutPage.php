@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Livewire\Pages;
+
+use App\Models\ServicePillar;
+use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
+use Livewire\Component;
+
+#[Layout('components.layouts.app')]
+#[Title('Tentang Kami & 4 Pilar Layanan | PT. Multi Abadi Aksana')]
+class AboutPage extends Component
+{
+    public function render()
+    {
+        $pillars = ServicePillar::with('scopes')->where('is_active', true)->orderBy('sort_order')->get();
+
+        return view('livewire.pages.about-page', [
+            'pillars' => $pillars,
+        ]);
+    }
+}
+
