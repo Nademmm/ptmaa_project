@@ -1,7 +1,7 @@
 <div
     x-data="{
         lightboxOpen: false,
-        activeItem: { title: '', location: '', client: '', desc: '', img: '' },
+        activeItem: { title: '', location: '', desc: '', img: '' },
         openLightbox(item) {
             this.activeItem = item;
             this.lightboxOpen = true;
@@ -12,28 +12,13 @@
 >
     <!-- B2B Portfolio Header Banner -->
     <section class="relative rounded-3xl md:rounded-[40px] bg-gradient-to-br from-[#0F1048] via-[#1B1B6C] to-[#242882] p-6 sm:p-10 md:p-12 text-white overflow-hidden shadow-2xl shadow-primary/15">
-        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 relative z-10">
-            <div class="space-y-3 max-w-2xl">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-blue-200">
-                    <i class="bx bxs-hard-hat text-sm"></i>
-                    <span>Dokumentasi Company Profile PT. Multi Abadi Aksana (Hal. 6 - 11)</span>
-                </div>
-                <h1 class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight uppercase leading-[1.06]">
-                    Portofolio <span class="text-[#8DA2E0]">Projek On Duty.</span>
-                </h1>
-                <p class="text-xs sm:text-sm md:text-base text-blue-100/85 font-medium leading-relaxed">
-                    Rekam jejak dokumentasi lapangan tim PT. Multi Abadi Aksana: ereksi tiang & instalasi PJU jalan raya, pengerjaan interior komersial (Adelle Jewellery, kantor, fasilitas medis), serta fabrikasi impeller stainless steel dan blower industri (PGIC-E34).
-                </p>
-            </div>
-            <a
-                href="/files/ComPro_MULTI_ABADI_AKSANA.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="px-5 py-3 rounded-xl bg-white text-primary hover:bg-secondary hover:text-white text-[10px] md:text-xs font-black uppercase tracking-wider transition-all flex items-center gap-2 self-start lg:self-auto shrink-0 shadow-lg"
-            >
-                <i class="bx bxs-file-pdf text-base"></i>
-                <span>Lihat di PDF Company Profile</span>
-            </a>
+        <div class="max-w-3xl space-y-3 relative z-10">
+            <h1 class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight uppercase leading-[1.06]">
+                Portofolio <span class="text-[#8DA2E0]">Projek On Duty.</span>
+            </h1>
+            <p class="text-xs sm:text-sm md:text-base text-blue-100/85 font-medium leading-relaxed">
+                Rekam jejak dokumentasi lapangan tim PT. Multi Abadi Aksana: ereksi tiang & instalasi PJU jalan raya, pengerjaan interior komersial, serta fabrikasi impeller stainless steel dan blower industri.
+            </p>
         </div>
     </section>
 
@@ -43,9 +28,9 @@
             @php
                 $filterTabs = [
                     'semua' => 'Semua Dokumentasi',
-                    'pju' => 'Projek On Duty PJU (Hal. 6-7)',
-                    'interior_exterior' => 'Interior & Exterior (Hal. 8-9)',
-                    'mechanical_electrical' => 'Mechanical & Electrical (Hal. 10-11)',
+                    'pju' => 'Projek PJU & Infrastruktur',
+                    'interior_exterior' => 'Interior & Exterior',
+                    'mechanical_electrical' => 'Mechanical & Electrical',
                 ];
             @endphp
             @foreach($filterTabs as $key => $label)
@@ -58,12 +43,9 @@
                 </button>
             @endforeach
         </div>
-        <span class="text-[10px] font-black uppercase tracking-widest text-secondary px-2">
-            Total: {{ $galleries->count() }} Dokumentasi
-        </span>
     </section>
 
-    <!-- Structured 3-Column Engineering Project Cards -->
+    <!-- Structured 3-Column Engineering Project Cards (Clean without Cluttered Badges) -->
     <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @foreach($galleries as $gallery)
             @php
@@ -75,7 +57,6 @@
                 @click="openLightbox({
                     title: {{ Js::from($gallery->title) }},
                     location: {{ Js::from($gallery->location ?? 'Jawa Timur') }},
-                    client: {{ Js::from($gallery->client_or_unit_code ?? 'Projek On Duty') }},
                     desc: {{ Js::from($gallery->description ?? '') }},
                     img: {{ Js::from($imgPath) }}
                 })"
@@ -84,7 +65,6 @@
                 @keydown.enter="openLightbox({
                     title: {{ Js::from($gallery->title) }},
                     location: {{ Js::from($gallery->location ?? 'Jawa Timur') }},
-                    client: {{ Js::from($gallery->client_or_unit_code ?? 'Projek On Duty') }},
                     desc: {{ Js::from($gallery->description ?? '') }},
                     img: {{ Js::from($imgPath) }}
                 })"
@@ -101,11 +81,6 @@
                         height="600"
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div class="absolute top-3.5 left-3.5">
-                        <span class="px-3 py-1 rounded-lg bg-[#0F1048]/90 backdrop-blur-md text-[9px] font-black uppercase tracking-widest text-blue-200 border border-white/15">
-                            {{ $gallery->client_or_unit_code ?? 'On Duty' }}
-                        </span>
-                    </div>
                     <div class="absolute bottom-3 right-3 w-9 h-9 rounded-xl bg-white/90 text-primary flex items-center justify-center shadow-md group-hover:bg-primary group-hover:text-white transition-colors">
                         <i class="bx bx-fullscreen text-lg"></i>
                     </div>
@@ -129,7 +104,7 @@
                     </div>
 
                     <div class="pt-3 border-t border-primary/10 flex items-center justify-between text-[10px] font-black uppercase tracking-wider text-primary">
-                        <span>Perbesar Foto & Detail</span>
+                        <p>Perbesar Foto & Detail</p>
                         <i class="bx bx-right-arrow-alt text-base"></i>
                     </div>
                 </div>
@@ -156,8 +131,7 @@
             </div>
             <div class="md:col-span-5 p-6 md:p-8 flex flex-col justify-between space-y-6">
                 <div class="space-y-3">
-                    <div class="flex items-center justify-between gap-2">
-                        <span x-text="activeItem.client" class="px-3 py-1 rounded-lg bg-primary/10 text-primary text-[9px] font-black uppercase tracking-widest"></span>
+                    <div class="flex items-center justify-end">
                         <button
                             type="button"
                             @click="lightboxOpen = false"

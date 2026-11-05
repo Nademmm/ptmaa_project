@@ -48,7 +48,7 @@
 
     <!-- Main Technical Product Overview -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start">
-        <!-- Left Column: Technical Image Viewer (7 Columns) -->
+        <!-- Left Column: Technical Image Viewer -->
         <div class="lg:col-span-6 space-y-4">
             <div class="aspect-[4/3] rounded-3xl overflow-hidden border border-primary/15 shadow-xl relative bg-gradient-to-br from-[#0F1048] via-[#1B1B6C] to-[#2B358C] flex items-center justify-center">
                 <img
@@ -58,20 +58,6 @@
                     height="720"
                     :class="isCutout(images[selectedImage]) ? 'w-full h-full object-contain p-8 md:p-12 drop-shadow-2xl transition-all duration-500' : 'w-full h-full object-cover transition-all duration-500'"
                 />
-                @if($product->sub_badge)
-                    <div class="absolute top-4 left-4">
-                        <span class="px-3.5 py-1.5 rounded-xl bg-white/95 backdrop-blur-md text-[10px] font-black uppercase tracking-widest text-primary shadow-md">
-                            {{ $product->sub_badge }}
-                        </span>
-                    </div>
-                @endif
-                @if($product->brand)
-                    <div class="absolute bottom-4 right-4">
-                        <span class="px-3.5 py-1.5 rounded-xl bg-[#0F1048]/90 border border-white/15 text-[10px] font-black uppercase tracking-widest text-blue-200">
-                            {{ $product->brand }}
-                        </span>
-                    </div>
-                @endif
             </div>
 
             <!-- Thumbnail Strip -->
@@ -97,28 +83,25 @@
                 </div>
             @endif
 
-            <!-- 4-Step Official Process Box (From Proposal PJU & Sparepart PDF) -->
+            <!-- 4-Step Official Process Box -->
             <div class="bg-white p-5 rounded-2xl border border-primary/10 shadow-sm space-y-3">
-                <div class="flex items-center justify-between">
-                    <span class="text-[10px] font-black uppercase tracking-widest text-primary">Alur Pemesanan & Eksekusi (The Process)</span>
-                    <span class="text-[10px] font-bold text-secondary">Standar PT. Multi Abadi Aksana</span>
-                </div>
+                <p class="text-[10px] font-black uppercase tracking-widest text-primary">Alur Pemesanan & Eksekusi</p>
                 <div class="grid grid-cols-4 gap-2 text-center">
                     <div class="p-2.5 rounded-xl bg-[#F8FAFC] border border-primary/10">
-                        <span class="text-[9px] font-black text-secondary block">01</span>
-                        <span class="text-[10px] font-black uppercase text-primary">Komunikasi</span>
+                        <p class="text-[9px] font-black text-secondary">01</p>
+                        <p class="text-[10px] font-black uppercase text-primary">Komunikasi</p>
                     </div>
                     <div class="p-2.5 rounded-xl bg-[#F8FAFC] border border-primary/10">
-                        <span class="text-[9px] font-black text-secondary block">02</span>
-                        <span class="text-[10px] font-black uppercase text-primary">Survei</span>
+                        <p class="text-[9px] font-black text-secondary">02</p>
+                        <p class="text-[10px] font-black uppercase text-primary">Survei</p>
                     </div>
                     <div class="p-2.5 rounded-xl bg-[#F8FAFC] border border-primary/10">
-                        <span class="text-[9px] font-black text-secondary block">03</span>
-                        <span class="text-[10px] font-black uppercase text-primary">Negosiasi</span>
+                        <p class="text-[9px] font-black text-secondary">03</p>
+                        <p class="text-[10px] font-black uppercase text-primary">Negosiasi</p>
                     </div>
                     <div class="p-2.5 rounded-xl bg-[#F8FAFC] border border-primary/10">
-                        <span class="text-[9px] font-black text-secondary block">04</span>
-                        <span class="text-[10px] font-black uppercase text-primary">Deal</span>
+                        <p class="text-[9px] font-black text-secondary">04</p>
+                        <p class="text-[10px] font-black uppercase text-primary">Deal</p>
                     </div>
                 </div>
             </div>
@@ -127,22 +110,6 @@
         <!-- Right Column: Specification Summary & Direct B2B Inquiry -->
         <div class="lg:col-span-6 space-y-6">
             <div class="space-y-3">
-                <div class="flex flex-wrap items-center gap-2">
-                    <span class="px-3 py-1 rounded-lg bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest flex items-center gap-1.5">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                        {{ $product->availability_status?->label() ?? 'Tersedia untuk Pengadaan' }}
-                    </span>
-                    @if($product->category?->contact_phone)
-                        <span class="px-3 py-1 rounded-lg bg-secondary/15 text-primary text-[10px] font-black uppercase tracking-widest">
-                            Divisi Sparepart (+62 812-1659-2824)
-                        </span>
-                    @else
-                        <span class="px-3 py-1 rounded-lg bg-secondary/15 text-primary text-[10px] font-black uppercase tracking-widest">
-                            Divisi Proyek & PJU (+62 823-4297-9898)
-                        </span>
-                    @endif
-                </div>
-
                 <h1 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase leading-[1.08] text-text-main">
                     {{ $product->name }}
                 </h1>
@@ -158,14 +125,14 @@
             @if(is_array($product->specifications) && count($product->specifications) > 0)
                 <div class="bg-white rounded-2xl border border-primary/10 overflow-hidden shadow-sm">
                     <div class="px-4 py-2.5 bg-primary text-white text-[10px] font-black uppercase tracking-widest flex items-center justify-between">
-                        <span>Ringkasan Parameter Teknis</span>
+                        <p>Parameter Spesifikasi Teknis</p>
                         <i class="bx bx-spreadsheet text-sm"></i>
                     </div>
                     <div class="divide-y divide-primary/10">
                         @foreach($product->specifications as $spec)
                             <div class="px-4 py-2.5 flex items-center justify-between gap-4 text-xs">
-                                <span class="font-bold text-text-secondary">{{ $spec['label'] ?? 'Parameter' }}</span>
-                                <span class="font-black text-primary text-right">{{ $spec['value'] ?? '-' }}</span>
+                                <p class="font-bold text-text-secondary">{{ $spec['label'] ?? 'Parameter' }}</p>
+                                <p class="font-black text-primary text-right">{{ $spec['value'] ?? '-' }}</p>
                             </div>
                         @endforeach
                     </div>
@@ -174,10 +141,7 @@
 
             <!-- Volume Estimator for WhatsApp RFQ -->
             <div class="p-5 rounded-2xl bg-white border border-primary/15 shadow-md space-y-4">
-                <div class="flex items-center justify-between">
-                    <span class="text-[10px] font-black uppercase tracking-widest text-primary">Kustomisasi Volume Pengadaan</span>
-                    <span class="text-[10px] font-bold text-secondary">Terlampir Otomatis di Pesan WA</span>
-                </div>
+                <p class="text-[10px] font-black uppercase tracking-widest text-primary">Kustomisasi Volume Pengadaan</p>
                 <div class="grid grid-cols-2 gap-3">
                     <div>
                         <label for="inquiry-qty" class="block text-[10px] font-bold uppercase tracking-wider text-text-secondary mb-1">Volume Kebutuhan</label>
@@ -253,9 +217,9 @@
                             <div class="w-6 h-6 rounded-lg bg-primary text-white flex items-center justify-center text-sm shrink-0 mt-0.5">
                                 <i class="bx bx-check"></i>
                             </div>
-                            <span class="text-xs md:text-sm font-bold text-text-main leading-snug">
+                            <p class="text-xs md:text-sm font-bold text-text-main leading-snug">
                                 {{ $adv['point'] ?? '' }}
-                            </span>
+                            </p>
                         </li>
                     @endforeach
                 </ul>
@@ -267,12 +231,9 @@
     @if($relatedProducts->count() > 0)
         <div class="pt-8 border-t border-primary/10 space-y-6">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
-                <div>
-                    <span class="text-[10px] font-black uppercase tracking-[0.25em] text-secondary block">Rekomendasi Katalog</span>
-                    <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tight text-primary">
-                        Unit Pengadaan Terkait
-                    </h2>
-                </div>
+                <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tight text-primary">
+                    Unit Pengadaan Terkait
+                </h2>
                 <a
                     href="{{ route('products.index') }}"
                     class="px-4 py-2.5 rounded-xl bg-white border border-primary/15 font-black text-xs text-primary hover:bg-primary hover:text-white transition-all flex items-center gap-2 uppercase tracking-wider"

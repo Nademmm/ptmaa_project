@@ -3,19 +3,15 @@
     <section class="relative rounded-3xl md:rounded-[40px] bg-gradient-to-br from-[#0F1048] via-[#1B1B6C] to-[#242882] p-6 sm:p-10 md:p-12 text-white overflow-hidden shadow-2xl shadow-primary/15">
         <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 relative z-10">
             <div class="space-y-3 max-w-2xl">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-blue-200">
-                    <i class="bx bx-book-reader text-sm"></i>
-                    <span>Publikasi & Edukasi Teknis PT. Multi Abadi Aksana</span>
-                </div>
                 <h1 class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight uppercase leading-[1.06]">
                     Wawasan <span class="text-[#8DA2E0]">Teknik & Pengadaan.</span>
                 </h1>
                 <p class="text-xs sm:text-sm md:text-base text-blue-100/85 font-medium leading-relaxed">
-                    Artikel teknis seputar konfigurasi PJU Tenaga Surya & PJU PLN (COB, Osram, Philips, Estika), fabrikasi impeller & blower industri (PGIC-E34), hingga manajemen suku cadang dan penerapan K3.
+                    Artikel teknis seputar konfigurasi PJU Tenaga Surya & PJU PLN (COB, Osram, Philips, Estika), fabrikasi impeller & blower industri, hingga manajemen suku cadang dan penerapan K3.
                 </p>
             </div>
 
-            <!-- Category Filter Pills -->
+            <!-- Category Filter Buttons -->
             <div class="flex flex-wrap gap-2">
                 <button
                     type="button"
@@ -58,19 +54,12 @@
                                 height="500"
                                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                             />
-                            <div class="absolute top-3.5 left-3.5">
-                                <span class="px-3 py-1.5 bg-white/95 backdrop-blur-md text-[9px] font-black uppercase tracking-widest rounded-lg text-primary shadow-md">
-                                    {{ $post->category?->name ?? 'Wawasan Teknis' }}
-                                </span>
-                            </div>
                         </a>
 
                         <div class="p-6 flex flex-col grow space-y-3.5">
-                            <div class="flex items-center gap-2.5 text-[10px] font-black text-text-secondary uppercase tracking-wider">
-                                <span>{{ $post->published_at?->translatedFormat('d M Y') }}</span>
-                                <span class="w-1 h-1 bg-secondary rounded-full"></span>
-                                <span>Tim Teknis PT. MAA</span>
-                            </div>
+                            <p class="text-[10px] font-black text-text-secondary uppercase tracking-wider">
+                                {{ $post->published_at?->translatedFormat('d M Y') }} • Tim Teknis PT. MAA
+                            </p>
 
                             <a href="{{ route('blog.show', $post->slug) }}">
                                 <h2 class="text-lg md:text-xl font-black tracking-tight uppercase leading-snug text-text-main group-hover:text-primary transition-colors line-clamp-2">

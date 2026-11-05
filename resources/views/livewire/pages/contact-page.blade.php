@@ -1,37 +1,13 @@
 <div class="space-y-10 md:space-y-14">
     <!-- Corporate Contact Header Banner -->
     <section class="relative rounded-3xl md:rounded-[40px] bg-gradient-to-br from-[#0F1048] via-[#1B1B6C] to-[#242882] p-6 sm:p-10 md:p-12 text-white overflow-hidden shadow-2xl shadow-primary/15">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center relative z-10">
-            <div class="lg:col-span-8 space-y-3">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-blue-200">
-                    <i class="bx bxs-phone-call text-sm"></i>
-                    <span>Saluran Komunikasi Resmi • Sidoarjo, Jawa Timur</span>
-                </div>
-                <h1 class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight uppercase leading-[1.06]">
-                    Hubungi <span class="text-[#8DA2E0]">PT. Multi Abadi Aksana.</span>
-                </h1>
-                <p class="text-xs sm:text-sm md:text-base text-blue-100/85 font-medium leading-relaxed max-w-2xl">
-                    Kami menyediakan 2 jalur komunikasi khusus sesuai dokumen resmi kami: Divisi Proyek Utama (PJU, Interior & Exterior, Mechanical & Electrical) di Kec. Taman, Sidoarjo dan Divisi Sparepart & Equipment di Sukodono, Sidoarjo.
-                </p>
-            </div>
-            <div class="lg:col-span-4 flex flex-col gap-2.5">
-                <a
-                    href="/files/ComPro_MULTI_ABADI_AKSANA.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="px-4 py-3 rounded-xl bg-white text-primary hover:bg-secondary hover:text-white text-[10px] md:text-xs font-black uppercase tracking-wider transition-all flex items-center justify-between shadow-lg"
-                >
-                    <span>Unduh Company Profile PDF</span>
-                    <i class="bx bxs-file-pdf text-lg"></i>
-                </a>
-                <a
-                    href="mailto:ptmultiabadiaksana15@gmail.com"
-                    class="px-4 py-3 rounded-xl bg-white/10 hover:bg-white hover:text-primary border border-white/20 text-white text-[10px] md:text-xs font-black uppercase tracking-wider transition-all flex items-center justify-between"
-                >
-                    <span>ptmultiabadiaksana15@gmail.com</span>
-                    <i class="bx bx-envelope text-lg"></i>
-                </a>
-            </div>
+        <div class="max-w-3xl space-y-3 relative z-10">
+            <h1 class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight uppercase leading-[1.06]">
+                Hubungi <span class="text-[#8DA2E0]">PT. Multi Abadi Aksana.</span>
+            </h1>
+            <p class="text-xs sm:text-sm md:text-base text-blue-100/85 font-medium leading-relaxed">
+                Kami menyediakan 2 jalur komunikasi khusus: Divisi Proyek Utama (PJU, Interior & Exterior, Mechanical & Electrical) di Kec. Taman, Sidoarjo dan Divisi Sparepart & Equipment di Sukodono, Sidoarjo.
+            </p>
         </div>
     </section>
 
@@ -45,13 +21,8 @@
             class="bg-white p-6 sm:p-8 rounded-3xl border border-primary/10 shadow-lg shadow-primary/5 flex flex-col justify-between group hover:border-primary/35 transition-all space-y-5"
         >
             <div class="space-y-3">
-                <div class="flex items-center justify-between">
-                    <span class="px-3 py-1 rounded-lg bg-primary/10 text-primary text-[9px] font-black uppercase tracking-widest">
-                        ComPro & Proposal PJU
-                    </span>
-                    <div class="w-11 h-11 bg-primary text-white rounded-xl flex items-center justify-center text-2xl">
-                        <i class="bx bxl-whatsapp"></i>
-                    </div>
+                <div class="w-11 h-11 bg-primary text-white rounded-xl flex items-center justify-center text-2xl">
+                    <i class="bx bxl-whatsapp"></i>
                 </div>
                 <h2 class="text-xl font-black uppercase tracking-tight text-primary">Divisi Proyek & PJU</h2>
                 <p class="text-xs text-text-secondary font-medium leading-relaxed">
@@ -59,9 +30,9 @@
                 </p>
             </div>
             <div class="space-y-3 pt-3 border-t border-primary/10">
-                <span class="block text-base md:text-lg font-black text-text-main">
+                <p class="text-base md:text-lg font-black text-text-main">
                     +62 823-4297-9898
-                </span>
+                </p>
                 <div class="w-full py-3 bg-primary text-white text-[11px] font-black uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 group-hover:bg-primary-dark transition-colors">
                     <i class="bx bxl-whatsapp text-base"></i>
                     <span>Chat WhatsApp Proyek</span>
@@ -77,13 +48,8 @@
             class="bg-white p-6 sm:p-8 rounded-3xl border border-primary/10 shadow-lg shadow-primary/5 flex flex-col justify-between group hover:border-primary/35 transition-all space-y-5"
         >
             <div class="space-y-3">
-                <div class="flex items-center justify-between">
-                    <span class="px-3 py-1 rounded-lg bg-secondary/15 text-primary text-[9px] font-black uppercase tracking-widest">
-                        Katalog Sparepart Equipment
-                    </span>
-                    <div class="w-11 h-11 bg-secondary text-white rounded-xl flex items-center justify-center text-2xl">
-                        <i class="bx bxs-wrench"></i>
-                    </div>
+                <div class="w-11 h-11 bg-secondary text-white rounded-xl flex items-center justify-center text-2xl">
+                    <i class="bx bxs-wrench"></i>
                 </div>
                 <h2 class="text-xl font-black uppercase tracking-tight text-primary">Divisi Sparepart</h2>
                 <p class="text-xs text-text-secondary font-medium leading-relaxed">
@@ -91,9 +57,9 @@
                 </p>
             </div>
             <div class="space-y-3 pt-3 border-t border-primary/10">
-                <span class="block text-base md:text-lg font-black text-text-main">
+                <p class="text-base md:text-lg font-black text-text-main">
                     +62 812-1659-2824
-                </span>
+                </p>
                 <div class="w-full py-3 bg-secondary text-white text-[11px] font-black uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 group-hover:bg-primary transition-colors">
                     <i class="bx bxl-whatsapp text-base"></i>
                     <span>Chat WhatsApp Sparepart</span>
@@ -107,13 +73,8 @@
             class="bg-white p-6 sm:p-8 rounded-3xl border border-primary/10 shadow-lg shadow-primary/5 flex flex-col justify-between group hover:border-primary/35 transition-all space-y-5"
         >
             <div class="space-y-3">
-                <div class="flex items-center justify-between">
-                    <span class="px-3 py-1 rounded-lg bg-primary/10 text-primary text-[9px] font-black uppercase tracking-widest">
-                        Korespondensi Resmi
-                    </span>
-                    <div class="w-11 h-11 bg-primary/10 text-primary rounded-xl flex items-center justify-center text-2xl">
-                        <i class="bx bx-envelope"></i>
-                    </div>
+                <div class="w-11 h-11 bg-primary/10 text-primary rounded-xl flex items-center justify-center text-2xl">
+                    <i class="bx bx-envelope"></i>
                 </div>
                 <h2 class="text-xl font-black uppercase tracking-tight text-primary">Email Korporat</h2>
                 <p class="text-xs text-text-secondary font-medium leading-relaxed">
@@ -121,9 +82,9 @@
                 </p>
             </div>
             <div class="space-y-3 pt-3 border-t border-primary/10">
-                <span class="block text-xs sm:text-sm font-black text-text-main break-all">
+                <p class="text-xs sm:text-sm font-black text-text-main break-all">
                     ptmultiabadiaksana15@gmail.com
-                </span>
+                </p>
                 <div class="w-full py-3 bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white text-[11px] font-black uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 transition-colors">
                     <i class="bx bx-send text-base"></i>
                     <span>Kirim Email Resmi</span>
@@ -137,7 +98,6 @@
         <!-- Form -->
         <div class="lg:col-span-7 bg-white p-6 sm:p-10 rounded-3xl border border-primary/10 shadow-lg shadow-primary/5 space-y-6">
             <div class="space-y-1.5">
-                <span class="text-[10px] font-black uppercase tracking-widest text-secondary">Alur Kerja: Komunikasi -> Survei -> Negosiasi -> Deal</span>
                 <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tight text-primary">
                     Formulir Permintaan Penawaran
                 </h2>
@@ -176,7 +136,7 @@
                                 placeholder="Nama Lengkap Anda"
                                 class="w-full rounded-xl bg-[#F8FAFC] border border-primary/15 px-4 py-3 text-xs md:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/20"
                             />
-                            @error('full_name') <span class="text-[11px] text-red-600 font-bold mt-1 block">{{ $message }}</span> @enderror
+                            @error('full_name') <p class="text-[11px] text-red-600 font-bold mt-1">{{ $message }}</p> @enderror
                         </div>
                         <div>
                             <label for="company_or_institution" class="block text-[10px] font-black uppercase tracking-wider text-primary mb-1.5">Instansi / Perusahaan</label>
@@ -201,7 +161,7 @@
                                 placeholder="0812xxxxxxxx"
                                 class="w-full rounded-xl bg-[#F8FAFC] border border-primary/15 px-4 py-3 text-xs md:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/20"
                             />
-                            @error('whatsapp_number') <span class="text-[11px] text-red-600 font-bold mt-1 block">{{ $message }}</span> @enderror
+                            @error('whatsapp_number') <p class="text-[11px] text-red-600 font-bold mt-1">{{ $message }}</p> @enderror
                         </div>
                         <div>
                             <label for="email" class="block text-[10px] font-black uppercase tracking-wider text-primary mb-1.5">Alamat Email</label>
@@ -251,7 +211,7 @@
                             placeholder="Tuliskan spesifikasi barang, volume kebutuhan, atau lokasi proyek..."
                             class="w-full rounded-xl bg-[#F8FAFC] border border-primary/15 px-4 py-3 text-xs md:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/20"
                         ></textarea>
-                        @error('message') <span class="text-[11px] text-red-600 font-bold mt-1 block">{{ $message }}</span> @enderror
+                        @error('message') <p class="text-[11px] text-red-600 font-bold mt-1">{{ $message }}</p> @enderror
                     </div>
 
                     <button
@@ -278,7 +238,7 @@
                             <i class="bx bxs-map"></i>
                         </div>
                         <div>
-                            <p class="text-[9px] font-black uppercase tracking-widest text-secondary">Head Office (ComPro & Proposal PJU)</p>
+                            <p class="text-[9px] font-black uppercase tracking-widest text-secondary">Head Office</p>
                             <p class="text-xs font-black text-text-main leading-snug mt-0.5">
                                 Jl. Taman Surya Agung Blok B No. 11, Sritanjung, Wage, Kec. Taman, Kabupaten Sidoarjo, Jawa Timur 61257
                             </p>

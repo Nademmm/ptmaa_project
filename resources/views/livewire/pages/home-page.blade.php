@@ -1,32 +1,28 @@
 <div class="space-y-14 md:space-y-24">
-    <!-- Hero Slider Section (Niscahya Minimalist Rounded Style with Authentic PT. MAA Project Photos) -->
+    <!-- 1. Hero Slider Section -->
     <section
         x-data="{
             currentSlide: 0,
             slides: [
                 {
                     image: '/images/projects/pju-k3-gempol-sidoarjo.webp',
-                    badge: 'General Trading, Supplier & Contractor',
                     title: 'Solusi Infrastruktur & Konstruksi Terintegrasi',
                     desc: 'Mitra strategis pengadaan Lampu PJU Tenaga Surya & PLN, Mechanical Electrical, Interior Exterior, serta Sparepart Industri di Indonesia.'
                 },
                 {
                     image: '/images/projects/pju-tiang-jalan-tol.webp',
-                    badge: 'PJU Solar Cell & Jaringan PLN',
                     title: 'Penerangan Jalan Berstandar Mutu & K3',
                     desc: 'Pengadaan dan instalasi PJU All In One, Two In One, dan Tiang Octagonal Hot Dip Galvanized untuk jalan nasional maupun kawasan industri.'
                 },
                 {
                     image: '/images/projects/interior-adelle-jewellery.webp',
-                    badge: 'Konstruksi Arsitektur & Komersial',
                     title: 'Pengerjaan Interior & Exterior Presisi',
-                    desc: 'Pelaksanaan pekerjaan tata ruang toko perhiasan mewah, partisi perkantoran, koridor modern, serta fasilitas komersial berstandar estetika tinggi.'
+                    desc: 'Pelaksanaan pekerjaan tata ruang komersial, partisi perkantoran, koridor modern, serta fasilitas gedung berstandar estetika tinggi.'
                 },
                 {
                     image: '/images/projects/me-impeller-rotor-stainless.webp',
-                    badge: 'Mechanical Electrical & Sparepart',
                     title: 'Fabrikasi Presisi & Pasokan Suku Cadang',
-                    desc: 'Layanan fabrikasi impeller stainless steel industri unit PGIC-E34, sistem blower industri, hingga 12 lini suku cadang dan pelumas alat berat.'
+                    desc: 'Layanan fabrikasi impeller stainless steel industri, sistem blower industri, hingga 12 lini suku cadang dan pelumas alat berat.'
                 }
             ],
             timer: null,
@@ -72,10 +68,6 @@
                     />
                     <div class="absolute inset-0 bg-gradient-to-t from-[#0F1048] via-[#1B1B6C]/60 to-transparent flex flex-col justify-end p-6 sm:p-10 md:p-16 text-white">
                         <div class="max-w-3xl space-y-3 md:space-y-4">
-                            <span
-                                x-text="slide.badge"
-                                class="inline-block px-3.5 py-1.5 rounded-full bg-secondary/90 backdrop-blur-md text-[9px] md:text-[10px] font-black uppercase tracking-[0.25em] text-white shadow-lg"
-                            ></span>
                             <h1
                                 x-text="slide.title"
                                 class="text-2xl sm:text-4xl md:text-6xl font-black uppercase tracking-tighter leading-[1.05]"
@@ -99,15 +91,6 @@
                                 >
                                     <i class="bx bxl-whatsapp text-base"></i>
                                     <span>Konsultasi Proyek</span>
-                                </a>
-                                <a
-                                    href="/files/ComPro_MULTI_ABADI_AKSANA.pdf"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="hidden sm:inline-flex px-5 md:px-7 py-3 md:py-3.5 bg-white/15 backdrop-blur-md border border-white/25 text-white rounded-xl md:rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest hover:bg-white hover:text-primary transition-all items-center gap-2"
-                                >
-                                    <i class="bx bxs-file-pdf text-base"></i>
-                                    <span>Unduh ComPro PDF</span>
                                 </a>
                             </div>
                         </div>
@@ -148,20 +131,17 @@
         </div>
     </section>
 
-    <!-- 2. Interactive 4 Pilar Bisnis Tabs (Pengadaan Barang vs Pengadaan Jasa - Sesuai ComPro Hal 4, 6, 8, 10) -->
+    <!-- 2. Interactive 4 Pilar Bisnis Tabs (Pengadaan Barang vs Pengadaan Jasa) -->
     <section
         x-data="{ activePillar: 0 }"
         class="space-y-8 md:space-y-10"
     >
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
-            <div class="space-y-2">
-                <span class="text-[10px] font-black uppercase tracking-[0.3em] text-secondary block">Cakupan Layanan Terintegrasi</span>
-                <h2 class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase leading-none text-text-main">
-                    4 Pilar Bisnis <span class="text-gradient">Barang & Jasa.</span>
-                </h2>
-            </div>
+            <h2 class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase leading-none text-text-main">
+                4 Pilar Bisnis <span class="text-gradient">Barang & Jasa.</span>
+            </h2>
             <p class="text-xs md:text-sm text-text-secondary font-medium max-w-md">
-                Pilih divisi di bawah ini untuk melihat rincian cakupan <strong>Pengadaan Barang</strong> dan <strong>Pengadaan Jasa</strong> sesuai Company Profile resmi kami.
+                Pilih divisi di bawah ini untuk melihat rincian cakupan <strong>Pengadaan Barang</strong> dan <strong>Pengadaan Jasa</strong> PT. Multi Abadi Aksana.
             </p>
         </div>
 
@@ -188,17 +168,9 @@
                     >
                         <i class="bx {{ $pillarIcons[$pillar->code] ?? 'bx-layer' }}"></i>
                     </div>
-                    <div class="min-w-0">
-                        <span
-                            :class="activePillar === {{ $idx }} ? 'text-blue-200' : 'text-secondary'"
-                            class="text-[9px] font-black uppercase tracking-widest block"
-                        >
-                            Pilar 0{{ $idx + 1 }}
-                        </span>
-                        <h3 class="text-xs md:text-sm font-black uppercase tracking-tight truncate">
-                            {{ $pillar->name }}
-                        </h3>
-                    </div>
+                    <h3 class="text-xs md:text-sm font-black uppercase tracking-tight truncate">
+                        {{ $pillar->name }}
+                    </h3>
                 </button>
             @endforeach
         </div>
@@ -235,7 +207,6 @@
                             class="w-full h-full object-cover"
                         />
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0F1048] via-transparent to-transparent flex flex-col justify-end p-5 text-white">
-                            <span class="text-[9px] font-black uppercase tracking-widest text-blue-200">Dokumentasi Asli PT. MAA</span>
                             <h4 class="text-lg font-black uppercase tracking-tight">{{ $pillar->name }}</h4>
                         </div>
                     </div>
@@ -264,18 +235,18 @@
                         <!-- Pengadaan Barang -->
                         <div class="p-5 rounded-2xl bg-white border border-primary/10 space-y-3 shadow-sm">
                             <div class="flex items-center gap-2.5">
-                                <span class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center text-base">
+                                <div class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center text-base">
                                     <i class="bx bx-package"></i>
-                                </span>
+                                </div>
                                 <h4 class="text-xs font-black uppercase tracking-wider text-primary">
-                                    Pengadaan Barang (Hardware & Material)
+                                    Pengadaan Barang
                                 </h4>
                             </div>
                             <ul class="space-y-2.5">
                                 @foreach($barangScopes as $scope)
                                     <li class="text-xs text-text-secondary leading-relaxed">
                                         <strong class="text-text-main font-bold block">• {{ $scope->title }}</strong>
-                                        <span>{{ $scope->description }}</span>
+                                        <p class="mt-0.5">{{ $scope->description }}</p>
                                     </li>
                                 @endforeach
                             </ul>
@@ -284,18 +255,18 @@
                         <!-- Pengadaan Jasa -->
                         <div class="p-5 rounded-2xl bg-primary/5 border border-primary/10 space-y-3">
                             <div class="flex items-center gap-2.5">
-                                <span class="w-8 h-8 rounded-lg bg-secondary text-white flex items-center justify-center text-base">
+                                <div class="w-8 h-8 rounded-lg bg-secondary text-white flex items-center justify-center text-base">
                                     <i class="bx bx-hard-hat"></i>
-                                </span>
+                                </div>
                                 <h4 class="text-xs font-black uppercase tracking-wider text-primary">
-                                    Pengadaan Jasa (Services & Execution)
+                                    Pengadaan Jasa
                                 </h4>
                             </div>
                             <ul class="space-y-2.5">
                                 @foreach($jasaScopes as $scope)
                                     <li class="text-xs text-text-secondary leading-relaxed">
                                         <strong class="text-text-main font-bold block">• {{ $scope->title }}</strong>
-                                        <span>{{ $scope->description }}</span>
+                                        <p class="mt-0.5">{{ $scope->description }}</p>
                                     </li>
                                 @endforeach
                             </ul>
@@ -306,16 +277,13 @@
         @endforeach
     </section>
 
-    <!-- 4. Why You Should Choose Us & The Process (Sesuai ComPro Hal 5 & Proposal PJU Hal 4) -->
+    <!-- 3. Why You Should Choose Us & The Process -->
     <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        <!-- Why Choose Us (3 Pillars) -->
+        <!-- Why Choose Us -->
         <div class="lg:col-span-7 glass p-6 sm:p-8 md:p-10 rounded-3xl md:rounded-[40px] border-primary/10 shadow-xl flex flex-col justify-between space-y-6">
-            <div class="space-y-2">
-                <span class="text-[10px] font-black uppercase tracking-[0.3em] text-secondary block">Why You Should Choose Us?</span>
-                <h2 class="text-2xl sm:text-4xl font-black uppercase tracking-tighter text-primary">
-                    Mengapa Bermitra Dengan PT. Multi Abadi Aksana?
-                </h2>
-            </div>
+            <h2 class="text-2xl sm:text-4xl font-black uppercase tracking-tighter text-primary">
+                Mengapa Bermitra Dengan PT. Multi Abadi Aksana?
+            </h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div class="p-5 rounded-2xl bg-white border border-primary/10 space-y-3 shadow-sm">
@@ -353,7 +321,6 @@
         <!-- The Process: 1. KOMUNIKASI -> 2. SURVEI -> 3. NEGOSIASI -> 4. DEAL -->
         <div class="lg:col-span-5 bg-primary rounded-3xl md:rounded-[40px] p-6 sm:p-8 md:p-10 text-white shadow-xl flex flex-col justify-between space-y-6 relative overflow-hidden">
             <div class="space-y-2 relative z-10">
-                <span class="text-[10px] font-black uppercase tracking-[0.3em] text-blue-200 block">The Process</span>
                 <h2 class="text-2xl sm:text-3xl font-black uppercase tracking-tighter">
                     4 Tahap Alur Kerja Sama Proyek
                 </h2>
@@ -365,16 +332,15 @@
             <div class="grid grid-cols-2 gap-3 relative z-10">
                 @php
                     $processes = [
-                        ['step' => '01', 'name' => 'KOMUNIKASI', 'desc' => 'Konsultasi kebutuhan barang/jasa via WhatsApp atau tatap muka.'],
-                        ['step' => '02', 'name' => 'SURVEI', 'desc' => 'Peninjauan teknis lokasi proyek, perhitungan lux/beban, & spek.'],
-                        ['step' => '03', 'name' => 'NEGOSIASI', 'desc' => 'Penyusunan RAB transparan & penyesuaian efisiensi anggaran.'],
-                        ['step' => '04', 'name' => 'DEAL', 'desc' => 'Pengiriman material, eksekusi instalasi berstandar K3 & garansi.'],
+                        ['step' => '01. KOMUNIKASI', 'desc' => 'Konsultasi kebutuhan barang/jasa via WhatsApp atau tatap muka.'],
+                        ['step' => '02. SURVEI', 'desc' => 'Peninjauan teknis lokasi proyek, perhitungan beban, & spesifikasi.'],
+                        ['step' => '03. NEGOSIASI', 'desc' => 'Penyusunan RAB transparan & penyesuaian efisiensi anggaran.'],
+                        ['step' => '04. DEAL', 'desc' => 'Pengiriman material, eksekusi instalasi berstandar K3 & garansi.'],
                     ];
                 @endphp
                 @foreach($processes as $proc)
-                    <div class="p-4 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm space-y-1">
-                        <span class="text-[10px] font-black text-secondary bg-white px-2 py-0.5 rounded-md inline-block">{{ $proc['step'] }}</span>
-                        <h3 class="text-sm font-black uppercase tracking-wider text-white pt-1">{{ $proc['name'] }}</h3>
+                    <div class="p-4 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm space-y-1.5">
+                        <h3 class="text-xs sm:text-sm font-black uppercase tracking-wider text-white">{{ $proc['step'] }}</h3>
                         <p class="text-[11px] text-blue-100/85 leading-snug">{{ $proc['desc'] }}</p>
                     </div>
                 @endforeach
@@ -382,23 +348,22 @@
         </div>
     </section>
 
-    <!-- 5. Featured Products Showcase (3-Column Technical B2B Cards) -->
+    <!-- 4. Featured Products Showcase -->
     <section class="space-y-8 md:space-y-10">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
             <div class="space-y-2">
-                <span class="text-[10px] font-black uppercase tracking-[0.3em] text-secondary block">Katalog Pengadaan Utama</span>
                 <h2 class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase leading-none">
                     Produk & <span class="text-gradient">Material Unggulan.</span>
                 </h2>
                 <p class="text-xs md:text-sm text-text-secondary font-medium">
-                    Etalase produk PJU Tenaga Surya, PJU PLN, Fabrikasi Impeller, Interior-Exterior, serta Sparepart Equipment sesuai dokumen resmi PT. MAA.
+                    Etalase produk PJU Tenaga Surya, PJU PLN, Fabrikasi Impeller, Interior-Exterior, serta Sparepart Equipment PT. Multi Abadi Aksana.
                 </p>
             </div>
             <a
                 href="{{ route('products.index') }}"
                 class="px-5 py-3 rounded-xl bg-primary text-white font-black text-xs hover:bg-primary-dark transition-all flex items-center gap-2 uppercase tracking-wider shrink-0 shadow-md"
             >
-                <span>Lihat Seluruh 12+ Katalog</span>
+                <span>Lihat Seluruh Katalog</span>
                 <i class="bx bx-right-arrow-alt text-lg"></i>
             </a>
         </div>
@@ -410,16 +375,15 @@
         </div>
     </section>
 
-    <!-- 6. Projek On Duty (Dokumentasi Asli ComPro Hal 6, 7, 8, 9, 10, 11) -->
+    <!-- 5. Projek On Duty -->
     <section class="space-y-8 md:space-y-10">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
             <div class="space-y-2">
-                <span class="text-[10px] font-black uppercase tracking-[0.3em] text-secondary block">Dokumentasi Lapangan Asli</span>
                 <h2 class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase leading-none">
                     Projek <span class="text-gradient">On Duty.</span>
                 </h2>
                 <p class="text-xs md:text-sm text-text-secondary font-medium">
-                    Bukti nyata pelaksanaan proyek PJU Ruas Gempol-Sidoarjo-Malang, Interior Adelle Jewellery, dan Perawatan Mesin PGIC-E34.
+                    Dokumentasi pelaksanaan proyek PJU Ruas Gempol-Sidoarjo-Malang, Interior Adelle Jewellery, dan Perawatan Mesin Industri.
                 </p>
             </div>
             <a
@@ -444,9 +408,6 @@
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     <div class="absolute inset-0 bg-gradient-to-t from-[#0F1048] via-[#1B1B6C]/45 to-transparent opacity-95 flex flex-col justify-end p-5">
-                        <span class="px-2.5 py-1 rounded-md bg-secondary text-[8px] font-black uppercase tracking-widest text-white self-start mb-2">
-                            {{ $gallery->client_or_unit_code }}
-                        </span>
                         <h3 class="text-sm font-black text-white uppercase tracking-tight leading-snug line-clamp-2">
                             {{ $gallery->title }}
                         </h3>
@@ -460,67 +421,12 @@
         </div>
     </section>
 
-    <!-- 7. Official PDF Documents Download Strip (ComPro, Proposal PJU, Katalog Sparepart) -->
-    <section class="glass-bright p-6 sm:p-8 md:p-10 rounded-3xl md:rounded-[40px] border border-primary/15 shadow-xl">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-            <div class="lg:col-span-5 space-y-2">
-                <span class="text-[10px] font-black uppercase tracking-[0.3em] text-secondary block">Dokumen Resmi Perusahaan</span>
-                <h2 class="text-xl sm:text-3xl font-black uppercase tracking-tighter text-primary">
-                    Unduh Katalog & Company Profile PDF
-                </h2>
-                <p class="text-xs text-text-secondary font-medium leading-relaxed">
-                    Akses langsung 3 dokumen resmi PT. Multi Abadi Aksana untuk keperluan lampiran pengadaan, tender, maupun peninjauan spesifikasi.
-                </p>
-            </div>
-            <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3.5">
-                <a
-                    href="/files/ComPro_MULTI_ABADI_AKSANA.pdf"
-                    target="_blank"
-                    class="p-4 rounded-2xl bg-white hover:bg-primary hover:text-white border border-primary/15 transition-all group flex flex-col justify-between space-y-3 shadow-sm"
-                >
-                    <i class="bx bxs-file-pdf text-3xl text-primary group-hover:text-blue-200"></i>
-                    <div>
-                        <span class="text-[9px] font-black uppercase tracking-widest text-secondary group-hover:text-blue-200 block">Dokumen 01</span>
-                        <h3 class="text-xs font-black uppercase tracking-tight">Company Profile PT. MAA</h3>
-                    </div>
-                </a>
-                <a
-                    href="/files/PROPOSAL_PJU_MAA.pdf"
-                    target="_blank"
-                    class="p-4 rounded-2xl bg-white hover:bg-primary hover:text-white border border-primary/15 transition-all group flex flex-col justify-between space-y-3 shadow-sm"
-                >
-                    <i class="bx bxs-bulb text-3xl text-primary group-hover:text-blue-200"></i>
-                    <div>
-                        <span class="text-[9px] font-black uppercase tracking-widest text-secondary group-hover:text-blue-200 block">Dokumen 02</span>
-                        <h3 class="text-xs font-black uppercase tracking-tight">Proposal PJU PLN & Surya</h3>
-                    </div>
-                </a>
-                <a
-                    href="/files/sparepart_equipment.pdf"
-                    target="_blank"
-                    class="p-4 rounded-2xl bg-white hover:bg-primary hover:text-white border border-primary/15 transition-all group flex flex-col justify-between space-y-3 shadow-sm"
-                >
-                    <i class="bx bxs-wrench text-3xl text-secondary group-hover:text-blue-200"></i>
-                    <div>
-                        <span class="text-[9px] font-black uppercase tracking-widest text-secondary group-hover:text-blue-200 block">Dokumen 03</span>
-                        <h3 class="text-xs font-black uppercase tracking-tight">Katalog Sparepart Equipment</h3>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 8. Dual Office & Contact Section (Head Office Taman & Workshop Sukodono Sidoarjo) -->
+    <!-- 6. Dual Office & Contact Section -->
     <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         <div class="lg:col-span-6 space-y-6">
-            <div class="space-y-2">
-                <span class="px-3.5 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest inline-block">
-                    Please Get In Touch With Us
-                </span>
-                <h2 class="text-2xl sm:text-4xl font-black uppercase tracking-tighter leading-tight">
-                    Kantor & Workshop <span class="text-gradient">Sidoarjo.</span>
-                </h2>
-            </div>
+            <h2 class="text-2xl sm:text-4xl font-black uppercase tracking-tighter leading-tight">
+                Kantor & Workshop <span class="text-gradient">Sidoarjo.</span>
+            </h2>
 
             <div class="space-y-3.5">
                 <div class="p-4 rounded-2xl glass border-primary/10 flex items-start gap-3.5">
@@ -528,7 +434,7 @@
                         <i class="bx bxs-building-house"></i>
                     </div>
                     <div>
-                        <p class="text-[9px] font-black uppercase tracking-widest text-secondary">Head Office (ComPro & PJU)</p>
+                        <p class="text-[10px] font-black uppercase tracking-widest text-secondary">Head Office</p>
                         <p class="text-xs md:text-sm font-black text-text-main mt-0.5">
                             Jl. Taman Surya Agung Blok B No. 11, Sritanjung, Wage, Kec. Taman, Kabupaten Sidoarjo, Jawa Timur 61257
                         </p>
@@ -540,7 +446,7 @@
                         <i class="bx bxs-wrench"></i>
                     </div>
                     <div>
-                        <p class="text-[9px] font-black uppercase tracking-widest text-secondary">Kantor & Workshop Sparepart</p>
+                        <p class="text-[10px] font-black uppercase tracking-widest text-secondary">Kantor & Workshop Sparepart</p>
                         <p class="text-xs md:text-sm font-black text-text-main mt-0.5">
                             Safira Stone Resort A2-01, Masangan Wetan, Sukodono, Kabupaten Sidoarjo, Jawa Timur
                         </p>
@@ -555,8 +461,8 @@
                         class="p-4 rounded-2xl bg-primary text-white hover:bg-primary-dark transition-all flex items-center justify-between"
                     >
                         <div>
-                            <span class="text-[9px] font-extrabold uppercase tracking-widest text-blue-200 block">WA Umum & PJU</span>
-                            <span class="text-sm font-black">+62 823-4297-9898</span>
+                            <p class="text-[9px] font-extrabold uppercase tracking-widest text-blue-200">WA Umum & Proyek</p>
+                            <p class="text-sm font-black mt-0.5">+62 823-4297-9898</p>
                         </div>
                         <i class="bx bxl-whatsapp text-2xl"></i>
                     </a>
@@ -567,8 +473,8 @@
                         class="p-4 rounded-2xl bg-secondary text-white hover:bg-primary transition-all flex items-center justify-between"
                     >
                         <div>
-                            <span class="text-[9px] font-extrabold uppercase tracking-widest text-white/80 block">WA Divisi Sparepart</span>
-                            <span class="text-sm font-black">+62 812-1659-2824</span>
+                            <p class="text-[9px] font-extrabold uppercase tracking-widest text-white/80">WA Divisi Sparepart</p>
+                            <p class="text-sm font-black mt-0.5">+62 812-1659-2824</p>
                         </div>
                         <i class="bx bxl-whatsapp text-2xl"></i>
                     </a>

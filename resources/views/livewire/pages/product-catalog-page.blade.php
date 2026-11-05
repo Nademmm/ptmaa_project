@@ -2,41 +2,13 @@
     <!-- B2B Technical Catalog Header Banner -->
     <section class="relative rounded-3xl md:rounded-[40px] bg-gradient-to-br from-[#0F1048] via-[#1B1B6C] to-[#242882] p-6 sm:p-10 md:p-12 text-white overflow-hidden shadow-2xl shadow-primary/15">
         <div class="absolute -right-12 -top-12 w-56 h-56 bg-secondary/20 rotate-45 pointer-events-none"></div>
-        <div class="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-            <div class="space-y-3 max-w-2xl">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-blue-200">
-                    <i class="bx bx-package text-sm"></i>
-                    <span>Katalog Pengadaan Barang & Jasa PT. Multi Abadi Aksana</span>
-                </div>
-                <h1 class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight uppercase leading-[1.05]">
-                    Unit Produk & <span class="text-[#8DA2E0]">Spesifikasi Teknis.</span>
-                </h1>
-                <p class="text-xs sm:text-sm md:text-base text-blue-100/85 font-medium leading-relaxed">
-                    Seluruh unit mengacu pada dokumen penawaran resmi PT. Multi Abadi Aksana: PJU Tenaga Surya (All In One, Two In One, Konvensional), PJU PLN (COB, Osram, Philips, Estika), konstruksi Interior & Exterior, fabrikasi Mechanical Electrical, hingga 12 lini Sparepart & Equipment.
-                </p>
-            </div>
-
-            <!-- Official PDF Catalog Quick Downloads -->
-            <div class="flex flex-wrap gap-2.5 shrink-0">
-                <a
-                    href="/files/PROPOSAL_PJU_MAA.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="px-4 py-3 rounded-xl bg-white text-primary hover:bg-secondary hover:text-white text-[10px] md:text-xs font-black uppercase tracking-wider transition-all flex items-center gap-2 shadow-lg"
-                >
-                    <i class="bx bxs-file-pdf text-base"></i>
-                    <span>PDF Proposal PJU</span>
-                </a>
-                <a
-                    href="/files/sparepart_equipment.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="px-4 py-3 rounded-xl bg-white/10 hover:bg-white hover:text-primary border border-white/20 text-white text-[10px] md:text-xs font-black uppercase tracking-wider transition-all flex items-center gap-2"
-                >
-                    <i class="bx bxs-file-pdf text-base"></i>
-                    <span>PDF Katalog Sparepart</span>
-                </a>
-            </div>
+        <div class="relative z-10 max-w-3xl space-y-3">
+            <h1 class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight uppercase leading-[1.05]">
+                Katalog Produk & <span class="text-[#8DA2E0]">Spesifikasi Teknis.</span>
+            </h1>
+            <p class="text-xs sm:text-sm md:text-base text-blue-100/85 font-medium leading-relaxed">
+                Temukan unit PJU Tenaga Surya (All In One, Two In One, Konvensional), PJU PLN (COB, Osram, Philips, Estika), konstruksi Interior & Exterior, fabrikasi Mechanical Electrical, hingga 12 lini Sparepart & Equipment.
+            </p>
         </div>
     </section>
 
@@ -75,7 +47,7 @@
             <!-- Category List -->
             <div class="bg-white p-5 rounded-3xl border border-primary/10 shadow-lg shadow-primary/5 space-y-3">
                 <div class="flex items-center justify-between">
-                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Divisi Katalog</span>
+                    <p class="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Divisi Katalog</p>
                     @if($selectedCategory !== 'semua' || !empty($search))
                         <button
                             type="button"
@@ -93,10 +65,7 @@
                         wire:click="setCategory('semua')"
                         class="w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all flex items-center justify-between {{ $selectedCategory === 'semua' ? 'bg-primary text-white shadow-md shadow-primary/20' : 'text-text-secondary hover:bg-primary/5 hover:text-primary' }}"
                     >
-                        <span class="flex items-center gap-2">
-                            <i class="bx bx-grid-alt text-sm"></i>
-                            <span>Semua Kategori</span>
-                        </span>
+                        <span>Semua Kategori</span>
                         <i class="bx bx-chevron-right text-base"></i>
                     </button>
 
@@ -114,10 +83,7 @@
             </div>
 
             <!-- Direct Dual WhatsApp Consultation Box -->
-            <div class="bg-[#0F1048] text-white p-5 rounded-3xl space-y-4 shadow-xl">
-                <span class="px-2.5 py-1 rounded-md bg-secondary text-[9px] font-black uppercase tracking-widest inline-block">
-                    Jalur Cepat Pengadaan
-                </span>
+            <div class="bg-[#0F1048] text-white p-5 rounded-3xl space-y-3.5 shadow-xl">
                 <h2 class="text-sm font-black uppercase tracking-tight leading-snug">
                     Butuh Spesifikasi Custom atau Volume Proyek?
                 </h2>
@@ -155,17 +121,14 @@
                         <div class="w-9 h-9 rounded-xl bg-primary text-white flex items-center justify-center text-base">
                             <i class="bx bx-filter-alt"></i>
                         </div>
-                        <div>
-                            <p class="text-[9px] font-black uppercase tracking-widest text-secondary">Filter Katalog Aktif</p>
-                            <h2 class="text-xs md:text-sm font-black uppercase tracking-tight text-primary">
-                                @if(!empty(trim($search)))
-                                    Kata Kunci: "{{ $search }}"
-                                @endif
-                                @if($selectedCategory !== 'semua')
-                                    {{ !empty(trim($search)) ? ' • ' : '' }}Divisi: {{ $categories->firstWhere('slug', $selectedCategory)?->name ?? $selectedCategory }}
-                                @endif
-                            </h2>
-                        </div>
+                        <h2 class="text-xs md:text-sm font-black uppercase tracking-tight text-primary">
+                            @if(!empty(trim($search)))
+                                Kata Kunci: "{{ $search }}"
+                            @endif
+                            @if($selectedCategory !== 'semua')
+                                {{ !empty(trim($search)) ? ' • ' : '' }}Divisi: {{ $categories->firstWhere('slug', $selectedCategory)?->name ?? $selectedCategory }}
+                            @endif
+                        </h2>
                     </div>
                     <button
                         type="button"

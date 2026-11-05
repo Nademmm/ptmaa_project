@@ -1,20 +1,18 @@
-<footer class="mt-16 md:mt-24 border-t border-primary/10 bg-white/60 backdrop-blur-md">
+<footer class="mt-16 md:mt-24 border-t border-primary/10 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
             <!-- Brand & Value Prop -->
             <div class="space-y-5">
                 <a href="{{ route('home') }}" class="flex items-center gap-3">
-                    <div class="w-12 h-12 rounded-xl bg-white p-1 shadow-sm border border-primary/10 flex items-center justify-center shrink-0">
-                        <img
-                            src="/assets/logo.jpg"
-                            alt="Logo PT. Multi Abadi Aksana"
-                            loading="lazy"
-                            decoding="async"
-                            width="88"
-                            height="88"
-                            class="w-full h-full object-contain"
-                        />
-                    </div>
+                    <img
+                        src="/assets/logo.jpg"
+                        alt="Logo PT. Multi Abadi Aksana"
+                        loading="lazy"
+                        decoding="async"
+                        width="120"
+                        height="48"
+                        class="h-10 md:h-12 w-auto object-contain shrink-0"
+                    />
                     <div class="flex flex-col">
                         <span class="text-base md:text-lg font-black tracking-tighter text-primary leading-none uppercase">
                             PT. MULTI ABADI <span class="text-secondary">AKSANA</span>
@@ -33,21 +31,21 @@
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="WhatsApp Admin Utama PT. Multi Abadi Aksana"
-                        class="w-11 h-11 rounded-xl glass flex items-center justify-center text-lg text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm"
+                        class="w-11 h-11 rounded-xl bg-[#F8FAFC] border border-primary/10 flex items-center justify-center text-lg text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm"
                     >
                         <i class="bx bxl-whatsapp"></i>
                     </a>
                     <a
                         href="mailto:ptmultiabadiaksana15@gmail.com"
                         aria-label="Kirim Email ke PT. Multi Abadi Aksana"
-                        class="w-11 h-11 rounded-xl glass flex items-center justify-center text-lg text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm"
+                        class="w-11 h-11 rounded-xl bg-[#F8FAFC] border border-primary/10 flex items-center justify-center text-lg text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm"
                     >
                         <i class="bx bx-envelope"></i>
                     </a>
                     <a
                         href="{{ route('contact') }}"
                         aria-label="Lokasi Kantor PT. Multi Abadi Aksana"
-                        class="w-11 h-11 rounded-xl glass flex items-center justify-center text-lg text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm"
+                        class="w-11 h-11 rounded-xl bg-[#F8FAFC] border border-primary/10 flex items-center justify-center text-lg text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm"
                     >
                         <i class="bx bx-map"></i>
                     </a>
