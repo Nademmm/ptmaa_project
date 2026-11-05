@@ -68,7 +68,7 @@
                     desc: {{ Js::from($gallery->description ?? '') }},
                     img: {{ Js::from($imgPath) }}
                 })"
-                class="group bg-white rounded-3xl overflow-hidden border border-primary/10 hover:border-primary/30 shadow-lg shadow-primary/5 hover:shadow-2xl transition-all duration-300 flex flex-col cursor-pointer focus:outline-none focus:ring-4 focus:ring-primary/20"
+                class="group bg-white rounded-3xl overflow-hidden border border-primary/10 hover:border-primary/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out flex flex-col cursor-pointer focus:outline-none focus:ring-4 focus:ring-primary/20"
             >
                 <!-- 4:3 Field Photo Header -->
                 <div class="relative aspect-[4/3] overflow-hidden bg-[#1B1B6C]">
@@ -79,7 +79,7 @@
                         decoding="async"
                         width="800"
                         height="600"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                     <div class="absolute bottom-3 right-3 w-9 h-9 rounded-xl bg-white/90 text-primary flex items-center justify-center shadow-md group-hover:bg-primary group-hover:text-white transition-colors">
                         <i class="bx bx-fullscreen text-lg"></i>
@@ -115,17 +115,26 @@
     <!-- Lightbox Modal -->
     <div
         x-show="lightboxOpen"
-        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter="transition ease-out duration-300"
         x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100"
-        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave="transition ease-in duration-200"
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
         style="display: none;"
         class="fixed inset-0 z-50 bg-[#0F1048]/85 backdrop-blur-md flex items-center justify-center p-4"
         @click.self="lightboxOpen = false"
     >
-        <div class="bg-white max-w-4xl w-full rounded-3xl overflow-hidden shadow-2xl border border-primary/20 grid grid-cols-1 md:grid-cols-12">
+        <div
+            x-show="lightboxOpen"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 scale-95"
+            x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-95"
+            class="bg-white max-w-4xl w-full rounded-3xl overflow-hidden shadow-2xl border border-primary/20 grid grid-cols-1 md:grid-cols-12"
+        >
             <div class="md:col-span-7 aspect-[4/3] md:aspect-auto bg-[#0F1048] flex items-center justify-center">
                 <img :src="activeItem.img" :alt="activeItem.title" class="w-full h-full object-contain max-h-[75vh]" />
             </div>

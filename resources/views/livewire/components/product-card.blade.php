@@ -1,5 +1,5 @@
 <div class="h-full">
-    <a href="{{ route('products.show', $product->slug) }}" class="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-primary/10 hover:border-primary/30 shadow-sm hover:shadow-md transition-all duration-200">
+    <a href="{{ route('products.show', $product->slug) }}" class="group flex flex-col h-full bg-white rounded-3xl overflow-hidden border border-primary/10 hover:border-primary/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out">
         <!-- Product Visual Area -->
         <div class="relative aspect-[4/3] bg-[#F8FAFC] overflow-hidden flex items-center justify-center">
             @php

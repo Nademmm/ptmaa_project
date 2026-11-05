@@ -32,7 +32,7 @@
             startTimer() {
                 this.timer = setInterval(() => {
                     this.next();
-                }, 6000);
+                }, 8000);
             },
             resetTimer() {
                 clearInterval(this.timer);
@@ -51,12 +51,12 @@
             <template x-for="(slide, index) in slides" :key="index">
                 <div
                     x-show="currentSlide === index"
-                    x-transition:enter="transition-opacity ease-out duration-500"
-                    x-transition:enter-start="opacity-0"
-                    x-transition:enter-end="opacity-100"
-                    x-transition:leave="transition-opacity ease-in duration-300"
-                    x-transition:leave-start="opacity-100"
-                    x-transition:leave-end="opacity-0"
+                    x-transition:enter="transition-all duration-700 ease-out"
+                    x-transition:enter-start="opacity-0 scale-[1.03]"
+                    x-transition:enter-end="opacity-100 scale-100"
+                    x-transition:leave="transition-all duration-700 ease-in-out"
+                    x-transition:leave-start="opacity-100 scale-100"
+                    x-transition:leave-end="opacity-0 scale-[0.98]"
                     class="absolute inset-0 w-full h-full"
                 >
                     <img
@@ -123,8 +123,8 @@
                         type="button"
                         @click="currentSlide = index; resetTimer()"
                         :aria-label="'Ke slide ' + (index + 1)"
-                        :class="currentSlide === index ? 'bg-white w-8' : 'bg-white/40 w-2.5'"
-                        class="h-2.5 rounded-full transition-all duration-300"
+                        :class="currentSlide === index ? 'bg-white w-8' : 'bg-white/40 w-2.5 hover:bg-white/70'"
+                        class="h-2.5 rounded-full transition-all duration-500 ease-out"
                     ></button>
                 </template>
             </div>
@@ -189,9 +189,14 @@
             @endphp
             <div
                 x-show="activePillar === {{ $idx }}"
-                x-transition.opacity.duration.200ms
+                x-transition:enter="transition-all duration-400 ease-out"
+                x-transition:enter-start="opacity-0 translate-y-2"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition-all duration-200 ease-in"
+                x-transition:leave-start="opacity-100 translate-y-0"
+                x-transition:leave-end="opacity-0 translate-y-2"
                 style="{{ $idx !== 0 ? 'display: none;' : '' }}"
-                class="bg-white rounded-3xl p-6 sm:p-8 md:p-10 border border-primary/10 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+                class="glass-bright rounded-3xl md:rounded-[40px] p-6 sm:p-8 md:p-10 border border-primary/15 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
             >
                 <div class="lg:col-span-4">
                     <div class="aspect-[4/5] rounded-2xl md:rounded-3xl overflow-hidden border-2 border-primary/10 shadow-lg relative bg-primary-dark">
@@ -395,7 +400,7 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             @foreach($featuredGalleries as $gallery)
-                <a href="{{ route('gallery.index') }}" class="group relative aspect-[3/4] rounded-3xl overflow-hidden glass border-primary/10 shadow-xl block bg-primary-dark">
+                <a href="{{ route('gallery.index') }}" class="group relative aspect-[3/4] rounded-3xl overflow-hidden glass border border-primary/10 hover:border-primary/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out block bg-primary-dark">
                     <img
                         src="{{ $gallery->image_path }}"
                         alt="{{ $gallery->title }}"
@@ -403,7 +408,7 @@
                         decoding="async"
                         width="600"
                         height="800"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                     <div class="absolute inset-0 bg-gradient-to-t from-[#0F1048] via-[#1B1B6C]/45 to-transparent opacity-95 flex flex-col justify-end p-5">
                         <h3 class="text-sm font-black text-white uppercase tracking-tight leading-snug line-clamp-2">

@@ -43,7 +43,7 @@
                             ? (str_starts_with($post->featured_image, '/') || str_starts_with($post->featured_image, 'http') ? $post->featured_image : asset('storage/' . $post->featured_image))
                             : '/images/projects/pju-k3-gempol-sidoarjo.webp';
                     @endphp
-                    <article class="group bg-white rounded-3xl overflow-hidden border border-primary/10 hover:border-primary/30 transition-all flex flex-col h-full shadow-lg shadow-primary/5">
+                    <article class="group bg-white rounded-3xl overflow-hidden border border-primary/10 hover:border-primary/30 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 ease-out flex flex-col h-full shadow-sm">
                         <a href="{{ route('blog.show', $post->slug) }}" class="relative aspect-[16/10] overflow-hidden block bg-[#1B1B6C]">
                             <img
                                 src="{{ $postImg }}"
@@ -52,7 +52,7 @@
                                 decoding="async"
                                 width="800"
                                 height="500"
-                                class="w-full h-full object-cover"
+                                class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                             />
                         </a>
 
