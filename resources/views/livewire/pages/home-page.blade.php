@@ -148,23 +148,7 @@
         </div>
     </section>
 
-    <!-- 2. Running Marquee Strip (Sesuai PRD 4.2.4) -->
-    <div class="py-4 md:py-5 bg-primary -mx-4 sm:-mx-6 overflow-hidden flex whitespace-nowrap border-y-2 border-secondary/40 shadow-md">
-        <div class="animate-marquee flex gap-10 md:gap-14 items-center">
-            @for($i = 0; $i < 6; $i++)
-                <div class="flex items-center gap-10 md:gap-14">
-                    <span class="text-sm md:text-lg font-black text-white uppercase tracking-widest">PT. MULTI ABADI AKSANA</span>
-                    <span class="w-2 h-2 rounded-full bg-secondary"></span>
-                    <span class="text-sm md:text-lg font-black text-blue-200 uppercase tracking-widest">PENGADAAN BARANG DAN JASA</span>
-                    <span class="w-2 h-2 rounded-full bg-secondary"></span>
-                    <span class="text-sm md:text-lg font-black text-white uppercase tracking-widest">UTAMAKAN KESELAMATAN DAN KESEHATAN KERJA (K3)</span>
-                    <span class="w-2 h-2 rounded-full bg-secondary"></span>
-                </div>
-            @endfor
-        </div>
-    </div>
-
-    <!-- 3. Interactive 4 Pilar Bisnis Tabs (Pengadaan Barang vs Pengadaan Jasa - Sesuai ComPro Hal 4, 6, 8, 10) -->
+    <!-- 2. Interactive 4 Pilar Bisnis Tabs (Pengadaan Barang vs Pengadaan Jasa - Sesuai ComPro Hal 4, 6, 8, 10) -->
     <section
         x-data="{ activePillar: 0 }"
         class="space-y-8 md:space-y-10"
