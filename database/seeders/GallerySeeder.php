@@ -9,108 +9,176 @@ class GallerySeeder extends Seeder
 {
     public function run(): void
     {
+        // === PILAR 1: PROJEK ON DUTY PJU (Halaman 6 & 7 ComPro) ===
         Gallery::create([
-            'title' => 'Pengadaan & Pemasangan PJU Ruas Gempol - Sidoarjo - Malang',
-            'slug' => 'proyek-pju-ruas-gempol-sidoarjo-malang',
-            'client_or_unit_code' => 'Dinas Perhubungan & Balai Jalan',
-            'location' => 'Jalur Utama Gempol - Sidoarjo - Malang, Jawa Timur',
+            'title' => 'Penerapan K3 & Persiapan Tiang Octagonal PJU Ruas Gempol - Sidoarjo - Malang',
+            'slug' => 'pju-k3-persiapan-tiang-gempol-sidoarjo-malang',
+            'client_or_unit_code' => 'Projek On Duty - Divisi PJU',
+            'location' => 'Ruas Jalan Tol Gempol - Sidoarjo - Malang, Jawa Timur',
             'category' => 'pju',
-            'image_path' => '/galeri/galeri1.webp',
-            'description' => 'Ereksi tiang octagonal hot dip galvanized, penarikan kabel bawah tanah (underground distribution), dan pemasangan armature lampu PJU LED berdaya 120W berstandar keselamatan Dishub.',
+            'image_path' => '/images/projects/pju-k3-gempol-sidoarjo.webp',
+            'description' => 'Tim lapangan PT. Multi Abadi Aksana melakukan pengecekan baseplate tiang PJU octagonal dengan rambu Utamakan Keselamatan dan Kesehatan Kerja (K3) serta armada crane di jalur Gempol - Sidoarjo - Malang.',
             'is_featured' => true,
             'completion_date' => '2024-08-15',
             'sort_order' => 1,
         ]);
 
         Gallery::create([
-            'title' => 'Renovasi Arsitektural & Interior Butik Adelle Jewellery',
-            'slug' => 'proyek-interior-adelle-jewellery',
-            'client_or_unit_code' => 'Adelle Jewellery Store',
-            'location' => 'Pusat Perbelanjaan Jawa Timur',
-            'category' => 'interior_exterior',
-            'image_path' => '/galeri/galeri2.webp',
-            'description' => 'Pekerjaan custom display cabinet kaca presisi, aksen dinding wall panel, lighting spot dekoratif, dan partisi akustik mewah untuk gerai perhiasan premium.',
-            'is_featured' => true,
-            'completion_date' => '2024-05-10',
+            'title' => 'Ereksi & Pendirian Tiang PJU Menggunakan Truk Crane Hidrolik',
+            'slug' => 'ereksi-pendirian-tiang-pju-crane-hidrolik',
+            'client_or_unit_code' => 'Projek On Duty - Divisi PJU',
+            'location' => 'Jalur Utama Sidoarjo - Jawa Timur',
+            'category' => 'pju',
+            'image_path' => '/images/projects/pju-crane-erection.webp',
+            'description' => 'Proses pengangkatan dan ereksi (pendirian) tiang PJU menggunakan truk crane di bahu jalan tol dengan pengamanan traffic cone dan personel ber-APD lengkap.',
+            'is_featured' => false,
+            'completion_date' => '2024-08-18',
             'sort_order' => 2,
         ]);
 
         Gallery::create([
-            'title' => 'Pekerjaan Infrastruktur Betonisasi Jalan & Saluran Sidoarjo',
-            'slug' => 'pekerjaan-betonisasi-jalan-sidoarjo',
-            'client_or_unit_code' => 'Dinas PU Bina Marga',
+            'title' => 'Pekerjaan Sipil Pondasi Beton & Jalur Kabel Bawah Tanah PJU',
+            'slug' => 'pekerjaan-sipil-pondasi-beton-jalur-kabel-pju',
+            'client_or_unit_code' => 'Projek On Duty - Sipil & PJU',
             'location' => 'Kabupaten Sidoarjo, Jawa Timur',
             'category' => 'pju',
-            'image_path' => '/galeri/galeri3.webp',
-            'description' => 'Pekerjaan sipil pondasi tiang lampu jalan, pengecoran bahu jalan, serta pembuatan manhole jalur distribusi kelistrikan terintegrasi.',
-            'is_featured' => true,
-            'completion_date' => '2024-09-20',
+            'image_path' => '/images/projects/pju-sipil-bahu-jalan.webp',
+            'description' => 'Pekerjaan sipil penggalian tanah, pengecoran pondasi beton tiang PJU, serta pembuatan jalur kabel distribusi bawah tanah dengan pengamanan road barrier.',
+            'is_featured' => false,
+            'completion_date' => '2024-08-20',
             'sort_order' => 3,
         ]);
 
         Gallery::create([
-            'title' => 'Perawatan & Pengadaan Komponen Alat Berat Unit PGIC-E34 & PGIC-AB0',
-            'slug' => 'perawatan-sparepart-alat-berat-pgic-e34',
-            'client_or_unit_code' => 'Armada Alat Berat PGIC-E34 & PGIC-AB0',
-            'location' => 'Workshop Lapangan Proyek Infrastruktur',
-            'category' => 'alat_berat_sparepart',
-            'image_path' => '/galeri/galeri4.webp',
-            'description' => 'Penggantian suku cadang fast-moving, pelumasan heavy duty hydraulic system, filter replacement, dan rekondisi komponen kelistrikan alat berat.',
-            'is_featured' => true,
-            'completion_date' => '2024-10-05',
+            'title' => 'Instalasi Komponen Kelistrikan & Panel pada Tiang PJU',
+            'slug' => 'instalasi-kelistrikan-panel-tiang-pju',
+            'client_or_unit_code' => 'Projek On Duty - Teknisi PJU',
+            'location' => 'Ruas Tol Jawa Timur',
+            'category' => 'pju',
+            'image_path' => '/images/projects/pju-instalasi-panel-tiang.webp',
+            'description' => 'Teknisi PT. Multi Abadi Aksana melakukan penyambungan kabel daya dan perakitan terminal kontrol di dalam pintu inspeksi tiang PJU.',
+            'is_featured' => false,
+            'completion_date' => '2024-08-25',
             'sort_order' => 4,
         ]);
 
         Gallery::create([
-            'title' => 'Instalasi PJU Tenaga Surya All In One Kawasan Industri',
-            'slug' => 'instalasi-pju-tenaga-surya-kawasan-industri',
-            'client_or_unit_code' => 'Kawasan Industri Jawa Timur',
-            'location' => 'Sidoarjo & Pasuruan, Jawa Timur',
+            'title' => 'Pengujian & Komisioning Jaringan Tiang PJU Parabola Jalan Tol',
+            'slug' => 'pengujian-komisioning-tiang-pju-parabola-jalan-tol',
+            'client_or_unit_code' => 'Projek On Duty - Testing & Commissioning',
+            'location' => 'Ruas Jalan Tol Jawa Timur',
             'category' => 'pju',
-            'image_path' => '/galeri/galeri5.webp',
-            'description' => 'Pemasangan unit PJU Tenaga Surya All In One Integrated lengkap dengan stang ornamen dan pondasi beton bertulang.',
+            'image_path' => '/images/projects/pju-tiang-jalan-tol.webp',
+            'description' => 'Verifikasi akhir berdirinya tiang PJU parabola dan pengujian sistem kelistrikan untuk memastikan tingkat pencahayaan memenuhi standar keselamatan jalan.',
             'is_featured' => false,
-            'completion_date' => '2024-07-12',
+            'completion_date' => '2024-08-28',
             'sort_order' => 5,
         ]);
 
+        // === PILAR 2: PROJEK ON DUTY INTERIOR & EXTERIOR (Halaman 8 & 9 ComPro) ===
         Gallery::create([
-            'title' => 'Fabrikasi & Balancing Impeller Pompa Sirkulasi Pabrik',
-            'slug' => 'fabrikasi-balancing-impeller-pompa-pabrik',
-            'client_or_unit_code' => 'Divisi Mechanical & Electrical',
-            'location' => 'Surabaya, Jawa Timur',
-            'category' => 'mechanical_electrical',
-            'image_path' => '/galeri/galeri6.webp',
-            'description' => 'Rekondisi dan fabrikasi rotor impeller stainless steel dengan pengujian dynamic balancing presisi tinggi.',
-            'is_featured' => false,
-            'completion_date' => '2024-06-18',
+            'title' => 'Pekerjaan Konstruksi & Finishing Interior Butik Adelle Jewellery',
+            'slug' => 'konstruksi-finishing-interior-adelle-jewellery',
+            'client_or_unit_code' => 'Adelle Jewellery',
+            'location' => 'Pusat Perbelanjaan, Jawa Timur',
+            'category' => 'interior_exterior',
+            'image_path' => '/images/projects/interior-adelle-jewellery.webp',
+            'description' => 'Pengerjaan tata ruang interior, perakitan meja display kaca berbingkai brass gold, instalasi lantai marmer/karpet, dan pencahayaan dekoratif pada gerai Adelle Jewellery.',
+            'is_featured' => true,
+            'completion_date' => '2024-05-14',
             'sort_order' => 6,
         ]);
 
         Gallery::create([
-            'title' => 'Pemasangan Panel Distribusi MDP & SDP Gedung Komersial',
-            'slug' => 'pemasangan-panel-distribusi-mdp-sdp',
-            'client_or_unit_code' => 'Proyek M&E Komersial',
-            'location' => 'Surabaya & Malang',
-            'category' => 'mechanical_electrical',
-            'image_path' => '/galeri/galeri7.webp',
-            'description' => 'Perakitan dan commissioning panel listrik utama (MDP) serta penarikan jalur kabel tray berstandar K3.',
+            'title' => 'Penataan Ruang Kerja Eksekutif, Partisi Kaca & Custom Furniture',
+            'slug' => 'penataan-ruang-kerja-eksekutif-partisi-kaca',
+            'client_or_unit_code' => 'Projek On Duty - Interior Kantor',
+            'location' => 'Surabaya & Sidoarjo, Jawa Timur',
+            'category' => 'interior_exterior',
+            'image_path' => '/images/projects/interior-ruang-kerja-partisi.webp',
+            'description' => 'Pemasangan wall panel dinding, partisi kaca rangka aluminium hitam, karpet tile kantor, linear pendant lamp, dan pengadaan custom furniture ruang kerja.',
             'is_featured' => false,
-            'completion_date' => '2024-04-22',
+            'completion_date' => '2024-06-10',
             'sort_order' => 7,
         ]);
 
         Gallery::create([
-            'title' => 'Distribusi Pelumas Drum & Suku Cadang Armada Proyek',
-            'slug' => 'distribusi-pelumas-drum-suku-cadang',
-            'client_or_unit_code' => 'Divisi Sparepart & Equipment',
+            'title' => 'Pengerjaan Interior, Lantai Vinyl & Plafon Ruang Rawat Medis',
+            'slug' => 'pengerjaan-interior-lantai-vinyl-ruang-medis',
+            'client_or_unit_code' => 'Projek On Duty - Fasilitas Kesehatan',
             'location' => 'Jawa Timur',
-            'category' => 'alat_berat_sparepart',
-            'image_path' => '/galeri/galeri8.webp',
-            'description' => 'Pengiriman rutin oli hidrolik, oli mesin diesel beban berat, dan filter alat berat ke lokasi operasional mitra.',
+            'category' => 'interior_exterior',
+            'image_path' => '/images/projects/interior-ruang-medis.webp',
+            'description' => 'Instalasi lantai vinyl medis higienis, meja konter bermotif marmer, plafon gipsum dengan panel lampu LED, kisi AC diffuser, serta pintu aluminium.',
             'is_featured' => false,
-            'completion_date' => '2024-11-01',
+            'completion_date' => '2024-07-02',
             'sort_order' => 8,
+        ]);
+
+        Gallery::create([
+            'title' => 'Instalasi Karpet Kantor, Partisi Kaca & Koridor Gedung Komersial',
+            'slug' => 'instalasi-karpet-kantor-partisi-kaca-koridor',
+            'client_or_unit_code' => 'Projek On Duty - Interior Gedung',
+            'location' => 'Jawa Timur',
+            'category' => 'interior_exterior',
+            'image_path' => '/images/projects/interior-koridor-kantor.webp',
+            'description' => 'Penataan lantai karpet kantor bermotif garis modern, pemasangan partisi kaca ruang rapat, pengecatan dinding, dan instalasi plafon akustik.',
+            'is_featured' => false,
+            'completion_date' => '2024-07-19',
+            'sort_order' => 9,
+        ]);
+
+        // === PILAR 3 & 4: PROJEK ON DUTY MECHANICAL ELECTRICAL & ALAT/MESIN (Halaman 4, 10, 11 ComPro) ===
+        Gallery::create([
+            'title' => 'Fabrikasi & Instalasi Impeller Stainless Steel pada Unit PGIC-E34',
+            'slug' => 'fabrikasi-instalasi-impeller-stainless-unit-pgic-e34',
+            'client_or_unit_code' => 'Unit Mesin Industri PGIC-E34',
+            'location' => 'Fasilitas Pabrik Industri, Jawa Timur',
+            'category' => 'mechanical_electrical',
+            'image_path' => '/images/projects/me-impeller-rotor-stainless.webp',
+            'description' => 'Pengadaan dan pemasangan rotor impeller stainless steel beserta poros (shaft) presisi pada sistem saluran udara/blower vertikal kode unit PGIC-E34.',
+            'is_featured' => true,
+            'completion_date' => '2024-09-12',
+            'sort_order' => 10,
+        ]);
+
+        Gallery::create([
+            'title' => 'Terminasi Kabel Distribusi Bawah Tanah & Pengukuran Waterpass Pondasi',
+            'slug' => 'terminasi-kabel-distribusi-bawah-tanah-pondasi',
+            'client_or_unit_code' => 'Projek On Duty - Mechanical & Electrical',
+            'location' => 'Sidoarjo, Jawa Timur',
+            'category' => 'mechanical_electrical',
+            'image_path' => '/images/projects/me-terminasi-kabel-pondasi.webp',
+            'description' => 'Pekerjaan penarikan kabel distribusi tegangan rendah/menengah, penyambungan inti kabel pada angkur pondasi, serta pengukuran kelurusan menggunakan waterpass.',
+            'is_featured' => true,
+            'completion_date' => '2024-09-20',
+            'sort_order' => 11,
+        ]);
+
+        Gallery::create([
+            'title' => 'Inspeksi & Perbaikan Housing Blower Sentrifugal Unit PGIC-E34',
+            'slug' => 'inspeksi-perbaikan-housing-blower-sentrifugal-pgic-e34',
+            'client_or_unit_code' => 'Unit Mesin Industri PGIC-E34',
+            'location' => 'Workshop & Pabrik Industri',
+            'category' => 'alat_berat_sparepart',
+            'image_path' => '/images/projects/me-housing-blower-pgic-e34.webp',
+            'description' => 'Pembongkaran casing keong (volute housing) blower sentrifugal PGIC-E34 untuk inspeksi ruang impeller, pembersihan kerak industri, dan penggantian suku cadang aus.',
+            'is_featured' => false,
+            'completion_date' => '2024-10-03',
+            'sort_order' => 12,
+        ]);
+
+        Gallery::create([
+            'title' => 'Perawatan Motor Penggerak, Pulley, V-Belt & Bearing Blower Industri',
+            'slug' => 'perawatan-motor-penggerak-pulley-vbelt-bearing',
+            'client_or_unit_code' => 'Projek On Duty - Maintenance M&E & Sparepart',
+            'location' => 'Pabrik Industri, Jawa Timur',
+            'category' => 'alat_berat_sparepart',
+            'image_path' => '/images/projects/me-belt-motor-industri.webp',
+            'description' => 'Pekerjaan preventive maintenance pada motor listrik penggerak utama, penyetelan ketegangan V-belt, pelumasan grease pada pillow block bearing, dan uji putaran.',
+            'is_featured' => false,
+            'completion_date' => '2024-10-10',
+            'sort_order' => 13,
         ]);
     }
 }

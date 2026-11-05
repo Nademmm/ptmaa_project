@@ -11,69 +11,69 @@ class PostSeeder extends Seeder
     public function run(): void
     {
         $catPju = PostCategory::firstOrCreate(
-            ['slug' => 'infrastruktur-pju'],
+            ['slug' => 'penerangan-jalan-umum'],
             [
-                'name' => 'Infrastruktur PJU',
-                'description' => 'Edukasi dan teknologi lampu penerangan jalan umum tenaga surya maupun jaringan PLN.',
+                'name' => 'Penerangan Jalan Umum',
+                'description' => 'Edukasi teknis mengenai PJU Tenaga Surya (All In One, Two In One, Konvensional), PJU PLN, dan konstruksi tiang.',
             ]
         );
 
         $catMe = PostCategory::firstOrCreate(
-            ['slug' => 'mechanical-electrical'],
+            ['slug' => 'mechanical-electrical-impeller'],
             [
                 'name' => 'Mechanical & Electrical',
-                'description' => 'Wawasan teknis sistem mekanikal, kelistrikan industri, dan fabrikasi komponen presisi.',
+                'description' => 'Wawasan teknis sistem elektrikal MDP/SDP, fabrikasi impeller industri, dan perawatan peralatan pabrik.',
             ]
         );
 
-        $catK3 = PostCategory::firstOrCreate(
-            ['slug' => 'standar-k3-konstruksi'],
+        $catSparepart = PostCategory::firstOrCreate(
+            ['slug' => 'sparepart-konstruksi-k3'],
             [
-                'name' => 'Standar K3 & Konstruksi',
-                'description' => 'Panduan keselamatan kerja, manajemen proyek sipil, dan material arsitektur modern.',
+                'name' => 'Sparepart & Standar K3',
+                'description' => 'Panduan pemilihan suku cadang armada/mesin serta penerapan K3 pada proyek konstruksi & interior.',
             ]
         );
 
         Post::updateOrCreate(
-            ['slug' => 'panduan-memilih-pju-tenaga-surya-all-in-one-vs-two-in-one'],
+            ['slug' => 'mengenal-3-konfigurasi-pju-tenaga-surya-dan-kelebihan-pju-pln'],
             [
                 'post_category_id' => $catPju->id,
-                'title' => 'Panduan Memilih PJU Tenaga Surya: All In One vs Two In One untuk Proyek Jalan',
-                'featured_image' => '/blog1.webp',
-                'excerpt' => 'Memahami perbedaan spesifikasi teknis, efisiensi serapan panel monocrystalline, serta rekomendasi aplikasi lapangan antara sistem PJU All In One dan Two In One.',
-                'content' => "Penerangan Jalan Umum Tenaga Surya (PJUTS) kini menjadi tulang punggung elektrifikasi jalan raya, kawasan industri, hingga jalan poros desa di Indonesia. Dalam pengadaan proyek pemerintah maupun korporasi, pemilihan antara tipe All In One (Integrated) dan Two In One sangat menentukan keandalan jangka panjang.\n\nPada sistem All In One, seluruh komponen mulai dari modul surya monocrystalline, baterai Lithium Iron Phosphate (LiFePO4), Smart MPPT Controller, hingga chip lampu LED menyatu di dalam satu casing die-cast aluminium. Keunggulan utamanya terletak pada proses instalasi yang ekstra cepat tanpa kabel eksternal yang rawan korosi maupun pencurian.\n\nSementara itu, sistem Two In One memisahkan panel surya dari rumah lampu utama (di mana baterai dan kontroler tetap menyatu di dalam kap lampu). Pemisahan ini memungkinkan ukuran panel surya yang lebih besar serta pengaturan sudut kemiringan (tilt angle) dan arah hadap panel secara independen mengikuti titik edar matahari di lokasi proyek.\n\nPT. Multi Abadi Aksana senantiasa melakukan survei titik koordinat dan analisis radiasi harian sebelum merekomendasikan tipe unit maupun ketinggian tiang octagonal yang tepat bagi mitra kami.",
-                'meta_title' => 'Panduan Memilih PJU Tenaga Surya All In One vs Two In One | PT. Multi Abadi Aksana',
-                'meta_description' => 'Perbandingan teknis PJU Tenaga Surya All In One dan Two In One untuk pengadaan jalan raya dan kawasan industri.',
+                'title' => 'Mengenal 3 Konfigurasi PJU Tenaga Surya (All In One, Two In One, Konvensional) & PJU PLN',
+                'featured_image' => '/images/projects/pju-k3-gempol-sidoarjo.webp',
+                'excerpt' => 'Panduan lengkap memahami perbedaan desain PJU All In One, Two In One dengan klem lengan fleksibel, PJU Konvensional, serta pilihan lampu PJU PLN (COB, Osram, Philips, Estika).',
+                'content' => "Dalam perencanaan infrastruktur Penerangan Jalan Umum (PJU), pemilihan sistem pencahayaan harus disesuaikan dengan kondisi geografis, ketersediaan jaringan listrik, serta target efisiensi anggaran jangka panjang.\n\nBerdasarkan standar pengadaan PT. Multi Abadi Aksana, sistem PJU Tenaga Surya terbagi ke dalam tiga konfigurasi utama. Pertama, PJU All In One di mana kontroler, baterai, dan solar panel menyatu di dalam satu wadah atau rumah lampu konkret sehingga bekerja mandiri secara ringkas. Kedua, PJU Two In One di mana lampu, kontroler, dan baterai berada dalam satu rumah lampu, sedangkan panel solar terpisah di atasnya dan dipadukan dengan tiang berlengan klem fleksibel. Ketiga, PJU Konvensional (Split System) di mana lampu, solar panel, dan box sistem baterai terpasang terpisah dengan konstruksi yang kokoh.\n\nUntuk jalan arteri dengan pasokan listrik stabil, sistem PJU PLN menggunakan tiang parabola melengkung dan armature lampu LED hemat energi (COB, OSRAM, PHILIPS, maupun ESTIKA) tetap menjadi andalan karena intensitas cahayanya dapat diatur serta diintegrasikan dengan Smart Lighting Controller.",
+                'meta_title' => 'Mengenal Konfigurasi PJU Tenaga Surya & PJU PLN | PT. Multi Abadi Aksana',
+                'meta_description' => 'Perbandingan teknis PJU All In One, Two In One, Konvensional, dan PJU PLN (COB, Osram, Philips, Estika) dari PT. Multi Abadi Aksana.',
                 'published_at' => now()->subDays(5),
                 'is_published' => true,
             ]
         );
 
         Post::updateOrCreate(
-            ['slug' => 'pentingnya-dynamic-balancing-pada-impeller-dan-blower-industri'],
+            ['slug' => 'perawatan-dan-fabrikasi-impeller-serta-sistem-elektrikal-industri'],
             [
                 'post_category_id' => $catMe->id,
-                'title' => 'Pentingnya Dynamic Balancing pada Fabrikasi Impeller & Blower Industri',
-                'featured_image' => '/blog2.webp',
-                'excerpt' => 'Ketidakseimbangan massa sekecil apa pun pada putaran RPM tinggi dapat memicu getaran destruktif pada bearing dan poros mesin pabrik Anda.',
-                'content' => "Dalam operasional pabrik manufaktur, pengolahan air, maupun pembangkit energi, komponen berputar seperti impeller pompa sentrifugal dan rotor blower bekerja pada putaran tinggi secara terus-menerus. Ketika terjadi keausan akibat abrasi fluida atau korosi kimia, distribusi massa rotor menjadi tidak seimbang (unbalance).\n\nGejala awal yang sering diabaikan adalah meningkatnya suhu bantalan (bearing), suara bising berfrekuensi tinggi, serta getaran berlebih pada fondasi mesin. Jika dibiarkan, kondisi ini akan merusak mechanical seal, membengkokkan shaft, dan berujung pada unplanned downtime yang merugikan produksi.\n\nMelalui divisi Mechanical & Electrical, PT. Multi Abadi Aksana menyediakan layanan fabrikasi ulang dan perbaikan teknis impeller menggunakan material pilihan seperti Stainless Steel 304/316 dan Cast Iron, dilengkapi proses uji Dynamic Balancing berstandar ISO 1940 untuk memastikan putaran kembali presisi dan bebas vibrasi.",
-                'meta_title' => 'Pentingnya Dynamic Balancing Impeller Industri | PT. Multi Abadi Aksana',
-                'meta_description' => 'Solusi fabrikasi dan dynamic balancing impeller pompa serta blower industri dari PT. Multi Abadi Aksana.',
+                'title' => 'Fabrikasi Impeller Presisi & Pemeliharaan Berkala Sistem Mekanikal-Elektrikal Pabrik',
+                'featured_image' => '/images/projects/me-impeller-rotor-stainless.webp',
+                'excerpt' => 'Bagaimana rekondisi komponen impeller blower dan preventive maintenance pada panel MDP/SDP, trafo, serta motor industri menjaga kontinuitas operasional pabrik.',
+                'content' => "Komponen mekanikal berputar seperti impeller pada sistem blower sentrifugal dan sirkulasi udara pabrik (seperti unit PGIC-E34) bekerja di bawah paparan debu, suhu tinggi, dan beban kontinu. Kerusakan atau keausan pada bilah impeller maupun bearing penopang dapat menurunkan efisiensi hisap/hembus dan memicu getaran berlebih pada motor penggerak.\n\nPT. Multi Abadi Aksana menyediakan layanan pengadaan barang sekaligus jasa fabrikasi dan perbaikan teknis untuk komponen impeller stainless steel, penggantian V-belt, bearing, hingga pembersihan volute housing secara menyeluruh.\n\nDi sisi kelistrikan, tim Mechanical & Electrical kami juga menangani perakitan Panel Utama (MDP/SDP), panel otomatis ATS/AMF, penarikan kabel distribusi tegangan rendah maupun menengah (NYA, NYM, NYY, XLPE), hingga pengujian beban listrik dan perawatan rutin berkala (preventive maintenance) pada trafo, genset, dan unit HVAC.",
+                'meta_title' => 'Fabrikasi Impeller & Maintenance Mekanikal Elektrikal | PT. Multi Abadi Aksana',
+                'meta_description' => 'Layanan fabrikasi impeller industri, instalasi panel MDP/SDP, dan preventive maintenance pabrik oleh PT. Multi Abadi Aksana.',
                 'published_at' => now()->subDays(3),
                 'is_published' => true,
             ]
         );
 
         Post::updateOrCreate(
-            ['slug' => 'penerapan-disiplin-k3-dan-manajemen-mutu-proyek-konstruksi-jalan'],
+            ['slug' => 'pentingnya-kualitas-sparepart-dan-standar-k3-dalam-proyek-konstruksi'],
             [
-                'post_category_id' => $catK3->id,
-                'title' => 'Penerapan Disiplin K3 dan Standar Hot Dip Galvanized pada Konstruksi PJU',
-                'featured_image' => '/blog3.webp',
-                'excerpt' => 'Bagaimana standar keselamatan kerja lapangan dan kualitas pelapisan anti-karat menentukan usia pakai infrastruktur jalan hingga puluhan tahun.',
-                'content' => "Pekerjaan konstruksi sipil dan instalasi kelistrikan jalan raya memiliki risiko keselamatan tinggi karena berlangsung di jalur lalu lintas aktif. Oleh sebab itu, penerapan Kesehatan dan Keselamatan Kerja (K3) bukan sekadar kewajiban regulasi, melainkan fondasi utama keberhasilan eksekusi proyek.\n\nDi setiap proyek On Duty seperti ruas Gempol, Sidoarjo, hingga Malang, tim PT. Multi Abadi Aksana menerapkan prosedur pengamanan area kerja (traffic management), penggunaan Alat Pelindung Diri (APD) lengkap, serta pengujian kelayakan alat angkat (crane erection) sebelum pemasangan tiang.\n\nSelain disiplin K3, ketahanan material juga dijaga melalui penggunaan tiang baja dengan proses Hot Dip Galvanized berstandar ASTM A123 serta pengecoran pondasi beton bertulang yang presisi. Kombinasi mutu material dan eksekusi lapangan yang aman memastikan infrastruktur berfungsi optimal dalam jangka panjang.",
-                'meta_title' => 'Penerapan Standar K3 & Tiang Galvanis Proyek PJU | PT. Multi Abadi Aksana',
-                'meta_description' => 'Komitmen K3 dan mutu material konstruksi PT. Multi Abadi Aksana pada proyek PJU dan infrastruktur.',
+                'post_category_id' => $catSparepart->id,
+                'title' => 'Menjaga Keandalan Armada dengan Sparepart Orisinal & Budaya K3 di Lokasi Proyek',
+                'featured_image' => '/images/projects/me-maintenance-apd-lengkap.webp',
+                'excerpt' => 'Mulai dari pemilihan oli, grease, ban, filter, dan kampas kopling berkualitas premium hingga disiplin penerapan Keselamatan dan Kesehatan Kerja (K3).',
+                'content' => "Keberhasilan eksekusi proyek infrastruktur dan kelancaran operasional industri sangat bergantung pada dua faktor utama: kesiapan peralatan/armada kerja dan keselamatan personel di lapangan.\n\nMelalui Divisi Sparepart & Equipment, PT. Multi Abadi Aksana menyuplai 12 kategori suku cadang kualitas premium yang mencakup Oli, Grease, Ban Luar, Ban Dalam, Aki, Filter, Wiper, Baut Roda, Bearing, Kabel, Kampas Kopling, dan Lampu kendaraan/alat berat. Penggunaan suku cadang dan pelumas yang tepat spesifikasi mencegah kerusakan mendadak di tengah jadwal proyek yang padat.\n\nSeluruh aktivitas instalasi PJU, pengerjaan konstruksi interior-eksterior, maupun perbaikan mesin pabrik selalu dijalankan dengan prinsip utama kami: Utamakan Keselamatan dan Kesehatan Kerja (K3), didukung proses kerja sama yang transparan mulai dari tahap Komunikasi, Survei, Negosiasi, hingga Deal.",
+                'meta_title' => 'Pengadaan Sparepart Premium & Komitmen K3 | PT. Multi Abadi Aksana',
+                'meta_description' => 'Solusi pengadaan sparepart alat berat/armada dan komitmen standar K3 PT. Multi Abadi Aksana di Sidoarjo.',
                 'published_at' => now()->subDay(),
                 'is_published' => true,
             ]
