@@ -1,127 +1,149 @@
 <div class="space-y-14 md:space-y-24">
-    <!-- 1. Split Engineering B2B/B2G Hero Section (Distinct PT. MAA Layout) -->
-    <section class="relative pt-2 md:pt-4">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center bg-gradient-to-br from-[#1B1B6C] via-[#131454] to-[#0F1048] rounded-3xl md:rounded-[44px] p-6 sm:p-10 md:p-14 text-white shadow-2xl shadow-primary/20 overflow-hidden relative border border-white/10">
-            <!-- Diagonal Geometric Stripe Accent (Matching ComPro PDF Header) -->
-            <div class="absolute -top-24 -right-24 w-96 h-96 bg-secondary/20 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute bottom-0 right-10 hidden xl:flex gap-2 opacity-20 pointer-events-none">
-                <div class="w-4 h-16 bg-secondary -skew-x-12"></div>
-                <div class="w-4 h-16 bg-secondary -skew-x-12"></div>
-                <div class="w-4 h-16 bg-secondary -skew-x-12"></div>
-                <div class="w-4 h-16 bg-secondary -skew-x-12"></div>
-            </div>
-
-            <!-- Left Column: Identity, Slogan & Dual CTA -->
-            <div class="lg:col-span-7 space-y-5 md:space-y-6 relative z-10">
-                <div class="flex flex-wrap items-center gap-2">
-                    <span class="px-3.5 py-1.5 rounded-lg bg-secondary text-white text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em]">
-                        General Trading, Supplier & Contractor
-                    </span>
-                    <span class="px-3.5 py-1.5 rounded-lg bg-white/10 border border-white/15 text-blue-100 text-[9px] md:text-[10px] font-black uppercase tracking-widest flex items-center gap-1.5">
-                        <i class="bx bxs-shield-plus text-secondary text-sm"></i>
-                        <span>Utamakan K3</span>
-                    </span>
-                </div>
-
-                <h1 class="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tighter leading-[1.02]">
-                    PT. Multi Abadi <br />
-                    <span class="text-blue-200">Aksana.</span>
-                </h1>
-
-                <p class="text-sm sm:text-base md:text-lg text-white/90 font-semibold leading-relaxed max-w-2xl border-l-4 border-secondary pl-4 italic">
-                    "Membangun bisnis yang berdampak bagi keuntungan perusahaan dan keberlanjutan lingkungan"
-                </p>
-
-                <p class="text-xs sm:text-sm text-blue-100/85 font-medium leading-relaxed max-w-2xl">
-                    Mitra strategis sektor publik (pemerintahan/dinas) maupun swasta dalam pengadaan barang dan jasa konstruksi: <strong>Penerangan Jalan Umum (PJU)</strong>, <strong>Interior & Exterior</strong>, <strong>Mechanical & Electrical (Impeller)</strong>, serta <strong>Sparepart & Equipment</strong>.
-                </p>
-
-                <div class="pt-2 flex flex-wrap gap-3">
-                    <a
-                        href="{{ route('products.index') }}"
-                        class="px-6 md:px-8 py-3.5 md:py-4 bg-white text-primary rounded-xl md:rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest hover:bg-secondary hover:text-white transition-all shadow-xl flex items-center gap-2"
-                    >
-                        <span>Jelajahi Katalog Produk</span>
-                        <i class="bx bx-right-arrow-alt text-lg"></i>
-                    </a>
-                    <a
-                        href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai pengadaan barang & jasa proyek.') }}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="px-6 md:px-8 py-3.5 md:py-4 bg-secondary/90 hover:bg-secondary text-white rounded-xl md:rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all flex items-center gap-2 shadow-lg"
-                    >
-                        <i class="bx bxl-whatsapp text-lg"></i>
-                        <span>Konsultasi Proyek</span>
-                    </a>
-                    <a
-                        href="/files/ComPro_MULTI_ABADI_AKSANA.pdf"
-                        target="_blank"
-                        class="px-5 py-3.5 md:py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-xl md:rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all flex items-center gap-2"
-                    >
-                        <i class="bx bxs-file-pdf text-lg text-blue-200"></i>
-                        <span>Unduh ComPro PDF</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Right Column: 2x2 Authentic Field Photo Collage from PT. MAA PDFs -->
-            <div class="lg:col-span-5 grid grid-cols-2 gap-3 md:gap-4 relative z-10">
-                <div class="space-y-3 md:space-y-4">
-                    <div class="aspect-[4/5] rounded-2xl md:rounded-3xl overflow-hidden border-2 border-white/20 shadow-xl relative group">
-                        <img
-                            src="/images/projects/pju-k3-gempol-sidoarjo.webp"
-                            alt="Projek PJU Gempol Sidoarjo Malang PT. Multi Abadi Aksana"
-                            width="480"
-                            height="600"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3">
-                            <span class="text-[8px] font-black uppercase tracking-widest text-blue-200 block">Pilar 01 • PJU</span>
-                            <p class="text-[10px] font-bold text-white leading-tight">Ruas Gempol - Sidoarjo - Malang</p>
-                        </div>
-                    </div>
-                    <div class="aspect-square rounded-2xl md:rounded-3xl overflow-hidden border-2 border-white/20 shadow-xl relative group">
-                        <img
-                            src="/images/projects/interior-adelle-jewellery.webp"
-                            alt="Projek Interior Adelle Jewellery PT. Multi Abadi Aksana"
-                            width="480"
-                            height="480"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3">
-                            <span class="text-[8px] font-black uppercase tracking-widest text-blue-200 block">Pilar 02 • Interior</span>
-                            <p class="text-[10px] font-bold text-white leading-tight">Adelle Jewellery Store</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="space-y-3 md:space-y-4 pt-4 md:pt-8">
-                    <div class="aspect-square rounded-2xl md:rounded-3xl overflow-hidden border-2 border-white/20 shadow-xl relative group">
-                        <img
-                            src="/images/projects/me-impeller-rotor-stainless.webp"
-                            alt="Fabrikasi Impeller Unit PGIC-E34 PT. Multi Abadi Aksana"
-                            width="480"
-                            height="480"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3">
-                            <span class="text-[8px] font-black uppercase tracking-widest text-blue-200 block">Pilar 03 • M&E Impeller</span>
-                            <p class="text-[10px] font-bold text-white leading-tight">Unit Industri PGIC-E34</p>
-                        </div>
-                    </div>
-                    <div class="aspect-[4/5] rounded-2xl md:rounded-3xl overflow-hidden border-2 border-white/20 shadow-xl relative group">
-                        <img
-                            src="/images/products/sparepart-oli.webp"
-                            alt="Divisi Sparepart & Equipment PT. Multi Abadi Aksana"
-                            width="480"
-                            height="600"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3">
-                            <span class="text-[8px] font-black uppercase tracking-widest text-blue-200 block">Pilar 04 • Sparepart</span>
-                            <p class="text-[10px] font-bold text-white leading-tight">Oli, Grease, Ban, Aki & Filter</p>
+    <!-- Hero Slider Section (Niscahya Minimalist Rounded Style with Authentic PT. MAA Project Photos) -->
+    <section
+        x-data="{
+            currentSlide: 0,
+            slides: [
+                {
+                    image: '/images/projects/pju-k3-gempol-sidoarjo.webp',
+                    badge: 'General Trading, Supplier & Contractor',
+                    title: 'Solusi Infrastruktur & Konstruksi Terintegrasi',
+                    desc: 'Mitra strategis pengadaan Lampu PJU Tenaga Surya & PLN, Mechanical Electrical, Interior Exterior, serta Sparepart Industri di Indonesia.'
+                },
+                {
+                    image: '/images/projects/pju-tiang-jalan-tol.webp',
+                    badge: 'PJU Solar Cell & Jaringan PLN',
+                    title: 'Penerangan Jalan Berstandar Mutu & K3',
+                    desc: 'Pengadaan dan instalasi PJU All In One, Two In One, dan Tiang Octagonal Hot Dip Galvanized untuk jalan nasional maupun kawasan industri.'
+                },
+                {
+                    image: '/images/projects/interior-adelle-jewellery.webp',
+                    badge: 'Konstruksi Arsitektur & Komersial',
+                    title: 'Pengerjaan Interior & Exterior Presisi',
+                    desc: 'Pelaksanaan pekerjaan tata ruang toko perhiasan mewah, partisi perkantoran, koridor modern, serta fasilitas komersial berstandar estetika tinggi.'
+                },
+                {
+                    image: '/images/projects/me-impeller-rotor-stainless.webp',
+                    badge: 'Mechanical Electrical & Sparepart',
+                    title: 'Fabrikasi Presisi & Pasokan Suku Cadang',
+                    desc: 'Layanan fabrikasi impeller stainless steel industri unit PGIC-E34, sistem blower industri, hingga 12 lini suku cadang dan pelumas alat berat.'
+                }
+            ],
+            timer: null,
+            init() {
+                this.startTimer();
+            },
+            startTimer() {
+                this.timer = setInterval(() => {
+                    this.next();
+                }, 6000);
+            },
+            resetTimer() {
+                clearInterval(this.timer);
+                this.startTimer();
+            },
+            next() {
+                this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+            },
+            prev() {
+                this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+            }
+        }"
+        class="relative pt-1 md:pt-2 overflow-hidden"
+    >
+        <div class="relative w-full aspect-4/5 sm:aspect-video md:aspect-21/9 rounded-3xl md:rounded-[48px] overflow-hidden shadow-2xl shadow-primary/15 border-2 md:border-8 border-white bg-primary-dark">
+            <template x-for="(slide, index) in slides" :key="index">
+                <div
+                    x-show="currentSlide === index"
+                    x-transition:enter="transition ease-out duration-700"
+                    x-transition:enter-start="opacity-0 scale-105"
+                    x-transition:enter-end="opacity-100 scale-100"
+                    x-transition:leave="transition ease-in duration-500"
+                    x-transition:leave-start="opacity-100 scale-100"
+                    x-transition:leave-end="opacity-0 scale-95"
+                    class="absolute inset-0 w-full h-full"
+                >
+                    <img
+                        :src="slide.image"
+                        :alt="slide.title"
+                        width="1600"
+                        height="685"
+                        class="w-full h-full object-cover"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0F1048] via-[#1B1B6C]/60 to-transparent flex flex-col justify-end p-6 sm:p-10 md:p-16 text-white">
+                        <div class="max-w-3xl space-y-3 md:space-y-4">
+                            <span
+                                x-text="slide.badge"
+                                class="inline-block px-3.5 py-1.5 rounded-full bg-secondary/90 backdrop-blur-md text-[9px] md:text-[10px] font-black uppercase tracking-[0.25em] text-white shadow-lg"
+                            ></span>
+                            <h1
+                                x-text="slide.title"
+                                class="text-2xl sm:text-4xl md:text-6xl font-black uppercase tracking-tighter leading-[1.05]"
+                            ></h1>
+                            <p
+                                x-text="slide.desc"
+                                class="text-xs sm:text-sm md:text-lg text-white/90 font-medium max-w-2xl leading-relaxed line-clamp-3 md:line-clamp-none"
+                            ></p>
+                            <div class="pt-2 flex flex-wrap gap-3">
+                                <a
+                                    href="{{ route('products.index') }}"
+                                    class="px-5 md:px-7 py-3 md:py-3.5 bg-white text-primary rounded-xl md:rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest hover:bg-secondary hover:text-white transition-all shadow-xl"
+                                >
+                                    Eksplorasi Katalog
+                                </a>
+                                <a
+                                    href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai pengadaan barang & jasa.') }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="px-5 md:px-7 py-3 md:py-3.5 bg-primary/60 backdrop-blur-md border border-white/25 text-white rounded-xl md:rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest hover:bg-white hover:text-primary transition-all flex items-center gap-2"
+                                >
+                                    <i class="bx bxl-whatsapp text-base"></i>
+                                    <span>Konsultasi Proyek</span>
+                                </a>
+                                <a
+                                    href="/files/ComPro_MULTI_ABADI_AKSANA.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="hidden sm:inline-flex px-5 md:px-7 py-3 md:py-3.5 bg-white/15 backdrop-blur-md border border-white/25 text-white rounded-xl md:rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest hover:bg-white hover:text-primary transition-all items-center gap-2"
+                                >
+                                    <i class="bx bxs-file-pdf text-base"></i>
+                                    <span>Unduh ComPro PDF</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </template>
+
+            <!-- Slider Controls -->
+            <button
+                type="button"
+                @click="prev(); resetTimer()"
+                aria-label="Slide sebelumnya"
+                class="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-11 h-11 md:w-12 md:h-12 rounded-xl md:rounded-2xl glass flex items-center justify-center text-lg md:text-2xl text-primary hover:bg-primary hover:text-white transition-all z-10 shadow-lg"
+            >
+                <i class="bx bx-chevron-left"></i>
+            </button>
+            <button
+                type="button"
+                @click="next(); resetTimer()"
+                aria-label="Slide berikutnya"
+                class="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-11 h-11 md:w-12 md:h-12 rounded-xl md:rounded-2xl glass flex items-center justify-center text-lg md:text-2xl text-primary hover:bg-primary hover:text-white transition-all z-10 shadow-lg"
+            >
+                <i class="bx bx-chevron-right"></i>
+            </button>
+
+            <!-- Dots Indicator -->
+            <div class="absolute bottom-4 md:bottom-6 right-6 md:right-12 flex gap-2 z-10">
+                <template x-for="(slide, index) in slides" :key="index">
+                    <button
+                        type="button"
+                        @click="currentSlide = index; resetTimer()"
+                        :aria-label="'Ke slide ' + (index + 1)"
+                        :class="currentSlide === index ? 'bg-white w-8' : 'bg-white/40 w-2.5'"
+                        class="h-2.5 rounded-full transition-all duration-300"
+                    ></button>
+                </template>
             </div>
         </div>
     </section>
