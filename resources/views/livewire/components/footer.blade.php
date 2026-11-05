@@ -1,56 +1,130 @@
-<!-- Kerangka Footer Korporat Dinamis -->
-<footer class="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
-        <!-- Kolom 1: Profil & Tagline -->
-        <div class="space-y-4">
-            <span class="text-xl font-bold text-white tracking-tight">PT. MULTI ABADI AKSANA</span>
-            <p class="text-sm text-slate-400 leading-relaxed">
-                General Trading, Supplier & Contractor berpusat di Sidoarjo. Mengutamakan Keselamatan dan Kesehatan Kerja (K3) serta kualitas terbaik.
-            </p>
-            <p class="text-xs text-slate-500 italic">
-                "Membangun bisnis yang berdampak bagi keuntungan perusahaan dan keberlanjutan lingkungan"
-            </p>
+<footer class="mt-16 md:mt-24 border-t border-primary/10 bg-white/60 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
+            <!-- Brand & Value Prop -->
+            <div class="space-y-5">
+                <a href="{{ route('home') }}" class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-xl bg-white p-1 shadow-sm border border-primary/10 flex items-center justify-center shrink-0">
+                        <img
+                            src="/assets/logo.jpg"
+                            alt="Logo PT. Multi Abadi Aksana"
+                            loading="lazy"
+                            decoding="async"
+                            width="88"
+                            height="88"
+                            class="w-full h-full object-contain"
+                        />
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-base md:text-lg font-black tracking-tighter text-primary leading-none uppercase">
+                            PT. MULTI ABADI <span class="text-secondary">AKSANA</span>
+                        </span>
+                        <span class="text-[9px] font-extrabold tracking-[0.2em] text-text-secondary uppercase mt-1">
+                            Sidoarjo • Jawa Timur
+                        </span>
+                    </div>
+                </a>
+                <p class="text-xs md:text-sm text-text-secondary leading-relaxed font-medium">
+                    Perusahaan General Trading, Supplier, dan Kontraktor terintegrasi. Mitra terpercaya untuk pengadaan PJU Tenaga Surya & PLN, Mechanical Electrical, Interior Exterior, serta Sparepart Industri dengan standar K3 terbaik.
+                </p>
+                <div class="flex gap-2.5">
+                    <a
+                        href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai pengadaan barang & jasa.') }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="WhatsApp Admin Utama PT. Multi Abadi Aksana"
+                        class="w-11 h-11 rounded-xl glass flex items-center justify-center text-lg text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm"
+                    >
+                        <i class="bx bxl-whatsapp"></i>
+                    </a>
+                    <a
+                        href="mailto:ptmultiabadiaksana15@gmail.com"
+                        aria-label="Kirim Email ke PT. Multi Abadi Aksana"
+                        class="w-11 h-11 rounded-xl glass flex items-center justify-center text-lg text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm"
+                    >
+                        <i class="bx bx-envelope"></i>
+                    </a>
+                    <a
+                        href="{{ route('contact') }}"
+                        aria-label="Lokasi Kantor PT. Multi Abadi Aksana"
+                        class="w-11 h-11 rounded-xl glass flex items-center justify-center text-lg text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm"
+                    >
+                        <i class="bx bx-map"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Navigasi Cepat -->
+            <div>
+                <h4 class="text-xs font-black uppercase tracking-widest text-primary mb-5">Navigasi Utama</h4>
+                <ul class="space-y-3 text-xs md:text-sm font-semibold text-text-secondary">
+                    <li><a href="{{ route('home') }}" class="hover:text-primary transition-colors flex items-center gap-2"><i class="bx bx-chevron-right text-secondary"></i> Beranda</a></li>
+                    <li><a href="{{ route('products.index') }}" class="hover:text-primary transition-colors flex items-center gap-2"><i class="bx bx-chevron-right text-secondary"></i> Katalog Produk</a></li>
+                    <li><a href="{{ route('gallery.index') }}" class="hover:text-primary transition-colors flex items-center gap-2"><i class="bx bx-chevron-right text-secondary"></i> Projek On Duty</a></li>
+                    <li><a href="{{ route('about') }}" class="hover:text-primary transition-colors flex items-center gap-2"><i class="bx bx-chevron-right text-secondary"></i> Tentang & 4 Pilar</a></li>
+                    <li><a href="{{ route('blog.index') }}" class="hover:text-primary transition-colors flex items-center gap-2"><i class="bx bx-chevron-right text-secondary"></i> Wawasan & Artikel</a></li>
+                    <li><a href="{{ route('contact') }}" class="hover:text-primary transition-colors flex items-center gap-2"><i class="bx bx-chevron-right text-secondary"></i> Hubungi Kami</a></li>
+                </ul>
+            </div>
+
+            <!-- 4 Pilar Layanan -->
+            <div>
+                <h4 class="text-xs font-black uppercase tracking-widest text-primary mb-5">Pilar Layanan</h4>
+                <ul class="space-y-3 text-xs md:text-sm font-semibold text-text-secondary">
+                    @foreach($categories as $cat)
+                        <li>
+                            <a href="{{ route('products.index', ['kategori' => $cat->slug]) }}" class="hover:text-primary transition-colors flex items-center gap-2">
+                                <i class="bx bx-check-shield text-secondary"></i>
+                                <span>{{ $cat->name }}</span>
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+
+            <!-- Kontak & Alamat Resmi -->
+            <div>
+                <h4 class="text-xs font-black uppercase tracking-widest text-primary mb-5">Kantor & Kontak</h4>
+                <div class="space-y-3.5 text-xs md:text-sm text-text-secondary font-medium">
+                    <p class="flex items-start gap-3">
+                        <i class="bx bxs-map text-primary text-lg shrink-0 mt-0.5"></i>
+                        <span>
+                            <strong class="block text-text-main text-[11px] uppercase">Head Office:</strong>
+                            Jl. Taman Surya Agung Blok B No. 11, Wage, Kec. Taman, Sidoarjo 61257
+                        </span>
+                    </p>
+                    <p class="flex items-start gap-3">
+                        <i class="bx bxs-buildings text-secondary text-lg shrink-0 mt-0.5"></i>
+                        <span>
+                            <strong class="block text-text-main text-[11px] uppercase">Workshop:</strong>
+                            Safira Stone Resort A2-01, Masangan Wetan, Sukodono, Sidoarjo
+                        </span>
+                    </p>
+                    <p class="flex items-start gap-3">
+                        <i class="bx bxl-whatsapp text-primary text-lg shrink-0 mt-0.5"></i>
+                        <span>
+                            <strong class="block text-text-main text-[11px] uppercase tracking-wider">Admin Utama (Proyek, PJU, M&E, Interior):</strong>
+                            <a href="https://wa.me/6282342979898" target="_blank" rel="noopener noreferrer" class="hover:text-primary font-bold">+62 823-4297-9898</a>
+                        </span>
+                    </p>
+                    <p class="flex items-start gap-3">
+                        <i class="bx bxs-wrench text-secondary text-lg shrink-0 mt-0.5"></i>
+                        <span>
+                            <strong class="block text-text-main text-[11px] uppercase tracking-wider">Divisi Sparepart & Pelumas:</strong>
+                            <a href="https://wa.me/6281216592824" target="_blank" rel="noopener noreferrer" class="hover:text-primary font-bold">+62 812-1659-2824</a>
+                        </span>
+                    </p>
+                    <p class="flex items-center gap-3">
+                        <i class="bx bx-envelope text-primary text-lg shrink-0"></i>
+                        <a href="mailto:ptmultiabadiaksana15@gmail.com" class="hover:text-primary font-bold break-all">ptmultiabadiaksana15@gmail.com</a>
+                    </p>
+                </div>
+            </div>
         </div>
 
-        <!-- Kolom 2: Navigasi Cepat -->
-        <div>
-            <h4 class="text-sm font-semibold uppercase tracking-wider text-white mb-4">Navigasi</h4>
-            <ul class="space-y-2 text-sm">
-                <li><a href="{{ route('home') }}" wire:navigate class="hover:text-white transition">Beranda</a></li>
-                <li><a href="{{ route('about') }}" wire:navigate class="hover:text-white transition">Tentang Kami & Layanan</a></li>
-                <li><a href="{{ route('products.index') }}" wire:navigate class="hover:text-white transition">Katalog Produk</a></li>
-                <li><a href="{{ route('gallery.index') }}" wire:navigate class="hover:text-white transition">Projek On Duty</a></li>
-                <li><a href="{{ route('contact') }}" wire:navigate class="hover:text-white transition">Kontak & Lokasi</a></li>
-            </ul>
+        <div class="mt-10 md:mt-14 pt-6 border-t border-primary/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] md:text-xs font-bold text-text-secondary uppercase tracking-wider">
+            <p>© {{ date('Y') }} PT. Multi Abadi Aksana. Seluruh Hak Cipta Dilindungi.</p>
+            <p class="text-primary/70">Standar Mutu Konstruksi & K3 Terintegrasi</p>
         </div>
-
-        <!-- Kolom 3: Kategori Produk -->
-        <div>
-            <h4 class="text-sm font-semibold uppercase tracking-wider text-white mb-4">Kategori Produk</h4>
-            <ul class="space-y-2 text-sm">
-                @foreach($categories as $cat)
-                    <li>
-                        <a href="{{ route('products.index', ['kategori' => $cat->slug]) }}" wire:navigate class="hover:text-white transition">
-                            {{ $cat->name }}
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
-
-        <!-- Kolom 4: Kontak Resmi -->
-        <div>
-            <h4 class="text-sm font-semibold uppercase tracking-wider text-white mb-4">Head Office</h4>
-            <p class="text-sm text-slate-400 mb-3">
-                Jl. Taman Surya Agung Blok B No. 11, Sritanjung, Wage, Kec. Taman, Kabupaten Sidoarjo, Jawa Timur 61257.
-            </p>
-            <p class="text-sm text-slate-400"><strong>Email:</strong> ptmultiabadiaksana15@gmail.com</p>
-            <p class="text-sm text-slate-400"><strong>WhatsApp:</strong> +62 823-4297-9898</p>
-        </div>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-slate-800 text-center text-xs text-slate-500">
-        &copy; {{ date('Y') }} PT. Multi Abadi Aksana. All rights reserved.
     </div>
 </footer>
-

@@ -31,7 +31,7 @@ class WhatsAppGeneratorService
     /**
      * Generate WhatsApp Click-to-Chat URL for a specific product
      */
-    public static function forProduct(Product $product): string
+    public static function forProduct(Product $product, ?int $quantity = null, ?string $unit = null): string
     {
         $category = $product->category;
         $pillar = $category?->pillar;
@@ -49,8 +49,9 @@ class WhatsAppGeneratorService
 
         $productUrl = url("/products/{$product->slug}");
         $categoryName = $category?->name ?? 'Katalog';
+        $qtyLine = ($quantity && $quantity > 0) ? "\nEstimasi Kebutuhan: *{$quantity} " . ($unit ?: 'Unit') . "*" : '';
 
-        $message = "Halo Admin PT. Multi Abadi Aksana, saya ingin meminta informasi detail dan konsultasi penawaran mengenai produk: *{$product->name}* (Kategori: {$categoryName}).\n\nLink Referensi: {$productUrl}\n\nTerima kasih.";
+        $message = "Halo Admin PT. Multi Abadi Aksana, saya ingin meminta informasi detail dan konsultasi penawaran mengenai produk: *{$product->name}* (Kategori: {$categoryName}).{$qtyLine}\n\nLink Referensi: {$productUrl}\n\nTerima kasih.";
 
         return 'https://wa.me/' . $formattedPhone . '?text=' . urlencode($message);
     }

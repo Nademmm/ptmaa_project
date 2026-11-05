@@ -1,99 +1,306 @@
-<!-- Kerangka Halaman Kontak (/contact) -->
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
-    <div class="border-b border-slate-200 pb-6">
-        <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">Hubungi Kami & Konsultasi Proyek</h1>
-        <p class="mt-2 text-sm text-slate-600 max-w-2xl">
-            Awali kerja sama pengadaan barang dan jasa Anda. Tim kami siap merespon konsultasi teknis, survei lokasi, maupun tender pengadaan.
-        </p>
-    </div>
+<div class="space-y-12 md:space-y-16">
+    <!-- Page Hero -->
+    <section class="relative pt-6 md:pt-10 pb-2">
+        <div class="max-w-3xl space-y-3 md:space-y-5">
+            <span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest inline-block">
+                Saluran Komunikasi Resmi
+            </span>
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tighter uppercase leading-[1.05]">
+                Hubungi <span class="text-gradient">Tim Kami.</span>
+            </h1>
+            <p class="text-sm sm:text-base md:text-xl text-text-secondary font-medium leading-relaxed max-w-2xl">
+                Siap membantu kebutuhan pengadaan PJU Tenaga Surya & PLN, fabrikasi Mechanical Electrical, Interior Exterior, hingga pasokan Sparepart Industri Anda.
+            </p>
+        </div>
+    </section>
 
-    <!-- 3 Kartu Saluran Komunikasi Cepat -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-2">
-            <span class="text-2xl block">💬</span>
-            <h3 class="text-base font-bold text-slate-900">WhatsApp Respon Cepat</h3>
-            <p class="text-xs text-slate-500">Konsultasi langsung dengan tim admin divisi kami.</p>
-            <div class="pt-2 text-xs space-y-1">
-                <p><strong>Admin Utama:</strong> +62 823-4297-9898</p>
-                <p><strong>Divisi Sparepart:</strong> +62 812-1659-2824</p>
+    <!-- 3 Direct Contact Cards (Niscahya Contact.jsx Style adapted to Dual WhatsApp + Email) -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <!-- Main Admin WhatsApp Card -->
+        <a
+            href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai pengadaan barang & jasa konstruksi.') }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="glass p-7 md:p-9 rounded-3xl md:rounded-[44px] space-y-5 border-primary/10 shadow-xl shadow-primary/5 flex flex-col justify-between group hover:-translate-y-2 transition-all duration-300"
+        >
+            <div class="space-y-4">
+                <div class="w-14 h-14 bg-primary text-white rounded-2xl flex items-center justify-center text-3xl shadow-lg shadow-primary/20">
+                    <i class="bx bxl-whatsapp"></i>
+                </div>
+                <div class="space-y-1.5">
+                    <span class="text-[9px] font-black uppercase tracking-widest text-secondary block">Jalur Kemitraan Utama</span>
+                    <h2 class="text-xl md:text-2xl font-black uppercase tracking-tighter text-primary">WhatsApp Proyek</h2>
+                    <p class="text-xs text-text-secondary font-medium leading-relaxed">
+                        Konsultasi PJU Solar Cell & PLN, Mechanical Electrical, serta Konstruksi Interior & Exterior.
+                    </p>
+                </div>
             </div>
+
+            <div class="space-y-4 pt-4">
+                <span class="block text-base md:text-xl font-black tracking-tight text-text-main group-hover:text-primary transition-colors">
+                    +62 823-4297-9898
+                </span>
+                <div class="w-full py-3.5 bg-primary text-white text-xs font-black uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 group-hover:bg-primary-dark transition-colors shadow-md">
+                    <i class="bx bxl-whatsapp text-lg"></i>
+                    <span>Chat Admin Utama</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Sparepart Division WhatsApp Card -->
+        <a
+            href="https://wa.me/6281216592824?text={{ urlencode('Halo Admin Divisi Sparepart PT. Multi Abadi Aksana, saya ingin menanyakan ketersediaan suku cadang / pelumas industri.') }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="glass p-7 md:p-9 rounded-3xl md:rounded-[44px] space-y-5 border-primary/10 shadow-xl shadow-primary/5 flex flex-col justify-between group hover:-translate-y-2 transition-all duration-300"
+        >
+            <div class="space-y-4">
+                <div class="w-14 h-14 bg-secondary text-white rounded-2xl flex items-center justify-center text-3xl shadow-lg shadow-secondary/20">
+                    <i class="bx bxs-wrench"></i>
+                </div>
+                <div class="space-y-1.5">
+                    <span class="text-[9px] font-black uppercase tracking-widest text-secondary block">Jalur Cepat Suku Cadang</span>
+                    <h2 class="text-xl md:text-2xl font-black uppercase tracking-tighter text-primary">Divisi Sparepart</h2>
+                    <p class="text-xs text-text-secondary font-medium leading-relaxed">
+                        Pemesanan oli mesin diesel beban berat, grease, filter, ban alat berat, aki, dan komponen armada.
+                    </p>
+                </div>
+            </div>
+
+            <div class="space-y-4 pt-4">
+                <span class="block text-base md:text-xl font-black tracking-tight text-text-main group-hover:text-secondary transition-colors">
+                    +62 812-1659-2824
+                </span>
+                <div class="w-full py-3.5 bg-secondary text-white text-xs font-black uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 group-hover:bg-primary transition-colors shadow-md">
+                    <i class="bx bxl-whatsapp text-lg"></i>
+                    <span>Chat Admin Sparepart</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Official Email Card -->
+        <a
+            href="mailto:ptmultiabadiaksana15@gmail.com"
+            class="glass p-7 md:p-9 rounded-3xl md:rounded-[44px] space-y-5 border-primary/10 shadow-xl shadow-primary/5 flex flex-col justify-between group hover:-translate-y-2 transition-all duration-300"
+        >
+            <div class="space-y-4">
+                <div class="w-14 h-14 bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white rounded-2xl flex items-center justify-center text-3xl transition-colors shadow-sm">
+                    <i class="bx bx-envelope"></i>
+                </div>
+                <div class="space-y-1.5">
+                    <span class="text-[9px] font-black uppercase tracking-widest text-secondary block">Dokumen & Tender Resmi</span>
+                    <h2 class="text-xl md:text-2xl font-black uppercase tracking-tighter text-primary">Email Korporat</h2>
+                    <p class="text-xs text-text-secondary font-medium leading-relaxed">
+                        Pengiriman dokumen penawaran harga (RFQ), undangan pengadaan, dan korespondensi administrasi resmi.
+                    </p>
+                </div>
+            </div>
+
+            <div class="space-y-4 pt-4">
+                <span class="block text-xs sm:text-sm md:text-base font-black tracking-tight text-text-main break-all">
+                    ptmultiabadiaksana15@gmail.com
+                </span>
+                <div class="w-full py-3.5 bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white text-xs font-black uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 transition-colors">
+                    <i class="bx bx-send text-lg"></i>
+                    <span>Kirim Email Resmi</span>
+                </div>
+            </div>
+        </a>
+    </section>
+
+    <!-- Project Inquiry Form & Office Details -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start">
+        <!-- Form -->
+        <div class="lg:col-span-7 glass p-6 sm:p-10 rounded-3xl md:rounded-[48px] border-primary/10 shadow-xl space-y-6">
+            <div class="space-y-2">
+                <span class="text-[10px] font-black uppercase tracking-widest text-secondary">Formulir Kemitraan Proyek</span>
+                <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tighter text-primary">
+                    Kirim Permintaan Penawaran
+                </h2>
+                <p class="text-xs md:text-sm text-text-secondary font-medium">
+                    Pesan Anda akan langsung tercatat pada sistem Pipeline Kemitraan kami untuk segera ditindaklanjuti oleh tim teknis.
+                </p>
+            </div>
+
+            @if($isSubmitted)
+                <div class="p-6 rounded-2xl bg-primary text-white space-y-3">
+                    <div class="flex items-center gap-3">
+                        <i class="bx bxs-check-circle text-3xl text-secondary"></i>
+                        <h3 class="text-base md:text-lg font-black uppercase tracking-tight">Permintaan Berhasil Diterima!</h3>
+                    </div>
+                    <p class="text-xs md:text-sm text-white/90 font-medium leading-relaxed">
+                        Terima kasih telah menghubungi PT. Multi Abadi Aksana. Data Anda telah masuk ke tahap Komunikasi Awal dan tim kami akan segera menghubungi nomor WhatsApp Anda.
+                    </p>
+                    <button
+                        type="button"
+                        wire:click="$set('isSubmitted', false)"
+                        class="px-5 py-2.5 bg-white text-primary rounded-xl text-xs font-black uppercase tracking-wider"
+                    >
+                        Kirim Pesan Lainnya
+                    </button>
+                </div>
+            @else
+                <form wire:submit="submit" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="full_name" class="block text-[10px] font-black uppercase tracking-wider text-primary mb-1.5">Nama Lengkap *</label>
+                            <input
+                                id="full_name"
+                                type="text"
+                                wire:model="full_name"
+                                required
+                                placeholder="Nama Anda"
+                                class="w-full rounded-xl bg-white border border-primary/15 px-4 py-3 text-xs md:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/20"
+                            />
+                            @error('full_name') <span class="text-[11px] text-red-600 font-bold mt-1 block">{{ $message }}</span> @enderror
+                        </div>
+                        <div>
+                            <label for="company_or_institution" class="block text-[10px] font-black uppercase tracking-wider text-primary mb-1.5">Instansi / Perusahaan</label>
+                            <input
+                                id="company_or_institution"
+                                type="text"
+                                wire:model="company_or_institution"
+                                placeholder="Nama PT / Dinas / CV"
+                                class="w-full rounded-xl bg-white border border-primary/15 px-4 py-3 text-xs md:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/20"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="whatsapp_number" class="block text-[10px] font-black uppercase tracking-wider text-primary mb-1.5">Nomor WhatsApp Aktif *</label>
+                            <input
+                                id="whatsapp_number"
+                                type="text"
+                                wire:model="whatsapp_number"
+                                required
+                                placeholder="0812xxxxxxxx"
+                                class="w-full rounded-xl bg-white border border-primary/15 px-4 py-3 text-xs md:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/20"
+                            />
+                            @error('whatsapp_number') <span class="text-[11px] text-red-600 font-bold mt-1 block">{{ $message }}</span> @enderror
+                        </div>
+                        <div>
+                            <label for="email" class="block text-[10px] font-black uppercase tracking-wider text-primary mb-1.5">Alamat Email</label>
+                            <input
+                                id="email"
+                                type="email"
+                                wire:model="email"
+                                placeholder="nama@perusahaan.com"
+                                class="w-full rounded-xl bg-white border border-primary/15 px-4 py-3 text-xs md:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/20"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="service_pillar_id" class="block text-[10px] font-black uppercase tracking-wider text-primary mb-1.5">Pilar Layanan Terkait</label>
+                            <select
+                                id="service_pillar_id"
+                                wire:model="service_pillar_id"
+                                class="w-full rounded-xl bg-white border border-primary/15 px-4 py-3 text-xs md:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/20"
+                            >
+                                <option value="">Pilih Divisi Layanan</option>
+                                @foreach($pillars as $p)
+                                    <option value="{{ $p->id }}">{{ $p->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-[10px] font-black uppercase tracking-wider text-primary mb-1.5">Subjek Kebutuhan</label>
+                            <input
+                                id="subject"
+                                type="text"
+                                wire:model="subject"
+                                placeholder="Misal: Pengadaan 50 Titik PJUTS"
+                                class="w-full rounded-xl bg-white border border-primary/15 px-4 py-3 text-xs md:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/20"
+                            />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-[10px] font-black uppercase tracking-wider text-primary mb-1.5">Rincian Spesifikasi / Lokasi Proyek *</label>
+                        <textarea
+                            id="message"
+                            rows="4"
+                            wire:model="message"
+                            required
+                            placeholder="Tuliskan spesifikasi barang, volume kebutuhan, atau lokasi proyek..."
+                            class="w-full rounded-xl bg-white border border-primary/15 px-4 py-3 text-xs md:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/20"
+                        ></textarea>
+                        @error('message') <span class="text-[11px] text-red-600 font-bold mt-1 block">{{ $message }}</span> @enderror
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="w-full py-4 bg-primary hover:bg-primary-dark text-white font-black rounded-2xl text-xs md:text-sm uppercase tracking-widest shadow-xl shadow-primary/20 transition-all flex items-center justify-center gap-2"
+                    >
+                        <i class="bx bx-paper-plane text-lg"></i>
+                        <span>Kirim Permintaan Konsultasi</span>
+                    </button>
+                </form>
+            @endif
         </div>
 
-        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-2">
-            <span class="text-2xl block">✉️</span>
-            <h3 class="text-base font-bold text-slate-900">Email Resmi Tender</h3>
-            <p class="text-xs text-slate-500">Pengiriman dokumen pengadaan, RKS, RAB, dan administrasi tender.</p>
-            <div class="pt-2 text-xs text-blue-600 font-semibold">
-                ptmultiabadiaksana15@gmail.com
+        <!-- Office Info & Map -->
+        <div class="lg:col-span-5 space-y-6">
+            <div class="glass p-6 sm:p-8 rounded-3xl md:rounded-[40px] border-primary/10 shadow-xl space-y-6">
+                <h3 class="text-xl md:text-2xl font-black uppercase tracking-tighter text-primary">
+                    Kantor & Workshop
+                </h3>
+
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <div class="w-11 h-11 shrink-0 bg-primary/10 text-primary rounded-xl flex items-center justify-center text-xl">
+                            <i class="bx bxs-map"></i>
+                        </div>
+                        <div>
+                            <p class="text-[9px] font-black uppercase tracking-widest text-secondary">Head Office</p>
+                            <p class="text-xs md:text-sm font-black text-text-main leading-snug mt-0.5">
+                                Jl. Taman Surya Agung Blok B No. 11, Sritanjung, Wage, Kec. Taman, Kabupaten Sidoarjo, Jawa Timur 61257
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-11 h-11 shrink-0 bg-secondary/15 text-primary rounded-xl flex items-center justify-center text-xl">
+                            <i class="bx bxs-buildings"></i>
+                        </div>
+                        <div>
+                            <p class="text-[9px] font-black uppercase tracking-widest text-secondary">Workshop & Operasional</p>
+                            <p class="text-xs md:text-sm font-black text-text-main leading-snug mt-0.5">
+                                Safira Stone Resort A2-01, Masangan Wetan, Sukodono, Kabupaten Sidoarjo, Jawa Timur
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-11 h-11 shrink-0 bg-primary/10 text-primary rounded-xl flex items-center justify-center text-xl">
+                            <i class="bx bxs-time"></i>
+                        </div>
+                        <div>
+                            <p class="text-[9px] font-black uppercase tracking-widest text-secondary">Jam Operasional</p>
+                            <p class="text-sm md:text-base font-black text-text-main leading-snug mt-0.5">
+                                Senin - Jumat: 08:00 - 17:00 WIB <br />
+                                Sabtu: 08:00 - 13:00 WIB
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass p-2.5 rounded-3xl md:rounded-[40px] border-primary/10 shadow-xl overflow-hidden h-72 md:h-80">
+                <iframe
+                    title="Peta Lokasi Kantor PT. Multi Abadi Aksana"
+                    src="https://maps.google.com/maps?q=Taman+Surya+Agung+Sidoarjo&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="100%"
+                    style="border: 0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    class="rounded-2xl md:rounded-[32px] w-full h-full"
+                ></iframe>
             </div>
         </div>
-
-        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-2">
-            <span class="text-2xl block">🏢</span>
-            <h3 class="text-base font-bold text-slate-900">Head Office Sidoarjo</h3>
-            <p class="text-xs text-slate-500">Kantor pusat dan operasional PT. Multi Abadi Aksana.</p>
-            <div class="pt-2 text-xs text-slate-600">
-                Jl. Taman Surya Agung Blok B No. 11, Sritanjung, Wage, Taman, Sidoarjo, Jawa Timur 61257.
-            </div>
-        </div>
-    </div>
-
-    <!-- Formulir Konsultasi / Permintaan Survei -->
-    <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm max-w-3xl mx-auto">
-        <h2 class="text-xl font-bold text-slate-900 mb-2">Formulir Permintaan Konsultasi / Survei</h2>
-        <p class="text-xs text-slate-500 mb-6">Isi formulir di bawah ini dan data Anda akan langsung terdata pada dashboard CRM tim kami.</p>
-
-        @if($isSubmitted)
-            <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-semibold text-center mb-6">
-                Terima kasih! Pesan dan permintaan konsultasi Anda telah berhasil dikirim. Tim kami akan segera menghubungi Anda melalui WhatsApp.
-            </div>
-        @endif
-
-        <form wire:submit="submit" class="space-y-4">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">Nama Lengkap *</label>
-                    <input type="text" wire:model="full_name" class="w-full px-3 py-2 text-xs rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500">
-                    @error('full_name') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">Nama Perusahaan / Instansi</label>
-                    <input type="text" wire:model="company_or_institution" class="w-full px-3 py-2 text-xs rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500">
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">Nomor WhatsApp *</label>
-                    <input type="text" wire:model="whatsapp_number" placeholder="08xxxxxxxxxx" class="w-full px-3 py-2 text-xs rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500">
-                    @error('whatsapp_number') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">Email</label>
-                    <input type="email" wire:model="email" class="w-full px-3 py-2 text-xs rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500">
-                </div>
-            </div>
-
-            <div>
-                <label class="block text-xs font-semibold text-slate-700 mb-1">Pilar Layanan Yang Dibutuhkan</label>
-                <select wire:model="service_pillar_id" class="w-full px-3 py-2 text-xs rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500">
-                    <option value="">Pilih Pilar Layanan</option>
-                    @foreach($pillars as $p)
-                        <option value="{{ $p->id }}">{{ $p->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-
-            <div>
-                <label class="block text-xs font-semibold text-slate-700 mb-1">Pesan / Rincian Kebutuhan *</label>
-                <textarea wire:model="message" rows="4" placeholder="Jelaskan kebutuhan pengadaan barang atau pekerjaan jasa yang Anda perlukan..." class="w-full px-3 py-2 text-xs rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500"></textarea>
-                @error('message') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
-            </div>
-
-            <button type="submit" class="w-full py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm transition">
-                Kirim Permintaan Konsultasi
-            </button>
-        </form>
-    </div>
+    </section>
 </div>
-

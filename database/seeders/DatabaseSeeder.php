@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
             ServicePillarSeeder::class,
             ProductCatalogSeeder::class,
             GallerySeeder::class,
+            PostSeeder::class,
             CompanySettingsSeeder::class,
         ]);
     }
