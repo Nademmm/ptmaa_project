@@ -1,4 +1,4 @@
-# PT. Multi Abadi Aksana - Corporate Web Portal & Digital Product Showcase
+# PT. Multi Abadi Aksana
 
 Portal web korporat resmi dan etalase produk digital B2B / B2G (*Non-Ecommerce*) untuk **PT. Multi Abadi Aksana** (General Trading, Supplier & Contractor), berpusat di Sidoarjo, Jawa Timur.
 
@@ -14,8 +14,7 @@ Sistem ini dirancang khusus untuk memfasilitasi pengadaan barang dan jasa indust
 * **Prinsip Operasional:** *Utamakan Keselamatan dan Kesehatan Kerja (K3) Terintegrasi*
 * **Head Office:** Jl. Taman Surya Agung Blok B No. 11, Wage, Kec. Taman, Sidoarjo, Jawa Timur 61257
 * **Workshop & Divisi Sparepart:** Safira Stone Resort A2-01, Masangan Wetan, Sukodono, Sidoarjo
-* **Kontak Proyek & Umum:** +62 823-4297-9898
-* **Kontak Divisi Suku Cadang:** +62 812-1659-2824
+* **WhatsApp & Telepon Resmi:** +62 823-4297-9898
 * **Email Resmi:** `ptmultiabadiaksana15@gmail.com`
 
 ---

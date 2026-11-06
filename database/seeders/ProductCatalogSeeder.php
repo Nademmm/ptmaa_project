@@ -61,14 +61,14 @@ class ProductCatalogSeeder extends Seeder
             'is_active' => true,
         ]);
 
-        // Kategori 5: Sparepart & Equipment (Nomor WA khusus sparepart: +62 812-1659-2824)
+        // Kategori 5: Sparepart & Equipment (WhatsApp: +62 823-4297-9898)
         $catSparepart = ProductCategory::create([
             'service_pillar_id' => $sparepartPillar?->id,
             'name' => 'Sparepart & Equipment',
             'slug' => 'sparepart-equipment',
             'icon' => 'heroicon-o-wrench-screwdriver',
             'description' => 'Katalog suku cadang kualitas premium: Oli, Grease, Ban Luar, Ban Dalam, Aki, Filter, Wiper, Baut Roda, Bearing, Kabel, Kampas Kopling, Lampu & Mesin.',
-            'contact_phone' => '081216592824',
+            'contact_phone' => '082342979898',
             'sort_order' => 5,
             'is_active' => true,
         ]);
@@ -383,13 +383,13 @@ class ProductCatalogSeeder extends Seeder
             'specifications' => [
                 ['label' => 'Produk Tersedia', 'value' => 'Oli Mesin, Oli Hidrolik, Oli Transmisi & Grease (Gemuk Pelumas)'],
                 ['label' => 'Aplikasi Unit', 'value' => 'Kendaraan Operasional, Truk Armada, Alat Berat & Mesin Pabrik'],
-                ['label' => 'Kontak Divisi Khusus', 'value' => 'WhatsApp Sparepart +62 812-1659-2824'],
+                ['label' => 'Kontak Layanan', 'value' => 'WhatsApp Resmi +62 823-4297-9898'],
                 ['label' => 'Lokasi Workshop', 'value' => 'Safira Stone Resort A2-01, Masangan Wetan, Sukodono, Sidoarjo'],
             ],
             'advantages' => [
                 ['point' => 'Sparepart dan pelumas dengan kualitas premium dan terpercaya'],
                 ['point' => 'Melindungi komponen mesin dan bearing dari gesekan serta suhu tinggi'],
-                ['point' => 'Dilayani langsung oleh jalur khusus Divisi Sparepart (+62 812-1659-2824)'],
+                ['point' => 'Dilayani langsung oleh tim resmi PT. Multi Abadi Aksana (+62 823-4297-9898)'],
             ],
             'is_featured' => true,
             'has_warranty_badge' => true,
@@ -449,7 +449,7 @@ class ProductCatalogSeeder extends Seeder
             'specifications' => [
                 ['label' => 'Item Katalog', 'value' => 'Aki (Battery), Filter (Oli/Udara/BBM), Wiper & Lampu'],
                 ['label' => 'Fungsi Utama', 'value' => 'Perawatan Berkala (Preventive Maintenance) Armada & Mesin'],
-                ['label' => 'Layanan Pemesanan', 'value' => 'Konsultasi & Pengadaan via WA +62 812-1659-2824'],
+                ['label' => 'Layanan Pemesanan', 'value' => 'Konsultasi & Pengadaan via WA +62 823-4297-9898'],
             ],
             'advantages' => [
                 ['point' => 'Ketersediaan komponen fast-moving lengkap dalam satu mitra pengadaan'],

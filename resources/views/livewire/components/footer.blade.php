@@ -105,15 +105,8 @@
                     <p class="flex items-start gap-3">
                         <i class="bx bxl-whatsapp text-primary text-lg shrink-0 mt-0.5"></i>
                         <span>
-                            <strong class="block text-text-main text-[11px] uppercase tracking-wider">Admin Utama (Proyek, PJU, M&E, Interior):</strong>
+                            <strong class="block text-text-main text-[11px] uppercase tracking-wider">Kontak Resmi (WhatsApp):</strong>
                             <a href="https://wa.me/6282342979898" target="_blank" rel="noopener noreferrer" class="hover:text-primary font-bold">+62 823-4297-9898</a>
-                        </span>
-                    </p>
-                    <p class="flex items-start gap-3">
-                        <i class="bx bxs-wrench text-secondary text-lg shrink-0 mt-0.5"></i>
-                        <span>
-                            <strong class="block text-text-main text-[11px] uppercase tracking-wider">Divisi Sparepart & Pelumas:</strong>
-                            <a href="https://wa.me/6281216592824" target="_blank" rel="noopener noreferrer" class="hover:text-primary font-bold">+62 812-1659-2824</a>
                         </span>
                     </p>
                     <p class="flex items-center gap-3">

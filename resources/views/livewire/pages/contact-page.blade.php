@@ -11,11 +11,11 @@
         </div>
     </section>
 
-    <!-- 3 Direct Division Cards (WhatsApp Proyek, WhatsApp Sparepart, Email Korporat) -->
+    <!-- 3 Direct Contact Cards (WhatsApp Resmi, Email Korporat, Kantor Sidoarjo) -->
     <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Main Project WhatsApp -->
+        <!-- Official WhatsApp -->
         <a
-            href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai pengadaan PJU / Interior Exterior / Mechanical Electrical.') }}"
+            href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai pengadaan barang & jasa.') }}"
             target="_blank"
             rel="noopener noreferrer"
             class="bg-white p-6 sm:p-8 rounded-3xl border border-primary/10 shadow-lg shadow-primary/5 flex flex-col justify-between group hover:border-primary/35 transition-all space-y-5"
@@ -24,9 +24,9 @@
                 <div class="w-11 h-11 bg-primary text-white rounded-xl flex items-center justify-center text-2xl">
                     <i class="bx bxl-whatsapp"></i>
                 </div>
-                <h2 class="text-xl font-black uppercase tracking-tight text-primary">Divisi Proyek & PJU</h2>
+                <h2 class="text-xl font-black uppercase tracking-tight text-primary">WhatsApp Resmi</h2>
                 <p class="text-xs text-text-secondary font-medium leading-relaxed">
-                    Konsultasi pengadaan & instalasi PJU Tenaga Surya/PLN, konstruksi Interior & Exterior, serta fabrikasi Mechanical & Electrical.
+                    Konsultasi teknis, pengadaan Penerangan Jalan Umum, Mechanical & Electrical, Interior-Exterior, serta Suku Cadang Alat Berat.
                 </p>
             </div>
             <div class="space-y-3 pt-3 border-t border-primary/10">
@@ -35,34 +35,7 @@
                 </p>
                 <div class="w-full h-11 bg-primary text-white text-[11px] font-black uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 group-hover:bg-primary-dark transition-colors leading-none">
                     <i class="bx bxl-whatsapp text-base leading-none"></i>
-                    <span>Chat WhatsApp Proyek</span>
-                </div>
-            </div>
-        </a>
-
-        <!-- Sparepart Division WhatsApp -->
-        <a
-            href="https://wa.me/6281216592824?text={{ urlencode('Halo Admin Divisi Sparepart PT. Multi Abadi Aksana, saya ingin menanyakan ketersediaan suku cadang / pelumas industri.') }}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="bg-white p-6 sm:p-8 rounded-3xl border border-primary/10 shadow-lg shadow-primary/5 flex flex-col justify-between group hover:border-primary/35 transition-all space-y-5"
-        >
-            <div class="space-y-3">
-                <div class="w-11 h-11 bg-secondary text-white rounded-xl flex items-center justify-center text-2xl">
-                    <i class="bx bxs-wrench"></i>
-                </div>
-                <h2 class="text-xl font-black uppercase tracking-tight text-primary">Divisi Sparepart</h2>
-                <p class="text-xs text-text-secondary font-medium leading-relaxed">
-                    Pemesanan 12 lini suku cadang: Oli, Grease, Ban Luar/Dalam, Aki, Filter, Wiper, Baut Roda, Bearing, Kabel, Kampas Kopling, dan Lampu.
-                </p>
-            </div>
-            <div class="space-y-3 pt-3 border-t border-primary/10">
-                <p class="text-base md:text-lg font-black text-text-main">
-                    +62 812-1659-2824
-                </p>
-                <div class="w-full h-11 bg-secondary text-white text-[11px] font-black uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 group-hover:bg-primary transition-colors leading-none">
-                    <i class="bx bxl-whatsapp text-base leading-none"></i>
-                    <span>Chat WhatsApp Sparepart</span>
+                    <span>Chat WhatsApp Resmi</span>
                 </div>
             </div>
         </a>
@@ -76,9 +49,9 @@
                 <div class="w-11 h-11 bg-primary/10 text-primary rounded-xl flex items-center justify-center text-2xl">
                     <i class="bx bx-envelope"></i>
                 </div>
-                <h2 class="text-xl font-black uppercase tracking-tight text-primary">Email Korporat</h2>
+                <h2 class="text-xl font-black uppercase tracking-tight text-primary">Email Resmi</h2>
                 <p class="text-xs text-text-secondary font-medium leading-relaxed">
-                    Pengiriman dokumen permintaan penawaran harga (RFQ), undangan tender pengadaan, serta kerja sama B2B & B2G.
+                    Pengiriman dokumen permintaan penawaran harga (RFQ), undangan tender pengadaan, serta korespondensi resmi B2B & B2G.
                 </p>
             </div>
             <div class="space-y-3 pt-3 border-t border-primary/10">
@@ -91,6 +64,29 @@
                 </div>
             </div>
         </a>
+
+        <!-- Office & Workshop Location Card -->
+        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-primary/10 shadow-lg shadow-primary/5 flex flex-col justify-between space-y-5">
+            <div class="space-y-3">
+                <div class="w-11 h-11 bg-secondary text-white rounded-xl flex items-center justify-center text-2xl">
+                    <i class="bx bxs-map"></i>
+                </div>
+                <h2 class="text-xl font-black uppercase tracking-tight text-primary">Kantor & Workshop</h2>
+                <p class="text-xs text-text-secondary font-medium leading-relaxed">
+                    Head Office: Taman Surya Agung Blok B No. 11, Wage, Taman, Sidoarjo.<br>
+                    Workshop: Safira Stone Resort A2-01, Sukodono, Sidoarjo.
+                </p>
+            </div>
+            <div class="space-y-3 pt-3 border-t border-primary/10">
+                <p class="text-xs sm:text-sm font-black text-text-main">
+                    Sidoarjo, Jawa Timur
+                </p>
+                <div class="w-full h-11 bg-[#F8FAFC] border border-primary/15 text-primary text-[11px] font-black uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 leading-none">
+                    <i class="bx bx-check-shield text-base text-secondary leading-none"></i>
+                    <span>Legalitas & Berizin Resmi</span>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Project Inquiry Form & Dual Sidoarjo Offices -->

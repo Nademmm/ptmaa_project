@@ -472,28 +472,26 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                     <a
-                        href="https://wa.me/6282342979898"
+                        href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai pengadaan barang & jasa.') }}"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="p-4 rounded-2xl bg-primary text-white hover:bg-primary-dark transition-all flex items-center justify-between"
                     >
                         <div>
-                            <p class="text-[9px] font-extrabold uppercase tracking-widest text-blue-200">WA Umum & Proyek</p>
+                            <p class="text-[9px] font-extrabold uppercase tracking-widest text-blue-200">WhatsApp Resmi</p>
                             <p class="text-sm font-black mt-0.5">+62 823-4297-9898</p>
                         </div>
                         <i class="bx bxl-whatsapp text-2xl"></i>
                     </a>
                     <a
-                        href="https://wa.me/6281216592824"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="p-4 rounded-2xl bg-secondary text-white hover:bg-primary transition-all flex items-center justify-between"
+                        href="mailto:ptmultiabadiaksana15@gmail.com"
+                        class="p-4 rounded-2xl bg-[#F8FAFC] border border-primary/10 text-primary hover:bg-primary hover:text-white transition-all flex items-center justify-between"
                     >
                         <div>
-                            <p class="text-[9px] font-extrabold uppercase tracking-widest text-white/80">WA Divisi Sparepart</p>
-                            <p class="text-sm font-black mt-0.5">+62 812-1659-2824</p>
+                            <p class="text-[9px] font-extrabold uppercase tracking-widest text-secondary">Email Resmi</p>
+                            <p class="text-xs font-black mt-0.5 break-all">ptmultiabadiaksana15@gmail.com</p>
                         </div>
-                        <i class="bx bxl-whatsapp text-2xl"></i>
+                        <i class="bx bx-envelope text-2xl"></i>
                     </a>
                 </div>
             </div>

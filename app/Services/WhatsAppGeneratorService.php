@@ -8,7 +8,6 @@ use App\Models\ServicePillar;
 class WhatsAppGeneratorService
 {
     public const DEFAULT_MAIN_PHONE = '6282342979898';
-    public const DEFAULT_SPAREPART_PHONE = '6281216592824';
 
     /**
      * Clean phone number to international WhatsApp format (e.g. 628...)
@@ -34,18 +33,7 @@ class WhatsAppGeneratorService
     public static function forProduct(Product $product, ?int $quantity = null, ?string $unit = null): string
     {
         $category = $product->category;
-        $pillar = $category?->pillar;
-
-        // Tentukan nomor tujuan berdasarkan pilar / override di kategori
-        $targetPhone = self::DEFAULT_MAIN_PHONE;
-
-        if (!empty($category?->contact_phone)) {
-            $targetPhone = $category->contact_phone;
-        } elseif ($pillar && (str_contains(strtolower($pillar->slug), 'sparepart') || str_contains(strtolower($pillar->name), 'sparepart'))) {
-            $targetPhone = self::DEFAULT_SPAREPART_PHONE;
-        }
-
-        $formattedPhone = self::formatPhoneNumber($targetPhone);
+        $formattedPhone = self::DEFAULT_MAIN_PHONE;
 
         $productUrl = url("/products/{$product->slug}");
         $categoryName = $category?->name ?? 'Katalog';
@@ -61,13 +49,7 @@ class WhatsAppGeneratorService
      */
     public static function forConsultation(?ServicePillar $pillar = null): string
     {
-        $targetPhone = self::DEFAULT_MAIN_PHONE;
-
-        if ($pillar && str_contains(strtolower($pillar->slug), 'sparepart')) {
-            $targetPhone = self::DEFAULT_SPAREPART_PHONE;
-        }
-
-        $formattedPhone = self::formatPhoneNumber($targetPhone);
+        $formattedPhone = self::DEFAULT_MAIN_PHONE;
 
         if ($pillar) {
             $message = "Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai kebutuhan proyek/pengadaan untuk layanan: *{$pillar->name}*.\n\nMohon informasi lebih lanjut.";
@@ -78,4 +60,3 @@ class WhatsAppGeneratorService
         return 'https://wa.me/' . $formattedPhone . '?text=' . urlencode($message);
     }
 }
-

@@ -45,10 +45,9 @@ Data diekstrak langsung dari 3 dokumen resmi perusahaan (*Company Profile PT. Mu
   `1. KOMUNIKASI` -> `2. SURVEI` -> `3. NEGOSIASI` -> `4. DEAL`
 * **Informasi Kontak & Lokasi Resmi:**
   * **Email Resmi:** `ptmultiabadiaksana15@gmail.com`
-  * **WhatsApp / Telepon Proyek Utama (PJU, M&E, Interior):** `+62 823-4297-9898`
-  * **WhatsApp / Telepon Divisi Sparepart & Pelumas:** `+62 812-1659-2824`
+  * **WhatsApp & Telepon Resmi Perusahaan:** `+62 823-4297-9898`
   * **Kantor Utama (Head Office):** Jl. Taman Surya Agung Blok B No. 11, Sritanjung, Wage, Kec. Taman, Kabupaten Sidoarjo, Jawa Timur 61257.
-  * **Workshop & Divisi Suku Cadang:** Safira Stone Resort A2-01, Masangan Wetan, Sukodono, Kabupaten Sidoarjo, Jawa Timur.
+  * **Workshop & Gudang Fabrikasi:** Safira Stone Resort A2-01, Masangan Wetan, Sukodono, Kabupaten Sidoarjo, Jawa Timur.
 
 ---
 

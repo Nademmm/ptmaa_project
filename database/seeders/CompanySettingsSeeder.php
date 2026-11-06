@@ -31,7 +31,7 @@ class CompanySettingsSeeder extends Seeder
                 ];
                 $settings->email_official = 'ptmultiabadiaksana15@gmail.com';
                 $settings->whatsapp_main = '+62 823-4297-9898';
-                $settings->whatsapp_sparepart = '+62 812-1659-2824';
+                $settings->whatsapp_sparepart = '+62 823-4297-9898';
                 $settings->phone_office = '+62 823-4297-9898';
                 $settings->address_head_office = 'Jl. Taman Surya Agung Blok B No. 11, Sritanjung, Wage, Kec. Taman, Kabupaten Sidoarjo, Jawa Timur 61257.';
                 $settings->address_workshop = 'Safira Stone Resort A2-01, Masangan Wetan, Sukodono, Kabupaten Sidoarjo, Jawa Timur.';
