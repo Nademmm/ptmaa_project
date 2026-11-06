@@ -86,51 +86,6 @@
                     @endforeach
                 </div>
             </div>
-
-            <!-- Box Konsultasi WhatsApp Khusus Divisi Ini -->
-            <div class="p-6 rounded-3xl bg-gradient-to-br from-[#0F1048] to-[#1B1B6C] text-white shadow-xl space-y-4">
-                <div class="w-10 h-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-xl text-secondary">
-                    <i class="bx bxl-whatsapp"></i>
-                </div>
-                <div class="space-y-1">
-                    <h4 class="text-sm font-black uppercase tracking-tight">Konsultasi Divisi</h4>
-                    <p class="text-xs text-blue-100/80 font-medium leading-relaxed">
-                        Butuh pengadaan khusus, penyesuaian spesifikasi proyek, atau survei teknis untuk {{ $activeDivisionName }}?
-                    </p>
-                </div>
-                <div class="pt-2">
-                    @if($selectedDivision === 'pju')
-                        <a
-                            href="https://wa.me/6282342979898?text={{ urlencode('Halo Admin Penerangan Jalan Umum PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai pengadaan lampu penerangan jalan & tiang galvanis.') }}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="w-full h-11 px-4 rounded-xl bg-secondary hover:bg-secondary-dark text-white text-[11px] font-black uppercase tracking-wider transition-all flex items-center justify-between shadow-lg shadow-secondary/20 leading-none"
-                        >
-                            <span>WhatsApp Tim PJU</span>
-                            <i class="bx bxl-whatsapp text-lg leading-none"></i>
-                        </a>
-                    @else
-                        <a
-                            href="https://wa.me/6282342979898?text={{ urlencode('Halo Admin Mechanical & Electrical PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai pengadaan unit mechanical & electrical.') }}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="w-full h-11 px-4 rounded-xl bg-secondary hover:bg-secondary-dark text-white text-[11px] font-black uppercase tracking-wider transition-all flex items-center justify-between shadow-lg shadow-secondary/20 leading-none mb-2"
-                        >
-                            <span>WhatsApp Tim M&E</span>
-                            <i class="bx bxl-whatsapp text-lg leading-none"></i>
-                        </a>
-                        <a
-                            href="https://wa.me/6281216592824?text={{ urlencode('Halo Admin Suku Cadang PT. Multi Abadi Aksana, saya ingin menanyakan ketersediaan suku cadang alat berat / pelumas.') }}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="w-full h-11 px-4 rounded-xl bg-white/10 hover:bg-white hover:text-primary border border-white/15 text-white text-[11px] font-black uppercase tracking-wider transition-all flex items-center justify-between leading-none"
-                        >
-                            <span>WhatsApp Suku Cadang</span>
-                            <i class="bx bxl-whatsapp text-base leading-none"></i>
-                        </a>
-                    @endif
-                </div>
-            </div>
         </aside>
 
         <!-- Right Main Content: Active Filter Bar + Products Grid (9 Kolom) -->

@@ -11,8 +11,6 @@ use Livewire\Component;
 class ProductDetailPage extends Component
 {
     public string $slug;
-    public ?int $quantity = 1;
-    public string $unit = 'Unit';
 
     public function mount(string $slug): void
     {
@@ -26,7 +24,7 @@ class ProductDetailPage extends Component
             ->where('is_active', true)
             ->firstOrFail();
 
-        $whatsAppUrl = WhatsAppGeneratorService::forProduct($product, $this->quantity, $this->unit);
+        $whatsAppUrl = WhatsAppGeneratorService::forProduct($product);
 
         $pjuCategorySlugs = ['pju-tenaga-surya', 'pju-pln-tiang'];
         $isPju = in_array($product->category?->slug, $pjuCategorySlugs);

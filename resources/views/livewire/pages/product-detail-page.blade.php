@@ -143,46 +143,27 @@
                 </div>
             @endif
 
-            <!-- Volume Estimator for WhatsApp RFQ -->
-            <div class="p-5 rounded-2xl bg-white border border-primary/15 shadow-md space-y-4">
-                <p class="text-[10px] font-black uppercase tracking-widest text-primary">Kustomisasi Volume Pengadaan</p>
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label for="inquiry-qty" class="block text-[10px] font-bold uppercase tracking-wider text-text-secondary mb-1">Volume Kebutuhan</label>
-                        <input
-                            id="inquiry-qty"
-                            type="number"
-                            min="1"
-                            wire:model.live="quantity"
-                            class="w-full rounded-xl bg-[#F8FAFC] border border-primary/15 px-3.5 py-2.5 text-sm font-black text-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                        />
-                    </div>
-                    <div>
-                        <label for="inquiry-unit" class="block text-[10px] font-bold uppercase tracking-wider text-text-secondary mb-1">Satuan</label>
-                        <select
-                            id="inquiry-unit"
-                            wire:model.live="unit"
-                            class="w-full rounded-xl bg-[#F8FAFC] border border-primary/15 px-3.5 py-2.5 text-sm font-black text-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                        >
-                            <option value="Unit">Unit</option>
-                            <option value="Set">Set Lengkap</option>
-                            <option value="Titik">Titik Tiang</option>
-                            <option value="Paket">Paket Proyek</option>
-                            <option value="Pcs">Pcs / Buah</option>
-                            <option value="Drum">Drum / Pail</option>
-                        </select>
-                    </div>
-                </div>
-
+            <!-- Direct WhatsApp Consultation CTA -->
+            <div class="pt-2 space-y-3">
                 <a
                     href="{{ $whatsAppUrl }}"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="w-full h-12 md:h-14 bg-primary hover:bg-primary-dark text-white font-black rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2.5 text-xs md:text-sm uppercase tracking-wider transition-all leading-none text-center"
+                    class="w-full h-12 md:h-14 bg-primary hover:bg-primary-dark text-white font-black rounded-2xl shadow-xl shadow-primary/20 flex items-center justify-center gap-3 text-xs md:text-sm uppercase tracking-wider transition-all leading-none text-center"
                 >
-                    <i class="bx bxl-whatsapp text-xl leading-none"></i>
-                    <span>Minta Penawaran Harga via WhatsApp</span>
+                    <i class="bx bxl-whatsapp text-2xl leading-none text-secondary"></i>
+                    <span>Konsultasi & Minta Penawaran via WhatsApp</span>
                 </a>
+
+                <div class="flex items-center justify-center gap-3 text-[10px] font-bold uppercase tracking-wider text-text-secondary">
+                    <span class="flex items-center gap-1.5">
+                        <i class="bx bx-check-shield text-secondary text-sm"></i> Standar K3 Terintegrasi
+                    </span>
+                    <span class="text-primary/20">•</span>
+                    <span class="flex items-center gap-1.5">
+                        <i class="bx bx-time-five text-secondary text-sm"></i> Respon Cepat Tim Teknis
+                    </span>
+                </div>
             </div>
         </div>
     </div>
