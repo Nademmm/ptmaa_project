@@ -180,6 +180,11 @@
             @php
                 $barangScopes = $pillar->scopes->filter(fn($s) => ($s->scope_type?->value ?? $s->scope_type) === 'pengadaan');
                 $jasaScopes = $pillar->scopes->filter(fn($s) => ($s->scope_type?->value ?? $s->scope_type) === 'jasa');
+                $pillarRoute = match($pillar->code) {
+                    'PJU' => route('products.index', ['divisi' => 'pju']),
+                    'ME' => route('products.index', ['divisi' => 'me']),
+                    default => route('products.index', ['divisi' => 'me']),
+                };
                 $pillarPhoto = match($pillar->code) {
                     'PJU' => '/images/projects/pju-k3-gempol-sidoarjo.webp',
                     'INTERIOR' => '/images/projects/interior-adelle-jewellery.webp',
@@ -222,7 +227,7 @@
                                 {{ $pillar->name }}
                             </h3>
                             <a
-                                href="{{ route('products.index') }}"
+                                href="{{ $pillarRoute }}"
                                 class="inline-flex items-center justify-center gap-2 px-4 h-9 rounded-xl bg-primary text-white text-[11px] font-black uppercase tracking-wider hover:bg-primary-dark transition-all leading-none text-center"
                             >
                                 <span>Lihat Katalog Divisi</span>
@@ -362,13 +367,22 @@
                     Etalase produk PJU Tenaga Surya, PJU PLN, Fabrikasi Impeller, Interior-Exterior, serta Sparepart Equipment PT. Multi Abadi Aksana.
                 </p>
             </div>
-            <a
-                href="{{ route('products.index') }}"
-                class="inline-flex items-center justify-center gap-2 px-6 h-11 md:h-12 rounded-xl md:rounded-2xl bg-primary text-white font-black text-xs hover:bg-primary-dark transition-all uppercase tracking-wider shrink-0 shadow-md leading-none text-center"
-            >
-                <span>Lihat Seluruh Katalog</span>
-                <i class="bx bx-right-arrow-alt text-lg leading-none"></i>
-            </a>
+            <div class="flex flex-wrap items-center gap-2.5 shrink-0">
+                <a
+                    href="{{ route('products.index', ['divisi' => 'pju']) }}"
+                    class="inline-flex items-center justify-center gap-2 px-5 h-11 md:h-12 rounded-xl md:rounded-2xl bg-primary text-white font-black text-xs hover:bg-primary-dark transition-all uppercase tracking-wider shadow-md leading-none text-center"
+                >
+                    <i class="bx bx-bulb text-base leading-none"></i>
+                    <span>Katalog PJU</span>
+                </a>
+                <a
+                    href="{{ route('products.index', ['divisi' => 'me']) }}"
+                    class="inline-flex items-center justify-center gap-2 px-5 h-11 md:h-12 rounded-xl md:rounded-2xl bg-secondary text-white font-black text-xs hover:bg-primary transition-all uppercase tracking-wider shadow-md leading-none text-center"
+                >
+                    <i class="bx bx-cog text-base leading-none"></i>
+                    <span>Katalog ME</span>
+                </a>
+            </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">

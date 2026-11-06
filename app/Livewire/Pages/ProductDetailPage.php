@@ -28,19 +28,29 @@ class ProductDetailPage extends Component
 
         $whatsAppUrl = WhatsAppGeneratorService::forProduct($product, $this->quantity, $this->unit);
 
+        $pjuCategorySlugs = ['pju-tenaga-surya', 'pju-pln-tiang'];
+        $isPju = in_array($product->category?->slug, $pjuCategorySlugs);
+
         $relatedProducts = Product::with('category')
             ->where('product_category_id', $product->product_category_id)
             ->where('id', '!=', $product->id)
             ->where('is_active', true)
-            ->take(4)
+            ->take(3)
             ->get();
 
-        if ($relatedProducts->count() < 4) {
+        if ($relatedProducts->count() < 3) {
             $moreProducts = Product::with('category')
                 ->where('id', '!=', $product->id)
                 ->whereNotIn('id', $relatedProducts->pluck('id'))
                 ->where('is_active', true)
-                ->take(4 - $relatedProducts->count())
+                ->whereHas('category', function ($q) use ($isPju, $pjuCategorySlugs) {
+                    if ($isPju) {
+                        $q->whereIn('slug', $pjuCategorySlugs);
+                    } else {
+                        $q->whereNotIn('slug', $pjuCategorySlugs);
+                    }
+                })
+                ->take(3 - $relatedProducts->count())
                 ->get();
             $relatedProducts = $relatedProducts->concat($moreProducts);
         }

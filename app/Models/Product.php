@@ -48,5 +48,16 @@ class Product extends Model
     {
         return $this->belongsTo(ProductCategory::class, 'product_category_id');
     }
+
+    public function getDivisionAttribute(): string
+    {
+        $slug = $this->category?->slug ?? '';
+        return in_array($slug, ['pju-tenaga-surya', 'pju-pln-tiang']) ? 'pju' : 'me';
+    }
+
+    public function getDivisionNameAttribute(): string
+    {
+        return $this->division === 'pju' ? 'Divisi PJU' : 'Divisi ME';
+    }
 }
 

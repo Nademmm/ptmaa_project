@@ -31,18 +31,22 @@
         <div class="flex flex-wrap items-center gap-2 text-primary font-black text-[10px] uppercase tracking-[0.2em]">
             <a href="{{ route('home') }}" class="text-text-secondary hover:text-primary">Beranda</a>
             <i class="bx bx-chevron-right text-sm text-secondary"></i>
-            <a href="{{ route('products.index') }}" class="text-text-secondary hover:text-primary">Katalog Pengadaan</a>
+            <a href="{{ route('products.index') }}" class="text-text-secondary hover:text-primary">Katalog Produk</a>
             <i class="bx bx-chevron-right text-sm text-secondary"></i>
-            <a href="{{ route('products.index', ['kategori' => $product->category?->slug]) }}" class="hover:underline">
+            <a href="{{ route('products.index', ['divisi' => $product->division]) }}" class="text-text-secondary hover:text-primary">
+                {{ $product->division_name }}
+            </a>
+            <i class="bx bx-chevron-right text-sm text-secondary"></i>
+            <a href="{{ route('products.index', ['divisi' => $product->division, 'kategori' => $product->category?->slug]) }}" class="hover:underline">
                 {{ $product->category?->name ?? 'Unit' }}
             </a>
         </div>
         <a
-            href="{{ route('products.index') }}"
-            class="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-secondary hover:text-primary"
+            href="{{ route('products.index', ['divisi' => $product->division]) }}"
+            class="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-secondary hover:text-primary leading-none"
         >
-            <i class="bx bx-left-arrow-alt text-base"></i>
-            <span>Kembali ke Katalog</span>
+            <i class="bx bx-left-arrow-alt text-base leading-none"></i>
+            <span>Kembali ke {{ $product->division_name }}</span>
         </a>
     </div>
 
@@ -235,10 +239,10 @@
                     Unit Pengadaan Terkait
                 </h2>
                 <a
-                    href="{{ route('products.index') }}"
+                    href="{{ route('products.index', ['divisi' => $product->division]) }}"
                     class="inline-flex items-center justify-center gap-2 px-5 h-10 rounded-xl bg-white border border-primary/15 font-black text-xs text-primary hover:bg-primary hover:text-white transition-all uppercase tracking-wider leading-none text-center"
                 >
-                    <span>Lihat Semua Katalog</span>
+                    <span>Lihat Semua {{ $product->division_name }}</span>
                     <i class="bx bx-right-arrow-alt text-base leading-none"></i>
                 </a>
             </div>

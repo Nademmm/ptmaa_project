@@ -57,7 +57,8 @@
                 <h4 class="text-xs font-black uppercase tracking-widest text-primary mb-5">Navigasi Utama</h4>
                 <ul class="space-y-3 text-xs md:text-sm font-semibold text-text-secondary">
                     <li><a href="{{ route('home') }}" class="hover:text-primary transition-colors flex items-center gap-2"><i class="bx bx-chevron-right text-secondary"></i> Beranda</a></li>
-                    <li><a href="{{ route('products.index') }}" class="hover:text-primary transition-colors flex items-center gap-2"><i class="bx bx-chevron-right text-secondary"></i> Katalog Produk</a></li>
+                    <li><a href="{{ route('products.index', ['divisi' => 'pju']) }}" class="hover:text-primary transition-colors flex items-center gap-2"><i class="bx bx-chevron-right text-secondary"></i> Katalog PJU</a></li>
+                    <li><a href="{{ route('products.index', ['divisi' => 'me']) }}" class="hover:text-primary transition-colors flex items-center gap-2"><i class="bx bx-chevron-right text-secondary"></i> Katalog ME</a></li>
                     <li><a href="{{ route('gallery.index') }}" class="hover:text-primary transition-colors flex items-center gap-2"><i class="bx bx-chevron-right text-secondary"></i> Projek On Duty</a></li>
                     <li><a href="{{ route('about') }}" class="hover:text-primary transition-colors flex items-center gap-2"><i class="bx bx-chevron-right text-secondary"></i> Tentang & 4 Pilar</a></li>
                     <li><a href="{{ route('blog.index') }}" class="hover:text-primary transition-colors flex items-center gap-2"><i class="bx bx-chevron-right text-secondary"></i> Wawasan & Artikel</a></li>
@@ -71,7 +72,10 @@
                 <ul class="space-y-3 text-xs md:text-sm font-semibold text-text-secondary">
                     @foreach($categories as $cat)
                         <li>
-                            <a href="{{ route('products.index', ['kategori' => $cat->slug]) }}" class="hover:text-primary transition-colors flex items-center gap-2">
+                            @php
+                                $divSlug = in_array($cat->slug, ['pju-tenaga-surya', 'pju-pln-tiang']) ? 'pju' : 'me';
+                            @endphp
+                            <a href="{{ route('products.index', ['divisi' => $divSlug, 'kategori' => $cat->slug]) }}" class="hover:text-primary transition-colors flex items-center gap-2">
                                 <i class="bx bx-check-shield text-secondary"></i>
                                 <span>{{ $cat->name }}</span>
                             </a>
