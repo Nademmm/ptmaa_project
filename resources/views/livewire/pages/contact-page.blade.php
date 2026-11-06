@@ -81,15 +81,6 @@
                     Dokumentasi aktivitas proyek lapangan terbaru, portofolio instalasi, serta pembaruan informasi PT. Multi Abadi Aksana.
                 </p>
             </div>
-            <div class="space-y-3 pt-3 border-t border-primary/10">
-                <p class="text-xs sm:text-sm font-black text-text-main">
-                    @pt.multiabadiaksana
-                </p>
-                <div class="w-full h-11 bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white text-[11px] font-black uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 transition-colors leading-none">
-                    <i class="bx bxl-instagram text-base leading-none"></i>
-                    <span>Buka Instagram</span>
-                </div>
-            </div>
         </a>
 
         <!-- Office & Workshop Location Card -->

@@ -52,6 +52,6 @@
 
 .navbar-float-transition {
     transition-property: max-width, width, padding, margin, border-radius, background-color, border-color, box-shadow, transform, backdrop-filter;
-    transition-duration: 900ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 420ms;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
