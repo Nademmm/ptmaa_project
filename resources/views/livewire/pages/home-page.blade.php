@@ -76,20 +76,20 @@
                                 x-text="slide.desc"
                                 class="text-xs sm:text-sm md:text-lg text-white/90 font-medium max-w-2xl leading-relaxed line-clamp-3 md:line-clamp-none"
                             ></p>
-                            <div class="pt-2 flex flex-wrap gap-3">
+                            <div class="pt-2 flex flex-wrap items-center gap-3">
                                 <a
                                     href="{{ route('products.index') }}"
-                                    class="px-5 md:px-7 py-3 md:py-3.5 bg-white text-primary rounded-xl md:rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest hover:bg-secondary hover:text-white transition-all shadow-xl"
+                                    class="inline-flex items-center justify-center px-6 md:px-7 h-11 sm:h-12 rounded-xl md:rounded-2xl bg-white text-primary text-[11px] md:text-xs font-black uppercase tracking-wider hover:bg-secondary hover:text-white transition-all shadow-xl leading-none text-center border border-white"
                                 >
-                                    Eksplorasi Katalog
+                                    <span>Eksplorasi Katalog</span>
                                 </a>
                                 <a
                                     href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai pengadaan barang & jasa.') }}"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    class="px-5 md:px-7 py-3 md:py-3.5 bg-primary/60 backdrop-blur-md border border-white/25 text-white rounded-xl md:rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest hover:bg-white hover:text-primary transition-all flex items-center gap-2"
+                                    class="inline-flex items-center justify-center gap-2 px-6 md:px-7 h-11 sm:h-12 rounded-xl md:rounded-2xl bg-primary/60 backdrop-blur-md border border-white/25 text-white text-[11px] md:text-xs font-black uppercase tracking-wider hover:bg-white hover:text-primary transition-all shadow-xl leading-none text-center"
                                 >
-                                    <i class="bx bxl-whatsapp text-base"></i>
+                                    <i class="bx bxl-whatsapp text-lg leading-none"></i>
                                     <span>Konsultasi Proyek</span>
                                 </a>
                             </div>
