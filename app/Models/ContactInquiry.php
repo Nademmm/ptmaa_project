@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\InquiryPipelineStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ContactInquiry extends Model
 {
@@ -25,5 +26,9 @@ class ContactInquiry extends Model
     protected $casts = [
         'pipeline_status' => InquiryPipelineStatus::class,
     ];
-}
 
+    public function pillar(): BelongsTo
+    {
+        return $this->belongsTo(ServicePillar::class, 'service_pillar_id');
+    }
+}

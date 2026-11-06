@@ -36,11 +36,15 @@
     <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <div class="lg:col-span-8 bg-white p-6 sm:p-10 rounded-3xl border border-primary/10 shadow-lg shadow-primary/5">
             <div class="prose prose-slate md:prose-lg max-w-none text-text-secondary font-medium leading-relaxed">
-                @foreach(explode("\n", $post->content) as $paragraph)
-                    @if(trim($paragraph) !== '')
-                        <p class="mb-5">{{ trim($paragraph) }}</p>
-                    @endif
-                @endforeach
+                @if(str_contains($post->content, '<p>') || str_contains($post->content, '<h') || str_contains($post->content, '<ul') || str_contains($post->content, '<ol'))
+                    {!! $post->content !!}
+                @else
+                    @foreach(explode("\n", $post->content) as $paragraph)
+                        @if(trim($paragraph) !== '')
+                            <p class="mb-5">{{ trim($paragraph) }}</p>
+                        @endif
+                    @endforeach
+                @endif
             </div>
         </div>
 

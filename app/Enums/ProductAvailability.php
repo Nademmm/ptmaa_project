@@ -2,7 +2,10 @@
 
 namespace App\Enums;
 
-enum ProductAvailability: string
+use Filament\Support\Contracts\HasColor;
+use Filament\Support\Contracts\HasLabel;
+
+enum ProductAvailability: string implements HasLabel, HasColor
 {
     case TERSEDIA = 'tersedia';
     case PRE_ORDER = 'pre_order';
@@ -16,5 +19,18 @@ enum ProductAvailability: string
             self::CUSTOM => 'Custom Fabrikasi',
         };
     }
-}
 
+    public function getLabel(): ?string
+    {
+        return $this->label();
+    }
+
+    public function getColor(): string | array | null
+    {
+        return match ($this) {
+            self::TERSEDIA => 'success',
+            self::PRE_ORDER => 'warning',
+            self::CUSTOM => 'info',
+        };
+    }
+}

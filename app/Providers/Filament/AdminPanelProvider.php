@@ -5,6 +5,8 @@ namespace App\Providers\Filament;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\NavigationGroup;
+use Filament\Navigation\NavigationItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -27,9 +29,32 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->profile()
             ->brandName('PT. Multi Abadi Aksana')
+            ->brandLogo(fn (): string => asset('images/logo-pt-maa.png'))
+            ->brandLogoHeight('2.25rem')
+            ->favicon(fn (): string => asset('images/logo-pt-maa.png'))
+            ->sidebarCollapsibleOnDesktop()
             ->colors([
-                'primary' => Color::Blue,
+                'primary' => Color::Indigo,
+                'gray' => Color::Slate,
+            ])
+            ->navigationGroups([
+                NavigationGroup::make()
+                    ->label('Katalog & Divisi Bisnis'),
+                NavigationGroup::make()
+                    ->label('Portofolio & Publikasi'),
+                NavigationGroup::make()
+                    ->label('CRM & Interaksi Klien'),
+                NavigationGroup::make()
+                    ->label('Pengaturan & Administrasi'),
+            ])
+            ->navigationItems([
+                NavigationItem::make('Lihat Website Publik')
+                    ->url('/', shouldOpenInNewTab: true)
+                    ->icon('heroicon-o-globe-alt')
+                    ->group('Pengaturan & Administrasi')
+                    ->sort(99),
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
@@ -56,4 +81,3 @@ class AdminPanelProvider extends PanelProvider
             ]);
     }
 }
-

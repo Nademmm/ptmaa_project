@@ -2,7 +2,10 @@
 
 namespace App\Enums;
 
-enum InquiryPipelineStatus: string
+use Filament\Support\Contracts\HasColor;
+use Filament\Support\Contracts\HasLabel;
+
+enum InquiryPipelineStatus: string implements HasLabel, HasColor
 {
     case KOMUNIKASI = 'komunikasi';
     case SURVEI = 'survei';
@@ -13,12 +16,17 @@ enum InquiryPipelineStatus: string
     public function label(): string
     {
         return match ($this) {
-            self::KOMUNIKASI => '01. Komunikasi',
-            self::SURVEI => '02. Survei',
-            self::NEGOSIASI => '03. Negosiasi',
-            self::DEAL => '04. Deal',
-            self::BATAL => 'Batal / Ditolak',
+            self::KOMUNIKASI => '01. Komunikasi Awal',
+            self::SURVEI => '02. Survei Lapangan',
+            self::NEGOSIASI => '03. Negosiasi Penawaran',
+            self::DEAL => '04. Deal / Kontrak',
+            self::BATAL => 'Batal / Ditunda',
         };
+    }
+
+    public function getLabel(): ?string
+    {
+        return $this->label();
     }
 
     public function color(): string
@@ -31,5 +39,9 @@ enum InquiryPipelineStatus: string
             self::BATAL => 'danger',
         };
     }
-}
 
+    public function getColor(): string | array | null
+    {
+        return $this->color();
+    }
+}
