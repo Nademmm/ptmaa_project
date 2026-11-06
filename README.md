@@ -49,6 +49,7 @@ Untuk mengakomodasi karakteristik pengadaan yang berbeda antara infrastruktur ja
 
 ### 7. Backoffice CMS Lengkap (Filament PHP v3)
 * Manajemen Produk, Kategori, Divisi Layanan, Portofolio Galeri, Artikel Blog, Formulir Penawaran Masuk (Mini CRM), dan Pengaturan Identitas Perusahaan melalui panel admin `/admin`.
+* **Catatan Regulasi Konten:** Seluruh berkas/fitur unduh maupun unggah Company Profile berbentuk file PDF ditiadakan dari sistem (baik pada portal publik maupun panel admin). Identitas, portofolio, dan spesifikasi perusahaan disajikan langsung secara digital melalui antarmuka web.
 
 ---
 
