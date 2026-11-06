@@ -19,22 +19,18 @@
         }
     }"
     @scroll.window.passive="scrolled = (window.scrollY > 25)"
-    :class="[
-        scrolled ? 'pt-3 sm:pt-4' : 'pt-0',
-        ready ? 'navbar-float-transition' : 'transition-none'
-    ]"
-    class="fixed top-0 left-0 right-0 z-50 pointer-events-none pt-0 transition-none"
+    class="fixed top-0 left-0 right-0 z-50 pointer-events-none"
 >
     <nav
         :class="[
             scrolled
-                ? 'max-w-[1220px] mx-3.5 sm:mx-6 lg:mx-auto rounded-[36px] bg-white/95 backdrop-blur-xl shadow-2xl shadow-primary/15 border border-primary/15 px-4 sm:px-7 py-2.5'
-                : 'max-w-full mx-0 rounded-[0px] bg-white border-b border-primary/10 shadow-none px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4',
+                ? 'w-[calc(100%-1.75rem)] sm:w-[calc(100%-3rem)] max-w-[1000px] rounded-[36px] bg-white/95 backdrop-blur-xl shadow-2xl shadow-primary/15 border border-primary/15 px-4 sm:px-6 py-2.5 mt-2.5 sm:mt-3.5'
+                : 'w-full max-w-full rounded-[0px] bg-white border-b border-primary/10 shadow-none px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4 mt-0',
             ready ? 'navbar-float-transition' : 'transition-none'
         ]"
-        class="pointer-events-auto w-full max-w-full mx-0 rounded-[0px] bg-white border-b border-primary/10 shadow-none px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4 transition-none"
+        class="pointer-events-auto mx-auto w-full max-w-full rounded-[0px] bg-white border-b border-primary/10 shadow-none px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4 mt-0 transition-none"
     >
-        <div class="max-w-7xl mx-auto flex items-center justify-between gap-3 sm:gap-4">
+        <div class="w-full flex items-center justify-between gap-3 sm:gap-4">
             <!-- Brand Logo -->
             <a href="{{ route('home') }}" class="flex items-center gap-2.5 sm:gap-3 shrink-0 pl-1 sm:pl-0">
                 <img
@@ -215,7 +211,7 @@
     </nav>
 
     <!-- Mobile Overlays Container (Fixed Margin, Zero Resizing on Scroll) -->
-    <div class="px-3.5 sm:px-6 max-w-7xl mx-auto w-full">
+    <div class="w-[calc(100%-1.75rem)] sm:w-[calc(100%-3rem)] max-w-[1000px] mx-auto">
         <!-- Mobile Search Overlay -->
         <div
             x-cloak
