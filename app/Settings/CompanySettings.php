@@ -30,9 +30,6 @@ class CompanySettings extends Settings
     public int $units_installed_or_supplied;
     public int $partner_clients;
 
-    // Files
-    public ?string $company_profile_pdf_path;
-
     public static function group(): string
     {
         return 'company';

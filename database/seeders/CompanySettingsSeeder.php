@@ -36,8 +36,9 @@ class CompanySettingsSeeder extends Seeder
             'projects_completed' => 120,
             'units_installed_or_supplied' => 1500,
             'partner_clients' => 45,
-            'company_profile_pdf_path' => 'files/ComPro_MULTI_ABADI_AKSANA.pdf',
         ];
+
+        DB::table('settings')->where('group', 'company')->where('name', 'company_profile_pdf_path')->delete();
 
         foreach ($defaults as $name => $value) {
             DB::table('settings')->updateOrInsert(

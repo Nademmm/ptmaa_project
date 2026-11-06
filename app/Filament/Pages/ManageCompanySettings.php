@@ -3,7 +3,6 @@
 namespace App\Filament\Pages;
 
 use App\Settings\CompanySettings;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Section;
@@ -118,15 +117,6 @@ class ManageCompanySettings extends SettingsPage
                                     ->required()
                                     ->label('Mitra Klien'),
                             ]),
-                    ]),
-
-                Section::make('Dokumen Company Profile (PDF)')
-                    ->description('Unggah berkas PDF Company Profile resmi PT. Multi Abadi Aksana.')
-                    ->schema([
-                        FileUpload::make('company_profile_pdf_path')
-                            ->acceptedFileTypes(['application/pdf'])
-                            ->directory('files')
-                            ->label('Berkas PDF Company Profile'),
                     ]),
             ]);
     }
