@@ -67,8 +67,8 @@
 }
 
 .nav-floating {
-    width: calc(100% - 4.5rem) !important;
-    max-width: 920px !important;
+    width: calc(100% - 2.5rem) !important;
+    max-width: 1000px !important;
     border-radius: 36px !important;
     margin-top: 0.625rem !important;
     margin-left: auto !important;
@@ -82,20 +82,20 @@
 
 @media (min-width: 640px) {
     .nav-floating {
-        width: calc(100% - 5.5rem) !important;
+        width: calc(100% - 3.5rem) !important;
         margin-top: 0.875rem !important;
     }
 }
 
 .nav-overlay-container {
-    width: calc(100% - 4.5rem) !important;
-    max-width: 920px !important;
+    width: calc(100% - 2.5rem) !important;
+    max-width: 1000px !important;
     margin-left: auto !important;
     margin-right: auto !important;
 }
 
 @media (min-width: 640px) {
     .nav-overlay-container {
-        width: calc(100% - 5.5rem) !important;
+        width: calc(100% - 3.5rem) !important;
     }
 }
