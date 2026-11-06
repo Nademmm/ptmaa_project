@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ?? 'PT. Multi Abadi Aksana | General Trading, Supplier & Contractor' }}</title>
-    <meta name="description" content="PT. Multi Abadi Aksana: Solusi Pengadaan Barang & Jasa Konstruksi, PJU Tenaga Surya & PLN, Mechanical Electrical, Interior Exterior, serta Sparepart & Equipment di Sidoarjo, Jawa Timur.">
-    <meta name="keywords" content="PT Multi Abadi Aksana, PJU Tenaga Surya, PJU PLN, Kontraktor Sidoarjo, Mechanical Electrical, Impeller Industri, Interior Exterior, Sparepart Alat Berat">
+    <meta name="description" content="PT. Multi Abadi Aksana: Solusi Pengadaan Barang & Jasa Konstruksi, Penerangan Jalan Umum (Tenaga Surya & PLN), serta Rekayasa Mechanical & Electrical Industri di Sidoarjo, Jawa Timur.">
+    <meta name="keywords" content="PT Multi Abadi Aksana, Penerangan Jalan Umum, PJU Tenaga Surya, PJU PLN, Kontraktor Sidoarjo, Mechanical Electrical, Impeller Industri, Komponen Mekanikal">
     <meta name="author" content="PT. Multi Abadi Aksana">
     <meta name="robots" content="index, follow">
     <link rel="icon" type="image/jpeg" href="/assets/logo.jpg">
@@ -19,7 +19,7 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ $title ?? 'PT. Multi Abadi Aksana | General Trading, Supplier & Contractor' }}">
-    <meta property="og:description" content="Mitra strategis pengadaan barang, infrastruktur PJU, Mechanical Electrical, Interior Exterior, dan Sparepart Industri.">
+    <meta property="og:description" content="Mitra strategis pengadaan barang, konstruksi Penerangan Jalan Umum, dan sistem Mechanical & Electrical Industri.">
     <meta property="og:image" content="/assets/logo.jpg">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
