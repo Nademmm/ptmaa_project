@@ -20,19 +20,19 @@
     }"
     @scroll.window.passive="scrolled = (window.scrollY > 25)"
     :class="[
-        scrolled ? 'pt-3 sm:pt-4 px-3.5 sm:px-6 lg:px-10' : 'pt-0 px-0',
+        scrolled ? 'pt-3 sm:pt-4' : 'pt-0',
         ready ? 'navbar-float-transition' : 'transition-none'
     ]"
-    class="fixed top-0 left-0 right-0 z-50 pointer-events-none pt-0 px-0 transition-none"
+    class="fixed top-0 left-0 right-0 z-50 pointer-events-none pt-0 transition-none"
 >
     <nav
         :class="[
             scrolled
-                ? 'max-w-[1220px] rounded-[36px] bg-white/95 backdrop-blur-xl shadow-2xl shadow-primary/15 border border-primary/15 px-4 sm:px-7 py-2.5'
-                : 'max-w-[1600px] rounded-[0px] bg-white border-b border-primary/10 shadow-none px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4',
+                ? 'max-w-[1220px] mx-3.5 sm:mx-6 lg:mx-auto rounded-[36px] bg-white/95 backdrop-blur-xl shadow-2xl shadow-primary/15 border border-primary/15 px-4 sm:px-7 py-2.5'
+                : 'max-w-full mx-0 rounded-[0px] bg-white border-b border-primary/10 shadow-none px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4',
             ready ? 'navbar-float-transition' : 'transition-none'
         ]"
-        class="pointer-events-auto mx-auto w-full max-w-[1600px] rounded-[0px] bg-white border-b border-primary/10 shadow-none px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4 transition-none"
+        class="pointer-events-auto w-full max-w-full mx-0 rounded-[0px] bg-white border-b border-primary/10 shadow-none px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4 transition-none"
     >
         <div class="max-w-7xl mx-auto flex items-center justify-between gap-3 sm:gap-4">
             <!-- Brand Logo -->
@@ -214,101 +214,102 @@
         </div>
     </nav>
 
-    <!-- Mobile Search Overlay -->
-    <div
-        x-cloak
-        x-show="isSearchOpen"
-        x-transition:enter="transition ease-out duration-300"
-        x-transition:enter-start="opacity-0 -translate-y-2"
-        x-transition:enter-end="opacity-100 translate-y-0"
-        x-transition:leave="transition ease-in duration-200"
-        x-transition:leave-start="opacity-100 translate-y-0"
-        x-transition:leave-end="opacity-0 -translate-y-2"
-        style="display: none;"
-        :class="scrolled ? 'mx-0' : 'mx-3.5 sm:mx-6'"
-        class="pointer-events-auto md:hidden mt-2.5 bg-white/95 backdrop-blur-xl rounded-[28px] p-3.5 shadow-2xl border border-primary/15 transition-all duration-300"
-    >
-        <form @submit.prevent="submitSearch(); isSearchOpen = false;" class="relative flex items-center">
-            <label for="mobile-product-search" class="sr-only">Cari Produk</label>
-            <input
-                id="mobile-product-search"
-                type="text"
-                x-model="searchQuery"
-                placeholder="Cari Penerangan Jalan Umum, Mechanical & Electrical..."
-                class="w-full bg-[#F8FAFC] border border-primary/15 rounded-2xl py-2.5 pl-4 pr-11 text-sm font-medium focus:outline-none focus:bg-white"
-            />
-            <button
-                type="submit"
-                aria-label="Jalankan pencarian"
-                class="absolute right-1.5 w-8 h-8 bg-primary text-white rounded-xl flex items-center justify-center"
-            >
-                <i class="bx bx-search text-base"></i>
-            </button>
-        </form>
-    </div>
+    <!-- Mobile Overlays Container (Fixed Margin, Zero Resizing on Scroll) -->
+    <div class="px-3.5 sm:px-6 max-w-7xl mx-auto w-full">
+        <!-- Mobile Search Overlay -->
+        <div
+            x-cloak
+            x-show="isSearchOpen"
+            x-transition:enter="transition ease-out duration-250"
+            x-transition:enter-start="opacity-0 -translate-y-2"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-150"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-2"
+            style="display: none;"
+            class="pointer-events-auto md:hidden mt-2.5 bg-white/95 backdrop-blur-xl rounded-[28px] p-3.5 sm:p-4 shadow-2xl border border-primary/15"
+        >
+            <form @submit.prevent="submitSearch(); isSearchOpen = false;" class="relative flex items-center w-full">
+                <label for="mobile-product-search" class="sr-only">Cari Produk</label>
+                <input
+                    id="mobile-product-search"
+                    type="text"
+                    x-model="searchQuery"
+                    placeholder="Cari Penerangan Jalan Umum, Mechanical & Electrical..."
+                    class="w-full bg-[#F8FAFC] border-2 border-primary/15 rounded-[22px] py-3.5 sm:py-4 pl-4 sm:pl-5 pr-14 text-sm sm:text-base font-semibold text-text-main placeholder:text-xs sm:placeholder:text-sm placeholder:text-text-secondary/70 focus:outline-none focus:border-primary/40 focus:bg-white transition-colors"
+                />
+                <button
+                    type="submit"
+                    aria-label="Jalankan pencarian"
+                    class="absolute right-2 w-10 h-10 sm:w-11 sm:h-11 bg-primary text-white rounded-[18px] flex items-center justify-center hover:bg-primary-dark transition-colors shadow-md shadow-primary/20"
+                >
+                    <i class="bx bx-search text-lg sm:text-xl"></i>
+                </button>
+            </form>
+        </div>
 
-    <!-- Mobile Menu Overlay -->
-    <div
-        x-cloak
-        x-show="isOpen"
-        x-transition:enter="transition ease-out duration-300"
-        x-transition:enter-start="opacity-0 -translate-y-2"
-        x-transition:enter-end="opacity-100 translate-y-0"
-        x-transition:leave="transition ease-in duration-200"
-        x-transition:leave-start="opacity-100 translate-y-0"
-        x-transition:leave-end="opacity-0 -translate-y-2"
-        style="display: none;"
-        :class="scrolled ? 'mx-0' : 'mx-3.5 sm:mx-6'"
-        class="pointer-events-auto lg:hidden mt-2.5 bg-white/95 backdrop-blur-xl rounded-[28px] p-5 shadow-2xl border border-primary/15 transition-all duration-300"
-    >
-        <div class="flex flex-col gap-1.5">
-            @foreach($navLinks as $link)
-                @php $isActive = request()->routeIs($link['pattern']); @endphp
-                @if($link['name'] === 'Produk')
-                    <div class="space-y-1.5 bg-primary/5 rounded-2xl p-2.5 border border-primary/10">
-                        <p class="px-2.5 pt-1 text-[10px] font-black uppercase tracking-wider text-text-secondary">
-                            Katalog Produk
-                        </p>
-                        <div class="flex flex-col gap-1.5">
-                            <a
-                                href="{{ route('products.index', ['divisi' => 'pju']) }}"
-                                @click="isOpen = false"
-                                class="p-3 rounded-xl bg-white hover:bg-primary hover:text-white transition-colors flex items-center gap-3 text-xs font-black uppercase tracking-wider {{ request('divisi', 'pju') === 'pju' && request()->routeIs('products.*') ? 'bg-primary text-white' : 'text-text-main' }} shadow-sm"
-                            >
-                                <i class="bx bx-bulb text-lg text-secondary"></i>
-                                <span>Penerangan Jalan Umum</span>
-                            </a>
-                            <a
-                                href="{{ route('products.index', ['divisi' => 'me']) }}"
-                                @click="isOpen = false"
-                                class="p-3 rounded-xl bg-white hover:bg-primary hover:text-white transition-colors flex items-center gap-3 text-xs font-black uppercase tracking-wider {{ request('divisi') === 'me' && request()->routeIs('products.*') ? 'bg-primary text-white' : 'text-text-main' }} shadow-sm"
-                            >
-                                <i class="bx bx-cog text-lg text-secondary"></i>
-                                <span>Mechanical & Electrical</span>
-                            </a>
+        <!-- Mobile Menu Overlay -->
+        <div
+            x-cloak
+            x-show="isOpen"
+            x-transition:enter="transition ease-out duration-250"
+            x-transition:enter-start="opacity-0 -translate-y-2"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-150"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-2"
+            style="display: none;"
+            class="pointer-events-auto lg:hidden mt-2.5 bg-white/95 backdrop-blur-xl rounded-[28px] p-5 shadow-2xl border border-primary/15"
+        >
+            <div class="flex flex-col gap-1.5">
+                @foreach($navLinks as $link)
+                    @php $isActive = request()->routeIs($link['pattern']); @endphp
+                    @if($link['name'] === 'Produk')
+                        <div class="space-y-1.5 bg-primary/5 rounded-2xl p-2.5 border border-primary/10">
+                            <p class="px-2.5 pt-1 text-[10px] font-black uppercase tracking-wider text-text-secondary">
+                                Katalog Produk
+                            </p>
+                            <div class="flex flex-col gap-1.5">
+                                <a
+                                    href="{{ route('products.index', ['divisi' => 'pju']) }}"
+                                    @click="isOpen = false"
+                                    class="p-3 rounded-xl bg-white hover:bg-primary hover:text-white transition-colors flex items-center gap-3 text-xs font-black uppercase tracking-wider {{ request('divisi', 'pju') === 'pju' && request()->routeIs('products.*') ? 'bg-primary text-white' : 'text-text-main' }} shadow-sm"
+                                >
+                                    <i class="bx bx-bulb text-lg text-secondary"></i>
+                                    <span>Penerangan Jalan Umum</span>
+                                </a>
+                                <a
+                                    href="{{ route('products.index', ['divisi' => 'me']) }}"
+                                    @click="isOpen = false"
+                                    class="p-3 rounded-xl bg-white hover:bg-primary hover:text-white transition-colors flex items-center gap-3 text-xs font-black uppercase tracking-wider {{ request('divisi') === 'me' && request()->routeIs('products.*') ? 'bg-primary text-white' : 'text-text-main' }} shadow-sm"
+                                >
+                                    <i class="bx bx-cog text-lg text-secondary"></i>
+                                    <span>Mechanical & Electrical</span>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                @else
-                    <a
-                        href="{{ route($link['route']) }}"
-                        @click="isOpen = false"
-                        class="px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-between {{ $isActive ? 'bg-primary text-white shadow-md' : 'hover:bg-primary/5 text-text-main' }}"
-                    >
-                        <span>{{ $link['name'] }}</span>
-                        <i class="bx bx-chevron-right text-base"></i>
-                    </a>
-                @endif
-            @endforeach
+                    @else
+                        <a
+                            href="{{ route($link['route']) }}"
+                            @click="isOpen = false"
+                            class="px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-between {{ $isActive ? 'bg-primary text-white shadow-md' : 'hover:bg-primary/5 text-text-main' }}"
+                        >
+                            <span>{{ $link['name'] }}</span>
+                            <i class="bx bx-chevron-right text-base"></i>
+                        </a>
+                    @endif
+                @endforeach
 
-            <a
-                href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai pengadaan barang & jasa.') }}"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="mt-2 h-11 bg-primary text-white text-center rounded-2xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md shadow-primary/20 leading-none"
-            >
-                <i class="bx bxl-whatsapp text-lg leading-none"></i>
-                <span>Hubungi Kami</span>
-            </a>
+                <a
+                    href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai pengadaan barang & jasa.') }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mt-2 h-11 bg-primary text-white text-center rounded-2xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md shadow-primary/20 leading-none"
+                >
+                    <i class="bx bxl-whatsapp text-lg leading-none"></i>
+                    <span>Hubungi Kami</span>
+                </a>
+            </div>
         </div>
     </div>
 </header>
