@@ -236,7 +236,7 @@
                                 href="{{ $pillarRoute }}"
                                 class="inline-flex items-center justify-center gap-2 px-5 h-10 rounded-xl bg-primary text-white text-[11px] font-black uppercase tracking-wider hover:bg-primary-dark transition-all leading-none text-center shadow-md shadow-primary/15"
                             >
-                                <span>Lihat Katalog {{ $pillar->name }}</span>
+                                <span>Lihat Katalog</span>
                                 <i class="bx bx-right-arrow-alt text-base leading-none"></i>
                             </a>
                         </div>
