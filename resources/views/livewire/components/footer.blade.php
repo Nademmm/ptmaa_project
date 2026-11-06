@@ -23,7 +23,7 @@
                     </div>
                 </a>
                 <p class="text-xs md:text-sm text-text-secondary leading-relaxed font-medium">
-                    Perusahaan General Trading, Supplier, dan Kontraktor terintegrasi. Mitra terpercaya untuk pengadaan PJU Tenaga Surya & PLN, Mechanical Electrical, Interior Exterior, serta Sparepart Industri dengan standar K3 terbaik.
+                    Perusahaan General Trading, Supplier, dan Kontraktor terintegrasi. Mitra terpercaya untuk pengadaan Penerangan Jalan Umum (Solar Cell & PLN), Mechanical & Electrical, Interior Exterior, serta Sparepart Industri dengan standar K3 terbaik.
                 </p>
                 <div class="flex gap-2.5">
                     <a
@@ -57,8 +57,8 @@
                 <h4 class="text-xs font-black uppercase tracking-widest text-primary mb-5">Navigasi Utama</h4>
                 <ul class="space-y-3 text-xs md:text-sm font-semibold text-text-secondary">
                     <li><a href="{{ route('home') }}" class="hover:text-primary transition-colors flex items-center gap-2"><i class="bx bx-chevron-right text-secondary"></i> Beranda</a></li>
-                    <li><a href="{{ route('products.index', ['divisi' => 'pju']) }}" class="hover:text-primary transition-colors flex items-center gap-2"><i class="bx bx-chevron-right text-secondary"></i> Katalog PJU</a></li>
-                    <li><a href="{{ route('products.index', ['divisi' => 'me']) }}" class="hover:text-primary transition-colors flex items-center gap-2"><i class="bx bx-chevron-right text-secondary"></i> Katalog ME</a></li>
+                    <li><a href="{{ route('products.index', ['divisi' => 'pju']) }}" class="hover:text-primary transition-colors flex items-center gap-2"><i class="bx bx-chevron-right text-secondary"></i> Penerangan Jalan Umum</a></li>
+                    <li><a href="{{ route('products.index', ['divisi' => 'me']) }}" class="hover:text-primary transition-colors flex items-center gap-2"><i class="bx bx-chevron-right text-secondary"></i> Mechanical & Electrical</a></li>
                     <li><a href="{{ route('gallery.index') }}" class="hover:text-primary transition-colors flex items-center gap-2"><i class="bx bx-chevron-right text-secondary"></i> Projek On Duty</a></li>
                     <li><a href="{{ route('about') }}" class="hover:text-primary transition-colors flex items-center gap-2"><i class="bx bx-chevron-right text-secondary"></i> Tentang & 4 Pilar</a></li>
                     <li><a href="{{ route('blog.index') }}" class="hover:text-primary transition-colors flex items-center gap-2"><i class="bx bx-chevron-right text-secondary"></i> Wawasan & Artikel</a></li>

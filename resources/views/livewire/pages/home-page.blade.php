@@ -364,7 +364,7 @@
                     Produk & <span class="text-gradient">Material Unggulan.</span>
                 </h2>
                 <p class="text-xs md:text-sm text-text-secondary font-medium">
-                    Etalase produk PJU Tenaga Surya, PJU PLN, Fabrikasi Impeller, Interior-Exterior, serta Sparepart Equipment PT. Multi Abadi Aksana.
+                    Etalase spesifikasi pengadaan Penerangan Jalan Umum Tenaga Surya, Lampu Jalan PLN, Fabrikasi Impeller, serta unit Mechanical & Electrical PT. Multi Abadi Aksana.
                 </p>
             </div>
             <div class="flex flex-wrap items-center gap-2.5 shrink-0">
@@ -373,14 +373,14 @@
                     class="inline-flex items-center justify-center gap-2 px-5 h-11 md:h-12 rounded-xl md:rounded-2xl bg-primary text-white font-black text-xs hover:bg-primary-dark transition-all uppercase tracking-wider shadow-md leading-none text-center"
                 >
                     <i class="bx bx-bulb text-base leading-none"></i>
-                    <span>Katalog PJU</span>
+                    <span>Penerangan Jalan Umum</span>
                 </a>
                 <a
                     href="{{ route('products.index', ['divisi' => 'me']) }}"
                     class="inline-flex items-center justify-center gap-2 px-5 h-11 md:h-12 rounded-xl md:rounded-2xl bg-secondary text-white font-black text-xs hover:bg-primary transition-all uppercase tracking-wider shadow-md leading-none text-center"
                 >
                     <i class="bx bx-cog text-base leading-none"></i>
-                    <span>Katalog ME</span>
+                    <span>Mechanical & Electrical</span>
                 </a>
             </div>
         </div>

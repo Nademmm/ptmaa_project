@@ -57,7 +57,7 @@ class Product extends Model
 
     public function getDivisionNameAttribute(): string
     {
-        return $this->division === 'pju' ? 'Divisi PJU' : 'Divisi ME';
+        return $this->division === 'pju' ? 'Penerangan Jalan Umum' : 'Mechanical & Electrical';
     }
 }
 

@@ -83,43 +83,33 @@
                                 x-transition:leave-start="opacity-100 translate-y-0"
                                 x-transition:leave-end="opacity-0 translate-y-1"
                                 style="display: none;"
-                                class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-white rounded-2xl p-2 shadow-2xl border border-primary/10 z-50 pointer-events-auto"
+                                class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-white rounded-2xl p-2 shadow-2xl border border-primary/10 z-50 pointer-events-auto"
                             >
                                 <a
                                     href="{{ route('products.index', ['divisi' => 'pju']) }}"
-                                    class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-primary/5 transition-colors group"
+                                    class="flex items-center gap-3 p-3 rounded-xl hover:bg-primary/5 transition-colors group"
                                 >
-                                    <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white flex items-center justify-center text-base transition-colors shrink-0">
+                                    <div class="w-9 h-9 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white flex items-center justify-center text-lg transition-colors shrink-0">
                                         <i class="bx bx-bulb"></i>
                                     </div>
                                     <div>
-                                        <p class="text-xs font-black uppercase tracking-wider text-text-main group-hover:text-primary leading-tight">Divisi PJU</p>
-                                        <p class="text-[10px] text-text-secondary font-medium leading-tight mt-0.5">Solar Cell, PLN & Tiang</p>
+                                        <p class="text-xs font-black uppercase tracking-wider text-text-main group-hover:text-primary leading-tight">Penerangan Jalan Umum</p>
+                                        <p class="text-[10px] text-text-secondary font-medium leading-tight mt-0.5">Solar Cell, Lampu PLN & Tiang</p>
                                     </div>
                                 </a>
 
                                 <a
                                     href="{{ route('products.index', ['divisi' => 'me']) }}"
-                                    class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-primary/5 transition-colors group"
+                                    class="flex items-center gap-3 p-3 rounded-xl hover:bg-primary/5 transition-colors group"
                                 >
-                                    <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white flex items-center justify-center text-base transition-colors shrink-0">
+                                    <div class="w-9 h-9 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white flex items-center justify-center text-lg transition-colors shrink-0">
                                         <i class="bx bx-cog"></i>
                                     </div>
                                     <div>
-                                        <p class="text-xs font-black uppercase tracking-wider text-text-main group-hover:text-primary leading-tight">Divisi ME</p>
-                                        <p class="text-[10px] text-text-secondary font-medium leading-tight mt-0.5">Impeller, Blower & Panel</p>
+                                        <p class="text-xs font-black uppercase tracking-wider text-text-main group-hover:text-primary leading-tight">Mechanical & Electrical</p>
+                                        <p class="text-[10px] text-text-secondary font-medium leading-tight mt-0.5">Panel, Genset, Impeller & Sparepart</p>
                                     </div>
                                 </a>
-
-                                <div class="pt-1.5 mt-1 border-t border-primary/10">
-                                    <a
-                                        href="{{ route('products.index') }}"
-                                        class="flex items-center justify-between px-3 py-2 rounded-lg text-[10px] font-black uppercase tracking-wider text-secondary hover:text-primary hover:bg-primary/5 transition-colors"
-                                    >
-                                        <span>Pilih Divisi Produk</span>
-                                        <i class="bx bx-grid-alt text-xs"></i>
-                                    </a>
-                                </div>
                             </div>
                         </div>
                     @else
@@ -229,31 +219,26 @@
             @foreach($navLinks as $link)
                 @php $isActive = request()->routeIs($link['pattern']); @endphp
                 @if($link['name'] === 'Produk')
-                    <div class="space-y-1 bg-primary/5 rounded-2xl p-2.5 border border-primary/10">
-                        <a
-                            href="{{ route('products.index') }}"
-                            @click="isOpen = false"
-                            class="px-2.5 py-1 text-xs font-black uppercase tracking-wider text-primary flex items-center justify-between"
-                        >
-                            <span>Katalog Produk</span>
-                            <span class="text-[10px] font-bold text-secondary">Pilih Divisi</span>
-                        </a>
-                        <div class="grid grid-cols-2 gap-2 pt-1">
+                    <div class="space-y-1.5 bg-primary/5 rounded-2xl p-2.5 border border-primary/10">
+                        <p class="px-2.5 pt-1 text-[10px] font-black uppercase tracking-wider text-text-secondary">
+                            Katalog Berdasarkan Divisi:
+                        </p>
+                        <div class="flex flex-col gap-1.5">
                             <a
                                 href="{{ route('products.index', ['divisi' => 'pju']) }}"
                                 @click="isOpen = false"
-                                class="p-2.5 rounded-xl bg-white hover:bg-primary hover:text-white transition-colors flex items-center gap-2 text-[11px] font-black uppercase tracking-wider {{ request('divisi') === 'pju' ? 'bg-primary text-white' : 'text-text-main' }} shadow-sm"
+                                class="p-3 rounded-xl bg-white hover:bg-primary hover:text-white transition-colors flex items-center gap-3 text-xs font-black uppercase tracking-wider {{ request('divisi') === 'pju' ? 'bg-primary text-white' : 'text-text-main' }} shadow-sm"
                             >
-                                <i class="bx bx-bulb text-base text-secondary"></i>
-                                <span>Divisi PJU</span>
+                                <i class="bx bx-bulb text-lg text-secondary"></i>
+                                <span>Penerangan Jalan Umum</span>
                             </a>
                             <a
                                 href="{{ route('products.index', ['divisi' => 'me']) }}"
                                 @click="isOpen = false"
-                                class="p-2.5 rounded-xl bg-white hover:bg-primary hover:text-white transition-colors flex items-center gap-2 text-[11px] font-black uppercase tracking-wider {{ request('divisi') === 'me' ? 'bg-primary text-white' : 'text-text-main' }} shadow-sm"
+                                class="p-3 rounded-xl bg-white hover:bg-primary hover:text-white transition-colors flex items-center gap-3 text-xs font-black uppercase tracking-wider {{ request('divisi') === 'me' ? 'bg-primary text-white' : 'text-text-main' }} shadow-sm"
                             >
-                                <i class="bx bx-cog text-base text-secondary"></i>
-                                <span>Divisi ME</span>
+                                <i class="bx bx-cog text-lg text-secondary"></i>
+                                <span>Mechanical & Electrical</span>
                             </a>
                         </div>
                     </div>
