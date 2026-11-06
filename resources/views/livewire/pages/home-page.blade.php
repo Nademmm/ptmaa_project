@@ -66,15 +66,15 @@
                         height="685"
                         class="w-full h-full object-cover"
                     />
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0F1048] via-[#1B1B6C]/60 to-transparent flex flex-col justify-end p-6 sm:p-10 md:p-16 text-white">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0F1048] via-[#1B1B6C]/60 to-transparent flex flex-col justify-end px-16 sm:px-20 md:px-24 lg:px-28 py-6 sm:py-10 md:py-14 text-white">
                         <div class="max-w-3xl space-y-3 md:space-y-4">
                             <h1
                                 x-text="slide.title"
-                                class="text-2xl sm:text-4xl md:text-6xl font-black uppercase tracking-tighter leading-[1.05]"
+                                class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter leading-[1.08]"
                             ></h1>
                             <p
                                 x-text="slide.desc"
-                                class="text-xs sm:text-sm md:text-lg text-white/90 font-medium max-w-2xl leading-relaxed line-clamp-3 md:line-clamp-none"
+                                class="text-xs sm:text-sm md:text-base lg:text-lg text-white/90 font-medium max-w-2xl leading-relaxed line-clamp-3 md:line-clamp-none"
                             ></p>
                             <div class="pt-2 flex flex-wrap items-center gap-3">
                                 <a
@@ -103,7 +103,7 @@
                 type="button"
                 @click="prev(); resetTimer()"
                 aria-label="Slide sebelumnya"
-                class="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-11 h-11 md:w-12 md:h-12 rounded-xl md:rounded-2xl glass flex items-center justify-center text-lg md:text-2xl text-primary hover:bg-primary hover:text-white transition-all z-10 shadow-lg"
+                class="absolute left-3 sm:left-4 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-xl md:rounded-2xl glass flex items-center justify-center text-lg md:text-2xl text-primary hover:bg-primary hover:text-white transition-colors z-10 shadow-lg"
             >
                 <i class="bx bx-chevron-left"></i>
             </button>
@@ -111,7 +111,7 @@
                 type="button"
                 @click="next(); resetTimer()"
                 aria-label="Slide berikutnya"
-                class="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-11 h-11 md:w-12 md:h-12 rounded-xl md:rounded-2xl glass flex items-center justify-center text-lg md:text-2xl text-primary hover:bg-primary hover:text-white transition-all z-10 shadow-lg"
+                class="absolute right-3 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-xl md:rounded-2xl glass flex items-center justify-center text-lg md:text-2xl text-primary hover:bg-primary hover:text-white transition-colors z-10 shadow-lg"
             >
                 <i class="bx bx-chevron-right"></i>
             </button>
