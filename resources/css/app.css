@@ -49,3 +49,9 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
+.navbar-float-transition {
+    transition-property: max-width, width, padding, margin, border-radius, background-color, border-color, box-shadow, transform, backdrop-filter;
+    transition-duration: 900ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}

@@ -131,8 +131,6 @@
         </div>
 
         <div class="mt-10 md:mt-14 pt-6 border-t border-primary/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] md:text-xs font-bold text-text-secondary uppercase tracking-wider">
-            <p>© {{ date('Y') }} PT. Multi Abadi Aksana. Seluruh Hak Cipta Dilindungi.</p>
-            <p class="text-primary/70">Standar Mutu Konstruksi & K3 Terintegrasi</p>
-        </div>
+            <p>© {{ date('Y') }} PT. Multi Abadi Aksana. Seluruh Hak Cipta Dilindungi.</p>        </div>
     </div>
 </footer>

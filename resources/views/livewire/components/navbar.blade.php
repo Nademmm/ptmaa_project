@@ -6,7 +6,7 @@
         ready: false,
         searchQuery: '{{ request('cari', '') }}',
         init() {
-            this.scrolled = (window.scrollY > 30);
+            this.scrolled = (window.scrollY > 25);
             requestAnimationFrame(() => {
                 requestAnimationFrame(() => {
                     this.ready = true;
@@ -18,37 +18,37 @@
             window.location.href = q ? '{{ route('products.index') }}?cari=' + encodeURIComponent(q) : '{{ route('products.index') }}';
         }
     }"
-    @scroll.window.passive="scrolled = (window.scrollY > 30)"
+    @scroll.window.passive="scrolled = (window.scrollY > 25)"
     :class="[
-        scrolled ? 'pt-3 sm:pt-4 px-3 sm:px-6 lg:px-10' : 'pt-0 px-0',
-        ready ? 'transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]' : 'transition-none'
+        scrolled ? 'pt-3 sm:pt-4 px-3.5 sm:px-6 lg:px-10' : 'pt-0 px-0',
+        ready ? 'navbar-float-transition' : 'transition-none'
     ]"
     class="fixed top-0 left-0 right-0 z-50 pointer-events-none pt-0 px-0 transition-none"
 >
     <nav
         :class="[
             scrolled
-                ? 'max-w-[1240px] rounded-2xl md:rounded-[32px] bg-white/95 backdrop-blur-xl shadow-2xl shadow-primary/10 border border-primary/15 px-4 sm:px-7 py-2.5'
-                : 'max-w-[1920px] rounded-[0px] bg-white border-b border-primary/10 shadow-none px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4',
-            ready ? 'transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]' : 'transition-none'
+                ? 'max-w-[1220px] rounded-[36px] bg-white/95 backdrop-blur-xl shadow-2xl shadow-primary/15 border border-primary/15 px-4 sm:px-7 py-2.5'
+                : 'max-w-[1600px] rounded-[0px] bg-white border-b border-primary/10 shadow-none px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4',
+            ready ? 'navbar-float-transition' : 'transition-none'
         ]"
-        class="pointer-events-auto mx-auto w-full max-w-[1920px] rounded-[0px] bg-white border-b border-primary/10 shadow-none px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4 transition-none"
+        class="pointer-events-auto mx-auto w-full max-w-[1600px] rounded-[0px] bg-white border-b border-primary/10 shadow-none px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4 transition-none"
     >
-        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-3 sm:gap-4">
             <!-- Brand Logo -->
-            <a href="{{ route('home') }}" class="flex items-center gap-3 shrink-0">
+            <a href="{{ route('home') }}" class="flex items-center gap-2.5 sm:gap-3 shrink-0 pl-1 sm:pl-0">
                 <img
                     src="/assets/logo.jpg"
                     alt="Logo PT. Multi Abadi Aksana"
                     width="120"
                     height="48"
-                    class="h-9 sm:h-10 w-auto object-contain shrink-0"
+                    class="h-8 sm:h-10 w-auto object-contain shrink-0"
                 />
                 <div class="flex flex-col">
-                    <span class="text-sm sm:text-base font-black tracking-tighter text-primary leading-none uppercase">
+                    <span class="text-xs sm:text-base font-black tracking-tighter text-primary leading-none uppercase">
                         MULTI ABADI <span class="text-secondary">AKSANA</span>
                     </span>
-                    <span class="text-[8px] md:text-[9px] font-extrabold tracking-[0.2em] text-text-secondary uppercase mt-0.5">
+                    <span class="text-[8px] md:text-[9px] font-extrabold tracking-[0.18em] text-text-secondary uppercase mt-0.5">
                         General Trading & Contractor
                     </span>
                 </div>
@@ -57,8 +57,8 @@
             <!-- Desktop Navigation Links -->
             <div
                 :class="[
-                    scrolled ? 'bg-primary/[0.04] p-1 rounded-[22px] border border-primary/10' : 'bg-transparent p-0 rounded-[0px] border border-transparent',
-                    ready ? 'transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]' : 'transition-none'
+                    scrolled ? 'bg-primary/[0.04] p-1 rounded-[24px] border border-primary/10' : 'bg-transparent p-0 rounded-[0px] border border-transparent',
+                    ready ? 'navbar-float-transition' : 'transition-none'
                 ]"
                 class="hidden lg:flex items-center gap-1 bg-transparent p-0 rounded-[0px] border border-transparent transition-none"
             >
@@ -85,8 +85,8 @@
                             <a
                                 href="{{ route('products.index') }}"
                                 :class="[
-                                    scrolled ? 'rounded-[18px]' : 'rounded-xl',
-                                    ready ? 'transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]' : 'transition-none'
+                                    scrolled ? 'rounded-[20px]' : 'rounded-xl',
+                                    ready ? 'navbar-float-transition' : 'transition-none'
                                 ]"
                                 class="inline-flex items-center justify-center gap-1.5 h-9 px-4 rounded-xl text-xs font-bold uppercase tracking-wider leading-none text-center {{ $isActive ? 'bg-primary text-white shadow-md shadow-primary/20' : 'text-text-secondary hover:text-primary hover:bg-primary/5' }}"
                             >
@@ -97,10 +97,10 @@
                             <div
                                 x-cloak
                                 x-show="productDropdown"
-                                x-transition:enter="transition ease-out duration-200"
+                                x-transition:enter="transition ease-out duration-250"
                                 x-transition:enter-start="opacity-0 translate-y-1.5"
                                 x-transition:enter-end="opacity-100 translate-y-0"
-                                x-transition:leave="transition ease-in duration-150"
+                                x-transition:leave="transition ease-in duration-200"
                                 x-transition:leave-start="opacity-100 translate-y-0"
                                 x-transition:leave-end="opacity-0 translate-y-1.5"
                                 style="display: none;"
@@ -139,8 +139,8 @@
                         <a
                             href="{{ route($link['route']) }}"
                             :class="[
-                                scrolled ? 'rounded-[18px]' : 'rounded-xl',
-                                ready ? 'transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]' : 'transition-none'
+                                scrolled ? 'rounded-[20px]' : 'rounded-xl',
+                                ready ? 'navbar-float-transition' : 'transition-none'
                             ]"
                             class="inline-flex items-center justify-center h-9 px-4 rounded-xl text-xs font-bold uppercase tracking-wider leading-none text-center {{ $isActive ? 'bg-primary text-white shadow-md shadow-primary/20' : 'text-text-secondary hover:text-primary hover:bg-primary/5' }}"
                         >
@@ -160,8 +160,8 @@
                         x-model="searchQuery"
                         placeholder="Cari PJU, Impeller, Panel..."
                         :class="[
-                            scrolled ? 'rounded-[20px]' : 'rounded-xl',
-                            ready ? 'transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]' : 'transition-none'
+                            scrolled ? 'rounded-[22px]' : 'rounded-xl',
+                            ready ? 'navbar-float-transition' : 'transition-none'
                         ]"
                         class="bg-[#F8FAFC] border border-primary/15 focus:border-primary/40 focus:bg-white rounded-xl py-2 pl-3.5 pr-9 text-xs font-medium w-44 lg:w-52 focus:outline-none"
                     />
@@ -169,8 +169,8 @@
                         type="submit"
                         aria-label="Cari produk"
                         :class="[
-                            scrolled ? 'rounded-[14px]' : 'rounded-lg',
-                            ready ? 'transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]' : 'transition-none'
+                            scrolled ? 'rounded-[16px]' : 'rounded-lg',
+                            ready ? 'navbar-float-transition' : 'transition-none'
                         ]"
                         class="absolute right-1.5 w-6 h-6 rounded-lg bg-primary text-white flex items-center justify-center hover:bg-primary-dark"
                     >
@@ -186,7 +186,11 @@
                     @click="isSearchOpen = !isSearchOpen; if (isSearchOpen) isOpen = false;"
                     aria-label="Buka pencarian produk"
                     :aria-expanded="isSearchOpen"
-                    class="w-10 h-10 rounded-xl bg-primary/5 flex items-center justify-center text-lg text-primary focus:outline-none"
+                    :class="[
+                        scrolled ? 'rounded-[20px]' : 'rounded-xl',
+                        ready ? 'navbar-float-transition' : 'transition-none'
+                    ]"
+                    class="w-10 h-10 rounded-xl bg-primary/5 hover:bg-primary/10 flex items-center justify-center text-lg text-primary focus:outline-none"
                 >
                     <i class="bx bx-search" x-show="!isSearchOpen"></i>
                     <i class="bx bx-x" x-cloak x-show="isSearchOpen" style="display: none;"></i>
@@ -197,7 +201,11 @@
                     @click="isOpen = !isOpen; if (isOpen) isSearchOpen = false;"
                     aria-label="Buka menu navigasi"
                     :aria-expanded="isOpen"
-                    class="w-10 h-10 rounded-xl bg-primary/5 flex items-center justify-center text-xl text-primary focus:outline-none"
+                    :class="[
+                        scrolled ? 'rounded-[20px]' : 'rounded-xl',
+                        ready ? 'navbar-float-transition' : 'transition-none'
+                    ]"
+                    class="w-10 h-10 rounded-xl bg-primary/5 hover:bg-primary/10 flex items-center justify-center text-xl text-primary focus:outline-none"
                 >
                     <i class="bx bx-menu-alt-right" x-show="!isOpen"></i>
                     <i class="bx bx-x" x-cloak x-show="isOpen" style="display: none;"></i>
@@ -217,7 +225,7 @@
         x-transition:leave-start="opacity-100 translate-y-0"
         x-transition:leave-end="opacity-0 -translate-y-2"
         style="display: none;"
-        class="pointer-events-auto md:hidden mx-3 mt-2 bg-white rounded-2xl p-3 shadow-xl border border-primary/10"
+        class="pointer-events-auto md:hidden mt-2.5 bg-white/95 backdrop-blur-xl rounded-[28px] p-3.5 shadow-2xl border border-primary/15"
     >
         <form @submit.prevent="submitSearch(); isSearchOpen = false;" class="relative flex items-center">
             <label for="mobile-product-search" class="sr-only">Cari Produk</label>
@@ -226,12 +234,12 @@
                 type="text"
                 x-model="searchQuery"
                 placeholder="Cari Penerangan Jalan Umum, Mechanical & Electrical..."
-                class="w-full bg-[#F8FAFC] border border-primary/15 rounded-xl py-2.5 pl-3.5 pr-11 text-sm font-medium focus:outline-none focus:bg-white"
+                class="w-full bg-[#F8FAFC] border border-primary/15 rounded-2xl py-2.5 pl-4 pr-11 text-sm font-medium focus:outline-none focus:bg-white"
             />
             <button
                 type="submit"
                 aria-label="Jalankan pencarian"
-                class="absolute right-1.5 w-8 h-8 bg-primary text-white rounded-lg flex items-center justify-center"
+                class="absolute right-1.5 w-8 h-8 bg-primary text-white rounded-xl flex items-center justify-center"
             >
                 <i class="bx bx-search text-base"></i>
             </button>
@@ -249,7 +257,7 @@
         x-transition:leave-start="opacity-100 translate-y-0"
         x-transition:leave-end="opacity-0 -translate-y-2"
         style="display: none;"
-        class="pointer-events-auto lg:hidden mx-3 mt-2 bg-white rounded-3xl p-5 shadow-2xl border border-primary/10"
+        class="pointer-events-auto lg:hidden mt-2.5 bg-white/95 backdrop-blur-xl rounded-[28px] p-5 shadow-2xl border border-primary/15"
     >
         <div class="flex flex-col gap-1.5">
             @foreach($navLinks as $link)
@@ -294,7 +302,7 @@
                 href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai pengadaan barang & jasa.') }}"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="mt-2 h-11 bg-primary text-white text-center rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md shadow-primary/20 leading-none"
+                class="mt-2 h-11 bg-primary text-white text-center rounded-2xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md shadow-primary/20 leading-none"
             >
                 <i class="bx bxl-whatsapp text-lg leading-none"></i>
                 <span>Hubungi Admin Utama</span>
