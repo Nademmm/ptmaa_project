@@ -1,0 +1,18 @@
+@echo off
+title Server PT. Multi Abadi Aksana (Akses Laptop & HP)
+echo ========================================================
+echo   Menjalankan Server PT. Multi Abadi Aksana untuk HP
+echo ========================================================
+echo.
+echo Pastikan HP dan Laptop terhubung ke Wi-Fi yang SAMA.
+echo.
+echo Buka browser di HP Anda lalu ketik:
+echo   - Beranda:      http://192.168.100.13:8000
+echo   - Panel Admin:  http://192.168.100.13:8000/admin
+echo.
+echo Buka di Laptop:
+echo   - Beranda:      http://127.0.0.1:8000
+echo ========================================================
+echo.
+php artisan serve --host=0.0.0.0 --port=8000
+pause
