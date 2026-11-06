@@ -1,7 +1,8 @@
 # PRODUCT REQUIREMENTS DOCUMENT (PRD)
+
 **Nama Proyek:** Corporate Web Portal & Digital Product Showcase (B2B/B2G Non-Ecommerce)  
 **Klien:** PT. Multi Abadi Aksana (General Trading, Supplier & Contractor)  
-**Referensi Struktur & Flow UX:** `cvniscahya.com` (CV Niscahya Indonesia Cerdas)  
+**Spesialisasi:** Infrastruktur Penerangan (PJU), Mechanical & Electrical (ME), Fabrikasi Impeller, Interior Exterior & Suku Cadang  
 **Tech Stack Utama:** TALL Stack (Tailwind CSS, Alpine.js, Laravel 11, Livewire v3) + Filament PHP v3  
 **Target Deployment:** Linux VPS (Ubuntu LTS, Nginx, MySQL/PostgreSQL, Redis)  
 
@@ -10,263 +11,208 @@
 ## 1. Executive Summary & Konsep Utama
 
 ### 1.1 Latar Belakang Perusahaan
-**PT. Multi Abadi Aksana (MAA)** adalah perusahaan penyedia barang dan jasa (*General Trading, Supplier, & Contractor*) yang berpusat di Kabupaten Sidoarjo, Jawa Timur. Perusahaan berkomitmen menyajikan solusi terintegrasi, aman (mengutamakan K3 - *Keselamatan dan Kesehatan Kerja*), dan berkualitas tinggi untuk sektor publik (pemerintahan/dinas) maupun swasta/industri.
+**PT. Multi Abadi Aksana (MAA)** adalah perusahaan penyedia barang dan jasa (*General Trading, Supplier, & Contractor*) yang berpusat di Kabupaten Sidoarjo, Jawa Timur. Perusahaan berkomitmen menyajikan solusi terintegrasi, aman (mengutamakan K3: *Keselamatan dan Kesehatan Kerja*), dan berkualitas tinggi untuk sektor publik (pemerintahan/dinas) maupun swasta/industri.
 
-### 1.2 Tujuan & Konsep Website (Adaptasi `cvniscahya.com`)
-Mengadaptasi penuh struktur navigasi, tata letak informasi, dan alur konversi dari **`cvniscahya.com`**, website PT. Multi Abadi Aksana dirancang sebagai **Corporate Profile & Digital Product Showcase (Non-Ecommerce)**:
-1. **Bukan Website Jual-Beli Online (Non-Transactional):** Website **tidak** menampilkan harga produk, keranjang belanja (*shopping cart*), perhitungan ongkos kirim, maupun *payment gateway*.
-2. **Katalog Informasi & Spesifikasi Teknis:** Halaman **Produk** berfungsi murni sebagai etalase digital yang menampilkan foto produk, kategori/tipe, deskripsi fungsi, alasan memilih produk (*"Mengapa Harus Produk Ini?"*), poin-poin keunggulan, serta tabel/daftar spesifikasi teknis.
-3. **Konversi Langsung ke WhatsApp (Direct Click-to-WhatsApp):** Setiap kartu dan halaman detail produk mengarahkan calon klien langsung ke **WhatsApp Admin** dengan pesan otomatis (*pre-filled text*) untuk memulai alur bisnis perusahaan: **Komunikasi $\rightarrow$ Survei $\rightarrow$ Negosiasi $\rightarrow$ Deal**.
+### 1.2 Tujuan & Konsep Website
+Website PT. Multi Abadi Aksana dirancang sebagai **Corporate Profile & Digital Product Showcase (Non-Ecommerce)**:
+1. **Bukan Website Jual-Beli Online (Non-Transactional):** Website **tidak** menampilkan harga produk retail, keranjang belanja (*shopping cart*), perhitungan ongkos kirim otomatis, maupun *payment gateway*.
+2. **Pemisahan Divisi Produk Mandiri (Divisi PJU & Divisi ME):** Mengingat karakter teknis pengadaan yang berbeda, katalog produk dipisahkan secara tegas melalui *Gateway Selection Portal* menjadi **Divisi PJU** dan **Divisi ME**.
+3. **Katalog Informasi & Spesifikasi Teknis Mendalam:** Halaman produk berfungsi murni sebagai etalase teknis digital yang menampilkan foto produk berkualitas tinggi, parameter spesifikasi teknis (*key-value*), foto galeri multi-sudut, alasan memilih produk (*"Mengapa Harus Produk Ini?"*), serta poin keunggulan implementasi.
+4. **Konversi Langsung ke WhatsApp (Direct Click-to-WhatsApp):** Setiap kartu dan halaman detail produk mengarahkan calon klien langsung ke **WhatsApp PIC Divisi Terkait** (Admin Proyek/PJU vs Admin Suku Cadang) dengan pesan otomatis (*pre-filled text*) untuk memulai alur kemitraan resmi: **Komunikasi -> Survei -> Negosiasi -> Deal**.
 
 ---
 
 ## 2. Identitas Korporat & Data Master Perusahaan
 
-Data berikut diekstrak langsung dari 3 dokumen resmi klien (*ComPro MULTI ABADI AKSANA*, *PROPOSAL PJU MAA*, dan *sparepart equipment*):
+Data diekstrak langsung dari 3 dokumen resmi perusahaan (*Company Profile PT. Multi Abadi Aksana*, *Proposal PJU MAA*, dan *Katalog Sparepart & Equipment*):
 
 * **Nama Resmi:** PT. Multi Abadi Aksana
 * **Bidang Usaha:** Pengadaan Barang dan Jasa (*General Trading, Supplier & Contractor*)
-* **Tagline / Slogan:** *"Membangun bisnis yang berdampak bagi keuntungan perusahaan dan keberlanjutan lingkungan"*
-* **Prinsip Kerja Lapangan:** *Utamakan Keselamatan dan Kesehatan Kerja (K3)*
+* **Tagline Resmi:** *"Membangun bisnis yang berdampak bagi keuntungan perusahaan dan keberlanjutan lingkungan"*
+* **Prinsip Operasional:** *Utamakan Keselamatan dan Kesehatan Kerja (K3) Terintegrasi*
 * **Visi:**
-  Menjadi perusahaan penyedia barang dan jasa (*general contractor & supplier*) yang terpercaya, profesional, berintegritas tinggi, dan berdaya saing tinggi di Indonesia, serta menjadi mitra strategis unggulan dalam penyediaan solusi infrastruktur, mekanikal-elektrikal, pencahayaan, dan tata ruang yang berkelanjutan.
+  Menjadi perusahaan penyedia barang dan jasa (*general contractor & supplier*) yang terpercaya, profesional, berintegritas tinggi, dan berdaya saing unggul di Indonesia, serta menjadi mitra strategis dalam penyediaan solusi infrastruktur penerangan jalan, mekanikal-elektrikal, fabrikasi presisi, dan tata ruang yang berkelanjutan.
 * **Misi:**
-  1. Menyediakan produk penerangan jalan (PJU), *impeller*, komponen mekanikal-elektrikal, *sparepart*, serta pengerjaan interior & eksterior dengan standar mutu terbaik, aman, dan tepat spesifikasi.
-  2. Memberikan kepercayaan penuh kepada konsumen baik dalam kualitas maupun pelayanan.
-  3. Berperan aktif dengan pemerintahan maupun swasta dalam mengembangkan usaha untuk membangun negara.
-  4. Mewujudkan sistem manajemen perusahaan yang menjunjung tinggi etika bisnis dan sosial.
-* **3 Keunggulan Utama (Why You Should Choose Us):**
-  1. **Kualitas Terjamin:** Produk dan material berkualitas tinggi sesuai spesifikasi teknis dan standar keselamatan.
-  2. **Tenaga Ahli Berpengalaman:** Didukung oleh tim profesional yang berpengalaman di bidangnya serta jaringan supplier yang luas.
-  3. **Tepat Waktu & Efisien:** Komitmen penuh terhadap ketepatan waktu pengerjaan, proses pengadaan yang transparan, dan efisiensi anggaran.
-* **Alur Kerja (The Process):**
-  `1. KOMUNIKASI` $\rightarrow$ `2. SURVEI` $\rightarrow$ `3. NEGOSIASI` $\rightarrow$ `4. DEAL`
-* **Informasi Kontak & Alamat (Dinamis via CMS Filament):**
+  1. Menyediakan produk penerangan jalan umum (PJU), fabrikasi impeller, komponen mekanikal-elektrikal, suku cadang industri, serta pengerjaan interior & eksterior dengan standar mutu terbaik, aman, dan tepat spesifikasi.
+  2. Memberikan kepastian mutu dan keandalan pelayanan menyeluruh kepada setiap mitra konsumen.
+  3. Berperan aktif bersama instansi pemerintah maupun swasta dalam menyukseskan pembangunan infrastruktur nasional.
+  4. Mewujudkan sistem tata kelola manajemen perusahaan yang menjunjung tinggi etika bisnis, transparansi, dan tanggung jawab sosial.
+* **3 Nilai Keunggulan (Why You Should Choose Us):**
+  1. **Kualitas Terjamin:** Produk dan material berstandar industri sesuai spesifikasi teknis dan regulasi keselamatan kerja.
+  2. **Tenaga Ahli Berpengalaman:** Didukung oleh tim lapangan bersertifikasi dan jaringan pemasok resmi terpercaya.
+  3. **Tepat Waktu & Efisien:** Komitmen penuh terhadap jadwal pelaksanaan proyek, pengadaan transparan, dan efisiensi anggaran klien.
+* **Alur Kemitraan (The Process):**
+  `1. KOMUNIKASI` -> `2. SURVEI` -> `3. NEGOSIASI` -> `4. DEAL`
+* **Informasi Kontak & Lokasi Resmi:**
   * **Email Resmi:** `ptmultiabadiaksana15@gmail.com`
-  * **WhatsApp / Telepon Utama (ComPro & PJU):** `+62 823-4297-9898` / `+62 823-4279-9898`
-  * **WhatsApp / Telepon Divisi Sparepart:** `+62 812-1659-2824`
+  * **WhatsApp / Telepon Proyek Utama (PJU, M&E, Interior):** `+62 823-4297-9898`
+  * **WhatsApp / Telepon Divisi Sparepart & Pelumas:** `+62 812-1659-2824`
   * **Kantor Utama (Head Office):** Jl. Taman Surya Agung Blok B No. 11, Sritanjung, Wage, Kec. Taman, Kabupaten Sidoarjo, Jawa Timur 61257.
-  * **Kantor / Workshop Cabang:** Safira Stone Resort A2-01, Masangan Wetan, Sukodono, Kabupaten Sidoarjo, Jawa Timur.
+  * **Workshop & Divisi Suku Cadang:** Safira Stone Resort A2-01, Masangan Wetan, Sukodono, Kabupaten Sidoarjo, Jawa Timur.
 
 ---
 
 ## 3. Pemetaan 4 Pilar Bisnis (Cakupan Barang & Jasa)
 
-Berbeda dengan `cvniscahya.com` yang hanya fokus pada PJU, PT. Multi Abadi Aksana memiliki **4 Pilar Bisnis Utama** yang wajib terwakili di halaman Beranda, Layanan, dan Filter Katalog Produk:
+PT. Multi Abadi Aksana memiliki **4 Pilar Bisnis Utama** yang terintegrasi:
 
 ### Pilar 1: Penerangan Jalan Umum (PJU)
 * **Pengadaan Barang (Hardware & Material):**
   * *PJU Tenaga Surya (Solar Cell):*
-    * **PJU All In One:** Kontroler, baterai, dan solar panel menyatu dalam satu rumah lampu (*housing*) yang bekerja mandiri dan otomatis.
-    * **PJU Two In One:** Lampu, kontroler, dan baterai berada dalam satu rumah lampu, sedangkan panel surya terpisah.
-    * **PJU Konvensional (Split System):** Lampu, solar panel, dan box sistem baterai terpasang secara terpisah dengan desain kokoh.
-  * *PJU PLN:* Lampu LED hemat energi dengan penerangan stabil, dapat diatur intensitas cahayanya, dan terintegrasi sistem kontrol. Merek yang didukung: **COB, OSRAM, PHILIPS, ESTIKA**, serta lampu sorot (*floodlight*).
-  * *Tiang & Aksesori PJU:* Tiang PJU PLN (struktur parabola melengkung), Tiang PJU Tenaga Surya (lengan lampu dan tiang utama terpisah dengan klem lengan fleksibel), Tiang Octagonal, Monopole, High Mast, tiang ornamen dekoratif, *arm bracket*, dan tiang lampu taman/pedestrian.
-  * *Sistem Kontrol, Panel & Daya:* Panel distribusi PJU, timer, *photocell sensor*, *Smart Lighting Controller*, kabel distribusi (*underground* & udara), trafo penunjang, baterai (*Lithium/Gel*), dan *Solar Charge Controller*.
+    * **PJU All In One:** Kontroler, baterai LiFePO4, dan solar panel menyatu dalam satu rumah lampu (*housing*) yang bekerja mandiri dan otomatis.
+    * **PJU Two In One:** Lampu, kontroler, dan baterai berada dalam satu rumah lampu, sedangkan panel surya fleksibel terpasang terpisah di atas tiang.
+    * **PJU Konvensional (Split System):** Lampu, panel surya, dan box baterai terpasang terpisah dengan kapasitas daya besar untuk jalan lintas provinsi.
+  * *PJU PLN:* Lampu LED hemat energi dengan pencahayaan stabil dan teruji umur pakai panjang. Merek yang didukung: **COB, OSRAM, PHILIPS, ESTIKA**, serta lampu sorot (*floodlight* industri).
+  * *Tiang & Aksesori PJU:* Tiang PJU PLN (struktur parabola melengkung), Tiang PJU Solar Cell (klem lengan fleksibel), Tiang Octagonal, Monopole, High Mast, tiang ornamen dekoratif, *arm bracket*, dan angkur pondasi.
+  * *Sistem Kontrol, Panel & Daya:* Panel distribusi PJU, timer, *photocell sensor*, kabel instalasi bawah tanah & udara, trafo penunjang, baterai, dan *Solar Charge Controller*.
 * **Pengadaan Jasa (Services & Execution):**
-  * *Perencanaan & Survei Teknis:* Evaluasi kebutuhan pencahayaan (*lighting design*), perhitungan *lux level*, survei lokasi, dan pemetaan jalur distribusi daya.
-  * *Pekerjaan Sipil & Konstruksi:* Penggalian tanah, pembuatan/pengecoran pondasi beton tiang PJU, pembuatan *manhole/handhole* jalur kabel bawah tanah.
-  * *Jasa Instalasi & Pemasangan:* Ereksi (pendirian) tiang, pemasangan armature lampu, penarikan kabel daya, penyambungan modul solar cell, perakitan panel distribusi.
-  * *Pengujian & Komisioning (Testing & Commissioning):* Pengujian kelistrikan, fungsi sensor/otomatisasi, dan verifikasi standar keselamatan jalan.
-  * *Jasa Pemeliharaan & Perbaikan (Maintenance & Repair):* Perawatan berkala, penggantian komponen rusak (lampu/baterai/panel/kabel), dan perbaikan darurat.
+  * *Perencanaan & Evaluasi Teknis:* Perhitungan kuat pencahayaan (*lux level*), survei kontur tanah, dan pemetaan jalur distribusi daya.
+  * *Pekerjaan Sipil & Pondasi:* Penggalian tanah, pembuatan pondasi tiang beton bertulang, pembuatan *manhole/handhole* jalur kabel.
+  * *Jasa Instalasi & Ereksi:* Pendirian tiang, perakitan armature lampu, penarikan kabel daya, dan komisioning panel distribusi.
+  * *Uji Fungsi & Pemeliharaan:* Pengujian kelistrikan, otomatisasi sensor malam/siang, verifikasi K3, dan perawatan berkala.
 
 ### Pilar 2: Interior & Exterior
-* **Pengadaan Barang (Material & Produk):**
-  * *Penutup Dinding & Plafon:* Gypsum board, panel PVC, wall panel WPC/UVP, *acoustic tile*, dan wallpaper.
-  * *Material Lantai (Flooring):* Parket kayu, vinyl, SPC flooring, karpet kantor, serta ubin granit/keramik.
-  * *Furnitur & Partisi:* *Custom furniture* (meja kerja, lemari, meja resepsionis), partisi gipsum/kaca, dan *toilet cubicle system*.
-  * *Aksesori & Pencahayaan:* Tirai/*blinds*, *downlight decorative*, dan elemen dekoratif interior lainnya.
-* **Pengadaan Jasa (Pekerjaan & Pelaksanaan):**
-  * *Perancangan & Konsultasi Desain:* Pembuatan konsep tata ruang (*layout design*), visualisasi 3D, pemilihan skema material dan warna.
-  * *Konstruksi & Finishing Interior:* Pemasangan partisi, pengecatan dinding, instalasi plafon, penataan lantai, perakitan furnitur.
-  * *Aplikasi Eksterior:* Pemasangan fasad ACP/kaca gedung tinggi, pembuatan rangka kanopi, pengerjaan pagar/pintu utama.
-  * *Renovasi & Pembenahan Ulang (Refurbishment):* Pembongkaran struktur lama, perbaikan tata ruang, peremajaan tampilan bangunan.
-  * *Jasa Pemeliharaan (Maintenance):* Perawatan berkala fasad luar, pembersihan dinding luar gedung (*gondola work*), perbaikan elemen dekoratif.
+* **Pengadaan Barang:**
+  * Penutup dinding & plafon: Gypsum board, panel PVC, wall panel WPC/UVP, *acoustic tile*, dan wallpaper.
+  * Material lantai (*flooring*): Parket kayu, vinyl, SPC flooring, karpet kantor, dan ubin granit.
+  * Furnitur & partisi: *Custom furniture* (meja kerja, lemari arsip, meja resepsionis), partisi kaca, dan *toilet cubicle system*.
+  * Fasad eksterior: Lembaran Aluminium Composite Panel (ACP), rangka baja ringan, dan kanopi gedung.
+* **Pengadaan Jasa:**
+  * Perancangan konsep tata ruang komersial, visualisasi 3D, dan pemilihan skema material.
+  * Pelaksanaan konstruksi partisi, pengecatan, instalasi plafon, penataan lantai, dan perakitan furnitur.
+  * Pemasangan fasad ACP gedung bertingkat, struktur kanopi, dan renovasi tata ruang perkantoran.
 
 ### Pilar 3: Mechanical & Electrical (ME)
-* **Pengadaan Barang (Material & Produk):**
-  * *Sistem Elektrikal (Panel & Proteksi):* Panel Utama (MDP/SDP), panel ATS/AMF, panel kontrol motor, *circuit breaker* (MCCB/MCB), dan *capacitor bank*.
-  * *Kabel & Jalur Distribusi:* Kabel listrik tegangan rendah dan menengah (NYA, NYM, NYY, XLPE), kabel kontrol, *cable tray*, *ladder*, dan *conduit*.
-  * *Peralatan Utama & Industri:* Transformator (trafo), genset, UPS (*Uninterruptible Power Supply*), stabilizer, armature sakelar/stopkontak, **impeller**, suku cadang mekanikal industri, dan komponen sistem perpipaan.
-* **Pengadaan Jasa (Pekerjaan & Pelaksanaan):**
-  * *Perancangan & Konsultasi Teknis:* Perhitungan beban listrik dan desain skema jalur kelistrikan.
-  * *Jasa Instalasi & Pemasangan:* Penarikan kabel daya, perakitan panel listrik, instalasi jaringan penerangan interior/industri.
-  * *Fabrikasi & Perbaikan Teknis:* Jasa fabrikasi dan perbaikan komponen mekanikal industri khususnya **impeller** dan peralatan pabrik.
-  * *Pengujian & Komisioning:* Uji beban listrik, uji kebocoran perpipaan (*hydrotest*), uji tekanan sistem pemadam, pengujian otomatisasi panel & HVAC.
-  * *Jasa Pemeliharaan & Perbaikan:* *Preventive maintenance* berkala pada panel, trafo, genset, dan unit HVAC.
+* **Pengadaan Barang:**
+  * Sistem Elektrikal: Panel Utama Distribusi (MDP/SDP), panel otomatis genset (ATS/AMF), panel kontrol motor industri, *circuit breaker* (MCCB/MCB), dan *capacitor bank*.
+  * Kabel & Distribusi Daya: Kabel tegangan rendah dan menengah (NYA, NYM, NYY, XLPE), kabel kontrol, *cable ladder*, dan *conduit*.
+  * Peralatan Manufaktur & Mekanikal: Transformator (trafo), genset industri, UPS, sistem blower pabrik, saluran ventilasi, serta **Impeller Stainless Steel**.
+* **Pengadaan Jasa:**
+  * Fabrikasi presisi dan dynamic balancing **Impeller industri** (material stainless steel AISI 304/316).
+  * Instalasi jaringan listrik tegangan rendah/menengah, perakitan panel distribusi daya, dan pemasangan blower ventilasi pabrik.
+  * Pengujian beban listrik (*load test*), pengetesan vibrasi impeller, dan perawatan preventif genset/trafo berkala.
 
 ### Pilar 4: Sparepart & Equipment
-* **Pengadaan Barang (Katalog Suku Cadang):**
-  * Menyediakan perlengkapan *sparepart* kualitas premium untuk kendaraan operasional, armada, alat berat, dan mesin industri:
-    1. **Oli (Lubricants)**
-    2. **Grease (Gemuk Pelumas)**
-    3. **Ban Luar**
-    4. **Ban Dalam**
-    5. **Aki (Battery)**
-    6. **Filter (Oli, Udara, Bahan Bakar)**
-    7. **Wiper**
-    8. **Baut Roda**
-    9. **Bearing**
-    10. **Kabel**
-    11. **Kampas Kopling**
-    12. **Lampu Kendaraan / Alat Berat**
-    13. **Peralatan Mesin Lainnya**
+* **Pengadaan Suku Cadang & Perlengkapan Operasional:**
+  Katalog pasokan suku cadang mesin, armada operasional, dan alat berat:
+  1. **Oli Mesin & Transmisi (Lubricants)**
+  2. **Grease (Gemuk Pelumas Khusus Industri)**
+  3. **Ban Luar Truk & Alat Berat**
+  4. **Ban Dalam**
+  5. **Aki Kering & Basah (Battery)**
+  6. **Filter (Oli, Udara, Bahan Bakar)**
+  7. **Wiper Kaca**
+  8. **Baut Roda Heavy Duty**
+  9. **Bearing Industri**
+  10. **Kabel Kelistrikan Kendaraan**
+  11. **Kampas Kopling & Rem**
+  12. **Lampu Operasional Kendaraan**
+  13. **Peralatan Mesin Tambahan**
 
 ---
 
-## 4. Struktur Halaman & Spesifikasi UI/UX (Berkiblat ke `cvniscahya.com`)
+## 4. Struktur Halaman & Spesifikasi UI/UX
 
-### 4.1 Global Navigation Bar & Footer
-* **Navbar:** Logo PT. Multi Abadi Aksana di kiri; menu navigasi di tengah/kanan: `Beranda`, `Tentang Kami`, `Produk`, `Galeri`, `Blog`, `Kontak`; serta 1 tombol aksen **"Hubungi Kami"** (mengarah ke WA/Kontak).
-* **Floating Button:** Tombol WhatsApp melayang di pojok kanan bawah layar.
-* **Footer:** Deskripsi singkat PT. Multi Abadi Aksana, tautan cepat menu, daftar kategori produk utama, alamat lengkap kantor Sidoarjo, email, nomor telepon/WA, dan copyright.
-
----
+### 4.1 Global Navigation & Header
+* **Branding:** Logo resmi PT. Multi Abadi Aksana ditempatkan bersih di navbar tanpa kotak pembungkus berlebih.
+* **Menu Navigasi Desktop:**
+  * `Beranda`
+  * `Produk` (Dropdown interaktif: *Katalog Divisi PJU*, *Katalog Divisi ME*, dan *Pilih Divisi*)
+  * `Projek` (Dokumentasi Projek On Duty)
+  * `Tentang` (Profil & 4 Pilar Layanan)
+  * `Blog` (Wawasan Teknik & Pengadaan)
+  * `Kontak` (Lokasi Kantor Sidoarjo & Form RFQ)
+* **Navbar Dinamis:** Menempel rapi di bagian atas halaman dan bertransformasi halus (*smooth transition*) menjadi kapsul melayang (*floating capsule*) dengan efek *backdrop blur* saat digulir (*scroll*).
+* **Floating WhatsApp Action:** Tombol melayang di sudut kanan bawah dengan pilihan langsung: *Admin Proyek/PJU* atau *Divisi Sparepart*.
 
 ### 4.2 Halaman Beranda (`/`)
- Mengikuti alur seksi pada `cvniscahya.com` yang disesuaikan dengan konten PT. Multi Abadi Aksana:
-1. **Hero Section:**
-   * Badge kecil: `GENERAL TRADING, SUPPLIER & CONTRACTOR`
-   * Headline utama: Solusi Terintegrasi Pengadaan Barang & Jasa Infrastruktur, Mekanikal-Elektrikal, PJU, Interior & Sparepart.
-   * Sub-headline: Tagline perusahaan & komitmen standar mutu serta keselamatan kerja (K3).
-   * Dua Tombol CTA: **"Jelajahi Produk"** (`/products`) dan **"Konsultasi Proyek"** (WhatsApp/Kontak).
-2. **Section Tentang Perusahaan & Visi-Misi (Overview):**
-   * Penjelasan singkat profil PT. Multi Abadi Aksana sebagai mitra strategis sektor publik & swasta.
-   * Kartu **Visi** dan **Misi**.
-   * 3 Badge Keunggulan: *Kualitas Terjamin*, *Tenaga Ahli Berpengalaman*, *Tepat Waktu & Efisien*.
-3. **Section Statistik / Rekam Jejak (Counter Strip):**
-   * Baris angka statistik (dapat diubah dari CMS): *Tahun Pengalaman*, *Proyek Selesai*, *Unit Terpasang/Tersuplai*, *Mitra Klien*, *Cakupan Wilayah*.
-4. **Running Text / Marquee Strip:**
-   * Animasi teks berjalan horizontal: `PT. MULTI ABADI AKSANA • PENGADAAN BARANG DAN JASA • UTAMAKAN KESELAMATAN DAN KESEHATAN KERJA (K3)`
-5. **Section 4 Pilar Layanan (Pengadaan Barang & Jasa):**
-   * Menampilkan 4 kartu/tab interaktif untuk **PJU**, **Interior & Exterior**, **Mechanical & Electrical**, dan **Sparepart & Equipment**, lengkap dengan rincian *Pengadaan Barang* vs *Pengadaan Jasa*.
-6. **Section Alur Kerja (The Process):**
-   * Visualisasi 4 tahap kerja sama: **01. Komunikasi** $\rightarrow$ **02. Survei** $\rightarrow$ **03. Negosiasi** $\rightarrow$ **04. Deal**.
-7. **Section Produk Unggulan (Featured Products Showcase):**
-   * Menampilkan 4 hingga 8 kartu produk unggulan (seperti di Beranda `cvniscahya.com`).
-   * Setiap kartu berisi: Gambar produk, Badge Tipe (misal: `All In One`, `Two In One`, `PJU PLN`, `Mechanical`, `Sparepart`), Nama Produk, dan tombol **"Detail"**.
-   * Tombol **"Lihat Semua Produk"** di bagian atas/bawah seksi.
-8. **Section Projek On Duty (Highlight Galeri):**
-   * Menampilkan cuplikan foto dokumentasi proyek nyata di lapangan (Proyek PJU Gempol-Sidoarjo-Malang, Adelle Jewellery, Betonisasi Sidoarjo, Alat Berat PGIC-E34).
-9. **Section Wawasan & Edukasi (Blog Terbaru):**
-   * Menampilkan 3 kartu artikel terbaru beserta tanggal rilis, kategori, dan ringkasan singkat.
-10. **Bottom CTA & Quick Contact Banner:**
-    * Ajakan konsultasi pengadaan barang/jasa beserta tombol langsung ke WhatsApp Admin dan informasi alamat kantor Sidoarjo.
-
----
+1. **Hero Slider:**
+   * Menampilkan slider foto proyek autentik (PJU Ruas Gempol, PJU Tol, Interior Adelle Jewellery, Fabrikasi Impeller).
+   * Headline dan deskripsi dinamis per slide.
+   * Dua tombol CTA presisi: **"Eksplorasi Katalog"** dan **"Konsultasi Proyek"** (WhatsApp).
+2. **Interactive 4 Pilar Bisnis:**
+   * Tab interaktif untuk PJU, Interior, Mechanical Electrical, dan Sparepart dengan pemisahan tegas antara *Pengadaan Barang* dan *Pengadaan Jasa*.
+   * Tombol langsung mengarah ke katalog divisi terkait.
+3. **Mengapa Memilih Kami & Alur Kerja 4 Tahap:**
+   * 3 kartu nilai: *Kualitas Terjamin*, *Tenaga Ahli Berpengalaman*, *Tepat Waktu & Efisien*.
+   * Alur kerja kemitraan sistematis: `01. Komunikasi` -> `02. Survei` -> `03. Negosiasi` -> `04. Deal`.
+4. **Etalase Produk Unggulan:**
+   * Showcase produk terkurasi dengan tombol pintas langsung: **Katalog PJU** dan **Katalog ME**.
+5. **Projek On Duty (Portofolio Lapangan):**
+   * Grid dokumentasi lapangan dengan tautan langsung ke galeri penuh.
+6. **Dual Office & Peta Lokasi:**
+   * Informasi Head Office (Taman, Sidoarjo) dan Workshop Sparepart (Sukodono, Sidoarjo) terintegrasi Google Maps.
 
 ### 4.3 Halaman Katalog Produk (`/products`)
-Persis seperti halaman `cvniscahya.com/products`, halaman ini berfungsi sebagai katalog informasi produk yang interaktif:
-1. **Header Katalog:** Judul *"Katalog Produk & Material Pengadaan"* beserta deskripsi singkat.
-2. **Interactive Filter Bar (Livewire v3 tanpa reload):**
-   * Tombol *Filter Pills* Kategori:
-     * `Semua`
-     * `PJU Tenaga Surya` (*All In One, Two In One, Konvensional*)
-     * `PJU PLN & Tiang` (*Lampu COB/Osram/Philips/Estika, Tiang Octagonal/Parabola*)
-     * `Mechanical & Electrical` (*Panel MDP/SDP, Trafo, Kabel, Impeller*)
-     * `Interior & Exterior` (*Gypsum, WPC, Flooring, ACP, Custom Furniture*)
-     * `Sparepart & Equipment` (*Oli, Grease, Ban, Aki, Filter, Bearing, Kopling*)
-   * Input pencarian cepat (*Search bar*) berdasarkan nama produk atau merek.
-3. **Product Grid (Daftar Kartu Produk):**
-   * **TIDAK ADA HARGA & TIDAK ADA TOMBOL BELI/KERANJANG.**
-   * Isi Kartu:
-     * Foto produk rasio konsisten dengan efek *hover zoom* halus.
-     * Badge Kategori/Sub-tipe di atas judul (contoh: `Two In One`, `All In One`, `PJU PLN`, `Sparepart`).
-     * Judul/Nama Produk (contoh: *PJU Tenaga Surya All In One*, *Lampu PJU PLN Philips/Osram*, *Industrial Impeller*, *Oli & Grease Alat Berat*).
-     * Tombol **"Detail"** yang mengarah ke `/products/{slug}`.
-4. **Banner Konsultasi di Bawah Katalog:**
-   * *"Butuh Spesifikasi Khusus atau Pengadaan Skala Proyek? Hubungi Tim Ahli Kami"* dengan tombol mengarah ke halaman Kontak / WhatsApp.
-
----
+Katalog menerapkan pemisahan divisi menyeluruh:
+1. **Gateway Selection Screen (Saat Belum Memilih Divisi):**
+   * Menampilkan dua kartu portal berukuran besar: **Divisi PJU** dan **Divisi ME**.
+   * Calon klien diarahkan untuk memilih spesialisasi yang relevan agar navigasi lebih terfokus.
+2. **Katalog Khusus Divisi PJU (`/products?divisi=pju`):**
+   * Khusus memuat unit PJU Tenaga Surya (AIO, 2in1, Split) dan PJU PLN beserta Tiang Galvanis.
+   * Kategori filter di sidebar hanya menampilkan sub-kategori PJU.
+   * Kontak WhatsApp langsung terhubung ke Admin Proyek & PJU.
+3. **Katalog Khusus Divisi ME (`/products?divisi=me`):**
+   * Khusus memuat unit Fabrikasi Impeller, Blower Industri, Panel MDP/SDP, Trafo, Genset, dan Suku Cadang Mesin.
+   * Kategori filter di sidebar hanya menampilkan sub-kategori ME & Sparepart.
+   * Kontak WhatsApp terhubung ke Tim ME dan Divisi Sparepart.
+4. **Persistent Division Switcher:**
+   * Terletak di atas katalog untuk berpindah antara `Katalog PJU` dan `Katalog ME` secara instan, atau tombol `Ganti Divisi` untuk kembali ke layar gateway.
 
 ### 4.4 Halaman Detail Produk (`/products/{slug}`)
-Mengadopsi penuh tata letak halaman detail produk `cvniscahya.com` (seperti `/products/3in1` atau `/products/konvensional`):
-1. **Breadcrumb:** `Beranda > Produk > [Kategori] > [Nama Produk]`
-2. **Kolom Kiri (Visual & Media):**
-   * Gambar utama produk resolusi tinggi.
-   * *Thumbnail Gallery* (jika produk memiliki lebih dari 1 foto sudut pandang) yang bisa diklik menggunakan Alpine.js.
-3. **Kolom Kanan (Header, Status & CTA):**
-   * Badge Kategori (contoh: `PJU Tenaga Surya` / `Sparepart Equipment`).
-   * Judul Produk Besar.
-   * Baris Badge Status (persis seperti referensi):
-     * Badge Hijau: `Tersedia` (atau *Custom Order*)
-     * Badge Biru: `Bergaransi`
-     * Badge Pendukung: `Standar Mutu & K3` / `Ramah Lingkungan`
-   * Ringkasan singkat produk (1–2 kalimat).
-   * **Tombol CTA Utama:** Tombol besar **"WhatsApp Admin"** (dengan ikon WhatsApp). Saat diklik, langsung membuka WA ke nomor Admin divisi terkait dengan teks otomatis:
-     > *"Halo Admin PT. Multi Abadi Aksana, saya tertarik dan ingin meminta informasi/penawaran lebih lanjut mengenai produk: *[Nama Produk]* ([Link URL]). Terima kasih."*
-4. **Bagian Informasi Detail & Spesifikasi Teknis:**
-   * **Deskripsi Produk:** Paragraf penjelasan lengkap mengenai cara kerja dan konstruksi produk.
-   * **Seksi "Mengapa Harus [Nama Produk]?"**: Penjelasan nilai tambah produk bagi proyek klien.
-   * **Tabel / List Spesifikasi Teknis (Key-Value):**
-     * Menampilkan daftar atribut teknis secara rapi (contoh pada PJU: *Model, Sumber Daya, Tipe Lampu, Baterai, Solar Panel, Material Tiang*; contoh pada Sparepart/ME: *Tipe Komponen, Aplikasi Unit, Standar Material*).
-   * **Daftar Keunggulan Produk (Bullet Points dengan Ikon Checkmark):**
-     * Menampilkan poin-poin kelebihan produk (misal: *Menghemat biaya operasional PLN, Konstruksi tahan cuaca ekstrem, Mudah dalam instalasi dan pemeliharaan*).
-5. **Bagian Unit / Produk Terkait (Related Products):**
-   * Menampilkan 3–4 kartu produk lain dalam kategori yang sama di bagian paling bawah halaman.
+1. **Breadcrumbs Kontekstual:** Menampilkan hierarki sesuai divisi produk: `Beranda > Katalog Produk > Divisi [PJU / ME] > [Kategori] > [Nama Produk]`.
+2. **Visual & Galeri Multi-Sudut:** Area penampil foto utama dengan strip thumbnail interaktif.
+3. **Informasi Teknis & CTA WhatsApp:**
+   * Status unit: *Tersedia / Pre-Order Proyek*, *Bergaransi*, *Standar Mutu & K3*.
+   * Estimator volume kebutuhan (Unit, Set, Titik Tiang, Drum, dll).
+   * Tombol CTA: **"Minta Penawaran Harga via WhatsApp"** dengan pesan otomatis spesifik produk.
+4. **Parameter Spesifikasi Teknis (Key-Value):**
+   * Rincian teknis lengkap (Tegangan, Lumen, Kapasitas Baterai, Material Impeller, Dimensi, dll).
+5. **Keunggulan & Mengapa Harus Produk Ini:**
+   * Poin kelebihan operasional dan daya tahan material.
+6. **Unit Terkait (Related Products):**
+   * Khusus menampilkan produk lain yang berasal dari divisi yang sama.
+
+### 4.5 Halaman Portofolio Projek On Duty (`/gallery`)
+* Filter tab per divisi dokumentasi: *Semua Dokumentasi*, *Projek PJU*, *Interior & Exterior*, *Mechanical & Electrical*.
+* Modal Lightbox resolusi tinggi dengan informasi lokasi proyek dan tombol konsultasi pekerjaan serupa.
+
+### 4.6 Halaman Blog & Wawasan Teknik (`/blog` & `/blog/{slug}`)
+* Artikel informatif seputar konfigurasi PJU, teknik balancing impeller, efisiensi energi, dan standar keselamatan kerja K3.
+* Filter kategori artikel dan rekomendasi bacaan teknis terkait.
+
+### 4.7 Halaman Kontak & Form Penawaran (`/contact`)
+* 3 Kartu Saluran Komunikasi: *WhatsApp Proyek Utama*, *WhatsApp Divisi Sparepart*, dan *Email Korporat Resmi*.
+* Formulir Permintaan Penawaran Terstruktur (Nama, Instansi/Perusahaan, Nomor WA, Divisi Layanan Terkait, Rincian Spesifikasi). Data formulir langsung tersimpan di backoffice CMS.
+* Alamat lengkap Kantor Utama & Workshop serta Google Maps interaktif.
 
 ---
 
-### 4.5 Halaman Galeri - "Projek On Duty" (`/gallery`)
-Menampilkan bukti nyata kapabilitas PT. Multi Abadi Aksana di lapangan (sesuai halaman *Projek On Duty* di PDF ComPro):
-* Filter kategori dokumentasi: `Semua Proyek`, `Proyek PJU`, `Interior & Exterior`, `Mechanical Electrical`, `Alat Berat & Sparepart`.
-* Grid foto dokumentasi lapangan dilengkapi *Lightbox Modal* (Alpine.js) saat diklik, menampilkan judul proyek, lokasi (misal: *Ruas Gempol - Sidoarjo - Malang*, *Adelle Jewellery*, *Betonisasi Sidoarjo*, *Unit PGIC-E34*), dan deskripsi singkat pekerjaan.
+## 5. Fitur Backoffice CMS (Filament PHP v3 - `/admin`)
+
+Panel administrasi memudahkan pengelolaan data secara mandiri tanpa modifikasi kode:
+1. **Dashboard Widget:** Ringkasan jumlah produk per divisi, portofolio galeri proyek, artikel wawasan, dan pesan penawaran masuk.
+2. **Katalog Produk & Kategori:**
+   * Kelola Kategori Produk dan penugasan divisi (*PJU* vs *ME*).
+   * Kelola Produk (Nama, Slug, Spesifikasi Teknis via *Filament Repeater*, Keunggulan, Galeri Foto WebP).
+3. **Pilar Bisnis & Cakupan Layanan:**
+   * Kelola teks cakupan *Pengadaan Barang* vs *Pengadaan Jasa* pada 4 pilar bisnis.
+4. **Galeri Dokumentasi Proyek:**
+   * Unggah foto lapangan, lokasi pekerjaan, dan deskripsi teknis proyek.
+5. **Artikel Wawasan Teknik:**
+   * Editor artikel berita/teknis lengkap dengan optimasi SEO.
+6. **Formulir Permintaan Penawaran (Mini CRM):**
+   * Memantau dan memperbarui status prospek proyek klien: `Komunikasi` -> `Survei` -> `Negosiasi` -> `Deal`.
+7. **Pengaturan Identitas Perusahaan:**
+   * Pengaturan nomor kontak resmi, email, alamat kantor, dan jam operasional.
 
 ---
 
-### 4.6 Halaman Blog & Artikel (`/blog` & `/blog/{slug}`)
-* Menampilkan daftar artikel edukasi dan berita perusahaan untuk memperkuat SEO.
-* Dilengkapi filter kategori artikel dan fitur pencarian judul.
+## 6. Kebutuhan Non-Fungsional & Kualitas Sistem
 
----
-
-### 4.7 Halaman Kontak (`/contact`)
-Mengadaptasi struktur halaman `cvniscahya.com/contact`:
-1. **3 Kartu Saluran Komunikasi Langsung:**
-   * **Kartu WhatsApp (Respon Cepat):** Menampilkan nomor WA Admin Utama (`+62 823-4297-9898`) & Admin Sparepart (`+62 812-1659-2824`) dengan tombol *"Chat Admin Sekarang"*.
-   * **Kartu Email Resmi:** Menampilkan `ptmultiabadiaksana15@gmail.com` untuk pengiriman dokumen tender, RAB, atau kerja sama resmi dengan tombol *"Kirim Email"*.
-   * **Kartu Media Sosial / Katalog PDF:** Tautan untuk mengunduh PDF Company Profile PT. Multi Abadi Aksana.
-2. **Informasi Kantor & Peta Lokasi:**
-   * Menampilkan alamat **Head Office (Taman, Sidoarjo)** dan **Workshop/Branch (Sukodono, Sidoarjo)** beserta jam operasional.
-   * *Interactive Google Maps Embed*.
-3. **Formulir Konsultasi / Permintaan Survei:**
-   * Form input (Nama, Nama Perusahaan/Instansi, Nomor WA, Email, Pilih Divisi Layanan, dan Pesan Kebutuhan) yang datanya langsung masuk ke dashboard Filament v3.
-
----
-
-## 5. Spesifikasi Fitur Admin Panel (Filament PHP v3 - `/admin`)
-
-Agar seluruh konten website dapat dikelola dengan mudah oleh tim PT. Multi Abadi Aksana tanpa menyentuh kode, panel admin Filament v3 wajib menyediakan modul berikut:
-
-1. **Dashboard Overview Widget:**
-   * Statistik jumlah produk tayang, total dokumentasi galeri proyek, artikel blog, serta daftar pesan konsultasi terbaru dari klien.
-2. **Modul Katalog Produk (`ProductCategoryResource` & `ProductResource`):**
-   * Kelola Kategori Produk (Nama, Slug, Urutan, Nomor WA PIC Kategori).
-   * Kelola Produk:
-     * Input Nama Produk, Slug otomatis, Kategori, dan Label Badge (`All In One`, `Two In One`, `Konvensional`, `PJU PLN`, `Sparepart`, dll).
-     * Upload Foto Utama & Galeri Foto Produk (otomatis terkompresi ke format `.webp`).
-     * Toggle `Produk Unggulan (Tampil di Beranda)`, `Badge Bergaransi`, dan `Badge K3 / Eco`.
-     * *Rich Text Editor* untuk Deskripsi Produk dan seksi *"Mengapa Harus Produk Ini?"*.
-     * **Filament Repeater (`specifications`):** Memudahkan admin menambah baris spesifikasi teknis bebas (*Label Spesifikasi* & *Isi Spesifikasi*) sebanyak apa pun sesuai jenis barang.
-     * **Filament Repeater (`advantages`):** Memudahkan admin menambah poin-poin keunggulan produk.
-3. **Modul Pilar Layanan (`ServicePillarResource`):**
-   * Mengelola teks penjelasan 4 divisi utama beserta daftar rincian **Pengadaan Barang** dan **Pengadaan Jasa**.
-4. **Modul Galeri "Projek On Duty" (`GalleryResource`):**
-   * Upload foto dokumentasi proyek lapangan, nama klien/kode unit, lokasi pengerjaan, dan kategori divisi.
-5. **Modul Blog & Artikel (`PostResource`):**
-   * Editor artikel lengkap dengan pengaturan *Meta Title*, *Meta Description*, dan gambar sampul.
-6. **Modul Pesan & Pipeline Proyek (`ContactInquiryResource`):**
-   * Melihat pesan masuk dari halaman Kontak dan memperbarui status progresnya sesuai alur bisnis: `Komunikasi` $\rightarrow$ `Survei` $\rightarrow$ `Negosiasi` $\rightarrow$ `Deal`.
-7. **Modul Pengaturan Website (`CompanySettings Page`):**
-   * Mengubah Nama Perusahaan, Nomor WhatsApp Admin (Utama & Sparepart), Email, Alamat Kantor, Angka Statistik di Beranda, dan file PDF Company Profile.
-
----
-
-## 6. Kebutuhan Non-Fungsional & Teknis Deployment (VPS)
-
-1. **Arsitektur TALL Stack Murni:**
-   * Menggunakan **Laravel 11**, **Livewire v3** (dengan `wire:navigate` agar perpindahan antar halaman secepat SPA seperti di `cvniscahya.com`), **Alpine.js**, dan **Tailwind CSS**.
-2. **Performa & Optimasi Gambar:**
-   * Semua gambar produk dan foto dokumentasi lapangan dikonversi ke WebP dan menggunakan atribut `loading="lazy"` agar *PageSpeed Insights* berada di skor $> 90$.
-3. **Kesiapan Infrastruktur VPS:**
-   * Mendukung deployment di Linux VPS (Ubuntu 24.04 LTS) menggunakan Nginx, PHP 8.3-FPM, MySQL 8.0 / MariaDB, dan Redis untuk *caching* katalog produk.
+1. **Performa Tinggi & Tanpa Slop:**
+   * Mengikuti standar craftsmanship UI: tidak ada teks yang miring atau asimetris, tinggi tombol presisi, dan kontras warna memenuhi standar WCAG AA.
+2. **Optimasi Media:**
+   * Semua aset gambar dioptimasi ke format WebP dengan atribut `loading="lazy"` dan dimensi eksplisit untuk mencegah *layout shift* (CLS).
+3. **Kesiapan Infrastruktur Produksi:**
+   * Kompatibel dengan arsitektur Linux VPS (Ubuntu LTS, Nginx, PHP 8.2+, MySQL 8.0/MariaDB, dan Redis Caching).
