@@ -5,9 +5,6 @@
     <section class="relative rounded-3xl md:rounded-[40px] bg-gradient-to-br from-[#0F1048] via-[#1B1B6C] to-[#242882] p-6 sm:p-10 md:p-12 text-white overflow-hidden shadow-2xl shadow-primary/15">
         <div class="absolute -right-16 -top-16 w-72 h-72 bg-secondary/20 rotate-45 pointer-events-none"></div>
         <div class="max-w-3xl space-y-3 relative z-10">
-            <span class="inline-flex items-center px-3.5 h-7 rounded-full bg-white/10 text-blue-200 text-[10px] font-black uppercase tracking-widest border border-white/15 leading-none">
-                Etalase Spesifikasi Teknis & Pengadaan
-            </span>
             <h1 class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight uppercase leading-[1.1]">
                 Katalog <span class="text-[#8DA2E0]">{{ $activeDivisionName }}</span>
             </h1>
@@ -22,72 +19,7 @@
     </section>
 
     <!-- ============================================================== -->
-    <!-- 2. PILIHAN DIVISI (HANYA 2: PENERANGAN JALAN UMUM & ME)        -->
-    <!-- ============================================================== -->
-    <section class="bg-white p-3 md:p-4 rounded-2xl md:rounded-3xl border border-primary/10 shadow-sm">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <!-- Pilihan 1: Penerangan Jalan Umum -->
-            <button
-                type="button"
-                wire:click="selectDivision('pju')"
-                class="group relative p-4 sm:p-5 rounded-2xl text-left transition-all duration-300 flex items-center justify-between border-2 {{ $selectedDivision === 'pju' ? 'bg-[#0F1048] text-white border-[#0F1048] shadow-xl shadow-primary/20 scale-[1.01]' : 'bg-[#F8FAFC] text-text-main hover:bg-primary/5 border-transparent' }}"
-            >
-                <div class="flex items-center gap-3.5">
-                    <div class="w-11 h-11 rounded-xl flex items-center justify-center text-2xl shrink-0 transition-colors {{ $selectedDivision === 'pju' ? 'bg-secondary text-white' : 'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white' }}">
-                        <i class="bx bx-bulb"></i>
-                    </div>
-                    <div>
-                        <div class="flex items-center gap-2">
-                            <h2 class="text-xs sm:text-sm md:text-base font-black uppercase tracking-tight {{ $selectedDivision === 'pju' ? 'text-white' : 'text-primary' }}">
-                                Penerangan Jalan Umum
-                            </h2>
-                            @if($selectedDivision === 'pju')
-                                <span class="w-2 h-2 rounded-full bg-secondary"></span>
-                            @endif
-                        </div>
-                        <p class="text-[10px] sm:text-xs font-semibold mt-0.5 {{ $selectedDivision === 'pju' ? 'text-blue-200' : 'text-text-secondary' }}">
-                            Solar Cell, Lampu PLN & Tiang Galvanis ({{ $pjuCount }} Produk)
-                        </p>
-                    </div>
-                </div>
-                <div class="hidden sm:flex items-center justify-center w-8 h-8 rounded-lg {{ $selectedDivision === 'pju' ? 'bg-white/15 text-white' : 'bg-primary/5 text-primary group-hover:bg-primary group-hover:text-white' }} transition-colors">
-                    <i class="bx {{ $selectedDivision === 'pju' ? 'bx-check text-lg' : 'bx-chevron-right text-base' }}"></i>
-                </div>
-            </button>
-
-            <!-- Pilihan 2: Mechanical & Electrical -->
-            <button
-                type="button"
-                wire:click="selectDivision('me')"
-                class="group relative p-4 sm:p-5 rounded-2xl text-left transition-all duration-300 flex items-center justify-between border-2 {{ $selectedDivision === 'me' ? 'bg-[#0F1048] text-white border-[#0F1048] shadow-xl shadow-primary/20 scale-[1.01]' : 'bg-[#F8FAFC] text-text-main hover:bg-primary/5 border-transparent' }}"
-            >
-                <div class="flex items-center gap-3.5">
-                    <div class="w-11 h-11 rounded-xl flex items-center justify-center text-2xl shrink-0 transition-colors {{ $selectedDivision === 'me' ? 'bg-secondary text-white' : 'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white' }}">
-                        <i class="bx bx-cog"></i>
-                    </div>
-                    <div>
-                        <div class="flex items-center gap-2">
-                            <h2 class="text-xs sm:text-sm md:text-base font-black uppercase tracking-tight {{ $selectedDivision === 'me' ? 'text-white' : 'text-primary' }}">
-                                Mechanical & Electrical
-                            </h2>
-                            @if($selectedDivision === 'me')
-                                <span class="w-2 h-2 rounded-full bg-secondary"></span>
-                            @endif
-                        </div>
-                        <p class="text-[10px] sm:text-xs font-semibold mt-0.5 {{ $selectedDivision === 'me' ? 'text-blue-200' : 'text-text-secondary' }}">
-                            Panel Listrik, Impeller, Genset & Suku Cadang ({{ $meCount }} Produk)
-                        </p>
-                    </div>
-                </div>
-                <div class="hidden sm:flex items-center justify-center w-8 h-8 rounded-lg {{ $selectedDivision === 'me' ? 'bg-white/15 text-white' : 'bg-primary/5 text-primary group-hover:bg-primary group-hover:text-white' }} transition-colors">
-                    <i class="bx {{ $selectedDivision === 'me' ? 'bx-check text-lg' : 'bx-chevron-right text-base' }}"></i>
-                </div>
-            </button>
-        </div>
-    </section>
-
-    <!-- ============================================================== -->
-    <!-- 3. MAIN CATALOG CONTENT (SIDEBAR + GRID PRODUK)                -->
+    <!-- 2. MAIN CATALOG CONTENT (SIDEBAR + GRID PRODUK)                -->
     <!-- ============================================================== -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <!-- Sidebar Filter (3 Kolom) -->

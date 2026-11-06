@@ -66,6 +66,5 @@
         class="h-12 px-4 rounded-full bg-primary hover:bg-primary-dark text-white shadow-lg flex items-center justify-center gap-2 transition-colors duration-200 leading-none"
     >
         <i class="bx text-xl leading-none" :class="open ? 'bx-x' : 'bxl-whatsapp'"></i>
-        <span class="text-xs font-bold uppercase tracking-wider hidden sm:inline leading-none">Chat Admin MAA</span>
     </button>
 </div>

@@ -87,26 +87,26 @@
                             >
                                 <a
                                     href="{{ route('products.index', ['divisi' => 'pju']) }}"
-                                    class="flex items-center gap-3 p-3 rounded-xl hover:bg-primary/5 transition-colors group"
+                                    class="flex items-center gap-3 p-3 rounded-xl transition-colors group {{ request('divisi', 'pju') === 'pju' && request()->routeIs('products.*') ? 'bg-primary/10 border border-primary/15' : 'hover:bg-primary/5' }}"
                                 >
-                                    <div class="w-9 h-9 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white flex items-center justify-center text-lg transition-colors shrink-0">
+                                    <div class="w-9 h-9 rounded-lg {{ request('divisi', 'pju') === 'pju' && request()->routeIs('products.*') ? 'bg-primary text-white' : 'bg-primary/10 text-primary' }} group-hover:bg-primary group-hover:text-white flex items-center justify-center text-lg transition-colors shrink-0">
                                         <i class="bx bx-bulb"></i>
                                     </div>
                                     <div>
-                                        <p class="text-xs font-black uppercase tracking-wider text-text-main group-hover:text-primary leading-tight">Penerangan Jalan Umum</p>
+                                        <p class="text-xs font-black uppercase tracking-wider {{ request('divisi', 'pju') === 'pju' && request()->routeIs('products.*') ? 'text-primary' : 'text-text-main' }} group-hover:text-primary leading-tight">Penerangan Jalan Umum</p>
                                         <p class="text-[10px] text-text-secondary font-medium leading-tight mt-0.5">Solar Cell, Lampu PLN & Tiang</p>
                                     </div>
                                 </a>
 
                                 <a
                                     href="{{ route('products.index', ['divisi' => 'me']) }}"
-                                    class="flex items-center gap-3 p-3 rounded-xl hover:bg-primary/5 transition-colors group"
+                                    class="flex items-center gap-3 p-3 rounded-xl transition-colors group {{ request('divisi') === 'me' && request()->routeIs('products.*') ? 'bg-primary/10 border border-primary/15' : 'hover:bg-primary/5' }}"
                                 >
-                                    <div class="w-9 h-9 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white flex items-center justify-center text-lg transition-colors shrink-0">
+                                    <div class="w-9 h-9 rounded-lg {{ request('divisi') === 'me' && request()->routeIs('products.*') ? 'bg-primary text-white' : 'bg-primary/10 text-primary' }} group-hover:bg-primary group-hover:text-white flex items-center justify-center text-lg transition-colors shrink-0">
                                         <i class="bx bx-cog"></i>
                                     </div>
                                     <div>
-                                        <p class="text-xs font-black uppercase tracking-wider text-text-main group-hover:text-primary leading-tight">Mechanical & Electrical</p>
+                                        <p class="text-xs font-black uppercase tracking-wider {{ request('divisi') === 'me' && request()->routeIs('products.*') ? 'text-primary' : 'text-text-main' }} group-hover:text-primary leading-tight">Mechanical & Electrical</p>
                                         <p class="text-[10px] text-text-secondary font-medium leading-tight mt-0.5">Panel, Genset, Impeller & Sparepart</p>
                                     </div>
                                 </a>
@@ -221,7 +221,7 @@
                 @if($link['name'] === 'Produk')
                     <div class="space-y-1.5 bg-primary/5 rounded-2xl p-2.5 border border-primary/10">
                         <p class="px-2.5 pt-1 text-[10px] font-black uppercase tracking-wider text-text-secondary">
-                            Katalog Berdasarkan Divisi:
+                            Katalog Produk
                         </p>
                         <div class="flex flex-col gap-1.5">
                             <a
