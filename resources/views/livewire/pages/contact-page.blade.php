@@ -11,8 +11,8 @@
         </div>
     </section>
 
-    <!-- 4 Direct Contact Cards (WhatsApp Resmi, Email Resmi, Instagram Resmi, Kantor Sidoarjo) -->
-    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <!-- Direct Contact Cards (WhatsApp Resmi, Email Resmi, Kantor & Workshop Sidoarjo) -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <!-- Official WhatsApp -->
         <a
             href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai pengadaan barang & jasa.') }}"
@@ -62,24 +62,6 @@
                     <i class="bx bx-send text-base leading-none"></i>
                     <span>Kirim Email Resmi</span>
                 </div>
-            </div>
-        </a>
-
-        <!-- Official Instagram -->
-        <a
-            href="https://www.instagram.com/pt.multiabadiaksana?utm_source=ig_web_button_share_sheet&psln=ZDNlZDc0MzIxNw=="
-            target="_blank"
-            rel="noopener noreferrer"
-            class="bg-white p-6 sm:p-7 rounded-3xl border border-primary/10 shadow-lg shadow-primary/5 flex flex-col justify-between group hover:border-primary/35 transition-all space-y-5"
-        >
-            <div class="space-y-3">
-                <div class="w-11 h-11 bg-primary/10 text-primary rounded-xl flex items-center justify-center text-2xl">
-                    <i class="bx bxl-instagram"></i>
-                </div>
-                <h2 class="text-lg md:text-xl font-black uppercase tracking-tight text-primary">Instagram Resmi</h2>
-                <p class="text-xs text-text-secondary font-medium leading-relaxed">
-                    Dokumentasi aktivitas proyek lapangan terbaru, portofolio instalasi, serta pembaruan informasi PT. Multi Abadi Aksana.
-                </p>
             </div>
         </a>
 
