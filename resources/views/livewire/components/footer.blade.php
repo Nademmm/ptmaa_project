@@ -2,8 +2,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
             <!-- Brand & Value Prop -->
-            <div class="space-y-5">
-                <a href="{{ route('home') }}" class="flex items-center gap-3">
+            <div class="space-y-4 md:space-y-5">
+                <a href="{{ route('home') }}" class="inline-flex items-center gap-2.5 sm:gap-3 group">
                     <img
                         src="/assets/logo.jpg"
                         alt="Logo PT. Multi Abadi Aksana"
@@ -11,14 +11,14 @@
                         decoding="async"
                         width="120"
                         height="48"
-                        class="h-10 md:h-12 w-auto object-contain shrink-0"
+                        class="h-9 sm:h-10 w-auto object-contain shrink-0"
                     />
-                    <div class="flex flex-col">
-                        <span class="text-base md:text-lg font-black tracking-tighter text-primary leading-none uppercase">
-                            PT. MULTI ABADI <span class="text-secondary">AKSANA</span>
+                    <div class="flex flex-col justify-center">
+                        <span class="text-xs sm:text-sm md:text-base font-black tracking-tight text-primary leading-none uppercase whitespace-nowrap">
+                            MULTI ABADI <span class="text-secondary">AKSANA</span>
                         </span>
-                        <span class="text-[9px] font-extrabold tracking-[0.2em] text-text-secondary uppercase mt-1">
-                            Sidoarjo • Jawa Timur
+                        <span class="text-[8px] sm:text-[9px] font-extrabold tracking-[0.18em] text-text-secondary uppercase mt-1">
+                            General Trading &amp; Contractor
                         </span>
                     </div>
                 </a>
