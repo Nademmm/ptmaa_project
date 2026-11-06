@@ -225,7 +225,8 @@
         x-transition:leave-start="opacity-100 translate-y-0"
         x-transition:leave-end="opacity-0 -translate-y-2"
         style="display: none;"
-        class="pointer-events-auto md:hidden mt-2.5 bg-white/95 backdrop-blur-xl rounded-[28px] p-3.5 shadow-2xl border border-primary/15"
+        :class="scrolled ? 'mx-0' : 'mx-3.5 sm:mx-6'"
+        class="pointer-events-auto md:hidden mt-2.5 bg-white/95 backdrop-blur-xl rounded-[28px] p-3.5 shadow-2xl border border-primary/15 transition-all duration-300"
     >
         <form @submit.prevent="submitSearch(); isSearchOpen = false;" class="relative flex items-center">
             <label for="mobile-product-search" class="sr-only">Cari Produk</label>
@@ -257,7 +258,8 @@
         x-transition:leave-start="opacity-100 translate-y-0"
         x-transition:leave-end="opacity-0 -translate-y-2"
         style="display: none;"
-        class="pointer-events-auto lg:hidden mt-2.5 bg-white/95 backdrop-blur-xl rounded-[28px] p-5 shadow-2xl border border-primary/15"
+        :class="scrolled ? 'mx-0' : 'mx-3.5 sm:mx-6'"
+        class="pointer-events-auto lg:hidden mt-2.5 bg-white/95 backdrop-blur-xl rounded-[28px] p-5 shadow-2xl border border-primary/15 transition-all duration-300"
     >
         <div class="flex flex-col gap-1.5">
             @foreach($navLinks as $link)
@@ -305,7 +307,7 @@
                 class="mt-2 h-11 bg-primary text-white text-center rounded-2xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md shadow-primary/20 leading-none"
             >
                 <i class="bx bxl-whatsapp text-lg leading-none"></i>
-                <span>Hubungi Admin Utama</span>
+                <span>Hubungi Kami</span>
             </a>
         </div>
     </div>
