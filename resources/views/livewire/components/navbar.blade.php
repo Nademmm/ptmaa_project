@@ -24,7 +24,7 @@
     <nav
         :class="[
             scrolled
-                ? 'w-[calc(100%-1.75rem)] sm:w-[calc(100%-3rem)] max-w-[1000px] rounded-[36px] bg-white/95 backdrop-blur-xl shadow-2xl shadow-primary/15 border border-primary/15 px-4 sm:px-6 py-2.5 mt-2.5 sm:mt-3.5'
+                ? 'w-[calc(100%-3rem)] sm:w-[calc(100%-4rem)] max-w-[960px] rounded-[36px] bg-white/95 backdrop-blur-xl shadow-2xl shadow-primary/15 border border-primary/15 px-3.5 sm:px-6 py-2 sm:py-2.5 mt-2.5 sm:mt-3.5'
                 : 'w-full max-w-full rounded-[0px] bg-white border-b border-primary/10 shadow-none px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4 mt-0',
             ready ? 'navbar-float-transition' : 'transition-none'
         ]"
@@ -176,17 +176,17 @@
             </div>
 
             <!-- Mobile Search & Hamburger Toggle -->
-            <div class="flex items-center gap-1.5 md:hidden">
+            <div class="flex items-center gap-1 sm:gap-1.5 md:hidden">
                 <button
                     type="button"
                     @click="isSearchOpen = !isSearchOpen; if (isSearchOpen) isOpen = false;"
                     aria-label="Buka pencarian produk"
                     :aria-expanded="isSearchOpen"
                     :class="[
-                        scrolled ? 'rounded-[20px]' : 'rounded-xl',
+                        scrolled ? 'rounded-[18px]' : 'rounded-xl',
                         ready ? 'navbar-float-transition' : 'transition-none'
                     ]"
-                    class="w-10 h-10 rounded-xl bg-primary/5 hover:bg-primary/10 flex items-center justify-center text-lg text-primary focus:outline-none"
+                    class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-primary/5 hover:bg-primary/10 flex items-center justify-center text-lg text-primary focus:outline-none"
                 >
                     <i class="bx bx-search" x-show="!isSearchOpen"></i>
                     <i class="bx bx-x" x-cloak x-show="isSearchOpen" style="display: none;"></i>
@@ -198,10 +198,10 @@
                     aria-label="Buka menu navigasi"
                     :aria-expanded="isOpen"
                     :class="[
-                        scrolled ? 'rounded-[20px]' : 'rounded-xl',
+                        scrolled ? 'rounded-[18px]' : 'rounded-xl',
                         ready ? 'navbar-float-transition' : 'transition-none'
                     ]"
-                    class="w-10 h-10 rounded-xl bg-primary/5 hover:bg-primary/10 flex items-center justify-center text-xl text-primary focus:outline-none"
+                    class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-primary/5 hover:bg-primary/10 flex items-center justify-center text-xl text-primary focus:outline-none"
                 >
                     <i class="bx bx-menu-alt-right" x-show="!isOpen"></i>
                     <i class="bx bx-x" x-cloak x-show="isOpen" style="display: none;"></i>
@@ -211,7 +211,7 @@
     </nav>
 
     <!-- Mobile Overlays Container (Fixed Margin, Zero Resizing on Scroll) -->
-    <div class="w-[calc(100%-1.75rem)] sm:w-[calc(100%-3rem)] max-w-[1000px] mx-auto">
+    <div class="w-[calc(100%-3rem)] sm:w-[calc(100%-4rem)] max-w-[960px] mx-auto">
         <!-- Mobile Search Overlay -->
         <div
             x-cloak
