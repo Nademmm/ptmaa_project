@@ -86,29 +86,6 @@
                     @endforeach
                 </div>
             @endif
-
-            <!-- 4-Step Official Process Box -->
-            <div class="bg-white p-5 rounded-2xl border border-primary/10 shadow-sm space-y-3">
-                <p class="text-[10px] font-black uppercase tracking-widest text-primary">Alur Pemesanan & Eksekusi</p>
-                <div class="grid grid-cols-4 gap-2 text-center">
-                    <div class="p-2.5 rounded-xl bg-[#F8FAFC] border border-primary/10">
-                        <p class="text-[9px] font-black text-secondary">01</p>
-                        <p class="text-[10px] font-black uppercase text-primary">Komunikasi</p>
-                    </div>
-                    <div class="p-2.5 rounded-xl bg-[#F8FAFC] border border-primary/10">
-                        <p class="text-[9px] font-black text-secondary">02</p>
-                        <p class="text-[10px] font-black uppercase text-primary">Survei</p>
-                    </div>
-                    <div class="p-2.5 rounded-xl bg-[#F8FAFC] border border-primary/10">
-                        <p class="text-[9px] font-black text-secondary">03</p>
-                        <p class="text-[10px] font-black uppercase text-primary">Negosiasi</p>
-                    </div>
-                    <div class="p-2.5 rounded-xl bg-[#F8FAFC] border border-primary/10">
-                        <p class="text-[9px] font-black text-secondary">04</p>
-                        <p class="text-[10px] font-black uppercase text-primary">Deal</p>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- Right Column: Specification Summary & Direct B2B Inquiry -->
