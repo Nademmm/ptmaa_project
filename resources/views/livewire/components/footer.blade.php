@@ -36,6 +36,15 @@
                         <i class="bx bxl-whatsapp"></i>
                     </a>
                     <a
+                        href="https://www.instagram.com/pt.multiabadiaksana?utm_source=ig_web_button_share_sheet&psln=ZDNlZDc0MzIxNw=="
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Instagram Resmi PT. Multi Abadi Aksana"
+                        class="w-11 h-11 rounded-xl bg-[#F8FAFC] border border-primary/10 flex items-center justify-center text-lg text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm"
+                    >
+                        <i class="bx bxl-instagram"></i>
+                    </a>
+                    <a
                         href="mailto:ptmultiabadiaksana15@gmail.com"
                         aria-label="Kirim Email ke PT. Multi Abadi Aksana"
                         class="w-11 h-11 rounded-xl bg-[#F8FAFC] border border-primary/10 flex items-center justify-center text-lg text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm"
@@ -112,6 +121,10 @@
                     <p class="flex items-center gap-3">
                         <i class="bx bx-envelope text-primary text-lg shrink-0"></i>
                         <a href="mailto:ptmultiabadiaksana15@gmail.com" class="hover:text-primary font-bold break-all">ptmultiabadiaksana15@gmail.com</a>
+                    </p>
+                    <p class="flex items-center gap-3">
+                        <i class="bx bxl-instagram text-primary text-lg shrink-0"></i>
+                        <a href="https://www.instagram.com/pt.multiabadiaksana?utm_source=ig_web_button_share_sheet&psln=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="hover:text-primary font-bold">@pt.multiabadiaksana</a>
                     </p>
                 </div>
             </div>

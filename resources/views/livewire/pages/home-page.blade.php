@@ -486,7 +486,7 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
                     <a
                         href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai pengadaan barang & jasa.') }}"
                         target="_blank"
@@ -495,7 +495,7 @@
                     >
                         <div>
                             <p class="text-[9px] font-extrabold uppercase tracking-widest text-blue-200">WhatsApp Resmi</p>
-                            <p class="text-sm font-black mt-0.5">+62 823-4297-9898</p>
+                            <p class="text-xs md:text-sm font-black mt-0.5">+62 823-4297-9898</p>
                         </div>
                         <i class="bx bxl-whatsapp text-2xl"></i>
                     </a>
@@ -503,11 +503,23 @@
                         href="mailto:ptmultiabadiaksana15@gmail.com"
                         class="p-4 rounded-2xl bg-[#F8FAFC] border border-primary/10 text-primary hover:bg-primary hover:text-white transition-all flex items-center justify-between"
                     >
-                        <div>
+                        <div class="min-w-0 pr-2">
                             <p class="text-[9px] font-extrabold uppercase tracking-widest text-secondary">Email Resmi</p>
-                            <p class="text-xs font-black mt-0.5 break-all">ptmultiabadiaksana15@gmail.com</p>
+                            <p class="text-[11px] font-black mt-0.5 truncate">ptmultiabadiaksana15@gmail.com</p>
                         </div>
-                        <i class="bx bx-envelope text-2xl"></i>
+                        <i class="bx bx-envelope text-2xl shrink-0"></i>
+                    </a>
+                    <a
+                        href="https://www.instagram.com/pt.multiabadiaksana?utm_source=ig_web_button_share_sheet&psln=ZDNlZDc0MzIxNw=="
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="p-4 rounded-2xl bg-[#F8FAFC] border border-primary/10 text-primary hover:bg-primary hover:text-white transition-all flex items-center justify-between"
+                    >
+                        <div class="min-w-0 pr-2">
+                            <p class="text-[9px] font-extrabold uppercase tracking-widest text-secondary">Instagram Resmi</p>
+                            <p class="text-xs font-black mt-0.5 truncate">@pt.multiabadiaksana</p>
+                        </div>
+                        <i class="bx bxl-instagram text-2xl shrink-0"></i>
                     </a>
                 </div>
             </div>

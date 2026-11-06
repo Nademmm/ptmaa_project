@@ -11,26 +11,26 @@
         </div>
     </section>
 
-    <!-- 3 Direct Contact Cards (WhatsApp Resmi, Email Korporat, Kantor Sidoarjo) -->
-    <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- 4 Direct Contact Cards (WhatsApp Resmi, Email Resmi, Instagram Resmi, Kantor Sidoarjo) -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <!-- Official WhatsApp -->
         <a
             href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai pengadaan barang & jasa.') }}"
             target="_blank"
             rel="noopener noreferrer"
-            class="bg-white p-6 sm:p-8 rounded-3xl border border-primary/10 shadow-lg shadow-primary/5 flex flex-col justify-between group hover:border-primary/35 transition-all space-y-5"
+            class="bg-white p-6 sm:p-7 rounded-3xl border border-primary/10 shadow-lg shadow-primary/5 flex flex-col justify-between group hover:border-primary/35 transition-all space-y-5"
         >
             <div class="space-y-3">
                 <div class="w-11 h-11 bg-primary text-white rounded-xl flex items-center justify-center text-2xl">
                     <i class="bx bxl-whatsapp"></i>
                 </div>
-                <h2 class="text-xl font-black uppercase tracking-tight text-primary">WhatsApp Resmi</h2>
+                <h2 class="text-lg md:text-xl font-black uppercase tracking-tight text-primary">WhatsApp Resmi</h2>
                 <p class="text-xs text-text-secondary font-medium leading-relaxed">
                     Konsultasi teknis dan pengadaan divisi Penerangan Jalan Umum (Solar Cell & PLN) serta Mechanical & Electrical industri.
                 </p>
             </div>
             <div class="space-y-3 pt-3 border-t border-primary/10">
-                <p class="text-base md:text-lg font-black text-text-main">
+                <p class="text-sm md:text-base font-black text-text-main">
                     +62 823-4297-9898
                 </p>
                 <div class="w-full h-11 bg-primary text-white text-[11px] font-black uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 group-hover:bg-primary-dark transition-colors leading-none">
@@ -43,19 +43,19 @@
         <!-- Official Email -->
         <a
             href="mailto:ptmultiabadiaksana15@gmail.com"
-            class="bg-white p-6 sm:p-8 rounded-3xl border border-primary/10 shadow-lg shadow-primary/5 flex flex-col justify-between group hover:border-primary/35 transition-all space-y-5"
+            class="bg-white p-6 sm:p-7 rounded-3xl border border-primary/10 shadow-lg shadow-primary/5 flex flex-col justify-between group hover:border-primary/35 transition-all space-y-5"
         >
             <div class="space-y-3">
                 <div class="w-11 h-11 bg-primary/10 text-primary rounded-xl flex items-center justify-center text-2xl">
                     <i class="bx bx-envelope"></i>
                 </div>
-                <h2 class="text-xl font-black uppercase tracking-tight text-primary">Email Resmi</h2>
+                <h2 class="text-lg md:text-xl font-black uppercase tracking-tight text-primary">Email Resmi</h2>
                 <p class="text-xs text-text-secondary font-medium leading-relaxed">
                     Pengiriman dokumen permintaan penawaran harga (RFQ), undangan tender pengadaan, serta korespondensi resmi B2B & B2G.
                 </p>
             </div>
             <div class="space-y-3 pt-3 border-t border-primary/10">
-                <p class="text-xs sm:text-sm font-black text-text-main break-all">
+                <p class="text-xs font-black text-text-main break-all">
                     ptmultiabadiaksana15@gmail.com
                 </p>
                 <div class="w-full h-11 bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white text-[11px] font-black uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 transition-colors leading-none">
@@ -65,13 +65,40 @@
             </div>
         </a>
 
+        <!-- Official Instagram -->
+        <a
+            href="https://www.instagram.com/pt.multiabadiaksana?utm_source=ig_web_button_share_sheet&psln=ZDNlZDc0MzIxNw=="
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-white p-6 sm:p-7 rounded-3xl border border-primary/10 shadow-lg shadow-primary/5 flex flex-col justify-between group hover:border-primary/35 transition-all space-y-5"
+        >
+            <div class="space-y-3">
+                <div class="w-11 h-11 bg-primary/10 text-primary rounded-xl flex items-center justify-center text-2xl">
+                    <i class="bx bxl-instagram"></i>
+                </div>
+                <h2 class="text-lg md:text-xl font-black uppercase tracking-tight text-primary">Instagram Resmi</h2>
+                <p class="text-xs text-text-secondary font-medium leading-relaxed">
+                    Dokumentasi aktivitas proyek lapangan terbaru, portofolio instalasi, serta pembaruan informasi PT. Multi Abadi Aksana.
+                </p>
+            </div>
+            <div class="space-y-3 pt-3 border-t border-primary/10">
+                <p class="text-xs sm:text-sm font-black text-text-main">
+                    @pt.multiabadiaksana
+                </p>
+                <div class="w-full h-11 bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white text-[11px] font-black uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 transition-colors leading-none">
+                    <i class="bx bxl-instagram text-base leading-none"></i>
+                    <span>Buka Instagram</span>
+                </div>
+            </div>
+        </a>
+
         <!-- Office & Workshop Location Card -->
-        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-primary/10 shadow-lg shadow-primary/5 flex flex-col justify-between space-y-5">
+        <div class="bg-white p-6 sm:p-7 rounded-3xl border border-primary/10 shadow-lg shadow-primary/5 flex flex-col justify-between space-y-5">
             <div class="space-y-3">
                 <div class="w-11 h-11 bg-secondary text-white rounded-xl flex items-center justify-center text-2xl">
                     <i class="bx bxs-map"></i>
                 </div>
-                <h2 class="text-xl font-black uppercase tracking-tight text-primary">Kantor & Workshop</h2>
+                <h2 class="text-lg md:text-xl font-black uppercase tracking-tight text-primary">Kantor & Workshop</h2>
                 <p class="text-xs text-text-secondary font-medium leading-relaxed">
                     Head Office: Taman Surya Agung Blok B No. 11, Wage, Taman, Sidoarjo.<br>
                     Workshop: Safira Stone Resort A2-01, Sukodono, Sidoarjo.
