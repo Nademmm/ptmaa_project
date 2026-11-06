@@ -35,9 +35,25 @@ class AdminPanelProvider extends PanelProvider
             ->darkMode(false)
             ->font('Plus Jakarta Sans')
             ->brandName('PT. Multi Abadi Aksana')
-            ->brandLogo('/images/logo-pt-maa.png')
-            ->brandLogoHeight('2.25rem')
-            ->favicon('/images/logo-pt-maa.png')
+            ->brandLogo(fn (): HtmlString => new HtmlString('
+                <div class="flex items-center gap-2.5 h-full">
+                    <img
+                        src="/assets/logo.jpg"
+                        alt="Logo PT. Multi Abadi Aksana"
+                        style="height: 2.25rem; width: auto; object-fit: contain; flex-shrink: 0;"
+                    />
+                    <div class="flex flex-col text-left leading-none">
+                        <span style="font-size: 0.9rem; font-weight: 900; letter-spacing: -0.025em; color: #1B1B6C; text-transform: uppercase; line-height: 1.1;">
+                            MULTI ABADI <span style="color: #5C6BC0;">AKSANA</span>
+                        </span>
+                        <span style="font-size: 0.54rem; font-weight: 800; letter-spacing: 0.14em; color: #64748B; text-transform: uppercase; margin-top: 2px;">
+                            General Trading &amp; Contractor
+                        </span>
+                    </div>
+                </div>
+            '))
+            ->brandLogoHeight('2.5rem')
+            ->favicon('/assets/logo.jpg')
             ->sidebarCollapsibleOnDesktop()
             ->maxContentWidth('7xl')
             ->colors([
