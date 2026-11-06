@@ -61,7 +61,7 @@
                     <a
                         href="{{ route($link['route']) }}"
                         :class="scrolled ? 'rounded-full' : 'rounded-xl'"
-                        class="px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-300 {{ $isActive ? 'bg-primary text-white shadow-md shadow-primary/20' : 'text-text-secondary hover:text-primary hover:bg-primary/5' }}"
+                        class="inline-flex items-center justify-center h-9 px-4 text-xs font-bold uppercase tracking-wider leading-none text-center transition-all duration-300 {{ $isActive ? 'bg-primary text-white shadow-md shadow-primary/20' : 'text-text-secondary hover:text-primary hover:bg-primary/5' }}"
                     >
                         {{ $link['name'] }}
                     </a>
@@ -176,9 +176,9 @@
                 href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai pengadaan barang & jasa.') }}"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="mt-2 bg-primary text-white text-center py-3 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md shadow-primary/20"
+                class="mt-2 h-11 bg-primary text-white text-center rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md shadow-primary/20 leading-none"
             >
-                <i class="bx bxl-whatsapp text-base"></i>
+                <i class="bx bxl-whatsapp text-lg leading-none"></i>
                 <span>Hubungi Admin Utama</span>
             </a>
         </div>

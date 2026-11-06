@@ -37,7 +37,7 @@
                 <button
                     type="button"
                     wire:click="setCategory('{{ $key }}')"
-                    class="px-4 py-2 rounded-xl text-[10px] md:text-xs font-black uppercase tracking-wider transition-all {{ $selectedCategory === $key ? 'bg-primary text-white shadow-md shadow-primary/20' : 'bg-[#F8FAFC] text-text-secondary hover:text-primary' }}"
+                    class="inline-flex items-center justify-center h-9 sm:h-10 px-4 sm:px-5 rounded-xl text-[11px] md:text-xs font-black uppercase tracking-wider leading-none text-center transition-all {{ $selectedCategory === $key ? 'bg-primary text-white shadow-md shadow-primary/20' : 'bg-[#F8FAFC] text-text-secondary hover:text-primary' }}"
                 >
                     {{ $label }}
                 </button>
@@ -162,9 +162,9 @@
                     href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya tertarik mendiskusikan proyek serupa dengan dokumentasi Projek On Duty Anda.') }}"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="w-full py-3.5 bg-primary text-white text-center rounded-xl text-xs font-black uppercase tracking-widest hover:bg-primary-dark transition-all flex items-center justify-center gap-2"
+                    class="w-full h-12 bg-primary text-white text-center rounded-xl text-xs font-black uppercase tracking-wider hover:bg-primary-dark transition-all flex items-center justify-center gap-2 leading-none"
                 >
-                    <i class="bx bxl-whatsapp text-lg"></i>
+                    <i class="bx bxl-whatsapp text-lg leading-none"></i>
                     <span>Konsultasikan Proyek Serupa</span>
                 </a>
             </div>

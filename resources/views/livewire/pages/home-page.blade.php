@@ -223,10 +223,10 @@
                             </h3>
                             <a
                                 href="{{ route('products.index') }}"
-                                class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary text-white text-[10px] font-black uppercase tracking-widest hover:bg-primary-dark transition-all"
+                                class="inline-flex items-center justify-center gap-2 px-4 h-9 rounded-xl bg-primary text-white text-[11px] font-black uppercase tracking-wider hover:bg-primary-dark transition-all leading-none text-center"
                             >
                                 <span>Lihat Katalog Divisi</span>
-                                <i class="bx bx-right-arrow-alt text-base"></i>
+                                <i class="bx bx-right-arrow-alt text-base leading-none"></i>
                             </a>
                         </div>
                         <p class="text-xs md:text-sm text-text-secondary font-medium leading-relaxed">
@@ -364,10 +364,10 @@
             </div>
             <a
                 href="{{ route('products.index') }}"
-                class="px-5 py-3 rounded-xl bg-primary text-white font-black text-xs hover:bg-primary-dark transition-all flex items-center gap-2 uppercase tracking-wider shrink-0 shadow-md"
+                class="inline-flex items-center justify-center gap-2 px-6 h-11 md:h-12 rounded-xl md:rounded-2xl bg-primary text-white font-black text-xs hover:bg-primary-dark transition-all uppercase tracking-wider shrink-0 shadow-md leading-none text-center"
             >
                 <span>Lihat Seluruh Katalog</span>
-                <i class="bx bx-right-arrow-alt text-lg"></i>
+                <i class="bx bx-right-arrow-alt text-lg leading-none"></i>
             </a>
         </div>
 
@@ -391,10 +391,10 @@
             </div>
             <a
                 href="{{ route('gallery.index') }}"
-                class="px-5 py-3 rounded-xl glass font-black text-xs text-primary hover:bg-primary hover:text-white transition-all flex items-center gap-2 uppercase tracking-wider shrink-0"
+                class="inline-flex items-center justify-center gap-2 px-6 h-11 md:h-12 rounded-xl md:rounded-2xl glass font-black text-xs text-primary hover:bg-primary hover:text-white transition-all uppercase tracking-wider shrink-0 leading-none text-center"
             >
                 <span>Buka Semua Dokumentasi</span>
-                <i class="bx bx-right-arrow-alt text-lg"></i>
+                <i class="bx bx-right-arrow-alt text-lg leading-none"></i>
             </a>
         </div>
 

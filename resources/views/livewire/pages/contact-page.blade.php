@@ -33,8 +33,8 @@
                 <p class="text-base md:text-lg font-black text-text-main">
                     +62 823-4297-9898
                 </p>
-                <div class="w-full py-3 bg-primary text-white text-[11px] font-black uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 group-hover:bg-primary-dark transition-colors">
-                    <i class="bx bxl-whatsapp text-base"></i>
+                <div class="w-full h-11 bg-primary text-white text-[11px] font-black uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 group-hover:bg-primary-dark transition-colors leading-none">
+                    <i class="bx bxl-whatsapp text-base leading-none"></i>
                     <span>Chat WhatsApp Proyek</span>
                 </div>
             </div>
@@ -60,8 +60,8 @@
                 <p class="text-base md:text-lg font-black text-text-main">
                     +62 812-1659-2824
                 </p>
-                <div class="w-full py-3 bg-secondary text-white text-[11px] font-black uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 group-hover:bg-primary transition-colors">
-                    <i class="bx bxl-whatsapp text-base"></i>
+                <div class="w-full h-11 bg-secondary text-white text-[11px] font-black uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 group-hover:bg-primary transition-colors leading-none">
+                    <i class="bx bxl-whatsapp text-base leading-none"></i>
                     <span>Chat WhatsApp Sparepart</span>
                 </div>
             </div>
@@ -85,8 +85,8 @@
                 <p class="text-xs sm:text-sm font-black text-text-main break-all">
                     ptmultiabadiaksana15@gmail.com
                 </p>
-                <div class="w-full py-3 bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white text-[11px] font-black uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 transition-colors">
-                    <i class="bx bx-send text-base"></i>
+                <div class="w-full h-11 bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white text-[11px] font-black uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 transition-colors leading-none">
+                    <i class="bx bx-send text-base leading-none"></i>
                     <span>Kirim Email Resmi</span>
                 </div>
             </div>
@@ -216,9 +216,9 @@
 
                     <button
                         type="submit"
-                        class="w-full py-4 bg-primary hover:bg-primary-dark text-white font-black rounded-xl text-xs md:text-sm uppercase tracking-widest shadow-lg shadow-primary/20 transition-all flex items-center justify-center gap-2"
+                        class="w-full h-12 md:h-14 bg-primary hover:bg-primary-dark text-white font-black rounded-xl text-xs md:text-sm uppercase tracking-wider shadow-lg shadow-primary/20 transition-all flex items-center justify-center gap-2 leading-none text-center"
                     >
-                        <i class="bx bx-paper-plane text-lg"></i>
+                        <i class="bx bx-paper-plane text-lg leading-none"></i>
                         <span>Kirim Permintaan Penawaran</span>
                     </button>
                 </form>

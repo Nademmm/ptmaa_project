@@ -13,19 +13,19 @@
                 <blockquote class="p-4 rounded-2xl bg-white/10 border-l-4 border-[#8DA2E0] text-xs sm:text-sm font-bold italic text-blue-100">
                     "Membangun bisnis yang berdampak bagi keuntungan perusahaan dan keberlanjutan lingkungan"
                 </blockquote>
-                <div class="flex flex-wrap gap-3 pt-2">
+                <div class="flex flex-wrap items-center gap-3 pt-2">
                     <a
                         href="{{ route('products.index') }}"
-                        class="px-5 py-3 rounded-xl bg-white text-primary hover:bg-secondary hover:text-white text-[10px] md:text-xs font-black uppercase tracking-wider transition-all flex items-center gap-2 shadow-lg"
+                        class="inline-flex items-center justify-center gap-2 px-6 md:px-7 h-11 sm:h-12 rounded-xl md:rounded-2xl bg-white text-primary hover:bg-secondary hover:text-white text-[11px] md:text-xs font-black uppercase tracking-wider transition-all shadow-lg leading-none border border-white text-center"
                     >
-                        <i class="bx bx-package text-base"></i>
+                        <i class="bx bx-package text-base leading-none"></i>
                         <span>Lihat Katalog Produk</span>
                     </a>
                     <a
                         href="{{ route('contact') }}"
-                        class="px-5 py-3 rounded-xl bg-white/10 hover:bg-white hover:text-primary border border-white/20 text-white text-[10px] md:text-xs font-black uppercase tracking-wider transition-all flex items-center gap-2"
+                        class="inline-flex items-center justify-center gap-2 px-6 md:px-7 h-11 sm:h-12 rounded-xl md:rounded-2xl bg-white/10 hover:bg-white hover:text-primary border border-white/25 text-white text-[11px] md:text-xs font-black uppercase tracking-wider transition-all shadow-lg leading-none text-center"
                     >
-                        <i class="bx bxs-phone-call text-base"></i>
+                        <i class="bx bxs-phone-call text-base leading-none"></i>
                         <span>Hubungi Kantor Sidoarjo</span>
                     </a>
                 </div>

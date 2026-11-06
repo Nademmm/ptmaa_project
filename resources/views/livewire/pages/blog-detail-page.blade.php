@@ -85,9 +85,9 @@
                     href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai spesifikasi teknis proyek.') }}"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="w-full py-3 bg-white text-primary hover:bg-secondary hover:text-white rounded-xl text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 transition-all"
+                    class="w-full h-11 bg-white text-primary hover:bg-secondary hover:text-white rounded-xl text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 transition-all leading-none text-center"
                 >
-                    <i class="bx bxl-whatsapp text-base"></i>
+                    <i class="bx bxl-whatsapp text-base leading-none"></i>
                     <span>Chat WhatsApp Teknis</span>
                 </a>
             </div>

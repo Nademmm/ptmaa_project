@@ -174,9 +174,9 @@
                     href="{{ $whatsAppUrl }}"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="w-full py-4 bg-primary hover:bg-primary-dark text-white font-black rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2.5 text-xs md:text-sm uppercase tracking-wider transition-all"
+                    class="w-full h-12 md:h-14 bg-primary hover:bg-primary-dark text-white font-black rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2.5 text-xs md:text-sm uppercase tracking-wider transition-all leading-none text-center"
                 >
-                    <i class="bx bxl-whatsapp text-xl"></i>
+                    <i class="bx bxl-whatsapp text-xl leading-none"></i>
                     <span>Minta Penawaran Harga via WhatsApp</span>
                 </a>
             </div>
@@ -236,10 +236,10 @@
                 </h2>
                 <a
                     href="{{ route('products.index') }}"
-                    class="px-4 py-2.5 rounded-xl bg-white border border-primary/15 font-black text-xs text-primary hover:bg-primary hover:text-white transition-all flex items-center gap-2 uppercase tracking-wider"
+                    class="inline-flex items-center justify-center gap-2 px-5 h-10 rounded-xl bg-white border border-primary/15 font-black text-xs text-primary hover:bg-primary hover:text-white transition-all uppercase tracking-wider leading-none text-center"
                 >
                     <span>Lihat Semua Katalog</span>
-                    <i class="bx bx-right-arrow-alt text-base"></i>
+                    <i class="bx bx-right-arrow-alt text-base leading-none"></i>
                 </a>
             </div>
 
