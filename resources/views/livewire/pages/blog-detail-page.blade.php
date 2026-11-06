@@ -88,7 +88,7 @@
                     class="w-full h-11 bg-white text-primary hover:bg-secondary hover:text-white rounded-xl text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 transition-all leading-none text-center"
                 >
                     <i class="bx bxl-whatsapp text-base leading-none"></i>
-                    <span>Chat WhatsApp Teknis</span>
+                    <span>Hubungi Kami</span>
                 </a>
             </div>
         </aside>

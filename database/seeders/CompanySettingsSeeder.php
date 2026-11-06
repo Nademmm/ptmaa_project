@@ -17,9 +17,9 @@ class CompanySettingsSeeder extends Seeder
                 $settings->company_name = 'PT. Multi Abadi Aksana';
                 $settings->tagline = 'Membangun bisnis yang berdampak bagi keuntungan perusahaan dan keberlanjutan lingkungan';
                 $settings->principle_k3 = 'Utamakan Keselamatan dan Kesehatan Kerja (K3)';
-                $settings->vision = 'Menjadi perusahaan penyedia barang dan jasa (general contractor & supplier) yang terpercaya, profesional, berintegritas tinggi, dan berdaya saing tinggi di Indonesia, serta menjadi mitra strategis unggulan dalam penyediaan solusi infrastruktur, mekanikal-elektrikal, pencahayaan, dan tata ruang yang berkelanjutan.';
+                $settings->vision = 'Menjadi perusahaan penyedia barang dan jasa (general contractor & supplier) yang terpercaya, profesional, berintegritas tinggi, dan berdaya saing tinggi di Indonesia, serta menjadi mitra strategis unggulan dalam penyediaan solusi infrastruktur Penerangan Jalan Umum dan Mechanical & Electrical yang berkelanjutan.';
                 $settings->missions = [
-                    'Menyediakan produk penerangan jalan (PJU), impeller, komponen mekanikal-elektrikal, sparepart, serta pengerjaan interior & eksterior dengan standar mutu terbaik, aman, dan tepat spesifikasi.',
+                    'Menyediakan produk Penerangan Jalan Umum (Solar Cell & PLN), fabrikasi Impeller, sistem Mechanical & Electrical, serta komponen mekanikal industri dengan standar mutu terbaik, aman, dan tepat spesifikasi.',
                     'Memberikan kepercayaan penuh kepada konsumen baik dalam kualitas maupun pelayanan.',
                     'Berperan aktif dengan pemerintahan maupun swasta dalam mengembangkan usaha untuk membangun negara.',
                     'Mewujudkan sistem manajemen perusahaan yang menjunjung tinggi etika bisnis dan sosial.',

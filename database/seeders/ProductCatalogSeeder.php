@@ -12,64 +12,54 @@ class ProductCatalogSeeder extends Seeder
 {
     public function run(): void
     {
-        $pjuPillar = ServicePillar::where('code', 'PJU')->first();
-        $interiorPillar = ServicePillar::where('code', 'INTERIOR')->first();
-        $mePillar = ServicePillar::where('code', 'ME')->first();
-        $sparepartPillar = ServicePillar::where('code', 'SPAREPART')->first();
+        $pjuPillar = ServicePillar::where('slug', 'penerangan-jalan-umum')->first();
+        $mePillar = ServicePillar::where('slug', 'mechanical-electrical')->first();
 
-        // Kategori 1: PJU Tenaga Surya
+        // Kategori 1: Penerangan Jalan Umum Tenaga Surya
         $catPjuSolar = ProductCategory::create([
             'service_pillar_id' => $pjuPillar?->id,
-            'name' => 'PJU Tenaga Surya',
+            'name' => 'Penerangan Jalan Umum Tenaga Surya',
             'slug' => 'pju-tenaga-surya',
             'icon' => 'heroicon-o-sun',
-            'description' => 'Sistem Penerangan Jalan Umum berbasis energi terbarukan (PJU All In One, PJU Two In One, PJU Konvensional & Tiang Klem Lengan Fleksibel).',
+            'description' => 'Sistem Penerangan Jalan Umum berbasis energi terbarukan (All In One, Two In One, Konvensional Split System & Tiang Klem Lengan Fleksibel).',
+            'contact_phone' => '082342979898',
             'sort_order' => 1,
             'is_active' => true,
         ]);
 
-        // Kategori 2: PJU PLN & Tiang
+        // Kategori 2: Penerangan Jalan Umum PLN & Tiang
         $catPjuPln = ProductCategory::create([
             'service_pillar_id' => $pjuPillar?->id,
-            'name' => 'PJU PLN & Tiang',
+            'name' => 'Penerangan Jalan Umum PLN & Tiang',
             'slug' => 'pju-pln-tiang',
             'icon' => 'heroicon-o-sparkles',
-            'description' => 'Armature lampu jalan PLN (COB, OSRAM, PHILIPS, ESTIKA) beserta Tiang PJU PLN bentuk parabola melengkung, Octagonal, dan High Mast.',
+            'description' => 'Armature lampu jalan PLN (COB, OSRAM, PHILIPS, ESTIKA) beserta Tiang Penerangan Jalan Umum bentuk parabola melengkung, Octagonal, dan High Mast.',
+            'contact_phone' => '082342979898',
             'sort_order' => 2,
             'is_active' => true,
         ]);
 
-        // Kategori 3: Mechanical & Electrical
+        // Kategori 3: Sistem Mechanical & Electrical
         $catMe = ProductCategory::create([
             'service_pillar_id' => $mePillar?->id,
-            'name' => 'Mechanical & Electrical',
+            'name' => 'Sistem Mechanical & Electrical',
             'slug' => 'mechanical-electrical',
             'icon' => 'heroicon-o-bolt',
             'description' => 'Fabrikasi & perbaikan Impeller industri, Panel Utama MDP/SDP, ATS/AMF, MCCB/MCB, Capacitor Bank, Kabel NYA/NYM/NYY/XLPE, Trafo, Genset & UPS.',
+            'contact_phone' => '082342979898',
             'sort_order' => 3,
             'is_active' => true,
         ]);
 
-        // Kategori 4: Interior & Exterior
-        $catInterior = ProductCategory::create([
-            'service_pillar_id' => $interiorPillar?->id,
-            'name' => 'Interior & Exterior',
-            'slug' => 'interior-exterior',
-            'icon' => 'heroicon-o-home-modern',
-            'description' => 'Gypsum board, PVC, Wall Panel WPC/UVP, Acoustic Tile, Parket/Vinyl/SPC Flooring, Custom Furniture, Partisi Kaca/Cubicle, serta Fasad ACP & Kanopi.',
-            'sort_order' => 4,
-            'is_active' => true,
-        ]);
-
-        // Kategori 5: Sparepart & Equipment (WhatsApp: +62 823-4297-9898)
+        // Kategori 4: Komponen & Suku Cadang Mekanikal (di bawah Divisi Mechanical & Electrical)
         $catSparepart = ProductCategory::create([
-            'service_pillar_id' => $sparepartPillar?->id,
-            'name' => 'Sparepart & Equipment',
+            'service_pillar_id' => $mePillar?->id,
+            'name' => 'Komponen & Suku Cadang Mekanikal',
             'slug' => 'sparepart-equipment',
             'icon' => 'heroicon-o-wrench-screwdriver',
-            'description' => 'Katalog suku cadang kualitas premium: Oli, Grease, Ban Luar, Ban Dalam, Aki, Filter, Wiper, Baut Roda, Bearing, Kabel, Kampas Kopling, Lampu & Mesin.',
+            'description' => 'Katalog komponen perawatan mekanikal & armada industri: Oli, Grease, Bearing, Kampas Kopling, Kabel, Filter, Aki, Baut Roda & Ban Alat Berat.',
             'contact_phone' => '082342979898',
-            'sort_order' => 5,
+            'sort_order' => 4,
             'is_active' => true,
         ]);
 
@@ -317,52 +307,14 @@ class ProductCatalogSeeder extends Seeder
                 ['point' => 'Dilengkapi jasa pengujian beban listrik dan fungsi otomatisasi panel'],
                 ['point' => 'Layanan perawatan rutin berkala pada panel, trafo, genset, dan unit HVAC'],
             ],
-            'is_featured' => false,
+            'is_featured' => true,
             'has_warranty_badge' => true,
             'has_eco_k3_badge' => true,
             'sort_order' => 7,
         ]);
 
         // ==========================================
-        // PILAR 2: INTERIOR & EXTERIOR (COMPRO MAA)
-        // ==========================================
-
-        Product::create([
-            'product_category_id' => $catInterior->id,
-            'name' => 'Material Dinding WPC/PVC, Flooring SPC/Vinyl, Custom Furniture & Fasad ACP',
-            'slug' => 'material-interior-exterior-wpc-spc-custom-furniture-acp',
-            'sub_badge' => 'Interior & Exterior',
-            'brand' => 'PT. Multi Abadi Aksana',
-            'availability_status' => ProductAvailability::TERSEDIA,
-            'thumbnail_image' => '/images/projects/interior-adelle-jewellery.webp',
-            'gallery_images' => [
-                '/images/projects/interior-adelle-jewellery.webp',
-                '/images/projects/interior-ruang-kerja-partisi.webp',
-                '/images/projects/interior-ruang-medis.webp',
-                '/images/projects/interior-koridor-kantor.webp',
-            ],
-            'short_summary' => 'Pengadaan material penutup dinding & plafon (Gypsum, PVC, WPC/UVP), lantai (Parket, Vinyl, SPC, Granit), Custom Furniture, Partisi Kaca, serta aplikasi Fasad ACP.',
-            'description' => 'Sesuai dokumen Company Profile PT. Multi Abadi Aksana, layanan Interior & Exterior kami mencakup pengadaan material lengkap beserta jasa perancangan 3D, konstruksi finishing interior, aplikasi eksterior gedung tinggi (ACP/kaca/kanopi), renovasi (refurbishment), hingga pemeliharaan fasad luar (gondola work). Telah terbukti pada pengerjaan gerai retail premium Adelle Jewellery, ruang perkantoran modern, dan fasilitas kesehatan.',
-            'why_choose_text' => 'Menggabungkan estetika tata ruang modern dengan ketepatan konstruksi: mulai dari pembuatan konsep layout dan visualisasi 3D hingga instalasi plafon, partisi, lantai, dan perakitan furnitur kustom di lokasi.',
-            'specifications' => [
-                ['label' => 'Dinding & Plafon', 'value' => 'Gypsum Board, Panel PVC, Wall Panel WPC/UVP, Acoustic Tile, Wallpaper'],
-                ['label' => 'Material Lantai (Flooring)', 'value' => 'Parket Kayu, Vinyl, SPC Flooring, Karpet Kantor, Ubin Granit/Keramik'],
-                ['label' => 'Furnitur & Partisi', 'value' => 'Custom Furniture (Meja Kerja, Lemari, Resepsionis), Partisi Gipsum/Kaca, Toilet Cubicle'],
-                ['label' => 'Eksterior & Aksesori', 'value' => 'Fasad ACP/Kaca Gedung, Rangka Kanopi, Pagar Utama, Tirai/Blinds & Downlight Decorative'],
-            ],
-            'advantages' => [
-                ['point' => 'Layanan terintegrasi dari konsultasi desain 3D hingga konstruksi finishing dan renovasi'],
-                ['point' => 'Rekam jejak nyata pada proyek retail mewah (Adelle Jewellery), kantor, dan ruang medis'],
-                ['point' => 'Tersedia layanan maintenance berkala termasuk pembersihan dinding luar gedung (gondola work)'],
-            ],
-            'is_featured' => true,
-            'has_warranty_badge' => true,
-            'has_eco_k3_badge' => true,
-            'sort_order' => 8,
-        ]);
-
-        // ==========================================
-        // PILAR 4: SPAREPART & EQUIPMENT (PDF SPAREPART EQUIPMENT)
+        // KOMPONEN & SUKU CADANG MEKANIKAL (DIVISI MECHANICAL & ELECTRICAL)
         // ==========================================
 
         Product::create([

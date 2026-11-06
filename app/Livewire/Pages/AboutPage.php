@@ -8,7 +8,7 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 
 #[Layout('components.layouts.app')]
-#[Title('Tentang Kami & 4 Pilar Layanan | PT. Multi Abadi Aksana')]
+#[Title('Tentang Kami & Divisi Layanan | PT. Multi Abadi Aksana')]
 class AboutPage extends Component
 {
     public function render()

@@ -11,157 +11,109 @@ class ServicePillarSeeder extends Seeder
 {
     public function run(): void
     {
-        // Pilar 1: Penerangan Jalan Umum (PJU)
-        $pju = ServicePillar::create([
-            'name' => 'Penerangan Jalan Umum (PJU)',
-            'slug' => 'penerangan-jalan-umum',
-            'code' => 'PJU',
-            'icon' => 'heroicon-o-light-bulb',
-            'short_summary' => 'Solusi penerangan jalan berbasis efisiensi energi (Solar Cell & PLN) dan konstruksi tiang penunjang.',
-            'description' => 'PT. Multi Abadi Aksana menyediakan layanan pengadaan barang dan jasa terintegrasi untuk sistem Penerangan Jalan Umum (PJU), mulai dari lampu LED hemat energi, sistem mandiri tenaga surya (All In One, Two In One, Split System), tiang dan ornamen dekoratif, hingga pekerjaan sipil, instalasi, pengujian, dan pemeliharaan berkala.',
-            'sort_order' => 1,
-            'is_active' => true,
-        ]);
+        // Hapus pilar lama di luar 2 fokus bisnis utama
+        ServicePillar::whereNotIn('slug', ['penerangan-jalan-umum', 'mechanical-electrical'])->delete();
 
-        ServiceScope::create([
-            'service_pillar_id' => $pju->id,
-            'type' => ServiceScopeType::BARANG,
-            'title' => 'Pengadaan Barang (Hardware & Material) PJU',
-            'description' => 'Penyediaan armature lampu, tiang penunjang, kontrol panel, dan sistem daya berkualitas tinggi.',
-            'items' => [
-                'Armature & Lampu PJU: Lampu LED hemat energi, sistem Solar Cell (All-in-One, Two-in-One, Split System), serta Lampu Sorot (Floodlight). Merek: COB, OSRAM, PHILIPS, ESTIKA.',
-                'Tiang & Aksesori: Tiang PJU (Octagonal, Monopole, High Mast), tiang ornamen dekoratif, arm bracket (stang lampu), dan tiang lampu taman/pedestrian.',
-                'Sistem Kontrol & Panel: Panel distribusi PJU, timer, photocell sensor, serta Smart Lighting Controller.',
-                'Komponen Kelistrikan & Sistem Daya: Kabel distribusi (underground maupun udara), trafo penunjang, solar panel, baterai (Lithium / Gel), dan Solar Charge Controller.',
+        $pillars = [
+            [
+                'name' => 'Penerangan Jalan Umum',
+                'slug' => 'penerangan-jalan-umum',
+                'code' => 'Divisi 1',
+                'icon' => 'bx-bulb',
+                'short_summary' => 'Spesialis pengadaan unit lampu PJU Tenaga Surya (All In One, Two In One, Konvensional), PJU PLN, Tiang Galvanis, beserta jasa konstruksi sipil dan instalasi terpadu.',
+                'description' => 'Fokus utama PT. Multi Abadi Aksana dalam penyediaan infrastruktur Penerangan Jalan Umum (Solar Cell Mandiri maupun Listrik PLN) untuk jalan nasional, kawasan industri, hingga pedesaan dengan standar Keselamatan dan Kesehatan Kerja (K3).',
+                'sort_order' => 1,
+                'scopes' => [
+                    [
+                        'type' => ServiceScopeType::BARANG,
+                        'title' => 'Pengadaan Material & Unit Penerangan Jalan Umum',
+                        'description' => 'Penyediaan perangkat keras PJU Tenaga Surya, lampu PJU PLN hemat energi, dan tiang konstruksi Hot Dip Galvanized.',
+                        'items' => [
+                            'PJU Tenaga Surya All In One (Kontroler, baterai LiFePO4, dan solar panel menyatu dalam satu rumah lampu konkret)',
+                            'PJU Tenaga Surya Two In One (Rumah lampu & baterai terintegrasi dengan solar panel terpisah berfitur klem lengan fleksibel)',
+                            'PJU Tenaga Surya Konvensional / Split System (Lampu LED, modul solar panel, dan box baterai terpisah dengan struktur kokoh)',
+                            'Lampu PJU PLN Hemat Energi: Seri COB, OSRAM, PHILIPS, dan ESTIKA berstandar IP65/IP66',
+                            'Tiang PJU Hot Dip Galvanized (Octagonal, Hexagonal, Bulat, Lengan Parabola, High Mast & Tiang Dekoratif)',
+                            'Komponen Pendukung: Panel Surya Monocrystalline/Polycrystalline, Baterai LiFePO4/VRLA Gel, Smart Controller MPPT, dan Angkur Baut Pondasi',
+                        ],
+                        'sort_order' => 1,
+                    ],
+                    [
+                        'type' => ServiceScopeType::JASA,
+                        'title' => 'Jasa Konstruksi Sipil, Erection & Pemeliharaan PJU',
+                        'description' => 'Layanan terpadu mulai dari survei titik koordinat, pekerjaan pondasi sipil, erection tiang, hingga pemeliharaan berkala.',
+                        'items' => [
+                            'Survei teknis lapangan, pengukuran titik koordinat, dan perencanaan tata cahaya jalan',
+                            'Pekerjaan galian tanah, pengecoran pondasi beton bertulang (baseplate), dan pemasangan angkur baut',
+                            'Jasa erection (pendirian) tiang PJU menggunakan armada mobil crane dan skylift berstandar K3',
+                            'Instalasi jaringan kabel bawah tanah / udara, perakitan box panel PJU, dan sistem grounding',
+                            'Jasa pemeliharaan berkala (preventive maintenance), pembersihan modul surya, serta penggantian baterai dan komponen lampu',
+                        ],
+                        'sort_order' => 2,
+                    ],
+                ],
             ],
-            'sort_order' => 1,
-        ]);
-
-        ServiceScope::create([
-            'service_pillar_id' => $pju->id,
-            'type' => ServiceScopeType::JASA,
-            'title' => 'Pengadaan Jasa (Services & Execution) PJU',
-            'description' => 'Pelaksanaan survei, pekerjaan sipil, instalasi, dan pemeliharaan berstandar K3.',
-            'items' => [
-                'Perencanaan & Survei Teknis: Evaluasi kebutuhan pencahayaan (lighting design), perhitungan kuat pencahayaan (lux level), survei lokasi, dan pemetaan jalur distribusi daya.',
-                'Pekerjaan Sipil & Konstruksi: Penggalian tanah, pembuatan pondasi tiang PJU (pengecoran beton), dan pembuatan manhole/handhole jalur kabel bawah tanah.',
-                'Jasa Instalasi & Pemasangan: Ereksi (pendirian) tiang, pemasangan armature lampu, penarikan kabel daya, penyambungan modul solar cell, dan perakitan panel distribusi.',
-                'Pengujian & Komisioning (Testing & Commissioning): Pengujian kelistrikan, fungsi otomatisasi/sensor, dan verifikasi standar keselamatan jalan.',
-                'Jasa Pemeliharaan & Perbaikan (Maintenance & Repair): Perawatan berkala, penggantian komponen rusak (lampu/baterai/panel), penggantian kabel, dan perbaikan darurat.',
+            [
+                'name' => 'Mechanical & Electrical',
+                'slug' => 'mechanical-electrical',
+                'code' => 'Divisi 2',
+                'icon' => 'bx-cog',
+                'short_summary' => 'Solusi rekayasa mekanikal dan elektrikal industri mencakup fabrikasi Impeller & Blower, perakitan panel MDP/SDP/ATS, instalasi daya pabrik, serta suplai komponen teknik.',
+                'description' => 'Divisi rekayasa teknik PT. Multi Abadi Aksana yang melayani kebutuhan pabrik dan fasilitas industri, mulai dari fabrikasi komponen berputar (Impeller), instalasi sistem kelistrikan tegangan rendah/menengah, hingga penyediaan suku cadang mesin dan armada.',
+                'sort_order' => 2,
+                'scopes' => [
+                    [
+                        'type' => ServiceScopeType::BARANG,
+                        'title' => 'Pengadaan Perangkat Mechanical, Electrical & Komponen Industri',
+                        'description' => 'Suplai peralatan distribusi daya listrik, hasil fabrikasi mekanikal presisi, serta komponen perawatan mesin dan armada.',
+                        'items' => [
+                            'Fabrikasi Impeller Industri (Centrifugal Blower, Rotor Blade Stainless Steel, Fan Housing & Ducting)',
+                            'Panel Distribusi Utama (MDP), Sub Distribution Panel (SDP), Panel Otomatis ATS/AMF, dan Panel Kapasitor Bank',
+                            'Komponen Proteksi & Distribusi: ACB, MCCB, MCB, Kontaktor, Kabel Industri (NYA, NYM, NYY, XLPE), dan Cable Tray/Ladder',
+                            'Mesin & Peralatan: Genset Industri, Transformator (Trafo), Motor Listrik 3 Phase, Pompa Industri, dan Sistem HVAC',
+                            'Komponen Mekanikal & Pemeliharaan: Bearing Industri, V-Belt, Kampas Kopling, Baut Roda, Filter, Oli, Grease, Aki & Ban Armada',
+                        ],
+                        'sort_order' => 1,
+                    ],
+                    [
+                        'type' => ServiceScopeType::JASA,
+                        'title' => 'Jasa Instalasi Mekanikal-Elektrikal, Fabrikasi & Overhaul',
+                        'description' => 'Eksekusi instalasi kelistrikan pabrik, rekondisi komponen mekanikal, serta kontrak pemeliharaan rutin oleh teknisi bersertifikat K3.',
+                        'items' => [
+                            'Jasa fabrikasi kustom, rekondisi, penggantian shaft/blade, dan dynamic balancing Impeller blower industri',
+                            'Instalasi jaringan kelistrikan pabrik, gudang logistik, dan fasilitas industri (terminasi panel, penarikan kabel, grounding & penangkal petir)',
+                            'Pemasangan dan integrasi mesin produksi, sistem ventilasi blower/exhaust pabrik, perpipaan industri, dan pompa',
+                            'Pengujian beban kelistrikan (commissioning), audit efisiensi daya, dan troubleshooting gangguan sistem kontrol',
+                            'Jasa perawatan rutin berkala (preventive maintenance) dan overhaul mesin mekanikal-elektrikal di lokasi pabrik klien',
+                        ],
+                        'sort_order' => 2,
+                    ],
+                ],
             ],
-            'sort_order' => 2,
-        ]);
+        ];
 
-        // Pilar 2: Interior & Exterior
-        $interior = ServicePillar::create([
-            'name' => 'Interior & Exterior',
-            'slug' => 'interior-exterior',
-            'code' => 'INTERIOR',
-            'icon' => 'heroicon-o-home-modern',
-            'short_summary' => 'Perancangan tata ruang, finishing arsitektural, material dinding/lantai, furnitur, dan fasad modern.',
-            'description' => 'Layanan pengadaan material dan pengerjaan konstruksi arsitektural interior dan eksterior untuk gedung perkantoran, komersial, perumahan, maupun fasilitas publik dengan penekanan pada estetika fungsional dan durabilitas tinggi.',
-            'sort_order' => 2,
-            'is_active' => true,
-        ]);
+        foreach ($pillars as $pillarData) {
+            $scopes = $pillarData['scopes'];
+            unset($pillarData['scopes']);
 
-        ServiceScope::create([
-            'service_pillar_id' => $interior->id,
-            'type' => ServiceScopeType::BARANG,
-            'title' => 'Pengadaan Barang (Material & Produk) Interior & Exterior',
-            'description' => 'Material dinding, lantai, furnitur custom, dan elemen dekoratif berkualitas.',
-            'items' => [
-                'Penutup Dinding & Plafon: Gypsum board, panel PVC, wall panel WPC/UVP, acoustic tile, dan wallpaper.',
-                'Material Lantai (Flooring): Parket kayu, vinyl, SPC flooring, karpet kantor, dan ubin granit/keramik.',
-                'Furnitur & Partisi: Custom furniture (meja kerja, lemari, resepsionis), partisi gipsum/kaca, dan toilet cubicle system.',
-                'Aksesori & Pencahayaan: Tirai/blinds, downlight decorative, dan elemen dekoratif interior lainnya.',
-            ],
-            'sort_order' => 1,
-        ]);
+            $pillar = ServicePillar::updateOrCreate(
+                ['slug' => $pillarData['slug']],
+                $pillarData
+            );
 
-        ServiceScope::create([
-            'service_pillar_id' => $interior->id,
-            'type' => ServiceScopeType::JASA,
-            'title' => 'Pengadaan Jasa (Pekerjaan & Pelaksanaan) Interior & Exterior',
-            'description' => 'Desain 3D, konstruksi partisi, finishing, fasad gedung, dan peremajaan ruang.',
-            'items' => [
-                'Perancangan & Konsultasi Desain: Pembuatan konsep tata ruang (layout design), visualisasi 3D, serta pemilihan skema material dan warna.',
-                'Konstruksi & Finishing Interior: Pemasangan partisi, pengecatan dinding, instalasi plafon, penataan lantai, dan perakitan furnitur.',
-                'Pekerjaan Aplikasi Eksterior: Pemasangan fasad ACP/kaca gedung tinggi, pembuatan serta perakitan rangka kanopi, dan pengerjaan elemen pagar/pintu utama.',
-                'Renovasi & Pembenahan Ulang (Refurbishment): Pembongkaran struktur lama, perbaikan kerusakan tata ruang, dan peremajaan tampilan bangunan.',
-                'Jasa Pemeliharaan (Maintenance): Perawatan berkala fasad luar, pembersihan dinding luar gedung (gondola work), serta perbaikan elemen dekoratif.',
-            ],
-            'sort_order' => 2,
-        ]);
+            // Bersihkan scope lama agar selalu sinkron
+            $pillar->scopes()->delete();
 
-        // Pilar 3: Mechanical & Electrical (ME)
-        $me = ServicePillar::create([
-            'name' => 'Mechanical & Electrical (ME)',
-            'slug' => 'mechanical-electrical',
-            'code' => 'ME',
-            'icon' => 'heroicon-o-bolt',
-            'short_summary' => 'Panel daya, jalur kabel, genset, trafo, fabrikasi impeller industri, dan perawatan teknis.',
-            'description' => 'Solusi keteknikan industri mencakup jaringan kelistrikan tegangan rendah-menengah, proteksi daya, sistem mekanikal pabrik, perpipaan, serta fabrikasi dan rekayasa suku cadang kritis seperti impeller.',
-            'sort_order' => 3,
-            'is_active' => true,
-        ]);
-
-        ServiceScope::create([
-            'service_pillar_id' => $me->id,
-            'type' => ServiceScopeType::BARANG,
-            'title' => 'Pengadaan Barang (Material & Produk) Mechanical & Electrical',
-            'description' => 'Peralatan distribusi daya, panel proteksi, kabel, dan suku cadang mekanikal industri.',
-            'items' => [
-                'Sistem Elektrikal (Panel & Proteksi): Panel Utama (MDP/SDP), panel ATS/AMF, panel kontrol motor, circuit breaker (MCCB/MCB), dan capacitor bank.',
-                'Kabel & Jalur Distribusi: Kabel listrik tegangan rendah dan menengah (NYA, NYM, NYY, XLPE), kabel kontrol, cable tray, ladder, dan conduit.',
-                'Peralatan Utama & Industri: Transformator (trafo), genset, UPS (Uninterruptible Power Supply), stabilizer, armature sakelar/stopkontak, impeller industri, dan komponen perpipaan.',
-            ],
-            'sort_order' => 1,
-        ]);
-
-        ServiceScope::create([
-            'service_pillar_id' => $me->id,
-            'type' => ServiceScopeType::JASA,
-            'title' => 'Pengadaan Jasa (Pekerjaan & Pelaksanaan) Mechanical & Electrical',
-            'description' => 'Kalkulasi beban, instalasi kabel, fabrikasi impeller, uji beban, dan pemeliharaan.',
-            'items' => [
-                'Perancangan & Konsultasi Teknis: Perhitungan beban listrik dan desain skema jalur kelistrikan.',
-                'Jasa Instalasi & Pemasangan: Penarikan kabel daya, perakitan panel listrik, dan instalasi penerangan interior/industri.',
-                'Fabrikasi & Perbaikan Teknis: Jasa fabrikasi dan perbaikan komponen mekanikal industri khususnya impeller dan peralatan pabrik.',
-                'Pengujian & Komisioning (Testing & Commissioning): Pengujian beban listrik, uji kebocoran perpipaan (hydrotest), uji tekanan sistem pemadam, dan otomatisasi panel & HVAC.',
-                'Jasa Pemeliharaan & Perbaikan: Perawatan rutin berkala (preventive maintenance) pada panel, trafo, genset, dan unit HVAC.',
-            ],
-            'sort_order' => 2,
-        ]);
-
-        // Pilar 4: Sparepart & Equipment
-        $sparepart = ServicePillar::create([
-            'name' => 'Sparepart & Equipment',
-            'slug' => 'sparepart-equipment',
-            'code' => 'SPAREPART',
-            'icon' => 'heroicon-o-wrench-screwdriver',
-            'short_summary' => 'Penyediaan suku cadang dan pelumas armada kendaraan operasional, alat berat, dan mesin industri.',
-            'description' => 'Divisi khusus pengadaan perlengkapan dan suku cadang alat berat, armada transportasi logistik, dan permesinan industri dengan jaminan orisinalitas, spesifikasi presisi, dan ketersediaan stok.',
-            'sort_order' => 4,
-            'is_active' => true,
-        ]);
-
-        ServiceScope::create([
-            'service_pillar_id' => $sparepart->id,
-            'type' => ServiceScopeType::BARANG,
-            'title' => 'Pengadaan Barang (Katalog Suku Cadang & Pelumas)',
-            'description' => '13 Lini produk suku cadang untuk armada kendaraan operasional, alat berat, dan pabrik.',
-            'items' => [
-                'Oli (Lubricants) & Grease (Gemuk Pelumas) mutu tinggi',
-                'Ban Luar & Ban Dalam untuk armada angkut dan alat berat',
-                'Aki (Heavy Duty Battery) & Sistem Pengapian',
-                'Filter (Oli, Udara, Bahan Bakar)',
-                'Wiper, Baut Roda, Bearing Presisi, Kabel Mesin',
-                'Kampas Kopling & Brake Shoe',
-                'Lampu Kendaraan & Work Light Alat Berat',
-                'Peralatan Mesin & Komponen Hidrolik Lainnya',
-            ],
-            'sort_order' => 1,
-        ]);
+            foreach ($scopes as $scopeData) {
+                ServiceScope::create([
+                    'service_pillar_id' => $pillar->id,
+                    'type' => $scopeData['type'],
+                    'title' => $scopeData['title'],
+                    'description' => $scopeData['description'],
+                    'items' => $scopeData['items'],
+                    'sort_order' => $scopeData['sort_order'],
+                ]);
+            }
+        }
     }
 }
-

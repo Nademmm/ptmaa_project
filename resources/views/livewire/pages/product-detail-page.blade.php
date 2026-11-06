@@ -129,18 +129,8 @@
                     class="w-full h-12 md:h-14 bg-primary hover:bg-primary-dark text-white font-black rounded-2xl shadow-xl shadow-primary/20 flex items-center justify-center gap-3 text-xs md:text-sm uppercase tracking-wider transition-all leading-none text-center"
                 >
                     <i class="bx bxl-whatsapp text-2xl leading-none text-secondary"></i>
-                    <span>Konsultasi & Minta Penawaran via WhatsApp</span>
+                    <span>Konsultasi Produk via WhatsApp</span>
                 </a>
-
-                <div class="flex items-center justify-center gap-3 text-[10px] font-bold uppercase tracking-wider text-text-secondary">
-                    <span class="flex items-center gap-1.5">
-                        <i class="bx bx-check-shield text-secondary text-sm"></i> Standar K3 Terintegrasi
-                    </span>
-                    <span class="text-primary/20">•</span>
-                    <span class="flex items-center gap-1.5">
-                        <i class="bx bx-time-five text-secondary text-sm"></i> Respon Cepat Tim Teknis
-                    </span>
-                </div>
             </div>
         </div>
     </div>

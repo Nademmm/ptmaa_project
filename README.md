@@ -2,7 +2,7 @@
 
 Portal web korporat resmi dan etalase produk digital B2B / B2G (*Non-Ecommerce*) untuk **PT. Multi Abadi Aksana** (General Trading, Supplier & Contractor), berpusat di Sidoarjo, Jawa Timur.
 
-Sistem ini dirancang khusus untuk memfasilitasi pengadaan barang dan jasa industri, mulai dari sistem Penerangan Jalan Umum (PJU Tenaga Surya & PLN), pekerjaan Mechanical & Electrical (ME), perbaikan dan fabrikasi Impeller presisi, konstruksi Interior & Exterior komersial, hingga penyediaan suku cadang dan pelumas alat berat.
+Sistem ini dirancang khusus untuk memfasilitasi pengadaan barang dan jasa industri pada 2 fokus bisnis utama perusahaan: **Penerangan Jalan Umum** (Solar Cell & PLN, Tiang Galvanis, dan Konstruksi Sipil) serta **Mechanical & Electrical** (Fabrikasi & Perbaikan Impeller Presisi, Sistem Blower, Panel Distribusi MDP/SDP/ATS, Instalasi Kelistrikan, hingga Komponen Mekanikal).
 
 ---
 
@@ -13,7 +13,7 @@ Sistem ini dirancang khusus untuk memfasilitasi pengadaan barang dan jasa indust
 * **Tagline Resmi:** *"Membangun bisnis yang berdampak bagi keuntungan perusahaan dan keberlanjutan lingkungan"*
 * **Prinsip Operasional:** *Utamakan Keselamatan dan Kesehatan Kerja (K3) Terintegrasi*
 * **Head Office:** Jl. Taman Surya Agung Blok B No. 11, Wage, Kec. Taman, Sidoarjo, Jawa Timur 61257
-* **Workshop & Divisi Sparepart:** Safira Stone Resort A2-01, Masangan Wetan, Sukodono, Sidoarjo
+* **Workshop & Operasional Teknis:** Safira Stone Resort A2-01, Masangan Wetan, Sukodono, Sidoarjo
 * **WhatsApp & Telepon Resmi:** +62 823-4297-9898
 * **Email Resmi:** `ptmultiabadiaksana15@gmail.com`
 
@@ -21,37 +21,33 @@ Sistem ini dirancang khusus untuk memfasilitasi pengadaan barang dan jasa indust
 
 ## 🚀 Fitur Utama & Arsitektur Sistem
 
-### 1. Pemisahan Katalog Mandiri (Divisi PJU & Divisi ME)
-Untuk mengakomodasi karakteristik pengadaan yang berbeda antara infrastruktur jalan dan manufaktur industri, sistem memisahkan lini produk menjadi 2 divisi mandiri:
-* **Gateway Selection Portal (`/products`):** Layar pembuka interaktif yang menyajikan kartu spesialisasi **Divisi PJU** dan **Divisi ME** sebelum calon klien masuk ke etalase teknis.
-* **Katalog Divisi PJU (`/products?divisi=pju`):** Khusus menampilkan PJU Tenaga Surya (All In One, Two In One, Konvensional), Lampu PJU PLN (Philips, Osram, COB, Estika), serta Tiang Parabola dan Octagonal Hot Dip Galvanized.
-* **Katalog Divisi ME (`/products?divisi=me`):** Khusus menampilkan Fabrikasi & Dynamic Balancing Impeller Stainless Steel, Sistem Blower Industri, Panel Utama (MDP/SDP), Trafo, Genset, serta 12 Lini Suku Cadang Mesin Pabrik.
-* **Division Switcher Terpadu:** Kapsul navigasi di bagian atas katalog yang memudahkan perpindahan divisi kapan saja tanpa kehilangan konteks.
+### 1. Pemisahan Katalog Mandiri (Penerangan Jalan Umum & Mechanical & Electrical)
+Untuk mengakomodasi karakteristik pengadaan yang berbeda antara infrastruktur jalan dan rekayasa industri, sistem memisahkan lini produk menjadi 2 divisi mandiri yang diakses langsung dari menu dropdown **Produk** pada Navbar:
+* **Katalog Penerangan Jalan Umum (`/products?divisi=pju`):** Khusus menampilkan Penerangan Jalan Umum Tenaga Surya (All In One, Two In One, Konvensional), Lampu PJU PLN (Philips, Osram, COB, Estika), serta Tiang Parabola dan Octagonal Hot Dip Galvanized.
+* **Katalog Mechanical & Electrical (`/products?divisi=me`):** Khusus menampilkan Fabrikasi & Dynamic Balancing Impeller Stainless Steel, Sistem Blower Industri, Panel Utama (MDP/SDP/ATS), Trafo, Genset, serta Komponen & Suku Cadang Mekanikal.
 
 ### 2. Showcase B2B Non-Transaksional (Non-Ecommerce)
 * **Tanpa Harga Publik & Tanpa Checkout:** Menghindari sistem e-commerce standar konsumen retail; tidak ada keranjang belanja, ongkos kirim otomatis, maupun payment gateway.
 * **Spesifikasi Parameter Teknis:** Menampilkan rincian teknis mendalam (*key-value parameter*), galeri foto multi-sudut pandang, keunggulan produk, dan standar pengujian K3.
 
-### 3. Multi-Channel Click-to-WhatsApp Direct RFQ
-* Tombol CTA otomatis mengarahkan calon klien ke nomor WhatsApp PIC divisi terkait (Admin Proyek & PJU vs Admin Sparepart & Pelumas) dengan pesan yang sudah terisi otomatis (*pre-filled text*) memuat nama unit produk dan tautan halaman.
+### 3. Direct Click-to-WhatsApp RFQ
+* Tombol CTA otomatis mengarahkan calon klien ke nomor WhatsApp resmi PT. Multi Abadi Aksana (`+62 823-4297-9898`) dengan pesan yang sudah terisi otomatis (*pre-filled text*) memuat nama unit produk dan tautan halaman.
 * Mendukung alur kemitraan 4 tahap PT. Multi Abadi Aksana:
   $$\text{Komunikasi Awal} \longrightarrow \text{Survei Lapangan} \longrightarrow \text{Negosiasi RAB} \longrightarrow \text{Kesepakatan (Deal)}$$
 
-### 4. Empat Pilar Bisnis Terintegrasi
-1. **Penerangan Jalan Umum (PJU):** Pengadaan lampu surya mandiri, lampu jalan PLN, tiang galvanis, pondasi tiang, dan jasa instalasi keselamatan jalan.
-2. **Interior & Exterior:** Pekerjaan tata ruang, partisi dinding WPC/PVC, lantai vinyl/SPC, custom furniture, dan fasad ACP komersial.
-3. **Mechanical & Electrical (ME):** Fabrikasi & perbaikan impeller industri, blower ventilasi, perakitan panel listrik MDP/SDP, trafo, dan jaringan kabel daya.
-4. **Sparepart & Equipment:** Pasokan 12 lini suku cadang mesin, oli dan grease pelumas armada, ban alat berat, aki, filter, wiper, dan bearing industri.
+### 4. Dua Fokus Bisnis Utama (Pengadaan Barang & Jasa)
+1. **Penerangan Jalan Umum:** Pengadaan unit lampu jalan tenaga surya mandiri (All In One, Two In One, Konvensional), lampu jalan PLN, tiang galvanis, pengecoran pondasi sipil, dan jasa ereksi tiang berstandar K3.
+2. **Mechanical & Electrical:** Fabrikasi & perbaikan Impeller industri, sistem blower ventilasi, perakitan panel listrik MDP/SDP/ATS, instalasi jaringan kabel daya, serta penyediaan komponen mekanikal dan pelumas armada/mesin pabrik.
 
 ### 5. Dokumentasi Projek On Duty (Portofolio Lapangan)
-* Dokumentasi pelaksanaan proyek nyata tim PT. MAA di Jawa Timur (PJU Ruas Gempol-Sidoarjo, Interior Adelle Jewellery, Fabrikasi Rotor Impeller).
-* Dilengkapi modal Lightbox interaktif dan tombol konsultasi proyek serupa.
+* Dokumentasi pelaksanaan proyek nyata tim PT. Multi Abadi Aksana di Jawa Timur (Penerangan Jalan Umum Ruas Gempol-Sidoarjo, Fabrikasi Rotor Impeller Stainless Steel, dan Overhaul Blower Industri).
+* Dilengkapi modal Lightbox interaktif dan filter divisi (**Penerangan Jalan Umum** & **Mechanical & Electrical**).
 
 ### 6. Wawasan & Artikel Edukatif (Technical Blog)
 * Publikasi artikel wawasan teknik seputar efisiensi energi solar cell, komparasi armature lampu jalan, dynamic balancing impeller, dan manajemen keselamatan kerja.
 
 ### 7. Backoffice CMS Lengkap (Filament PHP v3)
-* Manajemen Produk, Kategori, 4 Pilar Layanan, Portofolio Galeri, Artikel Blog, Formulir Penawaran Masuk (Mini CRM), dan Pengaturan Identitas Perusahaan melalui panel admin `/admin`.
+* Manajemen Produk, Kategori, Divisi Layanan, Portofolio Galeri, Artikel Blog, Formulir Penawaran Masuk (Mini CRM), dan Pengaturan Identitas Perusahaan melalui panel admin `/admin`.
 
 ---
 

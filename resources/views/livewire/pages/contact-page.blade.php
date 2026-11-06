@@ -6,7 +6,7 @@
                 Hubungi <span class="text-[#8DA2E0]">PT. Multi Abadi Aksana.</span>
             </h1>
             <p class="text-xs sm:text-sm md:text-base text-blue-100/85 font-medium leading-relaxed">
-                Kami menyediakan 2 jalur komunikasi khusus: Divisi Proyek Utama (PJU, Interior & Exterior, Mechanical & Electrical) di Kec. Taman, Sidoarjo dan Divisi Sparepart & Equipment di Sukodono, Sidoarjo.
+                Hubungi tim resmi PT. Multi Abadi Aksana untuk konsultasi teknis, penjadwalan survei lapangan, maupun permintaan penawaran pengadaan Penerangan Jalan Umum serta Mechanical & Electrical di Sidoarjo, Jawa Timur.
             </p>
         </div>
     </section>
@@ -26,7 +26,7 @@
                 </div>
                 <h2 class="text-xl font-black uppercase tracking-tight text-primary">WhatsApp Resmi</h2>
                 <p class="text-xs text-text-secondary font-medium leading-relaxed">
-                    Konsultasi teknis, pengadaan Penerangan Jalan Umum, Mechanical & Electrical, Interior-Exterior, serta Suku Cadang Alat Berat.
+                    Konsultasi teknis dan pengadaan divisi Penerangan Jalan Umum (Solar Cell & PLN) serta Mechanical & Electrical industri.
                 </p>
             </div>
             <div class="space-y-3 pt-3 border-t border-primary/10">
@@ -35,7 +35,7 @@
                 </p>
                 <div class="w-full h-11 bg-primary text-white text-[11px] font-black uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 group-hover:bg-primary-dark transition-colors leading-none">
                     <i class="bx bxl-whatsapp text-base leading-none"></i>
-                    <span>Chat WhatsApp Resmi</span>
+                    <span>Hubungi Kami</span>
                 </div>
             </div>
         </a>
@@ -173,7 +173,7 @@
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                            <label for="service_pillar_id" class="block text-[10px] font-black uppercase tracking-wider text-primary mb-1.5">Pilar Layanan Terkait</label>
+                            <label for="service_pillar_id" class="block text-[10px] font-black uppercase tracking-wider text-primary mb-1.5">Divisi Layanan Terkait</label>
                             <select
                                 id="service_pillar_id"
                                 wire:model="service_pillar_id"
@@ -191,7 +191,7 @@
                                 id="subject"
                                 type="text"
                                 wire:model="subject"
-                                placeholder="Misal: Pengadaan PJU Tenaga Surya / Sparepart"
+                                placeholder="Misal: Pengadaan Penerangan Jalan Umum / Mechanical & Electrical"
                                 class="w-full rounded-xl bg-[#F8FAFC] border border-primary/15 px-4 py-3 text-xs md:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/20"
                             />
                         </div>
@@ -246,7 +246,7 @@
                             <i class="bx bxs-buildings"></i>
                         </div>
                         <div>
-                            <p class="text-[9px] font-black uppercase tracking-widest text-secondary">Workshop & Divisi Sparepart</p>
+                            <p class="text-[9px] font-black uppercase tracking-widest text-secondary">Workshop & Operasional Teknis</p>
                             <p class="text-xs font-black text-text-main leading-snug mt-0.5">
                                 Safira Stone Resort A2-01, Masangan Wetan, Sukodono, Kabupaten Sidoarjo, Jawa Timur
                             </p>

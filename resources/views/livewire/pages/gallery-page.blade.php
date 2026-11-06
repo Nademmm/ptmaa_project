@@ -17,7 +17,7 @@
                 Portofolio <span class="text-[#8DA2E0]">Projek On Duty.</span>
             </h1>
             <p class="text-xs sm:text-sm md:text-base text-blue-100/85 font-medium leading-relaxed">
-                Rekam jejak dokumentasi lapangan tim PT. Multi Abadi Aksana: ereksi tiang & instalasi PJU jalan raya, pengerjaan interior komersial, serta fabrikasi impeller stainless steel dan blower industri.
+                Rekam jejak dokumentasi lapangan tim PT. Multi Abadi Aksana: ereksi tiang & instalasi Penerangan Jalan Umum jalan raya, serta fabrikasi Impeller stainless steel, sistem blower, dan kelistrikan Mechanical & Electrical industri.
             </p>
         </div>
     </section>
@@ -28,8 +28,7 @@
             @php
                 $filterTabs = [
                     'semua' => 'Semua Dokumentasi',
-                    'pju' => 'Projek PJU & Infrastruktur',
-                    'interior_exterior' => 'Interior & Exterior',
+                    'pju' => 'Penerangan Jalan Umum',
                     'mechanical_electrical' => 'Mechanical & Electrical',
                 ];
             @endphp
@@ -104,7 +103,7 @@
                     </div>
 
                     <div class="pt-3 border-t border-primary/10 flex items-center justify-between text-[10px] font-black uppercase tracking-wider text-primary">
-                        <p>Perbesar Foto & Detail</p>
+                        <p>Detail Dokumentasi</p>
                         <i class="bx bx-right-arrow-alt text-base"></i>
                     </div>
                 </div>

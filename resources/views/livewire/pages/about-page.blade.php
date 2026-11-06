@@ -8,7 +8,7 @@
                     Pengadaan Barang & Jasa <span class="text-[#8DA2E0]">Berstandar Industri.</span>
                 </h1>
                 <p class="text-xs sm:text-sm md:text-base text-blue-100/90 font-medium leading-relaxed">
-                    <strong class="text-white">PT. Multi Abadi Aksana</strong> adalah perusahaan yang bergerak di bidang <strong class="text-white">Pengadaan Barang dan Jasa</strong> meliputi pengadaan dan pemasangan lampu Penerangan Jalan Umum (PJU), pengadaan dan jasa konstruksi Interior & Exterior, Mechanical & Electrical, serta pengadaan Sparepart dan perawatan mesin/alat berat.
+                    <strong class="text-white">PT. Multi Abadi Aksana</strong> adalah perusahaan yang bergerak di bidang <strong class="text-white">Pengadaan Barang dan Jasa</strong> dengan dua fokus divisi utama: pengadaan dan konstruksi <strong class="text-white">Penerangan Jalan Umum</strong> (Solar Cell & PLN) serta rekayasa <strong class="text-white">Mechanical & Electrical</strong> industri (fabrikasi Impeller, panel distribusi, instalasi daya, dan suplai komponen mekanikal).
                 </p>
                 <blockquote class="p-4 rounded-2xl bg-white/10 border-l-4 border-[#8DA2E0] text-xs sm:text-sm font-bold italic text-blue-100">
                     "Membangun bisnis yang berdampak bagi keuntungan perusahaan dan keberlanjutan lingkungan"
@@ -26,7 +26,7 @@
                         class="inline-flex items-center justify-center gap-2 px-6 md:px-7 h-11 sm:h-12 rounded-xl md:rounded-2xl bg-white/10 hover:bg-white hover:text-primary border border-white/25 text-white text-[11px] md:text-xs font-black uppercase tracking-wider transition-all shadow-lg leading-none text-center"
                     >
                         <i class="bx bxs-phone-call text-base leading-none"></i>
-                        <span>Hubungi Kantor Sidoarjo</span>
+                        <span>Hubungi Kami</span>
                     </a>
                 </div>
             </div>
@@ -81,9 +81,9 @@
                 </p>
             </div>
             <div class="p-4 rounded-2xl bg-[#F8FAFC] border border-primary/10 space-y-1.5">
-                <h3 class="text-xs font-black uppercase tracking-wider text-primary">Komitmen Divisi Sparepart & Equipment</h3>
+                <h3 class="text-xs font-black uppercase tracking-wider text-primary">Komitmen Mutu & Standar K3 Terintegrasi</h3>
                 <p class="text-xs md:text-sm font-semibold text-text-secondary leading-relaxed">
-                    "Menjadi mitra terpercaya dalam penyediaan suku cadang berkualitas tinggi yang mendukung kelancaran operasional berbagai industri di seluruh Indonesia."
+                    "Menjadi mitra strategis dalam penyediaan infrastruktur Penerangan Jalan Umum serta sistem dan komponen Mechanical & Electrical yang mendukung kelancaran operasional di seluruh Indonesia."
                 </p>
             </div>
         </div>
@@ -144,7 +144,7 @@
                 </div>
                 <h3 class="text-lg md:text-xl font-black uppercase tracking-tight text-primary">Dukungan Pelanggan</h3>
                 <p class="text-xs md:text-sm text-text-secondary font-medium leading-relaxed">
-                    Didukung jalur komunikasi responsif melalui tim administrasi proyek utama maupun tim khusus divisi sparepart untuk konsultasi spesifikasi dan survei lapangan.
+                    Didukung jalur komunikasi resmi (+62 823-4297-9898) yang responsif untuk konsultasi spesifikasi teknis, penjadwalan survei lapangan, hingga layanan purna jual.
                 </p>
             </div>
 
@@ -160,34 +160,35 @@
         </div>
     </section>
 
-    <!-- 4 Pilar Bisnis Utama -->
+    <!-- 2 Divisi Bisnis Utama -->
     <section class="space-y-8">
-        <h2 class="text-2xl sm:text-4xl font-black uppercase tracking-tight text-primary">
-            4 Pilar Layanan Utama
-        </h2>
-
-        @php
-            $pillarImages = [
-                'PJU' => '/images/projects/pju-instalasi-panel-tiang.webp',
-                'INT-EXT' => '/images/projects/interior-adelle-jewellery.webp',
-                'INTERIOR' => '/images/projects/interior-adelle-jewellery.webp',
-                'ME' => '/images/projects/me-impeller-rotor-stainless.webp',
-                'SPAREPART' => '/images/products/sparepart-oli.webp',
-            ];
-        @endphp
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <h2 class="text-2xl sm:text-4xl font-black uppercase tracking-tight text-primary">
+                2 Divisi Layanan Utama
+            </h2>
+            <p class="text-xs md:text-sm text-text-secondary font-medium max-w-md">
+                Fokus kompetensi PT. Multi Abadi Aksana dalam pengadaan barang dan jasa untuk sektor infrastruktur jalan dan fasilitas industri.
+            </p>
+        </div>
 
         <div class="space-y-6">
             @foreach($pillars as $index => $pillar)
                 @php
-                    $pImg = $pillarImages[$pillar->code] ?? '/images/projects/pju-k3-gempol-sidoarjo.webp';
-                    $pengadaanScopes = $pillar->scopes->filter(fn($s) => ($s->scope_type?->value ?? $s->scope_type) === 'pengadaan');
-                    $jasaScopes = $pillar->scopes->filter(fn($s) => ($s->scope_type?->value ?? $s->scope_type) === 'jasa');
+                    $isPjuPillar = $pillar->slug === 'penerangan-jalan-umum';
+                    $pImg = $isPjuPillar
+                        ? '/images/projects/pju-instalasi-panel-tiang.webp'
+                        : '/images/projects/me-impeller-rotor-stainless.webp';
+                    $pengadaanScopes = $pillar->scopes->filter(fn($s) => in_array(($s->type?->value ?? $s->type), ['barang', 'pengadaan']));
+                    $jasaScopes = $pillar->scopes->filter(fn($s) => ($s->type?->value ?? $s->type) === 'jasa');
+                    $divisionRoute = $isPjuPillar
+                        ? route('products.index', ['divisi' => 'pju'])
+                        : route('products.index', ['divisi' => 'me']);
                 @endphp
                 <div
-                    id="pilar-{{ strtolower($pillar->code) }}"
+                    id="divisi-{{ $pillar->slug }}"
                     class="bg-white p-6 sm:p-8 rounded-3xl border border-primary/10 shadow-lg shadow-primary/5 grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-start scroll-mt-28"
                 >
-                    <!-- Left Column: Pillar Photo & Identity -->
+                    <!-- Left Column: Division Photo & Identity -->
                     <div class="lg:col-span-4 space-y-4">
                         <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-[#1B1B6C] border border-primary/10 relative">
                             <img
@@ -196,16 +197,28 @@
                                 loading="lazy"
                                 width="600"
                                 height="450"
-                                class="w-full h-full {{ $pillar->code === 'SPAREPART' ? 'object-contain p-6' : 'object-cover' }}"
+                                class="w-full h-full object-cover"
                             />
                         </div>
-                        <div class="space-y-2">
+                        <div class="space-y-2.5">
+                            <span class="inline-block px-3 py-1 rounded-lg bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest">
+                                {{ $pillar->code ?? ('Divisi ' . ($index + 1)) }}
+                            </span>
                             <h3 class="text-xl md:text-2xl font-black uppercase tracking-tight text-primary">
                                 {{ $pillar->name }}
                             </h3>
                             <p class="text-xs text-text-secondary font-medium leading-relaxed">
-                                {{ $pillar->full_description ?? $pillar->short_description }}
+                                {{ $pillar->description ?? $pillar->short_summary }}
                             </p>
+                            <div class="pt-1">
+                                <a
+                                    href="{{ $divisionRoute }}"
+                                    class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-white text-[11px] font-black uppercase tracking-wider hover:bg-primary-dark transition-all"
+                                >
+                                    <span>Katalog {{ $pillar->name }}</span>
+                                    <i class="bx bx-right-arrow-alt text-base"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
@@ -221,21 +234,16 @@
                                     Pengadaan Barang
                                 </h4>
                             </div>
-                            <ul class="space-y-2">
-                                @forelse($pengadaanScopes as $scope)
-                                    <li class="flex items-start gap-2 text-xs text-text-main font-semibold">
-                                        <i class="bx bx-check-circle text-secondary text-base shrink-0 mt-0.5"></i>
-                                        <div>
-                                            <strong class="block font-bold">{{ $scope->title }}</strong>
-                                            @if($scope->description)
-                                                <p class="text-[11px] text-text-secondary font-medium">{{ $scope->description }}</p>
-                                            @endif
-                                        </div>
-                                    </li>
-                                @empty
-                                    <li class="text-xs text-text-secondary">Tersedia sesuai spesifikasi kebutuhan proyek.</li>
-                                @endforelse
-                            </ul>
+                            @foreach($pengadaanScopes as $scope)
+                                <ul class="space-y-2">
+                                    @foreach(($scope->items ?? []) as $item)
+                                        <li class="flex items-start gap-2 text-xs text-text-main font-semibold leading-relaxed">
+                                            <i class="bx bx-check-circle text-secondary text-base shrink-0 mt-0.5"></i>
+                                            <span>{{ $item }}</span>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endforeach
                         </div>
 
                         <!-- Pengadaan Jasa -->
@@ -248,21 +256,16 @@
                                     Pengadaan Jasa
                                 </h4>
                             </div>
-                            <ul class="space-y-2">
-                                @forelse($jasaScopes as $scope)
-                                    <li class="flex items-start gap-2 text-xs text-text-main font-semibold">
-                                        <i class="bx bx-check-circle text-primary text-base shrink-0 mt-0.5"></i>
-                                        <div>
-                                            <strong class="block font-bold">{{ $scope->title }}</strong>
-                                            @if($scope->description)
-                                                <p class="text-[11px] text-text-secondary font-medium">{{ $scope->description }}</p>
-                                            @endif
-                                        </div>
-                                    </li>
-                                @empty
-                                    <li class="text-xs text-text-secondary">Dukungan teknis & pengiriman langsung ke lokasi mitra.</li>
-                                @endforelse
-                            </ul>
+                            @foreach($jasaScopes as $scope)
+                                <ul class="space-y-2">
+                                    @foreach(($scope->items ?? []) as $item)
+                                        <li class="flex items-start gap-2 text-xs text-text-main font-semibold leading-relaxed">
+                                            <i class="bx bx-check-circle text-primary text-base shrink-0 mt-0.5"></i>
+                                            <span>{{ $item }}</span>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endforeach
                         </div>
                     </div>
                 </div>

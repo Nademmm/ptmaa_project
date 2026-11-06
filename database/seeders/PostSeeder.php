@@ -26,11 +26,11 @@ class PostSeeder extends Seeder
             ]
         );
 
-        $catSparepart = PostCategory::firstOrCreate(
+        $catSparepart = PostCategory::updateOrCreate(
             ['slug' => 'sparepart-konstruksi-k3'],
             [
-                'name' => 'Sparepart & Standar K3',
-                'description' => 'Panduan pemilihan suku cadang armada/mesin serta penerapan K3 pada proyek konstruksi & interior.',
+                'name' => 'Komponen Mekanikal & Standar K3',
+                'description' => 'Panduan pemilihan komponen mekanikal armada/mesin serta penerapan K3 pada proyek Penerangan Jalan Umum dan Mechanical & Electrical.',
             ]
         );
 
@@ -71,7 +71,7 @@ class PostSeeder extends Seeder
                 'title' => 'Menjaga Keandalan Armada dengan Sparepart Orisinal & Budaya K3 di Lokasi Proyek',
                 'featured_image' => '/images/projects/me-maintenance-apd-lengkap.webp',
                 'excerpt' => 'Mulai dari pemilihan oli, grease, ban, filter, dan kampas kopling berkualitas premium hingga disiplin penerapan Keselamatan dan Kesehatan Kerja (K3).',
-                'content' => "Keberhasilan eksekusi proyek infrastruktur dan kelancaran operasional industri sangat bergantung pada dua faktor utama: kesiapan peralatan/armada kerja dan keselamatan personel di lapangan.\n\nMelalui Divisi Sparepart & Equipment, PT. Multi Abadi Aksana menyuplai 12 kategori suku cadang kualitas premium yang mencakup Oli, Grease, Ban Luar, Ban Dalam, Aki, Filter, Wiper, Baut Roda, Bearing, Kabel, Kampas Kopling, dan Lampu kendaraan/alat berat. Penggunaan suku cadang dan pelumas yang tepat spesifikasi mencegah kerusakan mendadak di tengah jadwal proyek yang padat.\n\nSeluruh aktivitas instalasi PJU, pengerjaan konstruksi interior-eksterior, maupun perbaikan mesin pabrik selalu dijalankan dengan prinsip utama kami: Utamakan Keselamatan dan Kesehatan Kerja (K3), didukung proses kerja sama yang transparan mulai dari tahap Komunikasi, Survei, Negosiasi, hingga Deal.",
+                'content' => "Keberhasilan eksekusi proyek infrastruktur dan kelancaran operasional industri sangat bergantung pada dua faktor utama: kesiapan peralatan/armada kerja dan keselamatan personel di lapangan.\n\nDi bawah Divisi Mechanical & Electrical, PT. Multi Abadi Aksana menyuplai komponen mekanikal dan perawatan armada kualitas premium yang mencakup Oli, Grease, Ban Luar, Ban Dalam, Aki, Filter, Wiper, Baut Roda, Bearing, Kabel, Kampas Kopling, dan Lampu kendaraan/alat berat. Penggunaan suku cadang dan pelumas yang tepat spesifikasi mencegah kerusakan mendadak di tengah jadwal proyek yang padat.\n\nSeluruh aktivitas instalasi Penerangan Jalan Umum maupun perbaikan mesin Mechanical & Electrical pabrik selalu dijalankan dengan prinsip utama kami: Utamakan Keselamatan dan Kesehatan Kerja (K3), didukung proses kerja sama yang transparan mulai dari tahap Komunikasi, Survei, Negosiasi, hingga Deal.",
                 'meta_title' => 'Pengadaan Sparepart Premium & Komitmen K3 | PT. Multi Abadi Aksana',
                 'meta_description' => 'Solusi pengadaan sparepart alat berat/armada dan komitmen standar K3 PT. Multi Abadi Aksana di Sidoarjo.',
                 'published_at' => now()->subDay(),
