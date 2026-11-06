@@ -75,9 +75,9 @@
                             @php
                                 $divSlug = in_array($cat->slug, ['pju-tenaga-surya', 'pju-pln-tiang']) ? 'pju' : 'me';
                             @endphp
-                            <a href="{{ route('products.index', ['divisi' => $divSlug, 'kategori' => $cat->slug]) }}" class="hover:text-primary transition-colors flex items-center gap-2">
-                                <i class="bx bx-check-shield text-secondary"></i>
-                                <span>{{ $cat->name }}</span>
+                            <a href="{{ route('products.index', ['divisi' => $divSlug, 'kategori' => $cat->slug]) }}" class="hover:text-primary transition-colors flex items-start gap-2">
+                                <i class="bx bx-chevron-right text-secondary shrink-0 mt-1"></i>
+                                <span class="leading-snug">{{ $cat->name }}</span>
                             </a>
                         </li>
                     @endforeach
