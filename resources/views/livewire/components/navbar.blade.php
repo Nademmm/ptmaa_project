@@ -23,29 +23,30 @@
 >
     <nav
         :class="[
-            scrolled
-                ? 'w-[calc(100%-3rem)] sm:w-[calc(100%-4rem)] max-w-[960px] rounded-[36px] bg-white/95 backdrop-blur-xl shadow-2xl shadow-primary/15 border border-primary/15 px-3.5 sm:px-6 py-2 sm:py-2.5 mt-2.5 sm:mt-3.5'
-                : 'w-full max-w-full rounded-[0px] bg-white border-b border-primary/10 shadow-none px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4 mt-0',
+            scrolled ? 'nav-floating px-3 sm:px-5 py-2 sm:py-2.5' : 'nav-static px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4',
             ready ? 'navbar-float-transition' : 'transition-none'
         ]"
-        class="pointer-events-auto mx-auto w-full max-w-full rounded-[0px] bg-white border-b border-primary/10 shadow-none px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4 mt-0 transition-none"
+        :style="scrolled
+            ? 'width: calc(100% - 4.5rem) !important; max-width: 920px !important; margin-left: auto !important; margin-right: auto !important;'
+            : 'width: 100% !important; max-width: 100% !important;'"
+        class="pointer-events-auto mx-auto transition-none"
     >
-        <div class="w-full flex items-center justify-between gap-3 sm:gap-4">
+        <div class="w-full flex items-center justify-between gap-2.5 sm:gap-4">
             <!-- Brand Logo -->
-            <a href="{{ route('home') }}" class="flex items-center gap-2.5 sm:gap-3 shrink-0 pl-1 sm:pl-0">
+            <a href="{{ route('home') }}" class="flex items-center gap-2 sm:gap-2.5 shrink-0 pl-0.5 sm:pl-0">
                 <img
                     src="/assets/logo.jpg"
                     alt="Logo PT. Multi Abadi Aksana"
                     width="120"
                     height="48"
-                    class="h-8 sm:h-10 w-auto object-contain shrink-0"
+                    class="h-7 sm:h-8 md:h-10 w-auto object-contain shrink-0"
                 />
                 <div class="flex flex-col">
-                    <span class="text-xs sm:text-base font-black tracking-tighter text-primary leading-none uppercase">
+                    <span class="text-[11px] sm:text-sm md:text-base font-black tracking-tight text-primary leading-none uppercase whitespace-nowrap">
                         MULTI ABADI <span class="text-secondary">AKSANA</span>
                     </span>
-                    <span class="text-[8px] md:text-[9px] font-extrabold tracking-[0.18em] text-text-secondary uppercase mt-0.5">
-                        General Trading & Contractor
+                    <span class="text-[7.5px] sm:text-[8.5px] md:text-[9px] font-extrabold tracking-[0.14em] text-text-secondary uppercase mt-0.5 whitespace-nowrap">
+                        General Trading &amp; Contractor
                     </span>
                 </div>
             </a>
@@ -186,7 +187,7 @@
                         scrolled ? 'rounded-[18px]' : 'rounded-xl',
                         ready ? 'navbar-float-transition' : 'transition-none'
                     ]"
-                    class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-primary/5 hover:bg-primary/10 flex items-center justify-center text-lg text-primary focus:outline-none"
+                    class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-primary/5 hover:bg-primary/10 flex items-center justify-center text-base sm:text-lg text-primary focus:outline-none"
                 >
                     <i class="bx bx-search" x-show="!isSearchOpen"></i>
                     <i class="bx bx-x" x-cloak x-show="isSearchOpen" style="display: none;"></i>
@@ -201,7 +202,7 @@
                         scrolled ? 'rounded-[18px]' : 'rounded-xl',
                         ready ? 'navbar-float-transition' : 'transition-none'
                     ]"
-                    class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-primary/5 hover:bg-primary/10 flex items-center justify-center text-xl text-primary focus:outline-none"
+                    class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-primary/5 hover:bg-primary/10 flex items-center justify-center text-lg sm:text-xl text-primary focus:outline-none"
                 >
                     <i class="bx bx-menu-alt-right" x-show="!isOpen"></i>
                     <i class="bx bx-x" x-cloak x-show="isOpen" style="display: none;"></i>
@@ -211,7 +212,12 @@
     </nav>
 
     <!-- Mobile Overlays Container (Fixed Margin, Zero Resizing on Scroll) -->
-    <div class="w-[calc(100%-3rem)] sm:w-[calc(100%-4rem)] max-w-[960px] mx-auto">
+    <div
+        class="nav-overlay-container"
+        :style="scrolled
+            ? 'width: calc(100% - 4.5rem) !important; max-width: 920px !important; margin-left: auto !important; margin-right: auto !important;'
+            : 'width: calc(100% - 2rem) !important; max-width: 920px !important; margin-left: auto !important; margin-right: auto !important;'"
+    >
         <!-- Mobile Search Overlay -->
         <div
             x-cloak
