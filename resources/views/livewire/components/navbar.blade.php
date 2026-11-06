@@ -20,19 +20,19 @@
     }"
     @scroll.window.passive="scrolled = (window.scrollY > 30)"
     :class="[
-        scrolled ? 'pt-2.5 sm:pt-3.5 px-3 sm:px-6' : 'pt-0 px-0',
-        ready ? 'transition-all duration-300 ease-out' : 'transition-none'
+        scrolled ? 'pt-3 sm:pt-4 px-3 sm:px-6 lg:px-10' : 'pt-0 px-0',
+        ready ? 'transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]' : 'transition-none'
     ]"
     class="fixed top-0 left-0 right-0 z-50 pointer-events-none pt-0 px-0 transition-none"
 >
     <nav
         :class="[
             scrolled
-                ? 'max-w-7xl rounded-2xl md:rounded-full bg-white/95 backdrop-blur-xl shadow-xl shadow-primary/10 border border-primary/15 px-4 sm:px-8 py-2.5'
-                : 'max-w-full rounded-none bg-white border-b border-primary/10 shadow-none px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4',
-            ready ? 'transition-all duration-300 ease-out' : 'transition-none'
+                ? 'max-w-[1240px] rounded-2xl md:rounded-[32px] bg-white/95 backdrop-blur-xl shadow-2xl shadow-primary/10 border border-primary/15 px-4 sm:px-7 py-2.5'
+                : 'max-w-[1920px] rounded-[0px] bg-white border-b border-primary/10 shadow-none px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4',
+            ready ? 'transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]' : 'transition-none'
         ]"
-        class="pointer-events-auto mx-auto w-full max-w-full rounded-none bg-white border-b border-primary/10 shadow-none px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4 transition-none"
+        class="pointer-events-auto mx-auto w-full max-w-[1920px] rounded-[0px] bg-white border-b border-primary/10 shadow-none px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4 transition-none"
     >
         <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
             <!-- Brand Logo -->
@@ -55,7 +55,13 @@
             </a>
 
             <!-- Desktop Navigation Links -->
-            <div class="hidden lg:flex items-center gap-1">
+            <div
+                :class="[
+                    scrolled ? 'bg-primary/[0.04] p-1 rounded-[22px] border border-primary/10' : 'bg-transparent p-0 rounded-[0px] border border-transparent',
+                    ready ? 'transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]' : 'transition-none'
+                ]"
+                class="hidden lg:flex items-center gap-1 bg-transparent p-0 rounded-[0px] border border-transparent transition-none"
+            >
                 @php
                     $navLinks = [
                         ['name' => 'Beranda', 'route' => 'home', 'pattern' => 'home'],
@@ -78,24 +84,27 @@
                         >
                             <a
                                 href="{{ route('products.index') }}"
-                                :class="scrolled ? 'rounded-full' : 'rounded-xl'"
-                                class="inline-flex items-center justify-center gap-1.5 h-9 px-4 rounded-xl text-xs font-bold uppercase tracking-wider leading-none text-center transition-colors duration-200 {{ $isActive ? 'bg-primary text-white shadow-md shadow-primary/20' : 'text-text-secondary hover:text-primary hover:bg-primary/5' }}"
+                                :class="[
+                                    scrolled ? 'rounded-[18px]' : 'rounded-xl',
+                                    ready ? 'transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]' : 'transition-none'
+                                ]"
+                                class="inline-flex items-center justify-center gap-1.5 h-9 px-4 rounded-xl text-xs font-bold uppercase tracking-wider leading-none text-center {{ $isActive ? 'bg-primary text-white shadow-md shadow-primary/20' : 'text-text-secondary hover:text-primary hover:bg-primary/5' }}"
                             >
                                 <span>Produk</span>
-                                <i class="bx bx-chevron-down text-sm transition-transform duration-200" :class="productDropdown ? 'rotate-180' : ''"></i>
+                                <i class="bx bx-chevron-down text-sm transition-transform duration-300" :class="productDropdown ? 'rotate-180' : ''"></i>
                             </a>
 
                             <div
                                 x-cloak
                                 x-show="productDropdown"
-                                x-transition:enter="transition ease-out duration-150"
-                                x-transition:enter-start="opacity-0 translate-y-1"
+                                x-transition:enter="transition ease-out duration-200"
+                                x-transition:enter-start="opacity-0 translate-y-1.5"
                                 x-transition:enter-end="opacity-100 translate-y-0"
-                                x-transition:leave="transition ease-in duration-100"
+                                x-transition:leave="transition ease-in duration-150"
                                 x-transition:leave-start="opacity-100 translate-y-0"
-                                x-transition:leave-end="opacity-0 translate-y-1"
+                                x-transition:leave-end="opacity-0 translate-y-1.5"
                                 style="display: none;"
-                                class="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-72 z-50 pointer-events-auto"
+                                class="absolute top-full left-1/2 -translate-x-1/2 pt-2.5 w-72 z-50 pointer-events-auto"
                             >
                                 <div class="bg-white rounded-2xl p-2 shadow-2xl border border-primary/10">
                                     <a
@@ -129,8 +138,11 @@
                     @else
                         <a
                             href="{{ route($link['route']) }}"
-                            :class="scrolled ? 'rounded-full' : 'rounded-xl'"
-                            class="inline-flex items-center justify-center h-9 px-4 rounded-xl text-xs font-bold uppercase tracking-wider leading-none text-center transition-colors duration-200 {{ $isActive ? 'bg-primary text-white shadow-md shadow-primary/20' : 'text-text-secondary hover:text-primary hover:bg-primary/5' }}"
+                            :class="[
+                                scrolled ? 'rounded-[18px]' : 'rounded-xl',
+                                ready ? 'transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]' : 'transition-none'
+                            ]"
+                            class="inline-flex items-center justify-center h-9 px-4 rounded-xl text-xs font-bold uppercase tracking-wider leading-none text-center {{ $isActive ? 'bg-primary text-white shadow-md shadow-primary/20' : 'text-text-secondary hover:text-primary hover:bg-primary/5' }}"
                         >
                             {{ $link['name'] }}
                         </a>
@@ -147,14 +159,20 @@
                         type="text"
                         x-model="searchQuery"
                         placeholder="Cari PJU, Impeller, Panel..."
-                        :class="scrolled ? 'rounded-full' : 'rounded-xl'"
-                        class="bg-[#F8FAFC] border border-primary/15 focus:border-primary/40 focus:bg-white rounded-xl py-2 pl-3.5 pr-9 text-xs font-medium w-44 lg:w-52 transition-colors duration-200 focus:outline-none"
+                        :class="[
+                            scrolled ? 'rounded-[20px]' : 'rounded-xl',
+                            ready ? 'transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]' : 'transition-none'
+                        ]"
+                        class="bg-[#F8FAFC] border border-primary/15 focus:border-primary/40 focus:bg-white rounded-xl py-2 pl-3.5 pr-9 text-xs font-medium w-44 lg:w-52 focus:outline-none"
                     />
                     <button
                         type="submit"
                         aria-label="Cari produk"
-                        :class="scrolled ? 'rounded-full' : 'rounded-lg'"
-                        class="absolute right-1.5 w-6 h-6 rounded-lg bg-primary text-white flex items-center justify-center hover:bg-primary-dark transition-colors duration-200"
+                        :class="[
+                            scrolled ? 'rounded-[14px]' : 'rounded-lg',
+                            ready ? 'transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]' : 'transition-none'
+                        ]"
+                        class="absolute right-1.5 w-6 h-6 rounded-lg bg-primary text-white flex items-center justify-center hover:bg-primary-dark"
                     >
                         <i class="bx bx-search text-xs"></i>
                     </button>
@@ -192,10 +210,10 @@
     <div
         x-cloak
         x-show="isSearchOpen"
-        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter="transition ease-out duration-300"
         x-transition:enter-start="opacity-0 -translate-y-2"
         x-transition:enter-end="opacity-100 translate-y-0"
-        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave="transition ease-in duration-200"
         x-transition:leave-start="opacity-100 translate-y-0"
         x-transition:leave-end="opacity-0 -translate-y-2"
         style="display: none;"
@@ -224,10 +242,10 @@
     <div
         x-cloak
         x-show="isOpen"
-        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter="transition ease-out duration-300"
         x-transition:enter-start="opacity-0 -translate-y-2"
         x-transition:enter-end="opacity-100 translate-y-0"
-        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave="transition ease-in duration-200"
         x-transition:leave-start="opacity-100 translate-y-0"
         x-transition:leave-end="opacity-0 -translate-y-2"
         style="display: none;"
