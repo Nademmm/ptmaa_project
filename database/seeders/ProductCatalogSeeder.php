@@ -12,6 +12,9 @@ class ProductCatalogSeeder extends Seeder
 {
     public function run(): void
     {
+        Product::query()->delete();
+        ProductCategory::query()->delete();
+
         $pjuPillar = ServicePillar::where('slug', 'penerangan-jalan-umum')->first();
         $mePillar = ServicePillar::where('slug', 'mechanical-electrical')->first();
 

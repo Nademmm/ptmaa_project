@@ -113,15 +113,7 @@ class GalleryResource extends Resource
                     ->label('#'),
                 ImageColumn::make('image_path')
                     ->label('Foto')
-                    ->getStateUsing(function (Gallery $record): ?string {
-                        if (! $record->image_path) {
-                            return null;
-                        }
-
-                        return str_starts_with($record->image_path, '/') || str_starts_with($record->image_path, 'http')
-                            ? asset(ltrim($record->image_path, '/'))
-                            : asset('storage/' . $record->image_path);
-                    })
+                    ->disk('public')
                     ->square()
                     ->size(48),
                 TextColumn::make('title')

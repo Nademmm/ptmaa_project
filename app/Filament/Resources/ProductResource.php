@@ -136,10 +136,12 @@ class ProductResource extends Resource
                                     ->rows(3)
                                     ->required()
                                     ->label('Ringkasan Singkat (Tampil di Kartu Katalog)'),
-                                RichEditor::make('description')
+                                Textarea::make('description')
+                                    ->rows(5)
                                     ->required()
                                     ->label('Deskripsi Teknis Lengkap'),
-                                RichEditor::make('why_choose_text')
+                                Textarea::make('why_choose_text')
+                                    ->rows(4)
                                     ->label('Uraian "Mengapa Memilih Produk Ini?"'),
                             ]),
 
@@ -199,15 +201,7 @@ class ProductResource extends Resource
                     ->label('#'),
                 ImageColumn::make('thumbnail_image')
                     ->label('Foto')
-                    ->getStateUsing(function (Product $record): ?string {
-                        if (! $record->thumbnail_image) {
-                            return null;
-                        }
-
-                        return str_starts_with($record->thumbnail_image, '/') || str_starts_with($record->thumbnail_image, 'http')
-                            ? asset(ltrim($record->thumbnail_image, '/'))
-                            : asset('storage/' . $record->thumbnail_image);
-                    })
+                    ->disk('public')
                     ->square()
                     ->size(48),
                 TextColumn::make('name')

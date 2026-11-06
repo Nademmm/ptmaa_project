@@ -11,6 +11,7 @@ use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\View\PanelsRenderHook;
 use Filament\Widgets;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -18,6 +19,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
+use Illuminate\Support\HtmlString;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class AdminPanelProvider extends PanelProvider
@@ -30,15 +32,78 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->profile()
+            ->darkMode(false)
+            ->font('Plus Jakarta Sans')
             ->brandName('PT. Multi Abadi Aksana')
-            ->brandLogo(fn (): string => asset('images/logo-pt-maa.png'))
+            ->brandLogo('/images/logo-pt-maa.png')
             ->brandLogoHeight('2.25rem')
-            ->favicon(fn (): string => asset('images/logo-pt-maa.png'))
+            ->favicon('/images/logo-pt-maa.png')
             ->sidebarCollapsibleOnDesktop()
+            ->maxContentWidth('7xl')
             ->colors([
-                'primary' => Color::Indigo,
+                'primary' => Color::hex('#1B1B6C'),
                 'gray' => Color::Slate,
+                'info' => Color::Sky,
+                'success' => Color::Emerald,
+                'warning' => Color::Amber,
+                'danger' => Color::Rose,
             ])
+            ->renderHook(
+                PanelsRenderHook::HEAD_END,
+                fn (): HtmlString => new HtmlString('
+                    <style>
+                        /* Minimalist Corporate Admin UI — PT. Multi Abadi Aksana */
+                        body.fi-body {
+                            background-color: #F8FAFC !important;
+                            color: #0F172A;
+                            -webkit-font-smoothing: antialiased;
+                        }
+                        .fi-sidebar {
+                            background-color: #FFFFFF !important;
+                            border-right: 1px solid rgba(27, 27, 108, 0.08) !important;
+                        }
+                        .fi-sidebar-header {
+                            border-bottom: 1px solid rgba(27, 27, 108, 0.06) !important;
+                        }
+                        .fi-topbar nav {
+                            background-color: rgba(255, 255, 255, 0.92) !important;
+                            backdrop-filter: blur(12px);
+                            border-bottom: 1px solid rgba(27, 27, 108, 0.08) !important;
+                            box-shadow: none !important;
+                        }
+                        .fi-section,
+                        .fi-ta-ctn,
+                        .fi-wi-stats-overview-stat,
+                        .fi-fo-tabs {
+                            border-radius: 1rem !important;
+                            border: 1px solid rgba(27, 27, 108, 0.08) !important;
+                            box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.03) !important;
+                            background-color: #FFFFFF !important;
+                        }
+                        .fi-section-header {
+                            padding: 1.125rem 1.5rem !important;
+                        }
+                        .fi-sidebar-item-active > a {
+                            background-color: rgba(27, 27, 108, 0.07) !important;
+                            color: #1B1B6C !important;
+                            font-weight: 700 !important;
+                        }
+                        .fi-btn {
+                            border-radius: 0.75rem !important;
+                            font-weight: 600 !important;
+                            letter-spacing: 0.01em;
+                        }
+                        .fi-input-wrp {
+                            border-radius: 0.75rem !important;
+                        }
+                        .fi-simple-main {
+                            border-radius: 1.25rem !important;
+                            border: 1px solid rgba(27, 27, 108, 0.1) !important;
+                            box-shadow: 0 20px 40px -15px rgba(27, 27, 108, 0.08) !important;
+                        }
+                    </style>
+                ')
+            )
             ->navigationGroups([
                 NavigationGroup::make()
                     ->label('Katalog & Divisi Bisnis'),

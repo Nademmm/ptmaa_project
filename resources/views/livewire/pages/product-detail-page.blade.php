@@ -141,9 +141,13 @@
             <h2 class="text-lg md:text-2xl font-black uppercase tracking-tight text-primary">
                 Deskripsi Teknis & Lingkup Aplikasi
             </h2>
-            <p class="text-xs sm:text-sm md:text-base text-text-secondary leading-relaxed font-medium">
-                {{ $product->description }}
-            </p>
+            <div class="text-xs sm:text-sm md:text-base text-text-secondary leading-relaxed font-medium space-y-3">
+                @if(str_contains((string) $product->description, '<p>') || str_contains((string) $product->description, '<ul'))
+                    {!! $product->description !!}
+                @else
+                    <p>{{ $product->description }}</p>
+                @endif
+            </div>
 
             @if($product->why_choose_text)
                 <div class="p-4 sm:p-5 rounded-2xl bg-[#F8FAFC] border border-primary/10 space-y-2">
@@ -151,9 +155,13 @@
                         <i class="bx bxs-badge-check text-secondary text-lg"></i>
                         <span>Keunggulan Implementasi PT. Multi Abadi Aksana</span>
                     </h3>
-                    <p class="text-xs md:text-sm text-text-secondary leading-relaxed font-medium">
-                        {{ $product->why_choose_text }}
-                    </p>
+                    <div class="text-xs md:text-sm text-text-secondary leading-relaxed font-medium">
+                        @if(str_contains((string) $product->why_choose_text, '<p>') || str_contains((string) $product->why_choose_text, '<ul'))
+                            {!! $product->why_choose_text !!}
+                        @else
+                            <p>{{ $product->why_choose_text }}</p>
+                        @endif
+                    </div>
                 </div>
             @endif
         </div>

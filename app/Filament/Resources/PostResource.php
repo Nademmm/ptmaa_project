@@ -115,15 +115,7 @@ class PostResource extends Resource
             ->columns([
                 ImageColumn::make('featured_image')
                     ->label('Sampul')
-                    ->getStateUsing(function (Post $record): ?string {
-                        if (! $record->featured_image) {
-                            return null;
-                        }
-
-                        return str_starts_with($record->featured_image, '/') || str_starts_with($record->featured_image, 'http')
-                            ? asset(ltrim($record->featured_image, '/'))
-                            : asset('storage/' . $record->featured_image);
-                    })
+                    ->disk('public')
                     ->square()
                     ->size(48),
                 TextColumn::make('title')

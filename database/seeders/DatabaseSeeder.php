@@ -7,12 +7,27 @@ use App\Models\ContactInquiry;
 use App\Models\ServicePillar;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        // 0. Ensure public/images and official PDF are mirrored into storage/app/public for Filament FileUpload & ImageColumn
+        if (File::isDirectory(public_path('images'))) {
+            File::ensureDirectoryExists(storage_path('app/public/images'));
+            File::copyDirectory(public_path('images'), storage_path('app/public/images'));
+        }
+
+        if (File::exists(base_path('downloaded_docs/ComPro_MULTI_ABADI_AKSANA.pdf'))) {
+            File::ensureDirectoryExists(storage_path('app/public/files'));
+            File::copy(
+                base_path('downloaded_docs/ComPro_MULTI_ABADI_AKSANA.pdf'),
+                storage_path('app/public/files/ComPro_MULTI_ABADI_AKSANA.pdf')
+            );
+        }
+
         // 1. Seed Default Administrator Account
         User::updateOrCreate(
             ['email' => 'admin@ptmaa.co.id'],
