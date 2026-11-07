@@ -39,11 +39,8 @@
                     class="h-7 sm:h-10 w-auto object-contain shrink-0"
                 />
                 <div class="flex flex-col min-w-0">
-                    <span class="text-[11px] leading-[1.1] sm:text-base font-black tracking-tighter text-primary sm:leading-none uppercase sm:whitespace-nowrap">
-                        MULTI ABADI <span class="text-secondary">AKSANA</span>
-                    </span>
-                    <span class="hidden min-[430px]:block text-[7px] sm:text-[8px] md:text-[9px] font-extrabold tracking-[0.1em] sm:tracking-[0.16em] text-text-secondary uppercase mt-0.5 whitespace-nowrap">
-                        General Trading &amp; Contractor
+                    <span class="text-[13px] leading-[1.15] sm:text-base font-black tracking-tighter text-primary sm:leading-none uppercase sm:whitespace-nowrap">
+                        <span class="block sm:inline">PT. MULTI ABADI</span> <span class="block sm:inline text-secondary">AKSANA</span>
                     </span>
                 </div>
             </a>
