@@ -68,7 +68,7 @@
 
 .nav-floating {
     width: calc(100% - 2.5rem) !important;
-    max-width: 1000px !important;
+    max-width: 1280px !important;
     border-radius: 36px !important;
     margin-top: 0.625rem !important;
     margin-left: auto !important;
@@ -89,7 +89,7 @@
 
 .nav-overlay-container {
     width: calc(100% - 2.5rem) !important;
-    max-width: 1000px !important;
+    max-width: 1280px !important;
     margin-left: auto !important;
     margin-right: auto !important;
 }

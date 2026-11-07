@@ -26,9 +26,6 @@
             scrolled ? 'nav-floating px-3.5 sm:px-6 py-2.5 sm:py-2.5' : 'nav-static px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4',
             ready ? 'navbar-float-transition' : 'transition-none'
         ]"
-        :style="scrolled
-            ? 'width: calc(100% - 2.5rem) !important; max-width: 1000px !important; margin-left: auto !important; margin-right: auto !important;'
-            : 'width: 100% !important; max-width: 100% !important;'"
         class="pointer-events-auto mx-auto transition-none"
     >
         <div class="w-full flex items-center justify-between gap-3 sm:gap-4">
@@ -214,9 +211,6 @@
     <!-- Mobile Overlays Container (Fixed Margin, Zero Resizing on Scroll) -->
     <div
         class="nav-overlay-container"
-        :style="scrolled
-            ? 'width: calc(100% - 2.5rem) !important; max-width: 1000px !important; margin-left: auto !important; margin-right: auto !important;'
-            : 'width: calc(100% - 2.5rem) !important; max-width: 1000px !important; margin-left: auto !important; margin-right: auto !important;'"
     >
         <!-- Mobile Search Overlay -->
         <div
