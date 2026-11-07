@@ -255,18 +255,40 @@
                 </div>
             </div>
 
-            <div class="bg-white p-2.5 rounded-3xl border border-primary/10 shadow-lg overflow-hidden h-72">
-                <iframe
-                    title="Peta Lokasi Kantor PT. Multi Abadi Aksana Sidoarjo"
-                    src="https://maps.google.com/maps?q=Taman+Surya+Agung+Wage+Taman+Sidoarjo&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                    width="100%"
-                    height="100%"
-                    style="border: 0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    class="rounded-2xl w-full h-full"
-                ></iframe>
+            <div
+                x-data="{ mapLoaded: false }"
+                x-init="
+                    const triggerMap = () => { mapLoaded = true; };
+                    window.addEventListener('scroll', triggerMap, { once: true, passive: true });
+                    window.addEventListener('mousemove', triggerMap, { once: true, passive: true });
+                    window.addEventListener('touchstart', triggerMap, { once: true, passive: true });
+                "
+                class="bg-white p-2.5 rounded-3xl border border-primary/10 shadow-lg overflow-hidden h-72 relative"
+            >
+                <template x-if="mapLoaded">
+                    <iframe
+                        title="Peta Lokasi Kantor PT. Multi Abadi Aksana Sidoarjo"
+                        src="https://maps.google.com/maps?q=Taman+Surya+Agung+Wage+Taman+Sidoarjo&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                        width="100%"
+                        height="100%"
+                        style="border: 0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="rounded-2xl w-full h-full"
+                    ></iframe>
+                </template>
+                <div
+                    x-show="!mapLoaded"
+                    @click="mapLoaded = true"
+                    class="rounded-2xl w-full h-full bg-gradient-to-br from-[#0F1048] via-[#1B1B6C] to-[#3D52A0] flex flex-col items-center justify-center text-white p-6 text-center cursor-pointer"
+                >
+                    <div class="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center text-2xl mb-2.5">
+                        <i class="bx bxs-map"></i>
+                    </div>
+                    <p class="text-xs font-black uppercase tracking-wider">Peta Lokasi Kantor Sidoarjo</p>
+                    <p class="text-[11px] text-blue-100 mt-1">Jl. Taman Surya Agung Blok B No. 11, Wage, Sidoarjo</p>
+                </div>
             </div>
         </div>
     </section>

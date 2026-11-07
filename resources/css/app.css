@@ -2,6 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'boxicons';
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    src: url('/assets/fonts/boxicons.woff2') format('woff2');
+}
+
+.bx {
+    font-family: 'boxicons' !important;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+    display: inline-block;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.bx-bulb:before{content:"\ea0d"}
+.bx-category:before{content:"\ea39"}
+.bx-check:before{content:"\ea41"}
+.bx-check-circle:before{content:"\ea46"}
+.bx-check-shield:before{content:"\ea48"}
+.bx-chevron-down:before{content:"\ea4a"}
+.bx-chevron-left:before{content:"\ea4d"}
+.bx-chevron-right:before{content:"\ea50"}
+.bx-cog:before{content:"\ea6e"}
+.bx-envelope:before{content:"\eac1"}
+.bx-filter-alt:before{content:"\eada"}
+.bx-fullscreen:before{content:"\eaeb"}
+.bx-hard-hat:before{content:"\ef2e"}
+.bx-left-arrow-alt:before{content:"\eb33"}
+.bxl-instagram:before{content:"\e942"}
+.bxl-whatsapp:before{content:"\e98a"}
+.bx-map:before{content:"\eb56"}
+.bx-menu-alt-right:before{content:"\eb61"}
+.bx-news:before{content:"\eb9f"}
+.bx-package:before{content:"\eba6"}
+.bx-paper-plane:before{content:"\ef61"}
+.bx-reset:before{content:"\ebe0"}
+.bx-right-arrow-alt:before{content:"\ebe6"}
+.bxs-award:before{content:"\ecb2"}
+.bxs-badge-check:before{content:"\ecb6"}
+.bxs-building-house:before{content:"\ecf5"}
+.bxs-buildings:before{content:"\ecf6"}
+.bxs-check-circle:before{content:"\ed31"}
+.bx-search:before{content:"\ebf7"}
+.bx-send:before{content:"\ebfc"}
+.bx-show:before{content:"\ec0c"}
+.bxs-map:before{content:"\ee17"}
+.bxs-phone-call:before{content:"\ee67"}
+.bx-spreadsheet:before{content:"\ec24"}
+.bxs-shield-alt-2:before{content:"\eea3"}
+.bxs-user-voice:before{content:"\eeeb"}
+.bxs-wrench:before{content:"\ef05"}
+.bx-target-lock:before{content:"\ec3d"}
+.bx-timer:before{content:"\ec47"}
+.bx-user-check:before{content:"\ec64"}
+.bx-wrench:before{content:"\ec8c"}
+.bx-x:before{content:"\ec8d"}
+
 @layer base {
     [x-cloak] {
         display: none !important;

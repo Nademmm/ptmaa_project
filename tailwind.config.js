@@ -20,15 +20,15 @@ export default {
             colors: {
                 primary: {
                     DEFAULT: '#1B1B6C',
-                    light: '#5E72B8',
+                    light: '#3D52A0',
                     dark: '#0F1048',
                 },
-                secondary: '#5E72B8',
+                secondary: '#3D52A0',
                 accent: '#131454',
                 background: '#F8FAFC',
                 surface: '#FFFFFF',
                 'text-main': '#0F172A',
-                'text-secondary': '#475569',
+                'text-secondary': '#334155',
                 brand: {
                     50: '#EEF2FF',
                     100: '#E0E7FF',

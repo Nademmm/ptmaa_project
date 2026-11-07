@@ -28,6 +28,12 @@ class Post extends Model
         'is_published' => 'boolean',
     ];
 
+    protected static function booted(): void
+    {
+        static::saved(fn () => \Illuminate\Support\Facades\Cache::forget('latest_posts_home'));
+        static::deleted(fn () => \Illuminate\Support\Facades\Cache::forget('latest_posts_home'));
+    }
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(PostCategory::class, 'post_category_id');

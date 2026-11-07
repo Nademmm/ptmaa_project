@@ -26,6 +26,12 @@ class ServiceScope extends Model
         'sort_order' => 'integer',
     ];
 
+    protected static function booted(): void
+    {
+        static::saved(fn () => \Illuminate\Support\Facades\Cache::forget('service_pillars_all'));
+        static::deleted(fn () => \Illuminate\Support\Facades\Cache::forget('service_pillars_all'));
+    }
+
     public function pillar(): BelongsTo
     {
         return $this->belongsTo(ServicePillar::class, 'service_pillar_id');

@@ -13,7 +13,7 @@ class AboutPage extends Component
 {
     public function render()
     {
-        $pillars = ServicePillar::with('scopes')->where('is_active', true)->orderBy('sort_order')->get();
+        $pillars = \Illuminate\Support\Facades\Cache::remember('service_pillars_all', 3600, fn () => ServicePillar::with('scopes')->where('is_active', true)->orderBy('sort_order')->get());
 
         return view('livewire.pages.about-page', [
             'pillars' => $pillars,

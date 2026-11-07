@@ -56,10 +56,13 @@
         <div class="lg:col-span-6 space-y-4">
             <div class="aspect-[4/3] rounded-3xl overflow-hidden border border-primary/15 shadow-xl relative bg-gradient-to-br from-[#0F1048] via-[#1B1B6C] to-[#2B358C] flex items-center justify-center">
                 <img
+                    src="{{ $mainImg }}"
                     :src="images[selectedImage]"
                     alt="{{ $product->name }}"
                     width="960"
                     height="720"
+                    fetchpriority="high"
+                    decoding="sync"
                     :class="isCutout(images[selectedImage]) ? 'w-full h-full object-contain p-8 md:p-12 drop-shadow-2xl transition-all duration-500' : 'w-full h-full object-cover transition-all duration-500'"
                 />
             </div>
@@ -205,7 +208,7 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 @foreach($relatedProducts->take(3) as $relProduct)
-                    <livewire:components.product-card :product="$relProduct" :key="'rel-prod-'.$relProduct->id" />
+                    <x-product-card :product="$relProduct" />
                 @endforeach
             </div>
         </div>

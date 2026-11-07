@@ -32,10 +32,12 @@
             <!-- Brand Logo -->
             <a href="{{ route('home') }}" class="flex items-center gap-2 sm:gap-3 min-w-0 pl-0.5 sm:pl-0 sm:shrink-0">
                 <img
-                    src="/assets/logo.jpg"
+                    src="/assets/logo.webp"
                     alt="Logo PT. Multi Abadi Aksana"
-                    width="120"
-                    height="48"
+                    width="56"
+                    height="40"
+                    fetchpriority="high"
+                    decoding="async"
                     class="h-7 sm:h-10 w-auto object-contain shrink-0"
                 />
                 <div class="flex flex-col min-w-0">
@@ -171,7 +173,7 @@
             </div>
 
             <!-- Mobile Search & Hamburger Toggle -->
-            <div class="flex items-center gap-1 sm:gap-1.5 shrink-0 md:hidden">
+            <div class="flex items-center gap-1.5 shrink-0 md:hidden">
                 <button
                     type="button"
                     @click="isSearchOpen = !isSearchOpen; if (isSearchOpen) isOpen = false;"
@@ -181,7 +183,7 @@
                         scrolled ? 'rounded-[20px]' : 'rounded-xl',
                         ready ? 'navbar-float-transition' : 'transition-none'
                     ]"
-                    class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-primary/5 hover:bg-primary/10 flex items-center justify-center text-lg text-primary focus:outline-none"
+                    class="w-10 h-10 rounded-xl bg-primary/5 hover:bg-primary/10 flex items-center justify-center text-lg text-primary focus:outline-none"
                 >
                     <i class="bx bx-search" x-show="!isSearchOpen"></i>
                     <i class="bx bx-x" x-cloak x-show="isSearchOpen" style="display: none;"></i>
@@ -196,7 +198,7 @@
                         scrolled ? 'rounded-[20px]' : 'rounded-xl',
                         ready ? 'navbar-float-transition' : 'transition-none'
                     ]"
-                    class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-primary/5 hover:bg-primary/10 flex items-center justify-center text-xl text-primary focus:outline-none"
+                    class="w-10 h-10 rounded-xl bg-primary/5 hover:bg-primary/10 flex items-center justify-center text-xl text-primary focus:outline-none"
                 >
                     <i class="bx bx-menu-alt-right" x-show="!isOpen"></i>
                     <i class="bx bx-x" x-cloak x-show="isOpen" style="display: none;"></i>

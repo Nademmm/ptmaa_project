@@ -27,6 +27,18 @@ class ProductCategory extends Model
         'sort_order' => 'integer',
     ];
 
+    protected static function booted(): void
+    {
+        static::saved(function (): void {
+            \Illuminate\Support\Facades\Cache::forget('footer_categories');
+            \Illuminate\Support\Facades\Cache::forget('catalog_categories');
+        });
+        static::deleted(function (): void {
+            \Illuminate\Support\Facades\Cache::forget('footer_categories');
+            \Illuminate\Support\Facades\Cache::forget('catalog_categories');
+        });
+    }
+
     public function pillar(): BelongsTo
     {
         return $this->belongsTo(ServicePillar::class, 'service_pillar_id');

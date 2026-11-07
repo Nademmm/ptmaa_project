@@ -38,6 +38,8 @@
                         alt="Tim Lapangan PT. Multi Abadi Aksana"
                         width="800"
                         height="600"
+                        fetchpriority="high"
+                        decoding="sync"
                         class="w-full h-full object-cover"
                     />
                 </div>

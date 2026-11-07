@@ -1,18 +1,24 @@
+@if(!empty($heroSlides[0]['image']))
+    @push('head')
+        <link rel="preload" as="image" href="{{ $heroSlides[0]['image'] }}" fetchpriority="high">
+    @endpush
+@endif
+
 <div class="space-y-14 md:space-y-24">
     <!-- 1. Hero Slider Section -->
     <section
         x-data="{
             currentSlide: 0,
             touchX: 0,
-            slides: {{ Js::from($heroSlides) }},
+            totalSlides: {{ count($heroSlides) }},
             timer: null,
             init() {
-                if (this.slides.length > 1) {
+                if (this.totalSlides > 1) {
                     this.startTimer();
                 }
             },
             startTimer() {
-                if (this.slides.length <= 1) return;
+                if (this.totalSlides <= 1) return;
                 this.timer = setInterval(() => {
                     this.next();
                 }, 8000);
@@ -22,84 +28,101 @@
                 this.startTimer();
             },
             next() {
-                if (this.slides.length <= 1) return;
-                this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+                if (this.totalSlides <= 1) return;
+                this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
             },
             prev() {
-                if (this.slides.length <= 1) return;
-                this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+                if (this.totalSlides <= 1) return;
+                this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
             }
         }"
         class="relative pt-1 md:pt-2 overflow-hidden"
     >
         <div @touchstart.passive="touchX = $event.changedTouches[0].clientX" @touchend.passive="let d = $event.changedTouches[0].clientX - touchX; if (Math.abs(d) > 50) { d < 0 ? next() : prev(); resetTimer(); }" class="relative w-full aspect-4/5 sm:aspect-video lg:aspect-21/9 rounded-3xl md:rounded-[48px] overflow-hidden shadow-2xl shadow-primary/15 border-2 md:border-8 border-white bg-primary-dark">
-            <template x-for="(slide, index) in slides" :key="index">
+            @foreach($heroSlides as $index => $slide)
                 <div
-                    x-show="currentSlide === index"
-                    x-transition:enter="transition-all duration-700 ease-out"
-                    x-transition:enter-start="opacity-0 scale-[1.03]"
-                    x-transition:enter-end="opacity-100 scale-100"
-                    x-transition:leave="transition-all duration-700 ease-in-out"
-                    x-transition:leave-start="opacity-100 scale-100"
-                    x-transition:leave-end="opacity-0 scale-[0.98]"
+                    @if($index !== 0) x-cloak @endif
+                    x-show="currentSlide === {{ $index }}"
+                    x-transition:enter="transition-opacity duration-700 ease-out"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition-opacity duration-700 ease-in-out"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
                     class="absolute inset-0 w-full h-full"
                 >
                     <img
-                        :src="slide.image"
-                        :alt="slide.title"
-                        width="1600"
-                        height="685"
+                        src="{{ $slide['image'] }}"
+                        alt="{{ $slide['title'] }}"
+                        width="1280"
+                        height="548"
+                        @if($index === 0)
+                            fetchpriority="high"
+                            loading="eager"
+                            decoding="sync"
+                        @else
+                            loading="lazy"
+                            decoding="async"
+                        @endif
                         class="w-full h-full object-cover"
                     />
                     <div class="absolute inset-0 bg-gradient-to-t from-[#0F1048] via-[#1B1B6C]/60 to-transparent text-white">
                         <div class="absolute inset-x-0 top-1/2 -mt-5 sm:-mt-[1.375rem] md:-mt-6 px-5 sm:px-20 md:px-24 lg:px-28">
                             <div class="max-w-3xl space-y-2.5 md:space-y-3.5">
-                                <h1
-                                    x-text="slide.title"
-                                    class="text-[22px] sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter leading-[1.08]"
-                                ></h1>
-                                <p
-                                    x-text="slide.desc"
-                                    class="text-xs sm:text-sm md:text-base lg:text-lg text-white/90 font-medium max-w-2xl leading-relaxed line-clamp-3 md:line-clamp-none"
-                                ></p>
+                                @if($index === 0)
+                                    <h1 class="text-[22px] sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter leading-[1.08]">
+                                        {{ $slide['title'] }}
+                                    </h1>
+                                @else
+                                    <p role="heading" aria-level="2" class="text-[22px] sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter leading-[1.08]">
+                                        {{ $slide['title'] }}
+                                    </p>
+                                @endif
+                                <p class="text-xs sm:text-sm md:text-base lg:text-lg text-white/90 font-medium max-w-2xl leading-relaxed line-clamp-3 md:line-clamp-none">
+                                    {{ $slide['desc'] }}
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </template>
+            @endforeach
 
-            <!-- Slider Controls -->
-            <button
-                x-show="slides.length > 1"
-                type="button"
-                @click="prev(); resetTimer()"
-                aria-label="Slide sebelumnya"
-                class="hidden sm:flex absolute left-3 sm:left-4 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-xl md:rounded-2xl glass flex items-center justify-center text-lg md:text-2xl text-primary hover:bg-primary hover:text-white transition-colors z-10 shadow-lg"
-            >
-                <i class="bx bx-chevron-left"></i>
-            </button>
-            <button
-                x-show="slides.length > 1"
-                type="button"
-                @click="next(); resetTimer()"
-                aria-label="Slide berikutnya"
-                class="hidden sm:flex absolute right-3 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-xl md:rounded-2xl glass flex items-center justify-center text-lg md:text-2xl text-primary hover:bg-primary hover:text-white transition-colors z-10 shadow-lg"
-            >
-                <i class="bx bx-chevron-right"></i>
-            </button>
+            @if(count($heroSlides) > 1)
+                <!-- Slider Controls -->
+                <button
+                    type="button"
+                    @click="prev(); resetTimer()"
+                    aria-label="Slide sebelumnya"
+                    class="hidden sm:flex absolute left-3 sm:left-4 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-xl md:rounded-2xl glass flex items-center justify-center text-lg md:text-2xl text-primary hover:bg-primary hover:text-white transition-colors z-10 shadow-lg"
+                >
+                    <i class="bx bx-chevron-left"></i>
+                </button>
+                <button
+                    type="button"
+                    @click="next(); resetTimer()"
+                    aria-label="Slide berikutnya"
+                    class="hidden sm:flex absolute right-3 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-xl md:rounded-2xl glass flex items-center justify-center text-lg md:text-2xl text-primary hover:bg-primary hover:text-white transition-colors z-10 shadow-lg"
+                >
+                    <i class="bx bx-chevron-right"></i>
+                </button>
 
-            <!-- Dots Indicator -->
-            <div x-show="slides.length > 1" class="absolute bottom-5 md:bottom-6 left-5 sm:left-auto right-auto sm:right-6 md:right-12 flex gap-2 z-10">
-                <template x-for="(slide, index) in slides" :key="index">
-                    <button
-                        type="button"
-                        @click="currentSlide = index; resetTimer()"
-                        :aria-label="'Ke slide ' + (index + 1)"
-                        :class="currentSlide === index ? 'bg-white w-8' : 'bg-white/40 w-2.5 hover:bg-white/70'"
-                        class="h-2.5 rounded-full transition-all duration-500 ease-out"
-                    ></button>
-                </template>
-            </div>
+                <!-- Dots Indicator -->
+                <div class="absolute bottom-4 md:bottom-5 left-4 sm:left-auto right-auto sm:right-5 md:right-11 flex gap-1 z-10">
+                    @foreach($heroSlides as $index => $slide)
+                        <button
+                            type="button"
+                            @click="currentSlide = {{ $index }}; resetTimer()"
+                            aria-label="Ke slide {{ $index + 1 }}"
+                            class="min-w-[28px] min-h-[28px] p-1 flex items-center justify-center focus:outline-none"
+                        >
+                            <span
+                                :class="currentSlide === {{ $index }} ? 'bg-white w-8' : 'bg-white/45 w-2.5 hover:bg-white/75'"
+                                class="block h-2.5 rounded-full transition-all duration-500 ease-out"
+                            ></span>
+                        </button>
+                    @endforeach
+                </div>
+            @endif
         </div>
     </section>
 
@@ -193,7 +216,7 @@
                         />
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0F1048] via-[#0F1048]/35 to-transparent flex flex-col justify-end p-6 text-white">
                             <span class="text-[10px] font-black uppercase tracking-widest text-[#8DA2E0]">{{ $pillar->code ?? 'Fokus Bisnis Utama' }}</span>
-                            <h4 class="text-xl font-black uppercase tracking-tight mt-1">{{ $pillar->name }}</h4>
+                            <p class="text-xl font-black uppercase tracking-tight mt-1">{{ $pillar->name }}</p>
                         </div>
                     </div>
                 </div>
@@ -375,7 +398,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             @foreach($featuredProducts as $product)
-                <livewire:components.product-card :product="$product" :key="'home-prod-'.$product->id" />
+                <x-product-card :product="$product" />
             @endforeach
         </div>
     </section>
@@ -490,18 +513,40 @@
             </div>
         </div>
 
-        <div class="lg:col-span-6 glass p-2.5 rounded-3xl md:rounded-[40px] border-primary/10 shadow-xl h-80 md:h-96 overflow-hidden">
-            <iframe
-                title="Peta Lokasi Kantor PT. Multi Abadi Aksana di Sidoarjo"
-                src="https://maps.google.com/maps?q=Taman+Surya+Agung+Sidoarjo&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                width="100%"
-                height="100%"
-                style="border: 0;"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                class="rounded-2xl md:rounded-[32px] w-full h-full"
-            ></iframe>
+        <div
+            x-data="{ mapLoaded: false }"
+            x-init="
+                const triggerMap = () => { mapLoaded = true; };
+                window.addEventListener('scroll', triggerMap, { once: true, passive: true });
+                window.addEventListener('mousemove', triggerMap, { once: true, passive: true });
+                window.addEventListener('touchstart', triggerMap, { once: true, passive: true });
+            "
+            class="lg:col-span-6 glass p-2.5 rounded-3xl md:rounded-[40px] border-primary/10 shadow-xl h-80 md:h-96 overflow-hidden relative"
+        >
+            <template x-if="mapLoaded">
+                <iframe
+                    title="Peta Lokasi Kantor PT. Multi Abadi Aksana di Sidoarjo"
+                    src="https://maps.google.com/maps?q=Taman+Surya+Agung+Sidoarjo&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="100%"
+                    style="border: 0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    class="rounded-2xl md:rounded-[32px] w-full h-full"
+                ></iframe>
+            </template>
+            <div
+                x-show="!mapLoaded"
+                @click="mapLoaded = true"
+                class="rounded-2xl md:rounded-[32px] w-full h-full bg-gradient-to-br from-[#0F1048] via-[#1B1B6C] to-[#3D52A0] flex flex-col items-center justify-center text-white p-6 text-center cursor-pointer"
+            >
+                <div class="w-14 h-14 rounded-2xl bg-white/15 flex items-center justify-center text-3xl mb-3">
+                    <i class="bx bxs-map"></i>
+                </div>
+                <p class="text-sm font-black uppercase tracking-wider">Peta Lokasi Kantor Sidoarjo</p>
+                <p class="text-xs text-blue-100 mt-1">Jl. Taman Surya Agung Blok B No. 11, Wage, Kec. Taman, Sidoarjo</p>
+            </div>
         </div>
     </section>
 </div>

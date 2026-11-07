@@ -27,6 +27,8 @@
                 alt="{{ $post->title }}"
                 width="1400"
                 height="600"
+                fetchpriority="high"
+                decoding="sync"
                 class="w-full h-full object-cover"
             />
         </div>

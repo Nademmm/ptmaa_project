@@ -40,7 +40,7 @@ class AdminPanelProvider extends PanelProvider
             ->brandLogo(fn (): HtmlString => new HtmlString('
                 <div class="flex items-center gap-2.5 h-full">
                     <img
-                        src="/assets/logo.jpg"
+                        src="/assets/logo.webp"
                         alt="Logo PT. Multi Abadi Aksana"
                         style="height: 2.25rem; width: auto; object-fit: contain; flex-shrink: 0;"
                     />
@@ -52,7 +52,7 @@ class AdminPanelProvider extends PanelProvider
                 </div>
             '))
             ->brandLogoHeight('2.5rem')
-            ->favicon('/assets/logo.jpg')
+            ->favicon('/assets/logo.webp')
             ->sidebarCollapsibleOnDesktop()
             ->maxContentWidth('7xl')
             ->colors([

@@ -6,12 +6,12 @@
                 <div class="h-9 sm:h-10 flex items-center">
                     <a href="{{ route('home') }}" class="inline-flex items-center gap-3.5 sm:gap-4 group">
                         <img
-                            src="/assets/logo.jpg"
+                            src="/assets/logo.webp"
                             alt="Logo PT. Multi Abadi Aksana"
                             loading="lazy"
                             decoding="async"
-                            width="120"
-                            height="48"
+                            width="50"
+                            height="36"
                             class="h-8 sm:h-9 w-auto object-contain shrink-0"
                         />
                         <span class="text-sm sm:text-base md:text-lg font-black tracking-tight text-primary leading-none uppercase whitespace-nowrap">
@@ -61,7 +61,7 @@
             <!-- Navigasi Cepat -->
             <div>
                 <div class="h-9 sm:h-10 flex items-center mb-4 md:mb-5">
-                    <h4 class="text-xs font-black uppercase tracking-widest text-primary leading-none">Navigasi Utama</h4>
+                    <h2 class="text-xs font-black uppercase tracking-widest text-primary leading-none">Navigasi Utama</h2>
                 </div>
                 <ul class="space-y-3 text-xs md:text-sm font-semibold text-text-secondary">
                     <li><a href="{{ route('home') }}" class="hover:text-primary transition-colors flex items-center gap-2"><i class="bx bx-chevron-right text-secondary"></i> Beranda</a></li>
@@ -77,7 +77,7 @@
             <!-- Divisi & Kategori Layanan -->
             <div>
                 <div class="h-9 sm:h-10 flex items-center mb-4 md:mb-5">
-                    <h4 class="text-xs font-black uppercase tracking-widest text-primary leading-none">Divisi & Katalog</h4>
+                    <h2 class="text-xs font-black uppercase tracking-widest text-primary leading-none">Divisi & Katalog</h2>
                 </div>
                 <ul class="space-y-3 text-xs md:text-sm font-semibold text-text-secondary">
                     @foreach($categories as $cat)
@@ -97,7 +97,7 @@
             <!-- Kontak & Alamat Resmi -->
             <div>
                 <div class="h-9 sm:h-10 flex items-center mb-4 md:mb-5">
-                    <h4 class="text-xs font-black uppercase tracking-widest text-primary leading-none">Kantor &amp; Kontak</h4>
+                    <h2 class="text-xs font-black uppercase tracking-widest text-primary leading-none">Kantor &amp; Kontak</h2>
                 </div>
                 <div class="space-y-3.5 text-xs md:text-sm text-text-secondary font-medium">
                     <p class="flex items-start gap-3">

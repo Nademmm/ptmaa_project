@@ -54,10 +54,10 @@
             <!-- Box Filter Kategori -->
             <div class="bg-white p-5 rounded-3xl border border-primary/10 shadow-sm space-y-4">
                 <div class="flex items-center justify-between pb-3 border-b border-primary/10">
-                    <h3 class="text-xs font-black uppercase tracking-wider text-primary flex items-center gap-2">
+                    <h2 class="text-xs font-black uppercase tracking-wider text-primary flex items-center gap-2">
                         <i class="bx bx-category text-base text-secondary"></i>
                         <span>Kategori Spesifik</span>
-                    </h3>
+                    </h2>
                     <span class="text-[10px] font-bold text-text-secondary uppercase">
                         {{ $categories->count() }} Kategori
                     </span>
@@ -119,7 +119,7 @@
             @if($products->count() > 0)
                 <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
                     @foreach($products as $product)
-                        <livewire:components.product-card :product="$product" :key="'cat-prod-'.$product->id" />
+                        <x-product-card :product="$product" />
                     @endforeach
                 </div>
 

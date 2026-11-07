@@ -22,6 +22,12 @@ class HeroSlide extends Model
         'is_active' => 'boolean',
     ];
 
+    protected static function booted(): void
+    {
+        static::saved(fn () => \Illuminate\Support\Facades\Cache::forget('hero_slides_active'));
+        static::deleted(fn () => \Illuminate\Support\Facades\Cache::forget('hero_slides_active'));
+    }
+
     public function getImageUrlAttribute(): string
     {
         if (empty($this->image_path)) {
