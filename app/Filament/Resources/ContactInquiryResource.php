@@ -81,6 +81,7 @@ class ContactInquiryResource extends Resource
 
                         TextInput::make('subject')
                             ->required()
+                            ->default('Konsultasi Pengadaan & Proyek')
                             ->maxLength(255)
                             ->label('Subjek Permintaan / Nama Proyek'),
 

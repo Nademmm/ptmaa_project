@@ -48,9 +48,7 @@
     <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @foreach($galleries as $gallery)
             @php
-                $imgPath = str_starts_with($gallery->image_path, '/') || str_starts_with($gallery->image_path, 'http')
-                    ? $gallery->image_path
-                    : asset('storage/' . $gallery->image_path);
+                $imgPath = $gallery->image_url;
             @endphp
             <article
                 @click="openLightbox({

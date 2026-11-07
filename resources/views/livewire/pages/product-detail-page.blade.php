@@ -1,19 +1,6 @@
 @php
-    $mainImg = $product->thumbnail_image
-        ? (str_starts_with($product->thumbnail_image, '/') || str_starts_with($product->thumbnail_image, 'http') ? $product->thumbnail_image : asset('storage/' . $product->thumbnail_image))
-        : '/images/products/pju-all-in-one.webp';
-
-    $rawGallery = is_array($product->gallery_images) && count($product->gallery_images) > 0
-        ? $product->gallery_images
-        : [$mainImg];
-
-    $galleryList = collect($rawGallery)->map(function ($img) {
-        return str_starts_with($img, '/') || str_starts_with($img, 'http') ? $img : asset('storage/' . $img);
-    })->values()->all();
-
-    if (!in_array($mainImg, $galleryList)) {
-        array_unshift($galleryList, $mainImg);
-    }
+    $mainImg = $product->thumbnail_url;
+    $galleryList = $product->gallery_urls;
 @endphp
 
 <div

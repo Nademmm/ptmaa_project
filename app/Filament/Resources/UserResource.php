@@ -48,6 +48,7 @@ class UserResource extends Resource
                         TextInput::make('password')
                             ->password()
                             ->revealable()
+                            ->nullable()
                             ->rule(Password::min(12)->letters()->mixedCase()->numbers()->symbols())
                             ->dehydrateStateUsing(fn (string $state): string => Hash::make($state))
                             ->dehydrated(fn (?string $state): bool => filled($state))

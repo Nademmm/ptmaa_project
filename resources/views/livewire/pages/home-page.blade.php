@@ -426,9 +426,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             @foreach($featuredGalleries as $gallery)
                 @php
-                    $galleryImg = str_starts_with($gallery->image_path, '/') || str_starts_with($gallery->image_path, 'http')
-                        ? $gallery->image_path
-                        : asset('storage/' . $gallery->image_path);
+                    $galleryImg = $gallery->image_url;
                 @endphp
                 <a href="{{ route('gallery.index') }}" class="group relative aspect-[3/4] rounded-3xl overflow-hidden glass border border-primary/10 hover:border-primary/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out block bg-primary-dark">
                     <img

@@ -27,5 +27,10 @@ class Gallery extends Model
         'completion_date' => 'date',
         'sort_order' => 'integer',
     ];
+
+    public function getImageUrlAttribute(): string
+    {
+        return Product::resolvePublicImageUrl($this->image_path, '/images/projects/pju-k3-gempol-sidoarjo.webp');
+    }
 }
 

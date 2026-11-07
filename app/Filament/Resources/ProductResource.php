@@ -117,11 +117,13 @@ class ProductResource extends Resource
                             ->schema([
                                 FileUpload::make('thumbnail_image')
                                     ->image()
+                                    ->disk('public')
                                     ->directory('products')
                                     ->label('Foto Utama Produk (Thumbnail)')
                                     ->helperText('Unggah foto utama produk (format WebP/JPG/PNG).'),
                                 FileUpload::make('gallery_images')
                                     ->image()
+                                    ->disk('public')
                                     ->multiple()
                                     ->reorderable()
                                     ->directory('products/gallery')

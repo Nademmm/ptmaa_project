@@ -5,9 +5,7 @@
         <!-- Product Visual Area -->
         <div class="relative aspect-[4/3] bg-[#F8FAFC] overflow-hidden flex items-center justify-center">
             @php
-                $imgUrl = $product->thumbnail_image
-                    ? (str_starts_with($product->thumbnail_image, '/') || str_starts_with($product->thumbnail_image, 'http') ? $product->thumbnail_image : asset('storage/' . $product->thumbnail_image))
-                    : '/images/products/pju-all-in-one.webp';
+                $imgUrl = $product->thumbnail_url;
                 $isCutout = str_contains($imgUrl, 'sparepart-') || str_contains($imgUrl, 'lampu-pju-cob') || str_contains($imgUrl, 'lampu-pju-osram') || str_contains($imgUrl, 'lampu-pju-philips') || str_contains($imgUrl, 'lampu-pju-estika');
             @endphp
             <img
@@ -46,3 +44,4 @@
         </div>
     </a>
 </div>
+

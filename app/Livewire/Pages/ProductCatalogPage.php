@@ -58,29 +58,16 @@ class ProductCatalogPage extends Component
             $this->selectedDivision = 'pju';
         }
 
-        $pjuCategorySlugs = ['pju-tenaga-surya', 'pju-pln-tiang'];
-
         // Kategori terfilter berdasarkan divisi aktif
-        $categoriesQuery = ProductCategory::where('is_active', true)->orderBy('sort_order');
-        if ($this->selectedDivision === 'pju') {
-            $categoriesQuery->whereIn('slug', $pjuCategorySlugs);
-        } else {
-            $categoriesQuery->whereNotIn('slug', $pjuCategorySlugs);
-        }
-        $categories = $categoriesQuery->get();
+        $categories = ProductCategory::with('pillar')
+            ->where('is_active', true)
+            ->forDivision($this->selectedDivision)
+            ->orderBy('sort_order')
+            ->get();
 
-        $query = Product::with('category')->where('is_active', true);
-
-        // Filter produk berdasarkan divisi
-        if ($this->selectedDivision === 'pju') {
-            $query->whereHas('category', function ($q) use ($pjuCategorySlugs) {
-                $q->whereIn('slug', $pjuCategorySlugs);
-            });
-        } else {
-            $query->whereHas('category', function ($q) use ($pjuCategorySlugs) {
-                $q->whereNotIn('slug', $pjuCategorySlugs);
-            });
-        }
+        $query = Product::with('category.pillar')
+            ->where('is_active', true)
+            ->whereHas('category', fn ($q) => $q->forDivision($this->selectedDivision));
 
         // Filter berdasarkan sub-kategori
         if ($this->selectedCategory !== 'semua') {
@@ -102,15 +89,6 @@ class ProductCatalogPage extends Component
 
         $products = $query->orderBy('sort_order')->paginate(12);
 
-        // Hitung total produk per divisi
-        $pjuCount = Product::where('is_active', true)
-            ->whereHas('category', fn($q) => $q->whereIn('slug', $pjuCategorySlugs))
-            ->count();
-
-        $meCount = Product::where('is_active', true)
-            ->whereHas('category', fn($q) => $q->whereNotIn('slug', $pjuCategorySlugs))
-            ->count();
-
         $activeDivisionName = $this->selectedDivision === 'pju'
             ? 'Penerangan Jalan Umum'
             : 'Mechanical & Electrical';
@@ -118,8 +96,6 @@ class ProductCatalogPage extends Component
         return view('livewire.pages.product-catalog-page', [
             'categories' => $categories,
             'products' => $products,
-            'pjuCount' => $pjuCount,
-            'meCount' => $meCount,
             'activeDivisionName' => $activeDivisionName,
         ]);
     }

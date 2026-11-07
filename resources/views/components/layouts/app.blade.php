@@ -56,7 +56,7 @@
     }
     </script>
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css'])
     @livewireStyles
 </head>
 <body class="min-h-screen flex flex-col bg-mesh selection:bg-primary selection:text-white text-text-main">

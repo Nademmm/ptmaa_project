@@ -4,10 +4,25 @@ namespace App\Services;
 
 use App\Models\Product;
 use App\Models\ServicePillar;
+use App\Settings\CompanySettings;
 
 class WhatsAppGeneratorService
 {
     public const DEFAULT_MAIN_PHONE = '6282342979898';
+
+    public static function getOfficialMainPhone(): string
+    {
+        try {
+            $rawPhone = app(CompanySettings::class)->whatsapp_main ?? null;
+            if (! empty($rawPhone)) {
+                return self::formatPhoneNumber($rawPhone);
+            }
+        } catch (\Throwable) {
+            // Fallback to default phone if settings table is not yet initialized
+        }
+
+        return self::DEFAULT_MAIN_PHONE;
+    }
 
     /**
      * Clean phone number to international WhatsApp format (e.g. 628...)
@@ -24,7 +39,7 @@ class WhatsAppGeneratorService
             $cleaned = '62' . substr($cleaned, 1);
         }
 
-        return $cleaned;
+        return $cleaned ?: self::DEFAULT_MAIN_PHONE;
     }
 
     /**
@@ -33,7 +48,8 @@ class WhatsAppGeneratorService
     public static function forProduct(Product $product, ?int $quantity = null, ?string $unit = null): string
     {
         $category = $product->category;
-        $formattedPhone = self::DEFAULT_MAIN_PHONE;
+        $rawPhone = $category?->contact_phone ?: self::getOfficialMainPhone();
+        $formattedPhone = self::formatPhoneNumber($rawPhone);
 
         $productUrl = url("/products/{$product->slug}");
         $categoryName = $category?->name ?? 'Katalog';
@@ -49,7 +65,7 @@ class WhatsAppGeneratorService
      */
     public static function forConsultation(?ServicePillar $pillar = null): string
     {
-        $formattedPhone = self::DEFAULT_MAIN_PHONE;
+        $formattedPhone = self::getOfficialMainPhone();
 
         if ($pillar) {
             $message = "Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai kebutuhan proyek/pengadaan untuk layanan: *{$pillar->name}*.\n\nMohon informasi lebih lanjut.";

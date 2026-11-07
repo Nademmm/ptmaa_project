@@ -1,7 +1,5 @@
 @php
-    $postImg = $post->featured_image
-        ? (str_starts_with($post->featured_image, '/') || str_starts_with($post->featured_image, 'http') ? $post->featured_image : asset('storage/' . $post->featured_image))
-        : '/images/projects/pju-k3-gempol-sidoarjo.webp';
+    $postImg = $post->featured_image_url;
 @endphp
 
 <div class="space-y-10 md:space-y-14">
@@ -58,9 +56,7 @@
                 <div class="space-y-4">
                     @foreach($recentPosts as $recent)
                         @php
-                            $recImg = $recent->featured_image
-                                ? (str_starts_with($recent->featured_image, '/') || str_starts_with($recent->featured_image, 'http') ? $recent->featured_image : asset('storage/' . $recent->featured_image))
-                                : '/images/projects/me-impeller-rotor-stainless.webp';
+                            $recImg = $recent->featured_image_url;
                         @endphp
                         <a href="{{ route('blog.show', $recent->slug) }}" class="group flex gap-3.5 items-center">
                             <div class="w-16 h-16 shrink-0 rounded-xl overflow-hidden bg-[#1B1B6C]">

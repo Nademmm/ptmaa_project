@@ -82,10 +82,7 @@
                 <ul class="space-y-3 text-xs md:text-sm font-semibold text-text-secondary">
                     @foreach($categories as $cat)
                         <li>
-                            @php
-                                $divSlug = in_array($cat->slug, ['pju-tenaga-surya', 'pju-pln-tiang']) ? 'pju' : 'me';
-                            @endphp
-                            <a href="{{ route('products.index', ['divisi' => $divSlug, 'kategori' => $cat->slug]) }}" class="hover:text-primary transition-colors flex items-start gap-2">
+                            <a href="{{ route('products.index', ['divisi' => $cat->division, 'kategori' => $cat->slug]) }}" class="hover:text-primary transition-colors flex items-start gap-2">
                                 <i class="bx bx-chevron-right text-secondary shrink-0 mt-1"></i>
                                 <span class="leading-snug">{{ $cat->name }}</span>
                             </a>

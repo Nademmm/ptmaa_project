@@ -39,9 +39,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 @foreach($posts as $post)
                     @php
-                        $postImg = $post->featured_image
-                            ? (str_starts_with($post->featured_image, '/') || str_starts_with($post->featured_image, 'http') ? $post->featured_image : asset('storage/' . $post->featured_image))
-                            : '/images/projects/pju-k3-gempol-sidoarjo.webp';
+                        $postImg = $post->featured_image_url;
                     @endphp
                     <article class="group bg-white rounded-3xl overflow-hidden border border-primary/10 hover:border-primary/30 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 ease-out flex flex-col h-full shadow-sm">
                         <a href="{{ route('blog.show', $post->slug) }}" class="relative aspect-[16/10] overflow-hidden block bg-[#1B1B6C]">

@@ -90,6 +90,7 @@ class GalleryResource extends Resource
                             ]),
                         FileUpload::make('image_path')
                             ->image()
+                            ->disk('public')
                             ->directory('gallery')
                             ->required()
                             ->columnSpanFull()

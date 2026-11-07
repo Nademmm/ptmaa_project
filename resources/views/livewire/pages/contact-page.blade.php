@@ -224,9 +224,9 @@
         <!-- Dual Sidoarjo Locations & Map -->
         <div class="lg:col-span-5 space-y-6">
             <div class="bg-white p-6 sm:p-8 rounded-3xl border border-primary/10 shadow-lg shadow-primary/5 space-y-5">
-                <h3 class="text-xl font-black uppercase tracking-tight text-primary">
+                <h2 class="text-xl font-black uppercase tracking-tight text-primary">
                     2 Lokasi Resmi di Sidoarjo
-                </h3>
+                </h2>
 
                 <div class="space-y-4">
                     <div class="p-4 rounded-2xl bg-[#F8FAFC] border border-primary/10 flex items-start gap-3.5">

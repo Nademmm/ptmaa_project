@@ -25,11 +25,9 @@ class ProductDetailPage extends Component
             ->firstOrFail();
 
         $whatsAppUrl = WhatsAppGeneratorService::forProduct($product);
+        $division = $product->division;
 
-        $pjuCategorySlugs = ['pju-tenaga-surya', 'pju-pln-tiang'];
-        $isPju = in_array($product->category?->slug, $pjuCategorySlugs);
-
-        $relatedProducts = Product::with('category')
+        $relatedProducts = Product::with('category.pillar')
             ->where('product_category_id', $product->product_category_id)
             ->where('id', '!=', $product->id)
             ->where('is_active', true)
@@ -37,17 +35,11 @@ class ProductDetailPage extends Component
             ->get();
 
         if ($relatedProducts->count() < 3) {
-            $moreProducts = Product::with('category')
+            $moreProducts = Product::with('category.pillar')
                 ->where('id', '!=', $product->id)
                 ->whereNotIn('id', $relatedProducts->pluck('id'))
                 ->where('is_active', true)
-                ->whereHas('category', function ($q) use ($isPju, $pjuCategorySlugs) {
-                    if ($isPju) {
-                        $q->whereIn('slug', $pjuCategorySlugs);
-                    } else {
-                        $q->whereNotIn('slug', $pjuCategorySlugs);
-                    }
-                })
+                ->whereHas('category', fn ($q) => $q->forDivision($division))
                 ->take(3 - $relatedProducts->count())
                 ->get();
             $relatedProducts = $relatedProducts->concat($moreProducts);

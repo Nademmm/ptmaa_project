@@ -76,6 +76,7 @@ class PostResource extends Resource
                             ]),
                         FileUpload::make('featured_image')
                             ->image()
+                            ->disk('public')
                             ->directory('blog')
                             ->columnSpanFull()
                             ->label('Gambar Sampul Artikel'),

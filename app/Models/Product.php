@@ -51,13 +51,59 @@ class Product extends Model
 
     public function getDivisionAttribute(): string
     {
-        $slug = $this->category?->slug ?? '';
-        return in_array($slug, ['pju-tenaga-surya', 'pju-pln-tiang']) ? 'pju' : 'me';
+        return $this->category?->division ?? 'pju';
     }
 
     public function getDivisionNameAttribute(): string
     {
         return $this->division === 'pju' ? 'Penerangan Jalan Umum' : 'Mechanical & Electrical';
+    }
+
+    public static function resolvePublicImageUrl(?string $path, string $fallback = '/images/products/pju-all-in-one.webp'): string
+    {
+        if (empty($path)) {
+            return $fallback;
+        }
+
+        if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
+            return $path;
+        }
+
+        $cleanPath = ltrim($path, '/');
+
+        if (file_exists(public_path($cleanPath))) {
+            return '/' . $cleanPath;
+        }
+
+        if (file_exists(public_path('storage/' . $cleanPath))) {
+            return asset('storage/' . $cleanPath);
+        }
+
+        return asset('storage/' . $cleanPath);
+    }
+
+    public function getThumbnailUrlAttribute(): string
+    {
+        return self::resolvePublicImageUrl($this->thumbnail_image, '/images/products/pju-all-in-one.webp');
+    }
+
+    public function getGalleryUrlsAttribute(): array
+    {
+        $mainUrl = $this->thumbnail_url;
+        $rawGallery = is_array($this->gallery_images) && count($this->gallery_images) > 0
+            ? $this->gallery_images
+            : [$mainUrl];
+
+        $urls = collect($rawGallery)
+            ->map(fn ($img) => self::resolvePublicImageUrl($img, $mainUrl))
+            ->values()
+            ->all();
+
+        if (! in_array($mainUrl, $urls, true)) {
+            array_unshift($urls, $mainUrl);
+        }
+
+        return array_values(array_unique($urls));
     }
 }
 
