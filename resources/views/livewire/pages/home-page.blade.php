@@ -198,6 +198,7 @@
                     : '/images/projects/me-impeller-rotor-stainless.webp';
             @endphp
             <div
+                @if($idx !== 0) x-cloak @endif
                 x-show="activePillar === {{ $idx }}"
                 x-transition:enter="transition-all duration-400 ease-out"
                 x-transition:enter-start="opacity-0 translate-y-2"
@@ -205,7 +206,6 @@
                 x-transition:leave="transition-all duration-200 ease-in"
                 x-transition:leave-start="opacity-100 translate-y-0"
                 x-transition:leave-end="opacity-0 translate-y-2"
-                style="{{ $idx !== 0 ? 'display: none;' : '' }}"
                 class="glass-bright rounded-3xl md:rounded-[40px] p-6 sm:p-8 md:p-10 border border-primary/15 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch"
             >
                 <div class="lg:col-span-4 flex">
