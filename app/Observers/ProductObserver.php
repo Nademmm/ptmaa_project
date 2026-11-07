@@ -27,6 +27,7 @@ class ProductObserver
         Cache::forget('catalog_categories');
         Cache::forget('featured_products');
         Cache::forget("product_{$product->slug}");
+        Cache::forget('seo_sitemap_xml');
     }
 
     public function deleted(Product $product): void
@@ -34,6 +35,7 @@ class ProductObserver
         Cache::forget('catalog_categories');
         Cache::forget('featured_products');
         Cache::forget("product_{$product->slug}");
+        Cache::forget('seo_sitemap_xml');
     }
 }
 

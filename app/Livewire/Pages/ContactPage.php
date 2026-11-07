@@ -73,6 +73,10 @@ class ContactPage extends Component
 
         return view('livewire.pages.contact-page', [
             'pillars' => $pillars,
+        ])->layoutData([
+            'metaDescription' => 'Hubungi kantor pusat (Kec. Taman, Sidoarjo) dan workshop teknis (Sukodono, Sidoarjo) PT. Multi Abadi Aksana via WhatsApp resmi +62 823-4297-9898 atau formulir permintaan penawaran proyek PJU & Mechanical Electrical.',
+            'canonicalUrl' => route('contact'),
+            'ogImage' => '/assets/logo.webp',
         ]);
     }
 }

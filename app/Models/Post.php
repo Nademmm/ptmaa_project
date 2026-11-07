@@ -30,8 +30,14 @@ class Post extends Model
 
     protected static function booted(): void
     {
-        static::saved(fn () => \Illuminate\Support\Facades\Cache::forget('latest_posts_home'));
-        static::deleted(fn () => \Illuminate\Support\Facades\Cache::forget('latest_posts_home'));
+        static::saved(function (): void {
+            \Illuminate\Support\Facades\Cache::forget('latest_posts_home');
+            \Illuminate\Support\Facades\Cache::forget('seo_sitemap_xml');
+        });
+        static::deleted(function (): void {
+            \Illuminate\Support\Facades\Cache::forget('latest_posts_home');
+            \Illuminate\Support\Facades\Cache::forget('seo_sitemap_xml');
+        });
     }
 
     public function category(): BelongsTo

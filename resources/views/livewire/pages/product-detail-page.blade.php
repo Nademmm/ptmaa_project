@@ -1,7 +1,72 @@
 @php
     $mainImg = $product->thumbnail_url;
     $galleryList = $product->gallery_urls;
+    $fullImgUrl = str_starts_with($mainImg, 'http') ? $mainImg : url($mainImg);
+    $schemaAvailability = match ($product->availability_status?->value ?? 'tersedia') {
+        'pre_order' => 'https://schema.org/PreOrder',
+        'custom' => 'https://schema.org/MadeToOrder',
+        default => 'https://schema.org/InStock',
+    };
 @endphp
+
+@push('head')
+    <link rel="preload" as="image" href="{{ $mainImg }}" fetchpriority="high">
+    <script type="application/ld+json">
+    {!! json_encode([
+        '@context' => 'https://schema.org',
+        '@graph' => [
+            [
+                '@type' => 'Product',
+                'name' => $product->name,
+                'description' => trim(strip_tags((string) ($product->short_summary ?: $product->description))),
+                'image' => collect($galleryList)->map(fn ($img) => str_starts_with($img, 'http') ? $img : url($img))->values()->all(),
+                'sku' => $product->slug,
+                'category' => $product->category?->name ?? $product->division_name,
+                'brand' => [
+                    '@type' => 'Brand',
+                    'name' => $product->brand ?: 'PT. Multi Abadi Aksana',
+                ],
+                'manufacturer' => [
+                    '@type' => 'Organization',
+                    'name' => 'PT. Multi Abadi Aksana',
+                ],
+                'offers' => [
+                    '@type' => 'Offer',
+                    'url' => route('products.show', $product->slug),
+                    'availability' => $schemaAvailability,
+                    'seller' => [
+                        '@type' => 'Organization',
+                        'name' => 'PT. Multi Abadi Aksana',
+                    ],
+                ],
+            ],
+            [
+                '@type' => 'BreadcrumbList',
+                'itemListElement' => [
+                    [
+                        '@type' => 'ListItem',
+                        'position' => 1,
+                        'name' => 'Beranda',
+                        'item' => route('home'),
+                    ],
+                    [
+                        '@type' => 'ListItem',
+                        'position' => 2,
+                        'name' => 'Katalog ' . $product->division_name,
+                        'item' => route('products.index', ['divisi' => $product->division]),
+                    ],
+                    [
+                        '@type' => 'ListItem',
+                        'position' => 3,
+                        'name' => $product->name,
+                        'item' => route('products.show', $product->slug),
+                    ],
+                ],
+            ],
+        ],
+    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
+    </script>
+@endpush
 
 <div
     x-data="{

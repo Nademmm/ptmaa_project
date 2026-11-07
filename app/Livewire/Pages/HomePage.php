@@ -53,6 +53,10 @@ class HomePage extends Component
             'featuredProducts' => $featuredProducts,
             'featuredGalleries' => $featuredGalleries,
             'latestPosts' => $latestPosts,
+        ])->layoutData([
+            'metaDescription' => 'PT. Multi Abadi Aksana: Mitra strategis Pengadaan Barang, Konstruksi Penerangan Jalan Umum (PJU Tenaga Surya & PJU PLN), serta Rekayasa Mechanical & Electrical Industri di Sidoarjo, Jawa Timur.',
+            'canonicalUrl' => route('home'),
+            'ogImage' => $heroSlides[0]['image'] ?? '/images/projects/pju-k3-gempol-sidoarjo.webp',
         ]);
     }
 }

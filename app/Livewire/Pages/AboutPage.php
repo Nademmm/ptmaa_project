@@ -17,6 +17,10 @@ class AboutPage extends Component
 
         return view('livewire.pages.about-page', [
             'pillars' => $pillars,
+        ])->layoutData([
+            'metaDescription' => 'Profil resmi PT. Multi Abadi Aksana (General Trading, Supplier & Contractor di Sidoarjo). Visi, misi, komitmen K3, serta cakupan pengadaan barang dan jasa Penerangan Jalan Umum & Mechanical Electrical.',
+            'canonicalUrl' => route('about'),
+            'ogImage' => '/images/banners/corporate-meeting.webp',
         ]);
     }
 }

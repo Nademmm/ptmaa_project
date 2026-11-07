@@ -45,10 +45,31 @@ class ProductDetailPage extends Component
             $relatedProducts = $relatedProducts->concat($moreProducts);
         }
 
+        $metaDesc = \Illuminate\Support\Str::limit(
+            trim(strip_tags((string) ($product->short_summary ?: $product->description))),
+            160
+        );
+
+        $keywords = implode(', ', array_filter([
+            $product->name,
+            $product->sub_badge,
+            $product->brand,
+            $product->category?->name,
+            $product->division_name,
+            'PT Multi Abadi Aksana',
+            'Pengadaan Sidoarjo Jawa Timur',
+        ]));
+
         return view('livewire.pages.product-detail-page', [
             'product' => $product,
             'whatsAppUrl' => $whatsAppUrl,
             'relatedProducts' => $relatedProducts,
-        ])->title("{$product->name} | PT. Multi Abadi Aksana");
+        ])->title("{$product->name} | PT. Multi Abadi Aksana")->layoutData([
+            'metaDescription' => $metaDesc,
+            'metaKeywords' => $keywords,
+            'canonicalUrl' => route('products.show', $product->slug),
+            'ogType' => 'product',
+            'ogImage' => $product->thumbnail_url,
+        ]);
     }
 }

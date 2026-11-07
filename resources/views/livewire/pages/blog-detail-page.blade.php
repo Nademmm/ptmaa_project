@@ -1,6 +1,71 @@
 @php
     $postImg = $post->featured_image_url;
+    $fullPostImgUrl = str_starts_with($postImg, 'http') ? $postImg : url($postImg);
 @endphp
+
+@push('head')
+    <link rel="preload" as="image" href="{{ $postImg }}" fetchpriority="high">
+    <meta property="article:published_time" content="{{ ($post->published_at ?? $post->created_at ?? now())->toAtomString() }}">
+    <meta property="article:modified_time" content="{{ ($post->updated_at ?? $post->published_at ?? now())->toAtomString() }}">
+    @if($post->category)
+        <meta property="article:section" content="{{ $post->category->name }}">
+    @endif
+    <script type="application/ld+json">
+    {!! json_encode([
+        '@context' => 'https://schema.org',
+        '@graph' => [
+            [
+                '@type' => 'TechArticle',
+                'headline' => $post->title,
+                'description' => !empty($post->meta_description) ? $post->meta_description : trim(strip_tags((string) ($post->excerpt ?: $post->content))),
+                'image' => [$fullPostImgUrl],
+                'datePublished' => ($post->published_at ?? $post->created_at ?? now())->toAtomString(),
+                'dateModified' => ($post->updated_at ?? $post->published_at ?? now())->toAtomString(),
+                'author' => [
+                    '@type' => 'Organization',
+                    'name' => 'Tim Engineering PT. Multi Abadi Aksana',
+                    'url' => route('home'),
+                ],
+                'publisher' => [
+                    '@type' => 'Organization',
+                    'name' => 'PT. Multi Abadi Aksana',
+                    'logo' => [
+                        '@type' => 'ImageObject',
+                        'url' => asset('assets/logo.webp'),
+                    ],
+                ],
+                'mainEntityOfPage' => [
+                    '@type' => 'WebPage',
+                    '@id' => route('blog.show', $post->slug),
+                ],
+            ],
+            [
+                '@type' => 'BreadcrumbList',
+                'itemListElement' => [
+                    [
+                        '@type' => 'ListItem',
+                        'position' => 1,
+                        'name' => 'Beranda',
+                        'item' => route('home'),
+                    ],
+                    [
+                        '@type' => 'ListItem',
+                        'position' => 2,
+                        'name' => 'Wawasan & Artikel',
+                        'item' => route('blog.index'),
+                    ],
+                    [
+                        '@type' => 'ListItem',
+                        'position' => 3,
+                        'name' => $post->title,
+                        'item' => route('blog.show', $post->slug),
+                    ],
+                ],
+            ],
+        ],
+    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
+    </script>
+@endpush
 
 <div class="space-y-10 md:space-y-14">
     <!-- Top Article Header -->

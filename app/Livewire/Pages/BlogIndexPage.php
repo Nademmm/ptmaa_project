@@ -36,6 +36,10 @@ class BlogIndexPage extends Component
         return view('livewire.pages.blog-index-page', [
             'categories' => $categories,
             'posts' => $posts,
+        ])->layoutData([
+            'metaDescription' => 'Wawasan teknis dan panduan pengadaan Penerangan Jalan Umum (PJU All In One, Two In One, Konvensional, PLN), fabrikasi Impeller industri, pemeliharaan panel MDP/SDP, dan standar K3 oleh PT. Multi Abadi Aksana.',
+            'canonicalUrl' => route('blog.index'),
+            'ogImage' => '/images/projects/pju-k3-gempol-sidoarjo.webp',
         ]);
     }
 }
