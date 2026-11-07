@@ -246,3 +246,4 @@ ptmaa_project/
 Seluruh kode sumber, desain antarmuka, aset visual, dan dokumentasi ini merupakan hak milik resmi:  
 **PT. Multi Abadi Aksana** — *General Trading, Supplier & Contractor*.  
 Seluruh hak cipta dilindungi undang-undang.
+

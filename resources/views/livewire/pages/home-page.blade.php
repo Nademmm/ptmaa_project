@@ -51,7 +51,7 @@
                         height="685"
                         class="w-full h-full object-cover"
                     />
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0F1048] via-[#1B1B6C]/60 to-transparent flex flex-col justify-end px-5 pb-14 pt-6 sm:px-20 sm:pb-12 md:px-24 lg:px-28 md:py-14 text-white">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0F1048] via-[#1B1B6C]/70 to-[#0F1048]/20 flex flex-col justify-center px-5 pt-12 pb-10 sm:px-20 sm:pt-12 sm:pb-8 md:px-24 lg:px-28 md:pt-14 md:pb-8 text-white">
                         <div class="max-w-3xl space-y-3 md:space-y-4">
                             <h1
                                 x-text="slide.title"
