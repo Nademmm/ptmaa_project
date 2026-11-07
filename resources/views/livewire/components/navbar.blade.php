@@ -30,19 +30,19 @@
     >
         <div class="w-full flex items-center justify-between gap-3 sm:gap-4">
             <!-- Brand Logo -->
-            <a href="{{ route('home') }}" class="flex items-center gap-2.5 sm:gap-3 shrink-0 pl-1 sm:pl-0">
+            <a href="{{ route('home') }}" class="flex items-center gap-2 sm:gap-3 min-w-0 pl-0.5 sm:pl-0 sm:shrink-0">
                 <img
                     src="/assets/logo.jpg"
                     alt="Logo PT. Multi Abadi Aksana"
                     width="120"
                     height="48"
-                    class="h-8 sm:h-10 w-auto object-contain shrink-0"
+                    class="h-7 sm:h-10 w-auto object-contain shrink-0"
                 />
-                <div class="flex flex-col">
-                    <span class="text-xs sm:text-base font-black tracking-tighter text-primary leading-none uppercase whitespace-nowrap">
+                <div class="flex flex-col min-w-0">
+                    <span class="text-[11px] leading-[1.1] sm:text-base font-black tracking-tighter text-primary sm:leading-none uppercase sm:whitespace-nowrap">
                         MULTI ABADI <span class="text-secondary">AKSANA</span>
                     </span>
-                    <span class="text-[8px] md:text-[9px] font-extrabold tracking-[0.16em] text-text-secondary uppercase mt-0.5 whitespace-nowrap">
+                    <span class="hidden min-[430px]:block text-[7px] sm:text-[8px] md:text-[9px] font-extrabold tracking-[0.1em] sm:tracking-[0.16em] text-text-secondary uppercase mt-0.5 whitespace-nowrap">
                         General Trading &amp; Contractor
                     </span>
                 </div>
@@ -174,7 +174,7 @@
             </div>
 
             <!-- Mobile Search & Hamburger Toggle -->
-            <div class="flex items-center gap-1.5 md:hidden">
+            <div class="flex items-center gap-1 sm:gap-1.5 shrink-0 md:hidden">
                 <button
                     type="button"
                     @click="isSearchOpen = !isSearchOpen; if (isSearchOpen) isOpen = false;"
@@ -184,7 +184,7 @@
                         scrolled ? 'rounded-[20px]' : 'rounded-xl',
                         ready ? 'navbar-float-transition' : 'transition-none'
                     ]"
-                    class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-primary/5 hover:bg-primary/10 flex items-center justify-center text-lg text-primary focus:outline-none"
+                    class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-primary/5 hover:bg-primary/10 flex items-center justify-center text-lg text-primary focus:outline-none"
                 >
                     <i class="bx bx-search" x-show="!isSearchOpen"></i>
                     <i class="bx bx-x" x-cloak x-show="isSearchOpen" style="display: none;"></i>
@@ -199,7 +199,7 @@
                         scrolled ? 'rounded-[20px]' : 'rounded-xl',
                         ready ? 'navbar-float-transition' : 'transition-none'
                     ]"
-                    class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-primary/5 hover:bg-primary/10 flex items-center justify-center text-xl text-primary focus:outline-none"
+                    class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-primary/5 hover:bg-primary/10 flex items-center justify-center text-xl text-primary focus:outline-none"
                 >
                     <i class="bx bx-menu-alt-right" x-show="!isOpen"></i>
                     <i class="bx bx-x" x-cloak x-show="isOpen" style="display: none;"></i>
