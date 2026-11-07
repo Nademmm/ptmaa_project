@@ -30,8 +30,9 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        // 2. Seed Core Business Divisions, Products, Galleries, Posts, and Settings
+        // 2. Seed Core Business Divisions, Hero Slides, Products, Galleries, Posts, and Settings
         $this->call([
+            HeroSlideSeeder::class,
             ServicePillarSeeder::class,
             ProductCatalogSeeder::class,
             GallerySeeder::class,

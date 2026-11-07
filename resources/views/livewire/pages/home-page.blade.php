@@ -4,33 +4,15 @@
         x-data="{
             currentSlide: 0,
             touchX: 0,
-            slides: [
-                {
-                    image: '/images/projects/pju-k3-gempol-sidoarjo.webp',
-                    title: 'Spesialis Penerangan Jalan Umum & Mechanical Electrical',
-                    desc: 'Mitra strategis pengadaan dan konstruksi Penerangan Jalan Umum (Solar Cell & PLN) serta rekayasa Mechanical & Electrical industri di Indonesia.'
-                },
-                {
-                    image: '/images/projects/pju-tiang-jalan-tol.webp',
-                    title: 'Penerangan Jalan Umum Berstandar Mutu & K3',
-                    desc: 'Pengadaan dan instalasi Penerangan Jalan Umum All In One, Two In One, Konvensional, serta Tiang Hot Dip Galvanized untuk jalan nasional dan kawasan industri.'
-                },
-                {
-                    image: '/images/projects/pju-crane-erection.webp',
-                    title: 'Konstruksi Sipil & Pendirian Tiang Terintegrasi',
-                    desc: 'Pelaksanaan pengecoran pondasi beton, pemasangan angkur baseplate, hingga pendirian tiang menggunakan armada mobil crane berstandar K3.'
-                },
-                {
-                    image: '/images/projects/me-impeller-rotor-stainless.webp',
-                    title: 'Rekayasa Mechanical & Electrical Industri',
-                    desc: 'Layanan fabrikasi Impeller stainless steel, sistem blower pabrik, perakitan panel distribusi MDP/SDP/ATS, hingga penyediaan komponen mekanikal.'
-                }
-            ],
+            slides: {{ Js::from($heroSlides) }},
             timer: null,
             init() {
-                this.startTimer();
+                if (this.slides.length > 1) {
+                    this.startTimer();
+                }
             },
             startTimer() {
+                if (this.slides.length <= 1) return;
                 this.timer = setInterval(() => {
                     this.next();
                 }, 8000);
@@ -40,9 +22,11 @@
                 this.startTimer();
             },
             next() {
+                if (this.slides.length <= 1) return;
                 this.currentSlide = (this.currentSlide + 1) % this.slides.length;
             },
             prev() {
+                if (this.slides.length <= 1) return;
                 this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
             }
         }"
@@ -77,7 +61,6 @@
                                 x-text="slide.desc"
                                 class="text-xs sm:text-sm md:text-base lg:text-lg text-white/90 font-medium max-w-2xl leading-relaxed line-clamp-3 md:line-clamp-none"
                             ></p>
-                            
                         </div>
                     </div>
                 </div>
@@ -85,6 +68,7 @@
 
             <!-- Slider Controls -->
             <button
+                x-show="slides.length > 1"
                 type="button"
                 @click="prev(); resetTimer()"
                 aria-label="Slide sebelumnya"
@@ -93,6 +77,7 @@
                 <i class="bx bx-chevron-left"></i>
             </button>
             <button
+                x-show="slides.length > 1"
                 type="button"
                 @click="next(); resetTimer()"
                 aria-label="Slide berikutnya"
@@ -102,7 +87,7 @@
             </button>
 
             <!-- Dots Indicator -->
-            <div class="absolute bottom-5 md:bottom-6 left-5 sm:left-auto right-auto sm:right-6 md:right-12 flex gap-2 z-10">
+            <div x-show="slides.length > 1" class="absolute bottom-5 md:bottom-6 left-5 sm:left-auto right-auto sm:right-6 md:right-12 flex gap-2 z-10">
                 <template x-for="(slide, index) in slides" :key="index">
                     <button
                         type="button"
