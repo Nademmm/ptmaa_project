@@ -32,7 +32,7 @@
         }"
         class="relative pt-1 md:pt-2 overflow-hidden"
     >
-        <div @touchstart.passive="touchX = $event.changedTouches[0].clientX" @touchend.passive="let d = $event.changedTouches[0].clientX - touchX; if (Math.abs(d) > 50) { d < 0 ? next() : prev(); resetTimer(); }" class="relative w-full aspect-4/5 sm:aspect-video md:aspect-21/9 rounded-3xl md:rounded-[48px] overflow-hidden shadow-2xl shadow-primary/15 border-2 md:border-8 border-white bg-primary-dark">
+        <div @touchstart.passive="touchX = $event.changedTouches[0].clientX" @touchend.passive="let d = $event.changedTouches[0].clientX - touchX; if (Math.abs(d) > 50) { d < 0 ? next() : prev(); resetTimer(); }" class="relative w-full aspect-4/5 sm:aspect-video lg:aspect-21/9 rounded-3xl md:rounded-[48px] overflow-hidden shadow-2xl shadow-primary/15 border-2 md:border-8 border-white bg-primary-dark">
             <template x-for="(slide, index) in slides" :key="index">
                 <div
                     x-show="currentSlide === index"
@@ -51,16 +51,18 @@
                         height="685"
                         class="w-full h-full object-cover"
                     />
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0F1048] via-[#1B1B6C]/70 to-[#0F1048]/20 flex flex-col justify-center px-5 pt-12 pb-10 sm:px-20 sm:pt-12 sm:pb-8 md:px-24 lg:px-28 md:pt-14 md:pb-8 text-white">
-                        <div class="max-w-3xl space-y-3 md:space-y-4">
-                            <h1
-                                x-text="slide.title"
-                                class="text-[22px] sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter leading-[1.1]"
-                            ></h1>
-                            <p
-                                x-text="slide.desc"
-                                class="text-xs sm:text-sm md:text-base lg:text-lg text-white/90 font-medium max-w-2xl leading-relaxed line-clamp-3 md:line-clamp-none"
-                            ></p>
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0F1048] via-[#1B1B6C]/60 to-transparent text-white">
+                        <div class="absolute inset-x-0 top-1/2 -mt-5 sm:-mt-[1.375rem] md:-mt-6 px-5 sm:px-20 md:px-24 lg:px-28">
+                            <div class="max-w-3xl space-y-2.5 md:space-y-3.5">
+                                <h1
+                                    x-text="slide.title"
+                                    class="text-[22px] sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter leading-[1.08]"
+                                ></h1>
+                                <p
+                                    x-text="slide.desc"
+                                    class="text-xs sm:text-sm md:text-base lg:text-lg text-white/90 font-medium max-w-2xl leading-relaxed line-clamp-3 md:line-clamp-none"
+                                ></p>
+                            </div>
                         </div>
                     </div>
                 </div>
