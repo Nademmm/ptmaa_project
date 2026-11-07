@@ -258,26 +258,51 @@
                 @foreach($navLinks as $link)
                     @php $isActive = request()->routeIs($link['pattern']); @endphp
                     @if($link['name'] === 'Produk')
-                        <div class="space-y-1.5 bg-primary/5 rounded-2xl p-2.5 border border-primary/10">
-                            <p class="px-2.5 pt-1 text-[10px] font-black uppercase tracking-wider text-text-secondary">
-                                Katalog Produk
-                            </p>
-                            <div class="flex flex-col gap-1.5">
+                        <div x-data="{ isProductOpen: false }" class="flex flex-col">
+                            <button
+                                type="button"
+                                @click="isProductOpen = !isProductOpen"
+                                :class="isProductOpen ? 'bg-primary/10 text-primary font-black' : '{{ $isActive ? 'bg-primary text-white shadow-md' : 'hover:bg-primary/5 text-text-main' }}'"
+                                class="w-full px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-between"
+                            >
+                                <span>Produk</span>
+                                <i class="bx bx-chevron-down text-base transition-transform duration-200" :class="isProductOpen ? 'rotate-180' : ''"></i>
+                            </button>
+
+                            <div
+                                x-cloak
+                                x-show="isProductOpen"
+                                x-transition:enter="transition ease-out duration-200"
+                                x-transition:enter-start="opacity-0 -translate-y-1"
+                                x-transition:enter-end="opacity-100 translate-y-0"
+                                x-transition:leave="transition ease-in duration-150"
+                                x-transition:leave-start="opacity-100 translate-y-0"
+                                x-transition:leave-end="opacity-0 -translate-y-1"
+                                class="flex flex-col gap-1 pl-3.5 mt-1 border-l-2 border-primary/15 ml-3"
+                                style="display: none;"
+                            >
                                 <a
                                     href="{{ route('products.index', ['divisi' => 'pju']) }}"
                                     @click="isOpen = false"
-                                    class="p-3 rounded-xl bg-white hover:bg-primary hover:text-white transition-colors flex items-center gap-3 text-xs font-black uppercase tracking-wider {{ request('divisi', 'pju') === 'pju' && request()->routeIs('products.*') ? 'bg-primary text-white' : 'text-text-main' }} shadow-sm"
+                                    class="px-3.5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-between {{ request('divisi', 'pju') === 'pju' && request()->routeIs('products.*') ? 'bg-primary text-white shadow-sm' : 'hover:bg-primary/5 text-text-main' }}"
                                 >
-                                    <i class="bx bx-bulb text-lg text-secondary"></i>
-                                    <span>Penerangan Jalan Umum</span>
+                                    <div class="flex items-center gap-2.5">
+                                        <i class="bx bx-bulb text-base {{ request('divisi', 'pju') === 'pju' && request()->routeIs('products.*') ? 'text-secondary' : 'text-primary' }}"></i>
+                                        <span>Penerangan Jalan Umum</span>
+                                    </div>
+                                    <i class="bx bx-chevron-right text-sm"></i>
                                 </a>
+
                                 <a
                                     href="{{ route('products.index', ['divisi' => 'me']) }}"
                                     @click="isOpen = false"
-                                    class="p-3 rounded-xl bg-white hover:bg-primary hover:text-white transition-colors flex items-center gap-3 text-xs font-black uppercase tracking-wider {{ request('divisi') === 'me' && request()->routeIs('products.*') ? 'bg-primary text-white' : 'text-text-main' }} shadow-sm"
+                                    class="px-3.5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-between {{ request('divisi') === 'me' && request()->routeIs('products.*') ? 'bg-primary text-white shadow-sm' : 'hover:bg-primary/5 text-text-main' }}"
                                 >
-                                    <i class="bx bx-cog text-lg text-secondary"></i>
-                                    <span>Mechanical & Electrical</span>
+                                    <div class="flex items-center gap-2.5">
+                                        <i class="bx bx-cog text-base {{ request('divisi') === 'me' && request()->routeIs('products.*') ? 'text-secondary' : 'text-primary' }}"></i>
+                                        <span>Mechanical & Electrical</span>
+                                    </div>
+                                    <i class="bx bx-chevron-right text-sm"></i>
                                 </a>
                             </div>
                         </div>
