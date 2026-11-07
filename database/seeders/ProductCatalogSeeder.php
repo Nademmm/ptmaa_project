@@ -91,7 +91,7 @@ class ProductCatalogSeeder extends Seeder
                 ['label' => 'Sumber Energi', 'value' => '100% Energi Surya Terbarukan (Mandiri & Otomatis)'],
                 ['label' => 'Komponen Kontrol', 'value' => 'Smart Lighting Controller, Timer & Photocell Sensor'],
                 ['label' => 'Tipe Baterai', 'value' => 'Lithium / Gel Battery Terintegrasi'],
-                ['label' => 'Layanan Pendukung', 'value' => 'Survei Lux Level, Pekerjaan Pondasi Beton & Ereksi Tiang'],
+                ['label' => 'Layanan Pendukung', 'value' => 'Survei Lux Level, Pekerjaan Pondasi Beton & Pendirian Tiang'],
             ],
             'advantages' => [
                 ['point' => 'Menggunakan energi terbarukan dan ramah lingkungan'],
@@ -197,7 +197,7 @@ class ProductCatalogSeeder extends Seeder
                 ['label' => 'Pilihan Tipe & Merek', 'value' => 'COB, OSRAM, PHILIPS, ESTIKA & Floodlight'],
                 ['label' => 'Sistem Kontrol', 'value' => 'Panel Distribusi PJU, Timer, Photocell Sensor, Smart Lighting Controller'],
                 ['label' => 'Jaringan Distribusi', 'value' => 'Kabel Distribusi Underground (Bawah Tanah) maupun Udara & Trafo Penunjang'],
-                ['label' => 'Layanan Konstruksi', 'value' => 'Perhitungan Lux Level, Manhole/Handhole, Ereksi Tiang & Testing Commissioning'],
+                ['label' => 'Layanan Konstruksi', 'value' => 'Perhitungan Lux Level, Manhole/Handhole, Pendirian Tiang & Testing Commissioning'],
             ],
             'advantages' => [
                 ['point' => 'Dapat memberikan penerangan stabil dan konsisten'],
@@ -226,12 +226,12 @@ class ProductCatalogSeeder extends Seeder
             ],
             'short_summary' => 'Tiang Lampu PJU dengan struktur parabola melengkung, tiang Octagonal, Monopole, High Mast, tiang ornamen dekoratif, arm bracket, dan tiang pedestrian.',
             'description' => 'Pengadaan tiang penopang Penerangan Jalan Umum (PJU) lengkap dengan aksesori stang lampu (arm bracket) dan angkur baseplate. Tersedia Tiang PJU PLN dengan bentuk parabola melengkung, Tiang Octagonal, Monopole, High Mast, hingga tiang ornamen dekoratif untuk taman dan pedestrian.',
-            'why_choose_text' => 'Didukung layanan pekerjaan sipil dan konstruksi lengkap oleh tim PT. Multi Abadi Aksana: mulai dari penggalian tanah, pengecoran pondasi beton tiang PJU, pembuatan manhole kabel bawah tanah, hingga ereksi tiang menggunakan crane berstandar K3.',
+            'why_choose_text' => 'Didukung layanan pekerjaan sipil dan konstruksi lengkap oleh tim PT. Multi Abadi Aksana: mulai dari penggalian tanah, pengecoran pondasi beton tiang PJU, pembuatan manhole kabel bawah tanah, hingga pendirian tiang menggunakan crane berstandar K3.',
             'specifications' => [
                 ['label' => 'Varian Struktur Tiang', 'value' => 'Parabola Melengkung, Octagonal, Monopole, High Mast'],
                 ['label' => 'Varian Arsitektural', 'value' => 'Tiang Ornamen Dekoratif & Tiang Lampu Taman / Pedestrian'],
                 ['label' => 'Aksesori Penunjang', 'value' => 'Arm Bracket (Stang Lampu), Klem Lengan & Baseplate Baja'],
-                ['label' => 'Jasa Sipil Terkait', 'value' => 'Pengecoran Pondasi Beton, Manhole/Handhole & Ereksi Tiang'],
+                ['label' => 'Jasa Sipil Terkait', 'value' => 'Pengecoran Pondasi Beton, Manhole/Handhole & Pendirian Tiang'],
             ],
             'advantages' => [
                 ['point' => 'Struktur presisi untuk menopang beban lampu PJU dan terpaan angin jalan raya'],

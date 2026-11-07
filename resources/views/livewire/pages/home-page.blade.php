@@ -17,7 +17,7 @@
                 },
                 {
                     image: '/images/projects/pju-crane-erection.webp',
-                    title: 'Konstruksi Sipil & Ereksi Tiang Terintegrasi',
+                    title: 'Konstruksi Sipil & Pendirian Tiang Terintegrasi',
                     desc: 'Pelaksanaan pengecoran pondasi beton, pemasangan angkur baseplate, hingga pendirian tiang menggunakan armada mobil crane berstandar K3.'
                 },
                 {

@@ -37,7 +37,7 @@ Untuk mengakomodasi karakteristik pengadaan yang berbeda antara infrastruktur ja
   $$\text{Komunikasi Awal} \longrightarrow \text{Survei Lapangan} \longrightarrow \text{Negosiasi RAB} \longrightarrow \text{Kesepakatan (Deal)}$$
 
 ### 4. Dua Fokus Bisnis Utama (Pengadaan Barang & Jasa)
-1. **Penerangan Jalan Umum:** Pengadaan unit lampu jalan tenaga surya mandiri (All In One, Two In One, Konvensional), lampu jalan PLN, tiang galvanis, pengecoran pondasi sipil, dan jasa ereksi tiang berstandar K3.
+1. **Penerangan Jalan Umum:** Pengadaan unit lampu jalan tenaga surya mandiri (All In One, Two In One, Konvensional), lampu jalan PLN, tiang galvanis, pengecoran pondasi sipil, dan jasa pendirian tiang berstandar K3.
 2. **Mechanical & Electrical:** Fabrikasi & perbaikan Impeller industri, sistem blower ventilasi, perakitan panel listrik MDP/SDP/ATS, instalasi jaringan kabel daya, serta penyediaan komponen mekanikal dan pelumas armada/mesin pabrik.
 
 ### 5. Dokumentasi Projek On Duty (Portofolio Lapangan)
