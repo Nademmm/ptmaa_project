@@ -22,3 +22,4 @@ class EditHeroSlide extends EditRecord
         return $this->getResource()::getUrl('index');
     }
 }
+

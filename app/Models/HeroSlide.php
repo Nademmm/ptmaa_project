@@ -45,3 +45,4 @@ class HeroSlide extends Model
         return asset('storage/' . $cleanPath);
     }
 }
+

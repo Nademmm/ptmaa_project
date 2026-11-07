@@ -157,3 +157,4 @@ class HeroSlideResource extends Resource
         ];
     }
 }
+

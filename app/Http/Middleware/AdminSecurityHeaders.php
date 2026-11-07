@@ -34,3 +34,4 @@ class AdminSecurityHeaders
         return $response;
     }
 }
+
