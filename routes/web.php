@@ -28,3 +28,16 @@ Route::get('/blog/{slug}', BlogDetailPage::class)->name('blog.show');
 // Kontak, Konsultasi, & Permintaan Survei Lapangan
 Route::get('/contact', ContactPage::class)->name('contact');
 
+// Decoy / Honeypot: Blokir & catat percobaan akses ke jalur admin standar (/admin, /wp-admin, /login, dll.)
+Route::any('/{decoyPath}/{subpath?}', function () {
+    \Illuminate\Support\Facades\Log::warning('[SECURITY] Percobaan akses ke URL jebakan (Decoy Path) diblokir', [
+        'ip' => request()->ip(),
+        'path' => request()->path(),
+        'user_agent' => request()->userAgent(),
+    ]);
+
+    abort(404);
+})->where('decoyPath', 'admin|administrator|wp-admin|wp-login\.php|panel|cp|backend|login')
+  ->where('subpath', '.*');
+
+

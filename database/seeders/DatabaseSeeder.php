@@ -20,15 +20,38 @@ class DatabaseSeeder extends Seeder
             File::copyDirectory(public_path('images'), storage_path('app/public/images'));
         }
 
-        // 1. Seed Default Administrator Account
-        User::updateOrCreate(
-            ['email' => 'admin@ptmaa.co.id'],
+        // 1. Seed Hardened Administrator Accounts (1 Primary + 2 Backup Accounts)
+        // Remove legacy weak default account if present
+        User::where('email', 'admin@ptmaa.co.id')->delete();
+
+        $admins = [
             [
+                'email' => 'admin.utama@ptmaa.co.id',
                 'name' => 'Admin Utama PT. Multi Abadi Aksana',
-                'password' => Hash::make('password'),
-                'email_verified_at' => now(),
-            ]
-        );
+                'password' => 'Maa#Utama!2026$Xk9Qv',
+            ],
+            [
+                'email' => 'admin.cadangan1@ptmaa.co.id',
+                'name' => 'Admin Cadangan 1 — Operasional',
+                'password' => 'Maa#Cadangan1!84Zp@W',
+            ],
+            [
+                'email' => 'admin.cadangan2@ptmaa.co.id',
+                'name' => 'Admin Cadangan 2 — Direksi & Darurat',
+                'password' => 'Maa#Cadangan2!57Rn%L',
+            ],
+        ];
+
+        foreach ($admins as $admin) {
+            User::updateOrCreate(
+                ['email' => $admin['email']],
+                [
+                    'name' => $admin['name'],
+                    'password' => Hash::make($admin['password']),
+                    'email_verified_at' => now(),
+                ]
+            );
+        }
 
         // 2. Seed Core Business Divisions, Hero Slides, Products, Galleries, Posts, and Settings
         $this->call([

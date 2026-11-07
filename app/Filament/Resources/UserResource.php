@@ -8,13 +8,12 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Password;
 
 class UserResource extends Resource
 {
@@ -49,11 +48,12 @@ class UserResource extends Resource
                         TextInput::make('password')
                             ->password()
                             ->revealable()
+                            ->rule(Password::min(12)->letters()->mixedCase()->numbers()->symbols())
                             ->dehydrateStateUsing(fn (string $state): string => Hash::make($state))
                             ->dehydrated(fn (?string $state): bool => filled($state))
                             ->required(fn (string $operation): bool => $operation === 'create')
                             ->maxLength(255)
-                            ->helperText('Kosongkan saat mengedit akun jika tidak ingin mengubah kata sandi.')
+                            ->helperText('Minimal 12 karakter (kombinasi huruf besar, huruf kecil, angka, dan simbol). Kosongkan saat edit jika tidak diubah.')
                             ->label('Kata Sandi (Password)'),
 
                         TextInput::make('password_confirmation')
@@ -91,13 +91,10 @@ class UserResource extends Resource
             ])
             ->actions([
                 EditAction::make(),
-                DeleteAction::make(),
+                DeleteAction::make()
+                    ->hidden(fn (User $record): bool => $record->id === auth()->id() || User::count() <= 1),
             ])
-            ->bulkActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
-            ]);
+            ->bulkActions([]);
     }
 
     public static function getPages(): array

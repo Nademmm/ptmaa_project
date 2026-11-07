@@ -2,6 +2,8 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\Auth\SecureLogin;
+use App\Http\Middleware\AdminSecurityHeaders;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -29,8 +31,8 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('admin')
-            ->path('admin')
-            ->login()
+            ->path(config('app.admin_panel_path', 'portal-internal-maa-9x7k2v'))
+            ->login(SecureLogin::class)
             ->profile()
             ->darkMode(false)
             ->font('Plus Jakarta Sans')
@@ -44,10 +46,7 @@ class AdminPanelProvider extends PanelProvider
                     />
                     <div class="flex flex-col text-left leading-none">
                         <span style="font-size: 0.9rem; font-weight: 900; letter-spacing: -0.025em; color: #1B1B6C; text-transform: uppercase; line-height: 1.1;">
-                            MULTI ABADI <span style="color: #5C6BC0;">AKSANA</span>
-                        </span>
-                        <span style="font-size: 0.54rem; font-weight: 800; letter-spacing: 0.14em; color: #64748B; text-transform: uppercase; margin-top: 2px;">
-                            General Trading &amp; Contractor
+                            PT. MULTI ABADI <span style="color: #5C6BC0;">AKSANA</span>
                         </span>
                     </div>
                 </div>
@@ -156,6 +155,7 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+                AdminSecurityHeaders::class,
             ])
             ->authMiddleware([
                 Authenticate::class,

@@ -16,7 +16,17 @@ class User extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
+        'email_verified_at',
     ];
+
+    protected static function booted(): void
+    {
+        static::creating(function (User $user): void {
+            if ($user->email_verified_at === null) {
+                $user->email_verified_at = now();
+            }
+        });
+    }
 
     protected $hidden = [
         'password',
@@ -33,7 +43,7 @@ class User extends Authenticatable implements FilamentUser
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return true;
+        return $this->email_verified_at !== null;
     }
 }
 

@@ -123,4 +123,16 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Secret Admin Panel Path
+    |--------------------------------------------------------------------------
+    |
+    | Obscured URL prefix for the Filament Admin Panel so automated bots and
+    | unauthorized visitors probing /admin or /login receive a 404 response.
+    |
+    */
+
+    'admin_panel_path' => env('ADMIN_PANEL_PATH', 'portal-internal-maa-9x7k2v'),
+
 ];
