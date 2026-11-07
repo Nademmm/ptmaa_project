@@ -3,6 +3,7 @@
     <section
         x-data="{
             currentSlide: 0,
+            touchX: 0,
             slides: [
                 {
                     image: '/images/projects/pju-k3-gempol-sidoarjo.webp',
@@ -47,7 +48,7 @@
         }"
         class="relative pt-1 md:pt-2 overflow-hidden"
     >
-        <div class="relative w-full aspect-4/5 sm:aspect-video md:aspect-21/9 rounded-3xl md:rounded-[48px] overflow-hidden shadow-2xl shadow-primary/15 border-2 md:border-8 border-white bg-primary-dark">
+        <div @touchstart.passive="touchX = $event.changedTouches[0].clientX" @touchend.passive="let d = $event.changedTouches[0].clientX - touchX; if (Math.abs(d) > 50) { d < 0 ? next() : prev(); resetTimer(); }" class="relative w-full aspect-4/5 sm:aspect-video md:aspect-21/9 rounded-3xl md:rounded-[48px] overflow-hidden shadow-2xl shadow-primary/15 border-2 md:border-8 border-white bg-primary-dark">
             <template x-for="(slide, index) in slides" :key="index">
                 <div
                     x-show="currentSlide === index"
@@ -66,33 +67,17 @@
                         height="685"
                         class="w-full h-full object-cover"
                     />
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0F1048] via-[#1B1B6C]/60 to-transparent flex flex-col justify-end px-16 sm:px-20 md:px-24 lg:px-28 py-6 sm:py-10 md:py-14 text-white">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0F1048] via-[#1B1B6C]/60 to-transparent flex flex-col justify-end px-5 pb-14 pt-6 sm:px-20 sm:pb-12 md:px-24 lg:px-28 md:py-14 text-white">
                         <div class="max-w-3xl space-y-3 md:space-y-4">
                             <h1
                                 x-text="slide.title"
-                                class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter leading-[1.08]"
+                                class="text-[22px] sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter leading-[1.1]"
                             ></h1>
                             <p
                                 x-text="slide.desc"
                                 class="text-xs sm:text-sm md:text-base lg:text-lg text-white/90 font-medium max-w-2xl leading-relaxed line-clamp-3 md:line-clamp-none"
                             ></p>
-                            <div class="pt-2 flex flex-wrap items-center gap-3">
-                                <a
-                                    href="{{ route('products.index') }}"
-                                    class="inline-flex items-center justify-center px-6 md:px-7 h-11 sm:h-12 rounded-xl md:rounded-2xl bg-white text-primary text-[11px] md:text-xs font-black uppercase tracking-wider hover:bg-secondary hover:text-white transition-all shadow-xl leading-none text-center border border-white"
-                                >
-                                    <span>Eksplorasi Katalog</span>
-                                </a>
-                                <a
-                                    href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai pengadaan barang & jasa.') }}"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="inline-flex items-center justify-center gap-2 px-6 md:px-7 h-11 sm:h-12 rounded-xl md:rounded-2xl bg-primary/60 backdrop-blur-md border border-white/25 text-white text-[11px] md:text-xs font-black uppercase tracking-wider hover:bg-white hover:text-primary transition-all shadow-xl leading-none text-center"
-                                >
-                                    <i class="bx bxl-whatsapp text-lg leading-none"></i>
-                                    <span>Konsultasi Proyek</span>
-                                </a>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -103,7 +88,7 @@
                 type="button"
                 @click="prev(); resetTimer()"
                 aria-label="Slide sebelumnya"
-                class="absolute left-3 sm:left-4 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-xl md:rounded-2xl glass flex items-center justify-center text-lg md:text-2xl text-primary hover:bg-primary hover:text-white transition-colors z-10 shadow-lg"
+                class="hidden sm:flex absolute left-3 sm:left-4 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-xl md:rounded-2xl glass flex items-center justify-center text-lg md:text-2xl text-primary hover:bg-primary hover:text-white transition-colors z-10 shadow-lg"
             >
                 <i class="bx bx-chevron-left"></i>
             </button>
@@ -111,13 +96,13 @@
                 type="button"
                 @click="next(); resetTimer()"
                 aria-label="Slide berikutnya"
-                class="absolute right-3 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-xl md:rounded-2xl glass flex items-center justify-center text-lg md:text-2xl text-primary hover:bg-primary hover:text-white transition-colors z-10 shadow-lg"
+                class="hidden sm:flex absolute right-3 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-xl md:rounded-2xl glass flex items-center justify-center text-lg md:text-2xl text-primary hover:bg-primary hover:text-white transition-colors z-10 shadow-lg"
             >
                 <i class="bx bx-chevron-right"></i>
             </button>
 
             <!-- Dots Indicator -->
-            <div class="absolute bottom-4 md:bottom-6 right-6 md:right-12 flex gap-2 z-10">
+            <div class="absolute bottom-5 md:bottom-6 left-5 sm:left-auto right-auto sm:right-6 md:right-12 flex gap-2 z-10">
                 <template x-for="(slide, index) in slides" :key="index">
                     <button
                         type="button"
