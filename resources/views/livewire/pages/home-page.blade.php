@@ -496,21 +496,21 @@
                         href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai pengadaan barang & jasa.') }}"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="p-4 rounded-2xl bg-primary text-white hover:bg-primary-dark transition-all flex items-center justify-between"
+                        class="p-4 rounded-2xl bg-primary text-white hover:bg-primary-dark transition-all flex items-center justify-between gap-3"
                     >
-                        <div>
+                        <div class="min-w-0">
                             <p class="text-[9px] font-extrabold uppercase tracking-widest text-blue-200">WhatsApp Resmi</p>
-                            <p class="text-xs md:text-sm font-black mt-0.5">+62 823-4297-9898</p>
+                            <p class="text-xs md:text-sm font-black mt-0.5 whitespace-nowrap">+62 823-4297-9898</p>
                         </div>
-                        <i class="bx bxl-whatsapp text-2xl"></i>
+                        <i class="bx bxl-whatsapp text-2xl shrink-0"></i>
                     </a>
                     <a
                         href="mailto:ptmultiabadiaksana15@gmail.com"
-                        class="p-4 rounded-2xl bg-[#F8FAFC] border border-primary/10 text-primary hover:bg-primary hover:text-white transition-all flex items-center justify-between"
+                        class="p-4 rounded-2xl bg-[#F8FAFC] border border-primary/10 text-primary hover:bg-primary hover:text-white transition-all flex items-center justify-between gap-3"
                     >
-                        <div class="min-w-0 pr-2">
+                        <div class="min-w-0">
                             <p class="text-[9px] font-extrabold uppercase tracking-widest text-secondary">Email Resmi</p>
-                            <p class="text-xs md:text-sm font-black mt-0.5 truncate">ptmultiabadiaksana15@gmail.com</p>
+                            <p class="text-[11px] sm:text-xs md:text-sm font-black mt-0.5 break-all leading-tight">ptmultiabadiaksana15@gmail.com</p>
                         </div>
                         <i class="bx bx-envelope text-2xl shrink-0"></i>
                     </a>

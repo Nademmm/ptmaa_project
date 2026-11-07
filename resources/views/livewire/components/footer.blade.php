@@ -92,7 +92,7 @@
 
             <!-- Kontak & Alamat Resmi -->
             <div>
-                <h4 class="text-xs font-black uppercase tracking-widest text-primary mb-5">Kantor &amp; Kontak</h4>
+                <h4 class="text-xs font-black uppercase tracking-widest text-primary mb-5">Kontak</h4>
                 <div class="space-y-3.5 text-xs md:text-sm text-text-secondary font-medium">
                     <p class="flex items-start gap-3">
                         <i class="bx bxs-map text-primary text-lg shrink-0 mt-0.5"></i>
@@ -111,17 +111,13 @@
                     <p class="flex items-start gap-3">
                         <i class="bx bxl-whatsapp text-primary text-lg shrink-0 mt-0.5"></i>
                         <span>
-                            <strong class="block text-text-main text-[11px] uppercase tracking-wider">Kontak Resmi (WhatsApp):</strong>
+                            <strong class="block text-text-main text-[11px] uppercase tracking-wider">Kontak Resmi:</strong>
                             <a href="https://wa.me/6282342979898" target="_blank" rel="noopener noreferrer" class="hover:text-primary font-bold">+62 823-4297-9898</a>
                         </span>
                     </p>
                     <p class="flex items-center gap-3">
                         <i class="bx bx-envelope text-primary text-lg shrink-0"></i>
                         <a href="mailto:ptmultiabadiaksana15@gmail.com" class="hover:text-primary font-bold break-all">ptmultiabadiaksana15@gmail.com</a>
-                    </p>
-                    <p class="flex items-center gap-3">
-                        <i class="bx bxl-instagram text-primary text-lg shrink-0"></i>
-                        <a href="https://www.instagram.com/pt.multiabadiaksana?utm_source=ig_web_button_share_sheet&psln=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="hover:text-primary font-bold">@pt.multiabadiaksana</a>
                     </p>
                 </div>
             </div>
