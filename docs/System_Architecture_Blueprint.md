@@ -19,7 +19,7 @@ graph TD
     subgraph "Application Server (Laravel 11 + PHP 8.3-FPM)"
         B --> C{Routing Layer}
         C -->|Public Routes / /products /gallery| D[Livewire v3 Full-Page Components]
-        C -->|Admin Routes /admin| E[Filament PHP v3 Panel]
+        C -->|Admin Routes (Obscured Secret Path)| E[Filament PHP v3 Panel]
         
         D --> F[Gateway & Division Filter: PJU vs ME]
         F --> G[Service & Query Layer + Cache]
@@ -54,7 +54,7 @@ Berikut adalah daftar dependensi resmi pada `composer.json` dan `package.json`:
 | :--- | :--- | :--- |
 | `laravel/framework` | `^11.0` | Core PHP Framework & MVC Engine. |
 | `livewire/livewire` | `^3.5` | Reactive Frontend Components untuk katalog, filter divisi, dan form interaktif. |
-| `filament/filament` | `^3.2` | Admin Panel CMS (`/admin`) untuk mengelola seluruh data produk, layanan, galeri, dan blog. |
+| `filament/filament` | `^3.2` | Admin Panel CMS (Obscured Secret Path: `/portal-internal-maa-9x7k2v`) untuk mengelola seluruh data slider hero, produk, layanan, galeri, blog, dan akun administrator. |
 | `spatie/laravel-settings` | `^3.3` | Menyimpan konfigurasi global korporat (Nomor WA, Alamat Sidoarjo, Profil). |
 | `filament/spatie-laravel-settings-plugin` | `^3.2` | Integrasi halaman pengaturan `spatie/laravel-settings` ke dalam panel Filament. |
 | `intervention/image-laravel` | `^1.3` | Optimasi dan konversi foto produk serta galeri proyek ke format modern `.webp`. |
@@ -223,9 +223,17 @@ Route::get('/contact', ContactPage::class)->name('contact');
 
 ---
 
-## 5. Blueprint Arsitektur Filament PHP v3 (`/admin`)
+## 5. Blueprint Arsitektur Filament PHP v3 & Hardened Security
 
-Panel Admin diakses melalui `/admin` dengan pengelompokan menu yang sistematis:
+Panel Admin dilindungi sistem pengamanan *defense-in-depth* dan diakses melalui jalur rahasia (default: `/portal-internal-maa-9x7k2v`), sementara jalur bawaan standar (`/admin`, `/wp-admin`, `/login`) otomatis diblokir (`404 Not Found` + IP logging):
+
+### Lapisan Keamanan Akses:
+1. **`SecureLogin` Custom Authentication:** Dilengkapi *anti brute-force rate limiting* (maksimal 3 kali gagal per 5 menit) dan *honeypot decoy trap* anti-bot.
+2. **`AdminSecurityHeaders` Middleware:** Menyuntikkan `X-Robots-Tag: noindex, nofollow`, `Referrer-Policy: no-referrer`, `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, dan `Cache-Control: no-store`.
+3. **Database Session Encryption:** `SESSION_ENCRYPT=true` dengan masa aktif sesi 60 menit.
+4. **Struktur Akun Administrator:** 3 akun resmi terdaftar (1 Admin Utama + 2 Admin Cadangan).
+
+### Pengelompokan Menu CMS:
 
 ### Group 1: Katalog & Layanan
 1. **`ProductResource` (Menu: "Produk & Material"):**
@@ -242,17 +250,26 @@ Panel Admin diakses melalui `/admin` dengan pengelompokan menu yang sistematis:
    * Dilengkapi `ServiceScopesRelationManager` untuk mengelola daftar Pengadaan Barang dan Pengadaan Jasa secara terstruktur.
 
 ### Group 2: Portofolio & Publikasi
-4. **`GalleryResource` (Menu: "Galeri Projek On Duty"):**
+4. **`HeroSlideResource` (Menu: "Hero Slider Beranda"):**
+   * Mengelola headline judul, deskripsi, urutan tampilan (*drag & drop reorder*), upload foto latar belakang dengan *Image Cropper*, dan saklar aktif/nonaktif instan yang langsung terhubung ke Beranda.
+5. **`GalleryResource` (Menu: "Galeri Projek On Duty"):**
    * Input dokumentasi proyek lapangan, nama klien/lokasi, dan foto pengerjaan aktual.
-5. **`PostResource` & `PostCategoryResource` (Menu: "Artikel & Wawasan"):**
+6. **`PostResource` & `PostCategoryResource` (Menu: "Artikel & Wawasan"):**
    * Manajemen artikel edukasi teknis dan informasi korporat.
 
 ### Group 3: Interaksi Klien (CRM Ringan)
-6. **`ContactInquiryResource` (Menu: "Pesan & Konsultasi"):**
+7. **`ContactInquiryResource` (Menu: "Pesan & Konsultasi"):**
    * Memantau pesan masuk dari formulir kontak dengan status pipeline bisnis:
      * `Komunikasi` (Biru - Info)
      * `Survei` (Kuning - Warning)
      * `Negosiasi` (Ungu - Primary)
+     * `Deal` (Hijau - Success)
+
+### Group 4: Pengaturan & Administrasi
+8. **`UserResource` (Menu: "Akun Administrator"):**
+   * Manajemen akun admin dengan validasi password kuat (min 12 karakter) dan proteksi agar akun aktif tidak terhapus.
+9. **`ManageCompanySettings` (Menu: "Pengaturan Identitas Perusahaan"):**
+   * Konfigurasi nomor kontak resmi, email, alamat kantor, dan jam operasional.
      * `Deal` (Hijau - Success)
      * `Batal` (Merah - Danger)
 

@@ -67,7 +67,7 @@ PT. Multi Abadi Aksana memiliki **4 Pilar Bisnis Utama** yang terintegrasi:
 * **Pengadaan Jasa (Services & Execution):**
   * *Perencanaan & Evaluasi Teknis:* Perhitungan kuat pencahayaan (*lux level*), survei kontur tanah, dan pemetaan jalur distribusi daya.
   * *Pekerjaan Sipil & Pondasi:* Penggalian tanah, pembuatan pondasi tiang beton bertulang, pembuatan *manhole/handhole* jalur kabel.
-  * *Jasa Instalasi & Ereksi:* Pendirian tiang, perakitan armature lampu, penarikan kabel daya, dan komisioning panel distribusi.
+  * *Jasa Instalasi & Konstruksi Sipil:* Pendirian tiang (pole erection), perakitan armature lampu, penarikan kabel daya, pengecoran pondasi angkur, dan komisioning panel distribusi berstandar K3.
   * *Uji Fungsi & Pemeliharaan:* Pengujian kelistrikan, otomatisasi sensor malam/siang, verifikasi K3, dan perawatan berkala.
 
 ### Pilar 2: Interior & Exterior
@@ -187,22 +187,32 @@ Katalog menerapkan pemisahan divisi menyeluruh:
 
 ---
 
-## 5. Fitur Backoffice CMS (Filament PHP v3 - `/admin`)
+## 5. Fitur Backoffice CMS & Keamanan Tingkat Tinggi (Filament PHP v3)
 
-Panel administrasi memudahkan pengelolaan data secara mandiri tanpa modifikasi kode:
-1. **Dashboard Widget:** Ringkasan jumlah produk per divisi, portofolio galeri proyek, artikel wawasan, dan pesan penawaran masuk.
-2. **Katalog Produk & Kategori:**
+Panel administrasi memudahkan pengelolaan data secara mandiri tanpa modifikasi kode, dilengkapi arsitektur proteksi keamanan berlapis (*defense-in-depth*):
+
+### 5.1 Proteksi & Keamanan Akses Portal
+1. **Obscured Secret Admin Path:** Jalur standar `/admin`, `/login`, dan `/wp-admin` diblokir permanen (`404 Not Found` + IP logging). Portal diakses melalui URL rahasia terenkripsi (default: `/portal-internal-maa-9x7k2v`).
+2. **Anti Brute-Force Rate Limiting:** Maksimal 3 kali kesalahan login dalam 5 menit per IP, terkunci otomatis selama 300 detik.
+3. **Honeypot Decoy Trap:** Perangkap bot crawler otomatis pada form otorisasi.
+4. **HTTP Security Headers:** `X-Robots-Tag: noindex, nofollow`, `Referrer-Policy: no-referrer`, `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`.
+5. **Manajemen Akun Terproteksi (1 Utama + 2 Cadangan):** Otentikasi Bcrypt 12 rounds dengan sesi terenkripsi (`SESSION_ENCRYPT=true`, 60 menit) dan validasi password minimal 12 karakter.
+
+### 5.2 Modul Sumber Daya CMS
+1. **Hero Slider Beranda (HeroSlideResource):**
+   * Mengatur headline judul, deskripsi/subjudul, foto latar belakang (dilengkapi *Image Editor / Cropper*), urutan tampil (*drag & drop reorderable*), dan saklar aktif/nonaktif instan.
+2. **Katalog Produk & Kategori (ProductResource & ProductCategoryResource):**
    * Kelola Kategori Produk dan penugasan divisi (*PJU* vs *ME*).
    * Kelola Produk (Nama, Slug, Spesifikasi Teknis via *Filament Repeater*, Keunggulan, Galeri Foto WebP).
-3. **Pilar Bisnis & Cakupan Layanan:**
-   * Kelola teks cakupan *Pengadaan Barang* vs *Pengadaan Jasa* pada 4 pilar bisnis.
-4. **Galeri Dokumentasi Proyek:**
+3. **Pilar Bisnis & Cakupan Layanan (ServicePillarResource):**
+   * Kelola teks cakupan *Pengadaan Barang* vs *Pengadaan Jasa* pada pilar bisnis.
+4. **Galeri Dokumentasi Proyek (GalleryResource):**
    * Unggah foto lapangan, lokasi pekerjaan, dan deskripsi teknis proyek.
-5. **Artikel Wawasan Teknik:**
+5. **Artikel Wawasan Teknik (PostResource & PostCategoryResource):**
    * Editor artikel berita/teknis lengkap dengan optimasi SEO.
-6. **Formulir Permintaan Penawaran (Mini CRM):**
+6. **Formulir Permintaan Penawaran / Mini CRM (ContactInquiryResource):**
    * Memantau dan memperbarui status prospek proyek klien: `Komunikasi` -> `Survei` -> `Negosiasi` -> `Deal`.
-7. **Pengaturan Identitas Perusahaan:**
+7. **Pengaturan Identitas Perusahaan (ManageCompanySettings):**
    * Pengaturan nomor kontak resmi, email, alamat kantor, dan jam operasional.
 
 ---
