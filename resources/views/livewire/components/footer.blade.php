@@ -14,11 +14,8 @@
                         class="h-9 sm:h-10 w-auto object-contain shrink-0"
                     />
                     <div class="flex flex-col justify-center">
-                        <span class="text-xs sm:text-sm md:text-base font-black tracking-tight text-primary leading-none uppercase whitespace-nowrap">
-                            MULTI ABADI <span class="text-secondary">AKSANA</span>
-                        </span>
-                        <span class="text-[8px] sm:text-[9px] font-extrabold tracking-[0.18em] text-text-secondary uppercase mt-1">
-                            General Trading &amp; Contractor
+                        <span class="text-sm sm:text-base md:text-lg font-black tracking-tight text-primary leading-none uppercase whitespace-nowrap">
+                            PT. MULTI ABADI <span class="text-secondary">AKSANA</span>
                         </span>
                     </div>
                 </a>
@@ -95,7 +92,7 @@
 
             <!-- Kontak & Alamat Resmi -->
             <div>
-                <h4 class="text-xs font-black uppercase tracking-widest text-primary mb-5">0  Kontak</h4>
+                <h4 class="text-xs font-black uppercase tracking-widest text-primary mb-5">Kantor &amp; Kontak</h4>
                 <div class="space-y-3.5 text-xs md:text-sm text-text-secondary font-medium">
                     <p class="flex items-start gap-3">
                         <i class="bx bxs-map text-primary text-lg shrink-0 mt-0.5"></i>
