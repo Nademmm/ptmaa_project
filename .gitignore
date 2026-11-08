@@ -69,3 +69,5 @@ desktop.ini
 # Large binary document files (ComPro PDF, etc.)
 *.pdf
 downloaded_docs/
+cloudflared.exe
+
