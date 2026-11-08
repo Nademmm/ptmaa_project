@@ -6,8 +6,8 @@
     <meta name="theme-color" content="#1B1B6C">
     @php
         $seoTitle = $title ?? 'PT. Multi Abadi Aksana | Spesialis PJU Tenaga Surya, PJU PLN & Mechanical Electrical Sidoarjo';
-        $seoDescription = $metaDescription ?? 'PT. Multi Abadi Aksana: Perusahaan General Trading, Supplier & Kontraktor di Sidoarjo, Jawa Timur. Spesialis Pengadaan dan Konstruksi Penerangan Jalan Umum (Solar Cell & PLN), Fabrikasi Impeller, Panel MDP/SDP, serta Suku Cadang Mekanikal Industri berstandar K3.';
-        $seoKeywords = $metaKeywords ?? 'PT Multi Abadi Aksana, Penerangan Jalan Umum, PJU Tenaga Surya, PJU All In One, PJU Two In One, PJU PLN, Tiang PJU Octagonal, Kontraktor PJU Sidoarjo, Mechanical Electrical Jawa Timur, Fabrikasi Impeller Blower, Panel MDP SDP ATS, Suku Cadang Industri';
+        $seoDescription = $metaDescription ?? 'PT. Multi Abadi Aksana: Perusahaan General Trading, Supplier & Kontraktor di Sidoarjo, Jawa Timur. Spesialis Pengadaan dan Konstruksi Penerangan Jalan Umum (Solar Cell & PLN), Fabrikasi Impeller, serta Panel Distribusi Listrik Mechanical & Electrical berstandar K3.';
+        $seoKeywords = $metaKeywords ?? 'PT Multi Abadi Aksana, Penerangan Jalan Umum, PJU Tenaga Surya, PJU All In One, PJU Two In One, PJU PLN, Tiang PJU Octagonal, Kontraktor PJU Sidoarjo, Mechanical Electrical Jawa Timur, Fabrikasi Impeller Blower, Panel MDP SDP ATS, Rekayasa Elektrikal Industri';
         $seoCanonical = $canonicalUrl ?? url()->current();
         $seoOgType = $ogType ?? 'website';
         $seoOgImage = isset($ogImage) && !empty($ogImage)

@@ -12,7 +12,7 @@
                 @if($selectedDivision === 'pju')
                     Spesifikasi teknis pengadaan Lampu Jalan Tenaga Surya mandiri (Solar Cell), Lampu Penerangan Jalan Umum PLN standar nasional, serta Tiang Hot Dip Galvanized bersertifikasi K3.
                 @else
-                    Spesifikasi teknis pengadaan Panel Distribusi Listrik (MDP/SDP), Transformator, Genset, Fabrikasi Industrial Impeller & Blower, serta Suku Cadang Mesin Industri.
+                    Spesifikasi teknis pengadaan Panel Distribusi Listrik (MDP/SDP), Transformator, Genset, serta Fabrikasi Industrial Impeller & Blower berstandar industri.
                 @endif
             </p>
         </div>

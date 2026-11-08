@@ -98,7 +98,7 @@
                     Formulir Permintaan Penawaran
                 </h2>
                 <p class="text-xs md:text-sm text-text-secondary font-medium">
-                    Isi rincian kebutuhan proyek atau pengadaan suku cadang Anda untuk dijadwalkan survei maupun penawaran resmi.
+                    Isi rincian kebutuhan proyek atau pengadaan sistem PJU & ME Anda untuk dijadwalkan survei maupun penawaran resmi.
                 </p>
             </div>
 

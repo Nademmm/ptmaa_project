@@ -95,11 +95,11 @@ class ProductCatalogPage extends Component
 
         $seoTitle = $this->selectedDivision === 'pju'
             ? 'Katalog Penerangan Jalan Umum (Solar Cell & PLN) | PT. Multi Abadi Aksana'
-            : 'Katalog Mechanical, Electrical & Suku Cadang Industri | PT. Multi Abadi Aksana';
+            : 'Katalog Mechanical & Electrical (ME) Industri | PT. Multi Abadi Aksana';
 
         $seoDesc = $this->selectedDivision === 'pju'
             ? 'Katalog spesifikasi pengadaan Penerangan Jalan Umum (PJU) Tenaga Surya All In One, Two In One, Konvensional, Lampu PJU PLN (COB, Osram, Philips, Estika) & Tiang Octagonal PT. Multi Abadi Aksana.'
-            : 'Katalog spesifikasi pengadaan Mechanical & Electrical: Fabrikasi Impeller Blower Stainless Steel, Panel MDP/SDP/ATS, Trafo, Genset, Oli, Grease, Bearing & Suku Cadang Industri PT. Multi Abadi Aksana.';
+            : 'Katalog spesifikasi pengadaan Mechanical & Electrical: Fabrikasi Impeller Blower Stainless Steel, Panel Distribusi Listrik (MDP/SDP/ATS), Transformator, Genset & Sistem Kelistrikan Industri PT. Multi Abadi Aksana.';
 
         return view('livewire.pages.product-catalog-page', [
             'categories' => $categories,

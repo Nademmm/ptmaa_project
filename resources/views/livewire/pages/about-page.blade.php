@@ -102,7 +102,7 @@
                 @php
                     $missions = [
                         'Membangun kegiatan pengadaan barang dan jasa yang berorientasi pada kepuasan pelanggan serta ketepatan waktu dan mutu.',
-                        'Menyediakan produk suku cadang dan peralatan teknik yang handal, berkualitas, dan sesuai standar industri dengan harga kompetitif.',
+                        'Menyediakan unit Penerangan Jalan Umum serta perangkat Mechanical & Electrical yang handal, berkualitas, dan sesuai standar industri dengan harga kompetitif.',
                         'Memberikan layanan pengiriman yang cepat, tepat waktu, serta dukungan teknis yang responsif terhadap kebutuhan klien.',
                         'Mengutamakan Keselamatan dan Kesehatan Kerja (K3) di setiap tahapan instalasi lapangan dan operasional kerja.',
                         'Membangun hubungan kemitraan jangka panjang yang saling menguntungkan dengan pelanggan dan pemasok.'

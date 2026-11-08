@@ -146,7 +146,7 @@
             <div class="bg-[#0F1048] text-white p-6 rounded-3xl space-y-3 shadow-xl">
                 <h3 class="text-sm font-black uppercase tracking-tight">Konsultasi Spesifikasi Teknis</h3>
                 <p class="text-xs text-blue-100/80 leading-relaxed">
-                    Hubungi tim teknis PT. Multi Abadi Aksana untuk berdiskusi mengenai pengadaan PJU, konstruksi, maupun suku cadang industri.
+                    Hubungi tim teknis PT. Multi Abadi Aksana untuk berdiskusi mengenai pengadaan PJU, instalasi kelistrikan, maupun sistem Mechanical & Electrical industri.
                 </p>
                 <a
                     href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai spesifikasi teknis proyek.') }}"
