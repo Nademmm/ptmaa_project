@@ -498,14 +498,16 @@
                         <i class="bx bxl-whatsapp text-2xl shrink-0"></i>
                     </a>
                     <a
-                        href="mailto:ptmultiabadiaksana15@gmail.com"
-                        class="p-4 rounded-2xl bg-[#F8FAFC] border border-primary/10 text-primary hover:bg-primary hover:text-white transition-all flex items-center justify-between gap-3"
+                        href="https://www.instagram.com/pt.multiabadiaksana"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="p-4 rounded-2xl bg-[#F8FAFC] border border-primary/10 text-primary hover:bg-primary hover:text-white transition-all flex items-center justify-between gap-3 group"
                     >
                         <div class="min-w-0">
-                            <p class="text-[9px] font-extrabold uppercase tracking-widest text-secondary">Email Resmi</p>
-                            <p class="text-[11px] sm:text-xs md:text-sm font-black mt-0.5 break-all leading-tight">ptmultiabadiaksana15@gmail.com</p>
+                            <p class="text-[9px] font-extrabold uppercase tracking-widest text-secondary group-hover:text-blue-200 transition-colors">Instagram Resmi</p>
+                            <p class="text-xs md:text-sm font-black mt-0.5 whitespace-nowrap leading-tight">@pt.multiabadiaksana</p>
                         </div>
-                        <i class="bx bx-envelope text-2xl shrink-0"></i>
+                        <i class="bx bxl-instagram text-2xl shrink-0"></i>
                     </a>
                 </div>
             </div>
