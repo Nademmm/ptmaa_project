@@ -105,7 +105,8 @@ class ProductCatalogPage extends Component
             'categories' => $categories,
             'products' => $products,
             'activeDivisionName' => $activeDivisionName,
-        ])->title($seoTitle)->layoutData([
+        ])->layoutData([
+            'title' => $seoTitle,
             'metaDescription' => $seoDesc,
             'canonicalUrl' => route('products.index', ['divisi' => $this->selectedDivision]),
             'ogImage' => $this->selectedDivision === 'pju'

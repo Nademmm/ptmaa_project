@@ -64,7 +64,8 @@ class ProductDetailPage extends Component
             'product' => $product,
             'whatsAppUrl' => $whatsAppUrl,
             'relatedProducts' => $relatedProducts,
-        ])->title("{$product->name} | PT. Multi Abadi Aksana")->layoutData([
+        ])->layoutData([
+            'title' => "{$product->name} | PT. Multi Abadi Aksana",
             'metaDescription' => $metaDesc,
             'metaKeywords' => $keywords,
             'canonicalUrl' => route('products.show', $product->slug),

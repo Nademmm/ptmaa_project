@@ -33,7 +33,8 @@ class BlogDetailPage extends Component
         return view('livewire.pages.blog-detail-page', [
             'post' => $post,
             'recentPosts' => $recentPosts,
-        ])->title($seoTitle)->layoutData([
+        ])->layoutData([
+            'title' => $seoTitle,
             'metaDescription' => $seoDesc,
             'metaKeywords' => implode(', ', array_filter([$post->title, $post->category?->name, 'PT Multi Abadi Aksana', 'Artikel Teknis PJU & ME'])),
             'canonicalUrl' => route('blog.show', $post->slug),
