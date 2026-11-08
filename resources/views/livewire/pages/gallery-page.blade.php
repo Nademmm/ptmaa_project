@@ -110,61 +110,64 @@
     </section>
 
     <!-- Lightbox Modal -->
-    <div
-        x-show="lightboxOpen"
-        x-transition:enter="transition ease-out duration-300"
-        x-transition:enter-start="opacity-0"
-        x-transition:enter-end="opacity-100"
-        x-transition:leave="transition ease-in duration-200"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0"
-        style="display: none;"
-        class="fixed inset-0 z-50 bg-[#0F1048]/85 backdrop-blur-md flex items-center justify-center p-4"
-        @click.self="lightboxOpen = false"
-    >
+    <template x-teleport="body">
         <div
+            x-cloak
             x-show="lightboxOpen"
             x-transition:enter="transition ease-out duration-300"
-            x-transition:enter-start="opacity-0 scale-95"
-            x-transition:enter-end="opacity-100 scale-100"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
             x-transition:leave="transition ease-in duration-200"
-            x-transition:leave-start="opacity-100 scale-100"
-            x-transition:leave-end="opacity-0 scale-95"
-            class="bg-white max-w-4xl w-full rounded-3xl overflow-hidden shadow-2xl border border-primary/20 grid grid-cols-1 md:grid-cols-12"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+            style="display: none;"
+            class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
+            @click.self="lightboxOpen = false"
         >
-            <div class="md:col-span-7 aspect-[4/3] md:aspect-auto bg-[#0F1048] flex items-center justify-center">
-                <img :src="activeItem.img" :alt="activeItem.title" class="w-full h-full object-contain max-h-[75vh]" />
-            </div>
-            <div class="md:col-span-5 p-6 md:p-8 flex flex-col justify-between space-y-6">
-                <div class="space-y-3">
-                    <div class="flex items-center justify-end">
-                        <button
-                            type="button"
-                            @click="lightboxOpen = false"
-                            aria-label="Tutup detail projek"
-                            class="w-9 h-9 rounded-xl bg-primary/5 text-primary hover:bg-primary hover:text-white flex items-center justify-center transition-colors"
-                        >
-                            <i class="bx bx-x text-xl"></i>
-                        </button>
-                    </div>
-                    <h3 x-text="activeItem.title" class="text-lg md:text-2xl font-black uppercase tracking-tight text-primary leading-tight"></h3>
-                    <p class="text-xs font-bold text-secondary flex items-center gap-1.5">
-                        <i class="bx bxs-map"></i>
-                        <span x-text="activeItem.location"></span>
-                    </p>
-                    <p x-text="activeItem.desc" class="text-xs md:text-sm text-text-secondary font-medium leading-relaxed pt-2"></p>
+            <div
+                x-show="lightboxOpen"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                x-transition:leave="transition ease-in duration-200"
+                x-transition:leave-start="opacity-100 scale-100"
+                x-transition:leave-end="opacity-0 scale-95"
+                class="bg-white max-w-4xl w-full rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 grid grid-cols-1 md:grid-cols-12 relative z-10"
+            >
+                <div class="md:col-span-7 aspect-[4/3] md:aspect-auto bg-neutral-900 flex items-center justify-center">
+                    <img :src="activeItem.img" :alt="activeItem.title" class="w-full h-full object-contain max-h-[75vh]" />
                 </div>
+                <div class="md:col-span-5 p-6 md:p-8 flex flex-col justify-between space-y-6 bg-white">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-end">
+                            <button
+                                type="button"
+                                @click="lightboxOpen = false"
+                                aria-label="Tutup detail projek"
+                                class="w-9 h-9 rounded-xl bg-neutral-100 text-neutral-700 hover:bg-neutral-900 hover:text-white flex items-center justify-center transition-colors"
+                            >
+                                <i class="bx bx-x text-xl"></i>
+                            </button>
+                        </div>
+                        <h3 x-text="activeItem.title" class="text-lg md:text-2xl font-black uppercase tracking-tight text-primary leading-tight"></h3>
+                        <p class="text-xs font-bold text-secondary flex items-center gap-1.5">
+                            <i class="bx bxs-map"></i>
+                            <span x-text="activeItem.location"></span>
+                        </p>
+                        <p x-text="activeItem.desc" class="text-xs md:text-sm text-text-secondary font-medium leading-relaxed pt-2"></p>
+                    </div>
 
-                <a
-                    href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya tertarik mendiskusikan proyek serupa dengan dokumentasi Projek On Duty Anda.') }}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="w-full h-12 bg-primary text-white text-center rounded-xl text-xs font-black uppercase tracking-wider hover:bg-primary-dark transition-all flex items-center justify-center gap-2 leading-none"
-                >
-                    <i class="bx bxl-whatsapp text-lg leading-none"></i>
-                    <span>Konsultasikan Proyek Serupa</span>
-                </a>
+                    <a
+                        href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya tertarik mendiskusikan proyek serupa dengan dokumentasi Projek On Duty Anda.') }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="w-full h-12 bg-primary text-white text-center rounded-xl text-xs font-black uppercase tracking-wider hover:bg-primary-dark transition-all flex items-center justify-center gap-2 leading-none"
+                    >
+                        <i class="bx bxl-whatsapp text-lg leading-none"></i>
+                        <span>Konsultasikan Proyek Serupa</span>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
+    </template>
 </div>
