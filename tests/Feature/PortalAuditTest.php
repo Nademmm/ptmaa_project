@@ -126,5 +126,21 @@ class PortalAuditTest extends TestCase
         $this->assertIsArray($manifestJson);
         $this->assertEquals('PT. Multi Abadi Aksana', $manifestJson['name']);
     }
+
+    public function test_custom_error_pages_render_cleanly(): void
+    {
+        $response = $this->get('/url-tidak-pernah-ada-random-xyz');
+        $response->assertStatus(404);
+        $response->assertSee('Halaman Tidak Ditemukan');
+        $response->assertSee('Status 404');
+        $response->assertSee('Kembali ke Beranda');
+
+        $this->assertFileExists(resource_path('views/errors/404.blade.php'));
+        $this->assertFileExists(resource_path('views/errors/500.blade.php'));
+        $this->assertFileExists(resource_path('views/errors/403.blade.php'));
+        $this->assertFileExists(resource_path('views/errors/419.blade.php'));
+        $this->assertFileExists(resource_path('views/errors/429.blade.php'));
+        $this->assertFileExists(resource_path('views/errors/503.blade.php'));
+    }
 }
 
