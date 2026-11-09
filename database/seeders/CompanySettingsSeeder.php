@@ -31,7 +31,7 @@ class CompanySettingsSeeder extends Seeder
             'phone_office' => '+62 823-4297-9898',
             'address_head_office' => 'Jl. Taman Surya Agung Blok B No. 11, Sritanjung, Wage, Kec. Taman, Kabupaten Sidoarjo, Jawa Timur 61257.',
             'address_workshop' => 'Safira Stone Resort A2-01, Masangan Wetan, Sukodono, Kabupaten Sidoarjo, Jawa Timur.',
-            'google_maps_embed_url' => 'https://maps.google.com/maps?q=Taman+Surya+Agung+Sidoarjo&t=&z=15&ie=UTF8&iwloc=&output=embed',
+            'google_maps_embed_url' => 'https://maps.google.com/maps?q=Jl.+Taman+Surya+Agung+Blok+B+No.+11%2C+Sritanjung%2C+Wage%2C+Kec.+Taman%2C+Kabupaten+Sidoarjo%2C+Jawa+Timur+61257&t=&z=16&ie=UTF8&iwloc=&output=embed',
             'years_of_experience' => 8,
             'projects_completed' => 120,
             'units_installed_or_supplied' => 1500,

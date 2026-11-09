@@ -73,7 +73,7 @@
                 </div>
                 <h2 class="text-lg md:text-xl font-black uppercase tracking-tight text-primary">Kantor & Workshop</h2>
                 <p class="text-xs text-text-secondary font-medium leading-relaxed">
-                    Head Office: Taman Surya Agung Blok B No. 11, Wage, Taman, Sidoarjo.<br>
+                    Head Office: Jl. Taman Surya Agung Blok B No. 11, Sritanjung, Wage, Kec. Taman, Kabupaten Sidoarjo, Jawa Timur 61257.<br>
                     Workshop: Safira Stone Resort A2-01, Sukodono, Sidoarjo.
                 </p>
             </div>
@@ -268,7 +268,7 @@
                 <template x-if="mapLoaded">
                     <iframe
                         title="Peta Lokasi Kantor PT. Multi Abadi Aksana Sidoarjo"
-                        src="https://maps.google.com/maps?q=Taman+Surya+Agung+Wage+Taman+Sidoarjo&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                        src="https://maps.google.com/maps?q=Jl.+Taman+Surya+Agung+Blok+B+No.+11%2C+Sritanjung%2C+Wage%2C+Kec.+Taman%2C+Kabupaten+Sidoarjo%2C+Jawa+Timur+61257&t=&z=16&ie=UTF8&iwloc=&output=embed"
                         width="100%"
                         height="100%"
                         style="border: 0;"
@@ -287,7 +287,17 @@
                         <i class="bx bxs-map"></i>
                     </div>
                     <p class="text-xs font-black uppercase tracking-wider">Peta Lokasi Kantor Sidoarjo</p>
-                    <p class="text-[11px] text-blue-100 mt-1">Jl. Taman Surya Agung Blok B No. 11, Wage, Sidoarjo</p>
+                    <p class="text-[11px] text-blue-100 mt-1 max-w-sm">Jl. Taman Surya Agung Blok B No. 11, Sritanjung, Wage, Kec. Taman, Kabupaten Sidoarjo, Jawa Timur 61257</p>
+                    <a
+                        href="https://maps.google.com/?q=Jl.+Taman+Surya+Agung+Blok+B+No.+11%2C+Sritanjung%2C+Wage%2C+Kec.+Taman%2C+Kabupaten+Sidoarjo%2C+Jawa+Timur+61257"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        @click.stop
+                        class="mt-2.5 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-white/20 hover:bg-white text-white hover:text-primary text-[11px] font-bold transition-all"
+                    >
+                        <i class="bx bx-link-external"></i>
+                        <span>Buka di Google Maps</span>
+                    </a>
                 </div>
             </div>
         </div>

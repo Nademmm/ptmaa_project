@@ -101,7 +101,9 @@
                         <i class="bx bxs-map text-primary text-lg shrink-0 mt-0.5"></i>
                         <span>
                             <strong class="block text-text-main text-[11px] uppercase">Head Office:</strong>
-                            Jl. Taman Surya Agung Blok B No. 11, Wage, Kec. Taman, Sidoarjo 61257
+                            <a href="https://maps.google.com/?q=Jl.+Taman+Surya+Agung+Blok+B+No.+11%2C+Sritanjung%2C+Wage%2C+Kec.+Taman%2C+Kabupaten+Sidoarjo%2C+Jawa+Timur+61257" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">
+                                Jl. Taman Surya Agung Blok B No. 11, Sritanjung, Wage, Kec. Taman, Kabupaten Sidoarjo, Jawa Timur 61257
+                            </a>
                         </span>
                     </p>
                     <p class="flex items-start gap-3">

@@ -526,7 +526,7 @@
             <template x-if="mapLoaded">
                 <iframe
                     title="Peta Lokasi Kantor PT. Multi Abadi Aksana di Sidoarjo"
-                    src="https://maps.google.com/maps?q=Taman+Surya+Agung+Sidoarjo&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    src="https://maps.google.com/maps?q=Jl.+Taman+Surya+Agung+Blok+B+No.+11%2C+Sritanjung%2C+Wage%2C+Kec.+Taman%2C+Kabupaten+Sidoarjo%2C+Jawa+Timur+61257&t=&z=16&ie=UTF8&iwloc=&output=embed"
                     width="100%"
                     height="100%"
                     style="border: 0;"
@@ -545,7 +545,17 @@
                     <i class="bx bxs-map"></i>
                 </div>
                 <p class="text-sm font-black uppercase tracking-wider">Peta Lokasi Kantor Sidoarjo</p>
-                <p class="text-xs text-blue-100 mt-1">Jl. Taman Surya Agung Blok B No. 11, Wage, Kec. Taman, Sidoarjo</p>
+                <p class="text-xs text-blue-100 mt-1">Jl. Taman Surya Agung Blok B No. 11, Sritanjung, Wage, Kec. Taman, Kabupaten Sidoarjo, Jawa Timur 61257</p>
+                <a
+                    href="https://maps.google.com/?q=Jl.+Taman+Surya+Agung+Blok+B+No.+11%2C+Sritanjung%2C+Wage%2C+Kec.+Taman%2C+Kabupaten+Sidoarjo%2C+Jawa+Timur+61257"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click.stop
+                    class="mt-3 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white/20 hover:bg-white text-white hover:text-primary text-xs font-bold transition-all"
+                >
+                    <i class="bx bx-link-external"></i>
+                    <span>Buka di Google Maps</span>
+                </a>
             </div>
         </div>
     </section>
