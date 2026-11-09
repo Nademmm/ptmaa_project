@@ -3,6 +3,7 @@
 namespace App\Livewire\Pages;
 
 use App\Models\Gallery;
+use Illuminate\Support\Facades\View;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Url;
@@ -30,12 +31,14 @@ class GalleryPage extends Component
 
         $galleries = $query->orderBy('sort_order')->orderByDesc('completion_date')->get();
 
-        return view('livewire.pages.gallery-page', [
-            'galleries' => $galleries,
-        ])->layoutData([
+        View::share([
             'metaDescription' => 'Dokumentasi portofolio Projek On Duty PT. Multi Abadi Aksana: Pemasangan PJU Tenaga Surya & PLN, Erection Tiang dengan Mobil Crane, serta Fabrikasi Impeller & Perawatan Mekanikal-Elektrikal Pabrik berstandar K3.',
             'canonicalUrl' => route('gallery.index'),
             'ogImage' => '/images/projects/pju-crane-erection.webp',
+        ]);
+
+        return view('livewire.pages.gallery-page', [
+            'galleries' => $galleries,
         ]);
     }
 }

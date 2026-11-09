@@ -6,6 +6,7 @@ use App\Enums\InquiryPipelineStatus;
 use App\Models\ContactInquiry;
 use App\Models\ServicePillar;
 use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Facades\View;
 use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
@@ -89,12 +90,14 @@ class ContactPage extends Component
     {
         $pillars = \Illuminate\Support\Facades\Cache::remember('service_pillars_all', 3600, fn () => ServicePillar::with('scopes')->where('is_active', true)->orderBy('sort_order')->get());
 
-        return view('livewire.pages.contact-page', [
-            'pillars' => $pillars,
-        ])->layoutData([
+        View::share([
             'metaDescription' => 'Hubungi kantor pusat (Kec. Taman, Sidoarjo) dan workshop teknis (Sukodono, Sidoarjo) PT. Multi Abadi Aksana via WhatsApp resmi +62 823-4297-9898 atau formulir permintaan penawaran proyek PJU & Mechanical Electrical.',
             'canonicalUrl' => route('contact'),
             'ogImage' => '/assets/logo.webp',
+        ]);
+
+        return view('livewire.pages.contact-page', [
+            'pillars' => $pillars,
         ]);
     }
 }

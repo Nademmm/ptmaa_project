@@ -4,6 +4,7 @@ namespace App\Livewire\Pages;
 
 use App\Models\Product;
 use App\Services\WhatsAppGeneratorService;
+use Illuminate\Support\Facades\View;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
@@ -60,17 +61,19 @@ class ProductDetailPage extends Component
             'Pengadaan Sidoarjo Jawa Timur',
         ]));
 
-        return view('livewire.pages.product-detail-page', [
-            'product' => $product,
-            'whatsAppUrl' => $whatsAppUrl,
-            'relatedProducts' => $relatedProducts,
-        ])->layoutData([
+        View::share([
             'title' => "{$product->name} | PT. Multi Abadi Aksana",
             'metaDescription' => $metaDesc,
             'metaKeywords' => $keywords,
             'canonicalUrl' => route('products.show', $product->slug),
             'ogType' => 'product',
             'ogImage' => $product->thumbnail_url,
+        ]);
+
+        return view('livewire.pages.product-detail-page', [
+            'product' => $product,
+            'whatsAppUrl' => $whatsAppUrl,
+            'relatedProducts' => $relatedProducts,
         ]);
     }
 }

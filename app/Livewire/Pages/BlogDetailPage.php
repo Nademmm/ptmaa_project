@@ -3,6 +3,7 @@
 namespace App\Livewire\Pages;
 
 use App\Models\Post;
+use Illuminate\Support\Facades\View;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
@@ -30,16 +31,18 @@ class BlogDetailPage extends Component
             ? $post->meta_description
             : \Illuminate\Support\Str::limit(trim(strip_tags((string) ($post->excerpt ?: $post->content))), 160);
 
-        return view('livewire.pages.blog-detail-page', [
-            'post' => $post,
-            'recentPosts' => $recentPosts,
-        ])->layoutData([
+        View::share([
             'title' => $seoTitle,
             'metaDescription' => $seoDesc,
             'metaKeywords' => implode(', ', array_filter([$post->title, $post->category?->name, 'PT Multi Abadi Aksana', 'Artikel Teknis PJU & ME'])),
             'canonicalUrl' => route('blog.show', $post->slug),
             'ogType' => 'article',
             'ogImage' => $post->featured_image_url,
+        ]);
+
+        return view('livewire.pages.blog-detail-page', [
+            'post' => $post,
+            'recentPosts' => $recentPosts,
         ]);
     }
 }

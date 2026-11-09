@@ -4,6 +4,7 @@ namespace App\Livewire\Pages;
 
 use App\Models\Post;
 use App\Models\PostCategory;
+use Illuminate\Support\Facades\View;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Url;
@@ -37,13 +38,15 @@ class BlogIndexPage extends Component
 
         $posts = $query->orderByDesc('published_at')->paginate(9);
 
-        return view('livewire.pages.blog-index-page', [
-            'categories' => $categories,
-            'posts' => $posts,
-        ])->layoutData([
+        View::share([
             'metaDescription' => 'Wawasan teknis dan panduan pengadaan Penerangan Jalan Umum (PJU All In One, Two In One, Konvensional, PLN), fabrikasi Impeller industri, pemeliharaan panel MDP/SDP, dan standar K3 oleh PT. Multi Abadi Aksana.',
             'canonicalUrl' => route('blog.index'),
             'ogImage' => '/images/projects/pju-k3-gempol-sidoarjo.webp',
+        ]);
+
+        return view('livewire.pages.blog-index-page', [
+            'categories' => $categories,
+            'posts' => $posts,
         ]);
     }
 }

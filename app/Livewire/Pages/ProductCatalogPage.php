@@ -4,6 +4,7 @@ namespace App\Livewire\Pages;
 
 use App\Models\Product;
 use App\Models\ProductCategory;
+use Illuminate\Support\Facades\View;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Url;
@@ -105,17 +106,19 @@ class ProductCatalogPage extends Component
             ? 'Katalog spesifikasi pengadaan Penerangan Jalan Umum (PJU) Tenaga Surya All In One, Two In One, Konvensional, Lampu PJU PLN (COB, Osram, Philips, Estika) & Tiang Octagonal PT. Multi Abadi Aksana.'
             : 'Katalog spesifikasi pengadaan Mechanical & Electrical: Fabrikasi Impeller Blower Stainless Steel, Panel Distribusi Listrik (MDP/SDP/ATS), Transformator, Genset & Sistem Kelistrikan Industri PT. Multi Abadi Aksana.';
 
-        return view('livewire.pages.product-catalog-page', [
-            'categories' => $categories,
-            'products' => $products,
-            'activeDivisionName' => $activeDivisionName,
-        ])->layoutData([
+        View::share([
             'title' => $seoTitle,
             'metaDescription' => $seoDesc,
             'canonicalUrl' => route('products.index', ['divisi' => $this->selectedDivision]),
             'ogImage' => $this->selectedDivision === 'pju'
                 ? '/images/products/pju-all-in-one.webp'
                 : '/images/projects/me-impeller-rotor-stainless.webp',
+        ]);
+
+        return view('livewire.pages.product-catalog-page', [
+            'categories' => $categories,
+            'products' => $products,
+            'activeDivisionName' => $activeDivisionName,
         ]);
     }
 }
