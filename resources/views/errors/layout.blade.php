@@ -13,6 +13,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
 
+    <link rel="preload" href="/assets/fonts/boxicons.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
@@ -33,17 +34,21 @@
     </div>
 
     <!-- Header Logo -->
-    <header class="relative z-10 w-full max-w-lg flex flex-col items-center text-center pt-2 sm:pt-4">
-        <a href="{{ url('/') }}" class="inline-flex items-center gap-3 transition-transform duration-200 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xl p-1.5" aria-label="Beranda PT. Multi Abadi Aksana">
-            <img src="{{ asset('assets/logo.webp') }}" alt="Logo PT. Multi Abadi Aksana" class="h-10 sm:h-11 w-auto object-contain">
+    <header class="relative z-10 w-full max-w-lg flex items-center justify-between pt-2 sm:pt-4">
+        <a href="{{ url('/') }}" class="inline-flex items-center gap-3 transition-transform duration-200 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xl p-1" aria-label="Beranda PT. Multi Abadi Aksana">
+            <img src="{{ asset('assets/logo.webp') }}" alt="Logo PT. Multi Abadi Aksana" class="h-9 sm:h-10 w-auto object-contain">
             <div class="flex flex-col text-left">
                 <span class="text-xs sm:text-sm font-extrabold tracking-tight text-primary leading-tight">PT. MULTI ABADI AKSANA</span>
                 <span class="text-[10px] sm:text-[11px] font-medium text-slate-500 leading-tight">PJU & Mechanical Electrical</span>
             </div>
         </a>
+        <a href="{{ url('/') }}" class="inline-flex items-center gap-1.5 px-3.5 h-9 min-h-[44px] rounded-xl bg-primary/5 text-primary hover:bg-primary hover:text-white text-[11px] font-black uppercase tracking-wider transition-all leading-none">
+            <i class="bx bx-left-arrow-alt text-base leading-none"></i>
+            <span class="hidden sm:inline">Beranda</span>
+        </a>
     </header>
 
-    <!-- Konten Utama Error (Skomda Style dengan Identitas PT MAA) -->
+    <!-- Konten Utama Error -->
     <main class="relative z-10 w-full max-w-lg flex flex-col items-center text-center my-auto py-8">
         <!-- Angka Error Berukuran Besar dengan Gradasi Navy ke Royal Blue -->
         <h1
@@ -63,7 +68,7 @@
             @yield('message')
         </p>
 
-        <!-- Tombol Aksi -->
+        <!-- Tombol Aksi dengan Desain Standar PT MAA (rounded-xl, solid primary & glass) -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
             @yield('actions')
         </div>
