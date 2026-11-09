@@ -32,8 +32,11 @@
     <link rel="alternate" hreflang="id-ID" href="{{ $seoCanonical }}">
     <link rel="alternate" hreflang="x-default" href="{{ $seoCanonical }}">
     <link rel="sitemap" type="application/xml" title="Sitemap PT. Multi Abadi Aksana" href="{{ url('/sitemap.xml') }}">
-    <link rel="icon" type="image/webp" href="/assets/logo.webp">
-    <link rel="apple-touch-icon" href="/assets/logo.webp">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
 
     <!-- Preload Self-Hosted Icons & Preconnect Fonts -->
     <link rel="preload" href="/assets/fonts/boxicons.woff2" as="font" type="font/woff2" crossorigin>
@@ -53,12 +56,16 @@
     <meta property="og:description" content="{{ $seoDescription }}">
     <meta property="og:image" content="{{ $seoOgImage }}">
     <meta property="og:image:alt" content="{{ $seoTitle }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/webp">
 
     <!-- Twitter / X Large Card Preview -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ $seoTitle }}">
     <meta name="twitter:description" content="{{ $seoDescription }}">
     <meta name="twitter:image" content="{{ $seoOgImage }}">
+    <meta name="twitter:image:alt" content="{{ $seoTitle }}">
 
     @stack('head')
 

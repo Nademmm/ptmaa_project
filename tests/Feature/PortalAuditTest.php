@@ -107,5 +107,24 @@ class PortalAuditTest extends TestCase
             'subject' => 'Pengadaan Tiang PJU Octagonal',
         ]);
     }
+
+    public function test_public_security_headers_are_present(): void
+    {
+        $response = $this->get('/');
+        $response->assertStatus(200);
+        $response->assertHeader('X-Frame-Options', 'SAMEORIGIN');
+        $response->assertHeader('X-Content-Type-Options', 'nosniff');
+        $response->assertHeader('X-XSS-Protection', '1; mode=block');
+        $response->assertHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+    }
+
+    public function test_favicon_and_webmanifest_exist_and_accessible(): void
+    {
+        $this->assertFileExists(public_path('favicon.ico'));
+        $this->assertFileExists(public_path('site.webmanifest'));
+        $manifestJson = json_decode(file_get_contents(public_path('site.webmanifest')), true);
+        $this->assertIsArray($manifestJson);
+        $this->assertEquals('PT. Multi Abadi Aksana', $manifestJson['name']);
+    }
 }
 

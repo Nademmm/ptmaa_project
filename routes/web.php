@@ -151,7 +151,7 @@ Route::get('/sitemap.xml', function () {
             $imgUrl = str_starts_with($product->thumbnail_url, 'http')
                 ? $product->thumbnail_url
                 : url($product->thumbnail_url);
-            $imgLoc = htmlspecialchars($imgUrl, ENT_XML1);
+            $imgLoc = htmlspecialchars(explode('?', $imgUrl)[0], ENT_XML1);
             $imgTitle = htmlspecialchars($product->name, ENT_XML1);
 
             $out .= "  <url>\n";
@@ -172,7 +172,7 @@ Route::get('/sitemap.xml', function () {
             $imgUrl = str_starts_with($post->featured_image_url, 'http')
                 ? $post->featured_image_url
                 : url($post->featured_image_url);
-            $imgLoc = htmlspecialchars($imgUrl, ENT_XML1);
+            $imgLoc = htmlspecialchars(explode('?', $imgUrl)[0], ENT_XML1);
             $imgTitle = htmlspecialchars($post->title, ENT_XML1);
 
             $out .= "  <url>\n";
@@ -194,7 +194,6 @@ Route::get('/sitemap.xml', function () {
 
     return response($xml, 200, [
         'Content-Type' => 'application/xml; charset=UTF-8',
-        'X-Robots-Tag' => 'noindex',
     ]);
 })->name('sitemap');
 
