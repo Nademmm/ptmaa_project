@@ -178,8 +178,8 @@
                 @php
                     $isPjuPillar = $pillar->slug === 'penerangan-jalan-umum';
                     $pImg = $isPjuPillar
-                        ? '/images/projects/pju-instalasi-panel-tiang.webp'
-                        : '/images/projects/me-impeller-rotor-stainless.webp';
+                        ? '/images/projects/pju-instalasi-panel-tiang.webp?v=k3'
+                        : '/images/projects/me-impeller-rotor-stainless.webp?v=k3';
                     $pengadaanScopes = $pillar->scopes->filter(fn($s) => in_array(($s->type?->value ?? $s->type), ['barang', 'pengadaan']));
                     $jasaScopes = $pillar->scopes->filter(fn($s) => ($s->type?->value ?? $s->type) === 'jasa');
                     $divisionRoute = $isPjuPillar

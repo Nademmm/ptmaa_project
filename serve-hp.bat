@@ -8,8 +8,8 @@ echo.
 echo Pastikan HP dan Laptop terhubung ke Wi-Fi yang SAMA.
 echo.
 echo Buka browser di HP Anda lalu ketik:
-echo   - Beranda:      http://192.168.100.13:8000
-echo   - Panel Admin:  http://192.168.100.13:8000/portal-internal-maa-9x7k2v
+echo   - Beranda:     [IP_ADDRESS].13:8000
+echo   - Panel Admin:[IP_ADDRESS]0.13:8000/portal-internal-maa-9x7k2v
 echo.
 echo Buka di Laptop:
 echo   - Beranda:      http://127.0.0.1:8000

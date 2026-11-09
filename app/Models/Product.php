@@ -72,14 +72,14 @@ class Product extends Model
         $cleanPath = ltrim($path, '/');
 
         if (file_exists(public_path($cleanPath))) {
-            return '/' . $cleanPath;
+            return '/' . $cleanPath . '?v=k3';
         }
 
         if (file_exists(public_path('storage/' . $cleanPath))) {
-            return asset('storage/' . $cleanPath);
+            return asset('storage/' . $cleanPath) . '?v=k3';
         }
 
-        return asset('storage/' . $cleanPath);
+        return asset('storage/' . $cleanPath) . '?v=k3';
     }
 
     public function getThumbnailUrlAttribute(): string

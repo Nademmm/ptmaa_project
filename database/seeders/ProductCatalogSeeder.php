@@ -282,8 +282,8 @@ class ProductCatalogSeeder extends Seeder
             'thumbnail_image' => 'images/projects/me-terminasi-kabel-pondasi.webp',
             'gallery_images' => [
                 'images/projects/me-terminasi-kabel-pondasi.webp',
+                'images/projects/me-instalasi-flange-ducting.webp',
                 'images/projects/me-belt-motor-industri.webp',
-                'images/products/sparepart-kabel.webp',
             ],
             'short_summary' => 'Pengadaan Panel Utama (MDP/SDP), ATS/AMF, MCCB/MCB, Capacitor Bank, Kabel NYA/NYM/NYY/XLPE, Cable Tray, Transformator, Genset, UPS, dan Stabilizer.',
             'description' => 'Divisi Mechanical & Electrical PT. Multi Abadi Aksana melayani pengadaan barang dan jasa instalasi kelistrikan gedung maupun industri. Mencakup Panel & Proteksi (MDP/SDP, ATS/AMF, panel kontrol motor, MCCB/MCB, capacitor bank), Kabel & Jalur Distribusi (NYA, NYM, NYY, XLPE, kabel kontrol, cable tray, ladder, conduit), serta Peralatan Utama (Trafo, Genset, UPS, Stabilizer).',
