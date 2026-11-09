@@ -41,6 +41,14 @@ class AppServiceProvider extends ServiceProvider
         Product::observe(ProductObserver::class);
         ServicePillar::observe(ServicePillarObserver::class);
         Gallery::observe(GalleryObserver::class);
+
+        // Set default SEO X-Robots-Tag header for public pages
+        if (! $this->app->runningInConsole() && ! headers_sent()) {
+            $uri = $_SERVER['REQUEST_URI'] ?? '/';
+            if (! str_starts_with($uri, '/portal-internal-maa-9x7k2v') && ! str_starts_with($uri, '/livewire')) {
+                header('X-Robots-Tag: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
+            }
+        }
     }
 }
 

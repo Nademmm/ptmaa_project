@@ -31,9 +31,29 @@ Route::get('/blog/{slug}', BlogDetailPage::class)->name('blog.show');
 // Kontak, Konsultasi, & Permintaan Survei Lapangan
 Route::get('/contact', ContactPage::class)->name('contact');
 
+// Dynamic robots.txt with valid absolute Sitemap URL (Lighthouse & RFC 9309 Compliant)
+Route::get('/robots.txt', function () {
+    $sitemapUrl = url('/sitemap.xml');
+    $content = implode("\n", [
+        'User-agent: *',
+        'Allow: /',
+        'Disallow: /livewire/',
+        'Disallow: /portal-internal-maa-9x7k2v/',
+        '',
+        "Sitemap: {$sitemapUrl}",
+        '',
+    ]);
+
+    return response($content, 200, [
+        'Content-Type' => 'text/plain; charset=UTF-8',
+        'X-Robots-Tag' => 'all',
+    ]);
+})->name('robots');
+
 // Dynamic XML Sitemap + Image Sitemap (Google Search Console Standard)
 Route::get('/sitemap.xml', function () {
-    $xml = Cache::remember('seo_sitemap_xml', 3600, function (): string {
+    $cacheKey = 'seo_sitemap_xml_' . md5(request()->getSchemeAndHttpHost());
+    $xml = Cache::remember($cacheKey, 3600, function (): string {
         $products = Product::where('is_active', true)->orderBy('sort_order')->get();
         $posts = Post::where('is_published', true)->orderByDesc('published_at')->get();
         $nowIso = now()->toAtomString();
@@ -45,7 +65,7 @@ Route::get('/sitemap.xml', function () {
                 'changefreq' => 'daily',
                 'lastmod' => $nowIso,
                 'image' => asset('images/projects/pju-k3-gempol-sidoarjo.webp'),
-                'title' => 'PT. Multi Abadi Aksana — Spesialis PJU & Mechanical Electrical',
+                'title' => 'PT. Multi Abadi Aksana - Spesialis PJU & Mechanical Electrical',
             ],
             [
                 'loc' => route('products.index'),
@@ -69,7 +89,7 @@ Route::get('/sitemap.xml', function () {
                 'changefreq' => 'weekly',
                 'lastmod' => $nowIso,
                 'image' => asset('images/projects/me-impeller-rotor-stainless.webp'),
-                'title' => 'Katalog Mechanical, Electrical & Suku Cadang Industri',
+                'title' => 'Katalog Mechanical & Electrical (ME) Industri',
             ],
             [
                 'loc' => route('gallery.index'),
