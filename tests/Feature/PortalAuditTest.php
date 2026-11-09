@@ -132,7 +132,7 @@ class PortalAuditTest extends TestCase
         $response = $this->get('/url-tidak-pernah-ada-random-xyz');
         $response->assertStatus(404);
         $response->assertSee('Halaman Tidak Ditemukan');
-        $response->assertSee('Status 404');
+        $response->assertSee('404');
         $response->assertSee('Kembali ke Beranda');
 
         $this->assertFileExists(resource_path('views/errors/404.blade.php'));

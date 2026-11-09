@@ -2,24 +2,27 @@
 
 @section('title', 'Akses Halaman Dibatasi')
 @section('code', '403')
-@section('icon-bg', 'bg-slate-100 text-slate-700')
-@section('badge-class', 'bg-slate-200 text-slate-800')
-
-@section('icon')
-    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-    </svg>
-@endsection
 
 @section('message')
-    Anda tidak memiliki hak akses untuk membuka halaman atau direktori ini.
+    Anda tidak memiliki izin untuk mengakses halaman atau direktori ini. Silakan kembali ke beranda untuk melanjutkan.
 @endsection
 
 @section('actions')
-    <a href="{{ url('/') }}" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-xl bg-primary text-white text-sm font-semibold hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all shadow-sm min-h-[44px]">
-        Kembali ke Beranda
+    <a
+        href="{{ url('/') }}"
+        class="group inline-flex items-center justify-center gap-2.5 min-h-[48px] h-[50px] px-7 rounded-full text-white font-semibold text-[15px] transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary/20 cursor-pointer select-none"
+        style="background: linear-gradient(180deg, #252589 0%, #1B1B6C 60%, #11114b 100%);"
+    >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="transition-transform duration-300 group-hover:-translate-x-1" aria-hidden="true">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="whitespace-nowrap">Kembali ke Beranda</span>
     </a>
-    <button type="button" onclick="window.history.length > 1 ? window.history.back() : window.location.href='{{ url('/') }}'" class="w-full sm:w-auto inline-flex items-center justify-center px-5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-slate-300 transition-all min-h-[44px]">
-        Halaman Sebelumnya
+    <button
+        type="button"
+        onclick="window.history.length > 1 ? window.history.back() : window.location.href='{{ url('/') }}'"
+        class="inline-flex items-center justify-center min-h-[48px] h-[50px] px-6 rounded-full bg-white hover:bg-slate-100 text-slate-700 font-semibold text-[15px] border border-slate-200/80 shadow-sm transition-all cursor-pointer"
+    >
+        <span>Halaman Sebelumnya</span>
     </button>
 @endsection

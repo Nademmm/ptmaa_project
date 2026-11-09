@@ -15,64 +15,69 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
 
     @vite(['resources/css/app.css'])
 </head>
-<body class="min-h-full flex flex-col justify-between bg-slate-50 text-slate-800 antialiased font-sans">
-    <!-- Header Minimalis -->
-    <header class="w-full max-w-5xl mx-auto px-4 sm:px-6 py-6 flex items-center justify-between">
-        <a href="{{ url('/') }}" class="inline-flex items-center gap-3 transition-opacity hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg p-1" aria-label="Beranda PT. Multi Abadi Aksana">
-            <img src="{{ asset('assets/logo.webp') }}" alt="Logo PT. Multi Abadi Aksana" class="h-9 w-auto object-contain">
+<body class="min-h-screen bg-[#f3f4f6] text-[#101828] flex flex-col items-center justify-between px-4 py-8 relative overflow-hidden font-sans antialiased selection:bg-primary selection:text-white">
+    <!-- Dekorasi radial lembut identitas warna korporat navy #1B1B6C -->
+    <div class="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
+        <div
+            class="absolute top-[8%] right-[-5%] w-[420px] h-[420px] rounded-full opacity-[0.04]"
+            style="background: radial-gradient(circle, #1B1B6C 0%, transparent 70%);"
+        ></div>
+        <div
+            class="absolute bottom-[5%] left-[-8%] w-[520px] h-[520px] rounded-full opacity-[0.035]"
+            style="background: radial-gradient(circle, #1B1B6C 0%, transparent 70%);"
+        ></div>
+    </div>
+
+    <!-- Header Logo -->
+    <header class="relative z-10 w-full max-w-lg flex flex-col items-center text-center pt-2 sm:pt-4">
+        <a href="{{ url('/') }}" class="inline-flex items-center gap-3 transition-transform duration-200 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xl p-1.5" aria-label="Beranda PT. Multi Abadi Aksana">
+            <img src="{{ asset('assets/logo.webp') }}" alt="Logo PT. Multi Abadi Aksana" class="h-10 sm:h-11 w-auto object-contain">
             <div class="flex flex-col text-left">
                 <span class="text-xs sm:text-sm font-extrabold tracking-tight text-primary leading-tight">PT. MULTI ABADI AKSANA</span>
                 <span class="text-[10px] sm:text-[11px] font-medium text-slate-500 leading-tight">PJU & Mechanical Electrical</span>
             </div>
         </a>
-        <a href="{{ url('/') }}" class="text-xs font-semibold text-slate-600 hover:text-primary transition-colors py-2 px-3 rounded-lg hover:bg-slate-200/60 min-h-[44px] inline-flex items-center">
-            &larr; Beranda
-        </a>
     </header>
 
-    <!-- Konten Utama Error -->
-    <main class="grow flex items-center justify-center px-4 sm:px-6 py-10">
-        <div class="w-full max-w-lg bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-10 text-center">
-            <!-- Icon / Visual Indicator -->
-            <div class="mx-auto mb-5 flex items-center justify-center w-16 h-16 rounded-2xl @yield('icon-bg', 'bg-blue-50 text-primary')">
-                @yield('icon')
-            </div>
+    <!-- Konten Utama Error (Skomda Style dengan Identitas PT MAA) -->
+    <main class="relative z-10 w-full max-w-lg flex flex-col items-center text-center my-auto py-8">
+        <!-- Angka Error Berukuran Besar dengan Gradasi Navy ke Royal Blue -->
+        <h1
+            class="font-black text-[110px] sm:text-[150px] md:text-[160px] leading-none tracking-tight text-transparent bg-clip-text select-none"
+            style="background-image: linear-gradient(135deg, #0F1048 0%, #1B1B6C 45%, #3D52A0 100%);"
+        >
+            @yield('code')
+        </h1>
 
-            <!-- Kode Status -->
-            <div class="inline-flex items-center justify-center px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase mb-3 @yield('badge-class', 'bg-slate-100 text-slate-700')">
-                Status @yield('code')
-            </div>
+        <!-- Judul Error -->
+        <h2 class="font-bold text-2xl sm:text-3xl text-[#101828] mt-2 mb-3">
+            @yield('title')
+        </h2>
 
-            <!-- Judul -->
-            <h1 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-2">
-                @yield('title')
-            </h1>
+        <!-- Deskripsi Pesan -->
+        <p class="text-sm sm:text-base text-[#4a5565] leading-relaxed mb-8 max-w-md">
+            @yield('message')
+        </p>
 
-            <!-- Deskripsi Pesan -->
-            <p class="text-slate-600 text-sm leading-relaxed mb-8 max-w-md mx-auto">
-                @yield('message')
-            </p>
-
-            <!-- Aksi Tombol -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-                @yield('actions')
-            </div>
-
-            <!-- Catatan Tambahan / Navigasi Bantuan -->
-            @hasSection('extra')
-                <div class="mt-8 pt-6 border-t border-slate-100 text-xs text-slate-500 leading-normal">
-                    @yield('extra')
-                </div>
-            @endif
+        <!-- Tombol Aksi -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
+            @yield('actions')
         </div>
+
+        <!-- Tautan Bantuan Tambahan -->
+        @hasSection('extra')
+            <div class="mt-8 pt-6 border-t border-slate-200/60 text-xs text-slate-500 leading-normal max-w-md w-full">
+                @yield('extra')
+            </div>
+        @endif
     </main>
 
     <!-- Footer Minimalis -->
-    <footer class="w-full max-w-5xl mx-auto px-4 sm:px-6 py-6 text-center text-xs text-slate-400">
+    <footer class="relative z-10 w-full max-w-lg text-center text-xs text-slate-400 pb-2">
         &copy; {{ date('Y') }} PT. Multi Abadi Aksana. Sidoarjo, Jawa Timur.
     </footer>
 </body>
