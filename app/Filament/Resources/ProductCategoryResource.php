@@ -84,6 +84,7 @@ class ProductCategoryResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn ($query) => $query->with('pillar'))
             ->defaultSort('sort_order')
             ->columns([
                 TextColumn::make('sort_order')

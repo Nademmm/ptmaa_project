@@ -21,7 +21,11 @@ class BlogIndexPage extends Component
 
     public function render()
     {
-        $categories = PostCategory::all();
+        $categories = \Illuminate\Support\Facades\Cache::remember(
+            'post_categories_all',
+            3600,
+            fn () => PostCategory::orderBy('name')->get()
+        );
 
         $query = Post::with('category')->where('is_published', true);
 

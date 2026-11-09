@@ -8,7 +8,7 @@
                     Pengadaan Barang & Jasa <span class="text-[#8DA2E0]">Berstandar Industri.</span>
                 </h1>
                 <p class="text-xs sm:text-sm md:text-base text-blue-100/90 font-medium leading-relaxed">
-                    <strong class="text-white">PT. Multi Abadi Aksana</strong> adalah perusahaan yang bergerak di bidang <strong class="text-white">Pengadaan Barang dan Jasa</strong> dengan dua fokus divisi utama: pengadaan dan konstruksi <strong class="text-white">Penerangan Jalan Umum</strong> (Solar Cell & PLN) serta rekayasa <strong class="text-white">Mechanical & Electrical</strong> industri (fabrikasi Impeller, panel distribusi, instalasi daya, dan suplai komponen mekanikal).
+                    <strong class="text-white">PT. Multi Abadi Aksana</strong> adalah perusahaan yang bergerak di bidang <strong class="text-white">Pengadaan Barang dan Jasa</strong> dengan dua fokus divisi utama: pengadaan dan konstruksi <strong class="text-white">Penerangan Jalan Umum</strong> (Solar Cell & PLN) serta rekayasa <strong class="text-white">Mechanical & Electrical</strong> industri (fabrikasi Impeller, sistem blower, panel distribusi, dan instalasi daya).
                 </p>
                 <blockquote class="p-4 rounded-2xl bg-white/10 border-l-4 border-[#8DA2E0] text-xs sm:text-sm font-bold italic text-blue-100">
                     "Membangun bisnis yang berdampak bagi keuntungan perusahaan dan keberlanjutan lingkungan"
@@ -178,8 +178,8 @@
                 @php
                     $isPjuPillar = $pillar->slug === 'penerangan-jalan-umum';
                     $pImg = $isPjuPillar
-                        ? '/images/projects/pju-instalasi-panel-tiang.webp?v=k3'
-                        : '/images/projects/me-impeller-rotor-stainless.webp?v=k3';
+                        ? \App\Models\Product::resolvePublicImageUrl('images/projects/pju-instalasi-panel-tiang.webp')
+                        : \App\Models\Product::resolvePublicImageUrl('images/projects/me-impeller-rotor-stainless.webp');
                     $pengadaanScopes = $pillar->scopes->filter(fn($s) => in_array(($s->type?->value ?? $s->type), ['barang', 'pengadaan']));
                     $jasaScopes = $pillar->scopes->filter(fn($s) => ($s->type?->value ?? $s->type) === 'jasa');
                     $divisionRoute = $isPjuPillar

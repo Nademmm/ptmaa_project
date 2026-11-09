@@ -75,7 +75,7 @@ class ProductResource extends Resource
                                             ->unique(Product::class, 'slug', ignoreRecord: true)
                                             ->label('Slug URL'),
                                         TextInput::make('sub_badge')
-                                            ->placeholder('Contoh: PJU All In One, Impeller & Mekanikal, Oli & Grease')
+                                            ->placeholder('Contoh: PJU All In One, Impeller & Mekanikal, Electrical & Power')
                                             ->label('Label Badge Tipe'),
                                         TextInput::make('brand')
                                             ->placeholder('Contoh: PT. Multi Abadi Aksana / COB / OSRAM / PHILIPS')
@@ -196,6 +196,7 @@ class ProductResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn ($query) => $query->with('category'))
             ->defaultSort('sort_order')
             ->columns([
                 TextColumn::make('sort_order')

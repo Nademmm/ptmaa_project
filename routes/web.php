@@ -52,7 +52,8 @@ Route::get('/robots.txt', function () {
 
 // Dynamic XML Sitemap + Image Sitemap (Google Search Console Standard)
 Route::get('/sitemap.xml', function () {
-    $cacheKey = 'seo_sitemap_xml_' . md5(request()->getSchemeAndHttpHost());
+    $sitemapVersion = (int) Cache::get('seo_sitemap_version', 1);
+    $cacheKey = 'seo_sitemap_xml_v' . $sitemapVersion . '_' . md5(request()->getSchemeAndHttpHost());
     $xml = Cache::remember($cacheKey, 3600, function (): string {
         $products = Product::where('is_active', true)->orderBy('sort_order')->get();
         $posts = Post::where('is_published', true)->orderByDesc('published_at')->get();

@@ -73,7 +73,7 @@
         images: {{ Js::from($galleryList) }},
         selectedImage: 0,
         isCutout(src) {
-            return src && (src.includes('sparepart-') || src.includes('lampu-pju-'));
+            return src && src.includes('lampu-pju-');
         }
     }"
     class="space-y-12 md:space-y-16"
@@ -135,7 +135,7 @@
                                 alt="{{ $product->name }} foto {{ $idx + 1 }}"
                                 loading="lazy"
                                 decoding="async"
-                                class="w-full h-full {{ (str_contains($thumbUrl, 'sparepart-') || str_contains($thumbUrl, 'lampu-pju-')) ? 'object-contain p-2' : 'object-cover' }}"
+                                class="w-full h-full {{ str_contains($thumbUrl, 'lampu-pju-') ? 'object-contain p-2' : 'object-cover' }}"
                             />
                         </button>
                     @endforeach

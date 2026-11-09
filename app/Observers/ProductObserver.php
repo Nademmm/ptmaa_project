@@ -25,17 +25,21 @@ class ProductObserver
     public function saved(Product $product): void
     {
         Cache::forget('catalog_categories');
+        Cache::forget('catalog_categories_pju');
+        Cache::forget('catalog_categories_me');
         Cache::forget('featured_products');
         Cache::forget("product_{$product->slug}");
-        Cache::forget('seo_sitemap_xml');
+        Cache::increment('seo_sitemap_version');
     }
 
     public function deleted(Product $product): void
     {
         Cache::forget('catalog_categories');
+        Cache::forget('catalog_categories_pju');
+        Cache::forget('catalog_categories_me');
         Cache::forget('featured_products');
         Cache::forget("product_{$product->slug}");
-        Cache::forget('seo_sitemap_xml');
+        Cache::increment('seo_sitemap_version');
     }
 }
 

@@ -32,11 +32,11 @@ class Post extends Model
     {
         static::saved(function (): void {
             \Illuminate\Support\Facades\Cache::forget('latest_posts_home');
-            \Illuminate\Support\Facades\Cache::forget('seo_sitemap_xml');
+            \Illuminate\Support\Facades\Cache::increment('seo_sitemap_version');
         });
         static::deleted(function (): void {
             \Illuminate\Support\Facades\Cache::forget('latest_posts_home');
-            \Illuminate\Support\Facades\Cache::forget('seo_sitemap_xml');
+            \Illuminate\Support\Facades\Cache::increment('seo_sitemap_version');
         });
     }
 

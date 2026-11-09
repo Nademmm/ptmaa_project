@@ -59,11 +59,15 @@ class ProductCatalogPage extends Component
         }
 
         // Kategori terfilter berdasarkan divisi aktif
-        $categories = ProductCategory::with('pillar')
-            ->where('is_active', true)
-            ->forDivision($this->selectedDivision)
-            ->orderBy('sort_order')
-            ->get();
+        $categories = \Illuminate\Support\Facades\Cache::remember(
+            'catalog_categories_' . $this->selectedDivision,
+            3600,
+            fn () => ProductCategory::with('pillar')
+                ->where('is_active', true)
+                ->forDivision($this->selectedDivision)
+                ->orderBy('sort_order')
+                ->get()
+        );
 
         $query = Product::with('category.pillar')
             ->where('is_active', true)

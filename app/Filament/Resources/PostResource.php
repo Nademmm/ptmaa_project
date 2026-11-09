@@ -112,6 +112,7 @@ class PostResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn ($query) => $query->with('category'))
             ->defaultSort('published_at', 'desc')
             ->columns([
                 ImageColumn::make('featured_image')

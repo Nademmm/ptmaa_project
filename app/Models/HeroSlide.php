@@ -41,11 +41,13 @@ class HeroSlide extends Model
         $cleanPath = ltrim($this->image_path, '/');
 
         if (file_exists(public_path('storage/' . $cleanPath))) {
-            return asset('storage/' . $cleanPath) . '?v=k3';
+            $ver = @filemtime(public_path('storage/' . $cleanPath)) ?: 'k3';
+            return asset('storage/' . $cleanPath) . '?v=' . $ver;
         }
 
         if (file_exists(public_path($cleanPath))) {
-            return '/' . $cleanPath . '?v=k3';
+            $ver = @filemtime(public_path($cleanPath)) ?: 'k3';
+            return '/' . $cleanPath . '?v=' . $ver;
         }
 
         return asset('storage/' . $cleanPath) . '?v=k3';

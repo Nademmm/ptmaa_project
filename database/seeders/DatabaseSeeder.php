@@ -32,12 +32,12 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'email' => 'admin.cadangan1@ptmaa.co.id',
-                'name' => 'Admin Cadangan 1 — Operasional',
+                'name' => 'Admin Cadangan 1 - Operasional',
                 'password' => 'Maa#Cadangan1!84Zp@W',
             ],
             [
                 'email' => 'admin.cadangan2@ptmaa.co.id',
-                'name' => 'Admin Cadangan 2 — Direksi & Darurat',
+                'name' => 'Admin Cadangan 2 - Direksi & Darurat',
                 'password' => 'Maa#Cadangan2!57Rn%L',
             ],
         ];
@@ -94,14 +94,14 @@ class DatabaseSeeder extends Seeder
 
             ContactInquiry::create([
                 'full_name' => 'Rizky Pratama',
-                'company_or_institution' => 'CV. Karya Mandiri Logistik',
+                'company_or_institution' => 'PT. Karya Mandiri Industri',
                 'whatsapp_number' => '082145678912',
                 'email' => 'rizky@karyamandiri.com',
                 'service_pillar_id' => $mePillar?->id,
-                'subject' => 'Suplai Rutin Oli Hidrolik, Grease & Filter Armada',
-                'message' => 'Ingin menanyakan ketersediaan kontrak suplai bulanan untuk kebutuhan oli mesin, grease bearing, dan filter udara untuk 18 unit armada truk operasional kami di Sidoarjo.',
+                'subject' => 'Perakitan Panel Utama MDP/SDP & Instalasi Kabel Daya Pabrik',
+                'message' => 'Ingin berkonsultasi mengenai kebutuhan perakitan 2 unit panel distribusi MDP/SDP beserta penarikan kabel NYY dan sistem grounding untuk gudang produksi baru kami di Sidoarjo.',
                 'pipeline_status' => InquiryPipelineStatus::KOMUNIKASI,
-                'admin_notes' => 'Baru masuk, segera hubungi via WhatsApp untuk rincian kode part filter dan viskositas oli.',
+                'admin_notes' => 'Baru masuk, segera hubungi via WhatsApp untuk jadwal survei beban daya dan single line diagram.',
             ]);
         }
     }

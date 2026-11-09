@@ -20,5 +20,11 @@ class PostCategory extends Model
     {
         return $this->hasMany(Post::class);
     }
+
+    protected static function booted(): void
+    {
+        static::saved(fn () => \Illuminate\Support\Facades\Cache::forget('post_categories_all'));
+        static::deleted(fn () => \Illuminate\Support\Facades\Cache::forget('post_categories_all'));
+    }
 }
 

@@ -36,11 +36,15 @@ class ProductCategory extends Model
         static::saved(function (): void {
             Cache::forget('footer_categories');
             Cache::forget('catalog_categories');
+            Cache::forget('catalog_categories_pju');
+            Cache::forget('catalog_categories_me');
             Cache::forget('featured_products');
         });
         static::deleted(function (): void {
             Cache::forget('footer_categories');
             Cache::forget('catalog_categories');
+            Cache::forget('catalog_categories_pju');
+            Cache::forget('catalog_categories_me');
             Cache::forget('featured_products');
         });
     }

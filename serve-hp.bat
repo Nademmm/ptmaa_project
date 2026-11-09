@@ -7,12 +7,17 @@ echo ========================================================
 echo.
 echo Pastikan HP dan Laptop terhubung ke Wi-Fi yang SAMA.
 echo.
+for /f "tokens=2 delims=:" %%a in ('ipconfig ^| findstr /c:"IPv4 Address"') do (
+    for /f "tokens=* delims= " %%b in ("%%a") do set "LOCAL_IP=%%b"
+)
+if not defined LOCAL_IP set "LOCAL_IP=192.168.1.x"
 echo Buka browser di HP Anda lalu ketik:
-echo   - Beranda:     [IP_ADDRESS].13:8000
-echo   - Panel Admin:[IP_ADDRESS]0.13:8000/portal-internal-maa-9x7k2v
+echo   - Beranda     : http://%LOCAL_IP%:8000
+echo   - Panel Admin : http://%LOCAL_IP%:8000/portal-internal-maa-9x7k2v
 echo.
 echo Buka di Laptop:
-echo   - Beranda:      http://127.0.0.1:8000
+echo   - Beranda     : http://127.0.0.1:8000
+echo   - Panel Admin : http://127.0.0.1:8000/portal-internal-maa-9x7k2v
 echo ========================================================
 echo.
 if exist "C:\php\php.exe" (

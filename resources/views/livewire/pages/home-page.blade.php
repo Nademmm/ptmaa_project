@@ -189,8 +189,8 @@
                     ? route('products.index', ['divisi' => 'pju'])
                     : route('products.index', ['divisi' => 'me']);
                 $pillarPhoto = $isPjuPillar
-                    ? '/images/projects/pju-k3-gempol-sidoarjo.webp?v=k3'
-                    : '/images/projects/me-impeller-rotor-stainless.webp?v=k3';
+                    ? \App\Models\Product::resolvePublicImageUrl('images/projects/pju-k3-gempol-sidoarjo.webp')
+                    : \App\Models\Product::resolvePublicImageUrl('images/projects/me-impeller-rotor-stainless.webp');
             @endphp
             <div
                 @if($idx !== 0) x-cloak @endif

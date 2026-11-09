@@ -77,10 +77,10 @@ class ManageCompanySettings extends SettingsPage
                                     ->label('Telepon Kantor Resmi'),
                                 TextInput::make('whatsapp_main')
                                     ->required()
-                                    ->label('WhatsApp Resmi (Penerangan Jalan Umum & Mechanical Electrical)'),
+                                    ->label('WhatsApp Resmi Utama (PJU & Mechanical Electrical)'),
                                 TextInput::make('whatsapp_sparepart')
                                     ->required()
-                                    ->label('WhatsApp Komponen & Operasional Teknis'),
+                                    ->label('WhatsApp Operasional Teknis & Workshop'),
                             ]),
                         Textarea::make('address_head_office')
                             ->rows(2)

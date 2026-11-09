@@ -5,6 +5,8 @@ namespace App\Livewire\Pages;
 use App\Enums\InquiryPipelineStatus;
 use App\Models\ContactInquiry;
 use App\Models\ServicePillar;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Validate;
@@ -35,15 +37,31 @@ class ContactPage extends Component
     #[Validate('required|min:10')]
     public string $message = '';
 
+    public string $website_url_trap = '';
+
     public bool $isSubmitted = false;
 
     public function submit(): void
     {
+        if (! empty($this->website_url_trap)) {
+            $this->isSubmitted = true;
+            return;
+        }
+
+        $rateKey = 'contact-inquiry:' . request()->ip();
+        if (RateLimiter::tooManyAttempts($rateKey, 5)) {
+            $seconds = RateLimiter::availableIn($rateKey);
+            throw ValidationException::withMessages([
+                'message' => "Terlalu banyak pengiriman pesan dalam waktu singkat. Silakan tunggu {$seconds} detik.",
+            ]);
+        }
+
         if ($this->service_pillar_id === '') {
             $this->service_pillar_id = null;
         }
 
         $this->validate();
+        RateLimiter::hit($rateKey, 600);
 
         $pillarId = filled($this->service_pillar_id) ? (int) $this->service_pillar_id : null;
         $subject = trim($this->subject);

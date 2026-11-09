@@ -121,6 +121,10 @@
                 </div>
             @else
                 <form wire:submit="submit" class="space-y-4">
+                    <div style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none;" aria-hidden="true">
+                        <label for="website_url_trap">Jangan diisi</label>
+                        <input id="website_url_trap" type="text" wire:model="website_url_trap" tabindex="-1" autocomplete="off" />
+                    </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label for="full_name" class="block text-[10px] font-black uppercase tracking-wider text-primary mb-1.5">Nama Lengkap *</label>

@@ -122,7 +122,7 @@
                                         </div>
                                         <div>
                                             <p class="text-xs font-black uppercase tracking-wider {{ request('divisi') === 'me' && request()->routeIs('products.*') ? 'text-primary' : 'text-text-main' }} group-hover:text-primary leading-tight">Mechanical & Electrical</p>
-                                            <p class="text-[10px] text-text-secondary font-medium leading-tight mt-0.5">Panel, Genset, Impeller & Komponen</p>
+                                            <p class="text-[10px] text-text-secondary font-medium leading-tight mt-0.5">Impeller, Blower, Panel & Daya</p>
                                         </div>
                                     </a>
                                 </div>

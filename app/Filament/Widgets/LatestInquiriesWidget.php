@@ -17,7 +17,7 @@ class LatestInquiriesWidget extends BaseWidget
     public function table(Table $table): Table
     {
         return $table
-            ->query(ContactInquiry::query()->latest()->limit(5))
+            ->query(ContactInquiry::query()->with('pillar')->latest()->limit(5))
             ->heading('Permintaan Penawaran & Konsultasi Klien Terbaru')
             ->description('Daftar 5 interaksi klien B2B / B2G terbaru yang masuk ke sistem pipeline PT. Multi Abadi Aksana.')
             ->columns([

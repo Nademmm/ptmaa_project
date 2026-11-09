@@ -14,7 +14,7 @@ class Gallery extends Model
         'slug',
         'client_or_unit_code',
         'location',
-        'category', // pju, me, interior_exterior, alat_berat_sparepart
+        'category', // pju, mechanical_electrical
         'image_path',
         'description',
         'is_featured',

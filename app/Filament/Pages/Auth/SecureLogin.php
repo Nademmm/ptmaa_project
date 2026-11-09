@@ -19,7 +19,7 @@ class SecureLogin extends BaseLogin
 {
     public function getTitle(): string | Htmlable
     {
-        return 'Otorisasi Portal Internal — PT. Multi Abadi Aksana';
+        return 'Otorisasi Portal Internal - PT. Multi Abadi Aksana';
     }
 
     public function getHeading(): string | Htmlable

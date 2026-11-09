@@ -26,11 +26,14 @@ class PostSeeder extends Seeder
             ]
         );
 
-        $catSparepart = PostCategory::updateOrCreate(
-            ['slug' => 'sparepart-konstruksi-k3'],
+        PostCategory::where('slug', 'sparepart-konstruksi-k3')->delete();
+        Post::where('slug', 'pentingnya-kualitas-sparepart-dan-standar-k3-dalam-proyek-konstruksi')->delete();
+
+        $catK3 = PostCategory::updateOrCreate(
+            ['slug' => 'standar-k3-konstruksi-industri'],
             [
-                'name' => 'Komponen Mekanikal & Standar K3',
-                'description' => 'Panduan pemilihan komponen mekanikal armada/mesin serta penerapan K3 pada proyek Penerangan Jalan Umum dan Mechanical & Electrical.',
+                'name' => 'Standar K3 & Konstruksi',
+                'description' => 'Disiplin penerapan Keselamatan dan Kesehatan Kerja (K3) pada proyek konstruksi Penerangan Jalan Umum dan rekayasa Mechanical & Electrical.',
             ]
         );
 
@@ -65,15 +68,15 @@ class PostSeeder extends Seeder
         );
 
         Post::updateOrCreate(
-            ['slug' => 'pentingnya-kualitas-sparepart-dan-standar-k3-dalam-proyek-konstruksi'],
+            ['slug' => 'penerapan-standar-k3-pada-instalasi-pju-dan-mechanical-electrical'],
             [
-                'post_category_id' => $catSparepart->id,
-                'title' => 'Menjaga Keandalan Armada dengan Sparepart Orisinal & Budaya K3 di Lokasi Proyek',
+                'post_category_id' => $catK3->id,
+                'title' => 'Disiplin Standar K3 & APD Lengkap pada Proyek PJU dan Mechanical Electrical',
                 'featured_image' => 'images/projects/me-maintenance-apd-lengkap.webp',
-                'excerpt' => 'Mulai dari pemilihan oli, grease, ban, filter, dan kampas kopling berkualitas premium hingga disiplin penerapan Keselamatan dan Kesehatan Kerja (K3).',
-                'content' => "Keberhasilan eksekusi proyek infrastruktur dan kelancaran operasional industri sangat bergantung pada dua faktor utama: kesiapan peralatan/armada kerja dan keselamatan personel di lapangan.\n\nDi bawah Divisi Mechanical & Electrical, PT. Multi Abadi Aksana menyuplai komponen mekanikal dan perawatan armada kualitas premium yang mencakup Oli, Grease, Ban Luar, Ban Dalam, Aki, Filter, Wiper, Baut Roda, Bearing, Kabel, Kampas Kopling, dan Lampu kendaraan/alat berat. Penggunaan suku cadang dan pelumas yang tepat spesifikasi mencegah kerusakan mendadak di tengah jadwal proyek yang padat.\n\nSeluruh aktivitas instalasi Penerangan Jalan Umum maupun perbaikan mesin Mechanical & Electrical pabrik selalu dijalankan dengan prinsip utama kami: Utamakan Keselamatan dan Kesehatan Kerja (K3), didukung proses kerja sama yang transparan mulai dari tahap Komunikasi, Survei, Negosiasi, hingga Deal.",
-                'meta_title' => 'Pengadaan Sparepart Premium & Komitmen K3 | PT. Multi Abadi Aksana',
-                'meta_description' => 'Solusi pengadaan sparepart alat berat/armada dan komitmen standar K3 PT. Multi Abadi Aksana di Sidoarjo.',
+                'excerpt' => 'Komitmen PT. Multi Abadi Aksana dalam menerapkan protokol Keselamatan dan Kesehatan Kerja (K3) serta kelengkapan Alat Pelindung Diri (APD) di setiap titik proyek.',
+                'content' => "Keberhasilan eksekusi proyek infrastruktur Penerangan Jalan Umum (PJU) dan rekayasa Mechanical & Electrical industri sangat ditentukan oleh dua faktor utama: ketepatan spesifikasi teknis dan keselamatan personel di lapangan.\n\nSetiap personel teknis PT. Multi Abadi Aksana wajib mengenakan Alat Pelindung Diri (APD) berstandar K3 lengkap, meliputi helm keselamatan proyek, sarung tangan pelindung tahan kerja berat, seragam lengan panjang, rompi visibilitas tinggi (high-visibility vest), sepatu safety, serta respirator saat bekerja di ruang mesin atau area pabrik berdebu.\n\nBaik dalam pekerjaan pendirian tiang PJU menggunakan armada mobil crane, pengecoran pondasi beton, maupun fabrikasi Impeller blower dan pengujian panel distribusi MDP/SDP, prinsip utama kami selalu dijalankan secara konsisten: Utamakan Keselamatan dan Kesehatan Kerja (K3) dari tahap Survei hingga Serah Terima Pekerjaan.",
+                'meta_title' => 'Standar K3 Proyek PJU & Mechanical Electrical | PT. Multi Abadi Aksana',
+                'meta_description' => 'Komitmen penerapan standar K3 dan APD lengkap PT. Multi Abadi Aksana pada instalasi Penerangan Jalan Umum dan Mechanical Electrical di Jawa Timur.',
                 'published_at' => now()->subDay(),
                 'is_published' => true,
             ]

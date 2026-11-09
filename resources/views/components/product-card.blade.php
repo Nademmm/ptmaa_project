@@ -6,7 +6,7 @@
         <div class="relative aspect-[4/3] bg-[#F8FAFC] overflow-hidden flex items-center justify-center">
             @php
                 $imgUrl = $product->thumbnail_url;
-                $isCutout = str_contains($imgUrl, 'sparepart-') || str_contains($imgUrl, 'lampu-pju-cob') || str_contains($imgUrl, 'lampu-pju-osram') || str_contains($imgUrl, 'lampu-pju-philips') || str_contains($imgUrl, 'lampu-pju-estika');
+                $isCutout = str_contains($imgUrl, 'lampu-pju-cob') || str_contains($imgUrl, 'lampu-pju-osram') || str_contains($imgUrl, 'lampu-pju-philips') || str_contains($imgUrl, 'lampu-pju-estika');
             @endphp
             <img
                 src="{{ $imgUrl }}"
