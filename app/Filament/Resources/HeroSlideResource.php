@@ -7,6 +7,7 @@ use App\Models\HeroSlide;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -88,6 +89,20 @@ class HeroSlideResource extends Resource
                             ->columnSpanFull()
                             ->label('Foto Background Hero Slide')
                             ->helperText('Disarankan menggunakan foto dokumentasi landscape (rasio 21:9 atau 16:9, resolusi ideal 1600×685px) dalam format WebP, JPG, atau PNG.'),
+
+                        Select::make('object_position')
+                            ->options([
+                                'center center' => 'Tengah (Center Center) - Default seimbang',
+                                'center top' => 'Atas (Center Top) - Fokus helm, tiang, crane, atau subjek di atas',
+                                'center 15%' => 'Atas-Tengah (Center 15%) - Subjek pekerja & tanda K3',
+                                'center 30%' => 'Tengah-Atas (Center 30%) - Pemandangan jalan tol & tiang lengkung',
+                                'center 70%' => 'Tengah-Bawah (Center 70%) - Subjek bawah',
+                                'center bottom' => 'Bawah (Center Bottom) - Fokus baseplate & pondasi',
+                            ])
+                            ->default('center center')
+                            ->columnSpanFull()
+                            ->label('Titik Fokus Foto (Object Position)')
+                            ->helperText('Pilih titik fokus agar bagian krusial foto (seperti kepala teknisi, helm K3, atau puncak tiang) tidak terpotong pada layar desktop lebar.'),
 
                         Grid::make(2)
                             ->schema([

@@ -13,6 +13,7 @@ class HeroSlide extends Model
         'title',
         'subtitle',
         'image_path',
+        'object_position',
         'sort_order',
         'is_active',
     ];
@@ -51,6 +52,32 @@ class HeroSlide extends Model
         }
 
         return asset('storage/' . $cleanPath) . '?v=k3';
+    }
+
+    public function getObjectPositionStyleAttribute(): string
+    {
+        if (! empty($this->object_position) && $this->object_position !== 'center center') {
+            return $this->object_position;
+        }
+
+        $path = $this->image_path ?? '';
+        if (str_contains($path, 'pju-crane-erection')) {
+            return 'center top';
+        }
+        if (str_contains($path, 'pju-k3-gempol-sidoarjo')) {
+            return 'center 15%';
+        }
+        if (str_contains($path, 'me-impeller-rotor-stainless')) {
+            return 'center 25%';
+        }
+        if (str_contains($path, 'pju-parabola-cabang-dua')) {
+            return 'center 30%';
+        }
+        if (str_contains($path, 'pju-solar-rest-area')) {
+            return 'center 30%';
+        }
+
+        return $this->object_position ?: 'center center';
     }
 }
 

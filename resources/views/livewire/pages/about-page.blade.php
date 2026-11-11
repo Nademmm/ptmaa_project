@@ -45,22 +45,24 @@
                 </div>
                 <div class="aspect-[4/3] rounded-2xl overflow-hidden border border-white/15 shadow-lg bg-primary-dark">
                     <img
-                        src="/images/banners/corporate-meeting.webp"
-                        alt="Diskusi & Perencanaan Teknis PT. Multi Abadi Aksana"
+                        src="/images/projects/me-impeller-rotor-stainless.webp"
+                        alt="Fabrikasi Rotor Impeller & Rekayasa ME PT. Multi Abadi Aksana"
                         loading="lazy"
                         width="400"
                         height="300"
                         class="w-full h-full object-cover"
+                        style="object-position: center 25%;"
                     />
                 </div>
                 <div class="aspect-[4/3] rounded-2xl overflow-hidden border border-white/15 shadow-lg bg-primary-dark">
                     <img
-                        src="/images/banners/corporate-handshake.webp"
-                        alt="Kemitraan Bisnis PT. Multi Abadi Aksana"
+                        src="/images/projects/pju-crane-erection.webp"
+                        alt="Pendirian Tiang PJU Mobil Crane K3 PT. Multi Abadi Aksana"
                         loading="lazy"
                         width="400"
                         height="300"
                         class="w-full h-full object-cover"
+                        style="object-position: center top;"
                     />
                 </div>
             </div>

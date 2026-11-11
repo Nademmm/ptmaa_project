@@ -28,6 +28,7 @@ class HomePage extends Component
                     'image' => $slide->image_url,
                     'title' => $slide->title,
                     'desc' => $slide->subtitle,
+                    'object_position' => $slide->object_position_style,
                 ])
                 ->values()
                 ->all();
@@ -39,6 +40,7 @@ class HomePage extends Component
                     'image' => '/images/projects/pju-k3-gempol-sidoarjo.webp',
                     'title' => 'Spesialis Penerangan Jalan Umum & Mechanical Electrical',
                     'desc' => 'Mitra strategis pengadaan dan konstruksi Penerangan Jalan Umum (Solar Cell & PLN) serta rekayasa Mechanical & Electrical industri, termasuk Desain Interior & Exterior, di Indonesia.',
+                    'object_position' => 'center 15%',
                 ],
             ];
         }
