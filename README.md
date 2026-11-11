@@ -187,6 +187,9 @@ php artisan serve
 ```
 Akses web: `http://127.0.0.1:8000`
 
+### Tunneling ke Cloudflare
+cloudflared tunnel --url http://localhost:8000
+
 #### B. Akses Bersama dari Laptop & Smartphone (Satu Jaringan Wi-Fi)
 Jalankan skrip siap pakai (otomatis mendeteksi IPv4 Laptop Anda):
 ```cmd
