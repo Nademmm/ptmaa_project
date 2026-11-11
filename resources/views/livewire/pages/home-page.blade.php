@@ -375,7 +375,7 @@
                     Produk & <span class="text-gradient">Material Unggulan.</span>
                 </h2>
                 <p class="text-xs md:text-sm text-text-secondary font-medium">
-                    Etalase spesifikasi pengadaan Penerangan Jalan Umum Tenaga Surya, Lampu Jalan PLN, Fabrikasi Impeller, serta unit Mechanical & Electrical PT. Multi Abadi Aksana.
+                    Etalase spesifikasi pengadaan Penerangan Jalan Umum Tenaga Surya, Lampu Jalan PLN, Fabrikasi Impeller, unit Mechanical & Electrical, serta layanan Desain Interior & Exterior PT. Multi Abadi Aksana.
                 </p>
             </div>
             <div class="flex flex-wrap items-center gap-2.5 shrink-0">
@@ -411,7 +411,7 @@
                     Projek <span class="text-gradient">On Duty.</span>
                 </h2>
                 <p class="text-xs md:text-sm text-text-secondary font-medium">
-                    Dokumentasi pelaksanaan proyek Penerangan Jalan Umum Ruas Gempol-Sidoarjo-Malang serta Fabrikasi & Perawatan Mechanical & Electrical Industri.
+                    Dokumentasi pelaksanaan proyek Penerangan Jalan Umum Ruas Gempol-Sidoarjo-Malang serta Fabrikasi, Perawatan, dan Interior & Exterior pada divisi Mechanical & Electrical.
                 </p>
             </div>
             <a

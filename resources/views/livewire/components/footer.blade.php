@@ -20,7 +20,7 @@
                     </a>
                 </div>
                 <p class="text-xs md:text-sm text-text-secondary leading-relaxed font-medium">
-                    Perusahaan General Trading, Supplier, dan Kontraktor terintegrasi. Mitra terpercaya untuk pengadaan dan konstruksi Penerangan Jalan Umum (Solar Cell & PLN) serta sistem Mechanical & Electrical industri dengan standar K3 terbaik.
+                    Perusahaan General Trading, Supplier, dan Kontraktor terintegrasi. Mitra terpercaya untuk pengadaan dan konstruksi Penerangan Jalan Umum (Solar Cell & PLN) serta sistem Mechanical & Electrical industri (panel, PLC, tangki, ducting, MEP, BAS) termasuk desain Interior & Exterior dengan standar K3 terbaik.
                 </p>
                 <div class="flex gap-2.5">
                     <a

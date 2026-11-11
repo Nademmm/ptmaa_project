@@ -67,7 +67,7 @@ class AdminPanelProvider extends PanelProvider
                 PanelsRenderHook::HEAD_END,
                 fn (): HtmlString => new HtmlString('
                     <style>
-                        /* Minimalist Corporate Admin UI — PT. Multi Abadi Aksana */
+                        /* Minimalist Corporate Admin UI: PT. Multi Abadi Aksana */
                         body.fi-body {
                             background-color: #F8FAFC !important;
                             color: #0F172A;

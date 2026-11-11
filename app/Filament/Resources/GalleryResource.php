@@ -30,11 +30,17 @@ use Illuminate\Support\Str;
 class GalleryResource extends Resource
 {
     protected static ?string $model = Gallery::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-camera';
+
     protected static ?string $navigationGroup = 'Portofolio & Publikasi';
+
     protected static ?string $navigationLabel = 'Galeri Projek On Duty';
+
     protected static ?string $modelLabel = 'Dokumentasi Proyek';
+
     protected static ?string $pluralModelLabel = 'Galeri Projek On Duty';
+
     protected static ?int $navigationSort = 1;
 
     public static function getNavigationBadge(): ?string
@@ -47,7 +53,7 @@ class GalleryResource extends Resource
         return $form
             ->schema([
                 Section::make('Detail Dokumentasi Projek On Duty')
-                    ->description('Kelola portofolio dokumentasi proyek lapangan Penerangan Jalan Umum dan Mechanical & Electrical.')
+                    ->description('Kelola portofolio dokumentasi proyek lapangan Penerangan Jalan Umum dan Mechanical & Electrical (termasuk Interior & Exterior).')
                     ->schema([
                         Grid::make(2)
                             ->schema([
@@ -67,6 +73,7 @@ class GalleryResource extends Resource
                                         'pju' => 'Penerangan Jalan Umum',
                                         'mechanical_electrical' => 'Mechanical & Electrical',
                                     ])
+                                    ->in(['pju', 'mechanical_electrical'])
                                     ->required()
                                     ->label('Divisi Proyek'),
                                 TextInput::make('location')

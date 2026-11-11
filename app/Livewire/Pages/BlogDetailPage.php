@@ -4,6 +4,7 @@ namespace App\Livewire\Pages;
 
 use App\Models\Post;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Str;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
@@ -23,13 +24,13 @@ class BlogDetailPage extends Component
 
         $recentPosts = Post::where('id', '!=', $post->id)->where('is_published', true)->orderByDesc('published_at')->take(4)->get();
 
-        $seoTitle = !empty($post->meta_title)
+        $seoTitle = ! empty($post->meta_title)
             ? $post->meta_title
             : "{$post->title} | PT. Multi Abadi Aksana";
 
-        $seoDesc = !empty($post->meta_description)
+        $seoDesc = ! empty($post->meta_description)
             ? $post->meta_description
-            : \Illuminate\Support\Str::limit(trim(strip_tags((string) ($post->excerpt ?: $post->content))), 160);
+            : Str::limit(trim(strip_tags((string) ($post->excerpt ?: $post->content))), 160);
 
         View::share([
             'title' => $seoTitle,
@@ -46,4 +47,3 @@ class BlogDetailPage extends Component
         ]);
     }
 }
-

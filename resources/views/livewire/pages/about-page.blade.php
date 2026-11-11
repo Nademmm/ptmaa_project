@@ -8,7 +8,7 @@
                     Pengadaan Barang & Jasa <span class="text-[#8DA2E0]">Berstandar Industri.</span>
                 </h1>
                 <p class="text-xs sm:text-sm md:text-base text-blue-100/90 font-medium leading-relaxed">
-                    <strong class="text-white">PT. Multi Abadi Aksana</strong> adalah perusahaan yang bergerak di bidang <strong class="text-white">Pengadaan Barang dan Jasa</strong> dengan dua fokus divisi utama: pengadaan dan konstruksi <strong class="text-white">Penerangan Jalan Umum</strong> (Solar Cell & PLN) serta rekayasa <strong class="text-white">Mechanical & Electrical</strong> industri (fabrikasi Impeller, sistem blower, panel distribusi, dan instalasi daya).
+                    <strong class="text-white">PT. Multi Abadi Aksana</strong> adalah perusahaan yang bergerak di bidang <strong class="text-white">Pengadaan Barang dan Jasa</strong> dengan dua fokus divisi utama: pengadaan dan konstruksi <strong class="text-white">Penerangan Jalan Umum</strong> (Solar Cell & PLN) serta rekayasa <strong class="text-white">Mechanical & Electrical</strong> industri (fabrikasi panel, tangki, ducting, Impeller, instalasi daya, MEP, BAS) termasuk desain Interior & Exterior (3D render, built-in furniture, fasad, kanopi).
                 </p>
                 <blockquote class="p-4 rounded-2xl bg-white/10 border-l-4 border-[#8DA2E0] text-xs sm:text-sm font-bold italic text-blue-100">
                     "Membangun bisnis yang berdampak bagi keuntungan perusahaan dan keberlanjutan lingkungan"
@@ -85,7 +85,7 @@
             <div class="p-4 rounded-2xl bg-[#F8FAFC] border border-primary/10 space-y-1.5">
                 <h3 class="text-xs font-black uppercase tracking-wider text-primary">Komitmen Mutu & Standar K3 Terintegrasi</h3>
                 <p class="text-xs md:text-sm font-semibold text-text-secondary leading-relaxed">
-                    "Menjadi mitra strategis dalam penyediaan infrastruktur Penerangan Jalan Umum serta sistem dan komponen Mechanical & Electrical yang mendukung kelancaran operasional di seluruh Indonesia."
+                    "Menjadi mitra strategis dalam penyediaan infrastruktur Penerangan Jalan Umum serta sistem dan komponen Mechanical & Electrical (termasuk Interior & Exterior) yang mendukung kelancaran operasional di seluruh Indonesia."
                 </p>
             </div>
         </div>

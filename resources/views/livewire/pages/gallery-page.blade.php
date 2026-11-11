@@ -17,7 +17,7 @@
                 Portofolio <span class="text-[#8DA2E0]">Projek On Duty.</span>
             </h1>
             <p class="text-xs sm:text-sm md:text-base text-blue-100/85 font-medium leading-relaxed">
-                Rekam jejak dokumentasi lapangan tim PT. Multi Abadi Aksana: pendirian tiang & instalasi Penerangan Jalan Umum jalan raya, serta fabrikasi Impeller stainless steel, sistem blower, dan kelistrikan Mechanical & Electrical industri.
+                Rekam jejak dokumentasi lapangan tim PT. Multi Abadi Aksana: pendirian tiang & instalasi Penerangan Jalan Umum jalan raya, serta fabrikasi Impeller stainless steel, sistem blower, kelistrikan Mechanical & Electrical industri, serta pengerjaan Interior & Exterior.
             </p>
         </div>
     </section>

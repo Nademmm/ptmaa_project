@@ -81,5 +81,20 @@ class PostSeeder extends Seeder
                 'is_published' => true,
             ]
         );
+
+        Post::updateOrCreate(
+            ['slug' => 'panduan-desain-interior-furnish-dan-fasad-eksterior-modern'],
+            [
+                'post_category_id' => $catMe->id,
+                'title' => 'Panduan Komprehensif Desain Interior, Custom Built-In Furniture & Fasad Eksterior Tahan Cuaca',
+                'featured_image' => 'images/projects/inout-pengerjaan-interior-kitchen.webp',
+                'excerpt' => 'Menghadirkan harmoni visual dan fungsionalitas ruang melalui perencanaan 3D photorealistic, material HPL anti-rayap, dan fasad arsitektur modern weather resistant.',
+                'content' => "Menciptakan hunian, kantor, maupun ruang komersial yang estetis dan berdaya tahan tinggi membutuhkan integrasi erat antara perencanaan arsitektur 2D/3D, pemilihan material interior yang presisi, serta proteksi fasad luar terhadap cuaca tropis.\n\nLingkup Interior & Exterior pada divisi Mechanical & Electrical PT. Multi Abadi Aksana menghadirkan pendekatan terpadu. Pada area interior, kami memulai dengan Lay Out Planning 2D serta 3D photorealistic rendering agar klien dapat memvisualisasikan proporsi ruang, tata cahaya, dan material finishing sebelum fabrikasi fisik dimulai. Pembuatan custom built-in furniture seperti kitchen set, wardrobe, backdrop TV, dan credenza dikerjakan di workshop spesialis menggunakan bahan plywood grade A dengan lapisan HPL anti-scratch, edged PVC rapi, serta hardware ber-damping soft-close.\n\nUntuk melengkapi kenyamanan indoor, kami menyediakan furnish interior seperti gordyn blackout/sheer, wallpaper tekstur, hingga solar window film penolak radiasi UV yang mampu menurunkan beban pendingin ruangan (AC).\n\nDi area eksterior, fasad arsitektur dirancang dengan panel ACP (Aluminium Composite Panel), cat weather resistant bersertifikasi, serta aksen batu alam untuk perlindungan maksimal terhadap kelembapan dan panas matahari. Konstruksi pendukung seperti kanopi baja hollow, carport anti-selip, dan pagar teralis laser cutting diselesaikan dengan powder coating bermutu tinggi agar tahan karat dan tetap kokoh puluhan tahun.",
+                'meta_title' => 'Desain Interior & Fasad Eksterior Tahan Cuaca | PT. Multi Abadi Aksana',
+                'meta_description' => 'Layanan desain interior 3D render, custom built-in furniture, furnish ruang, dan fasad arsitektur modern oleh divisi Mechanical & Electrical PT. Multi Abadi Aksana.',
+                'published_at' => now(),
+                'is_published' => true,
+            ]
+        );
     }
 }

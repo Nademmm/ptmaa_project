@@ -26,11 +26,17 @@ use Illuminate\Support\Str;
 class HeroSlideResource extends Resource
 {
     protected static ?string $model = HeroSlide::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-photo';
+
     protected static ?string $navigationGroup = 'Portofolio & Publikasi';
+
     protected static ?string $navigationLabel = 'Hero Slider Beranda';
+
     protected static ?string $modelLabel = 'Slide Hero Beranda';
+
     protected static ?string $pluralModelLabel = 'Hero Slider Beranda';
+
     protected static ?int $navigationSort = 0;
 
     public static function getNavigationBadge(): ?string
@@ -157,4 +163,3 @@ class HeroSlideResource extends Resource
         ];
     }
 }
-

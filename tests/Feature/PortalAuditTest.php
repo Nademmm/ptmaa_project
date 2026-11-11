@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use App\Livewire\Pages\ContactPage;
-use App\Models\ContactInquiry;
 use App\Models\Gallery;
 use App\Models\Post;
 use App\Models\Product;
@@ -44,11 +43,12 @@ class PortalAuditTest extends TestCase
         $this->assertEquals(2, ServicePillar::count());
         $this->assertDatabaseHas('service_pillars', ['slug' => 'penerangan-jalan-umum']);
         $this->assertDatabaseHas('service_pillars', ['slug' => 'mechanical-electrical']);
+        $this->assertDatabaseMissing('service_pillars', ['slug' => 'interior-exterior']);
         $this->assertDatabaseMissing('product_categories', ['slug' => 'sparepart-equipment']);
         $this->assertDatabaseMissing('post_categories', ['slug' => 'sparepart-konstruksi-k3']);
-        $this->assertEquals(7, Product::count());
-        $this->assertEquals(11, Gallery::count());
-        $this->assertEquals(3, Post::count());
+        $this->assertEquals(13, Product::count());
+        $this->assertEquals(13, Gallery::count());
+        $this->assertEquals(4, Post::count());
     }
 
     public function test_product_and_blog_detail_pages_render_correctly(): void
@@ -143,4 +143,3 @@ class PortalAuditTest extends TestCase
         $this->assertFileExists(resource_path('views/errors/503.blade.php'));
     }
 }
-

@@ -20,7 +20,7 @@ echo   - Beranda     : http://127.0.0.1:8000
 echo   - Panel Admin : http://127.0.0.1:8000/portal-internal-maa-9x7k2v
 echo ========================================================
 echo.
-if exist "C:\php\php.exe" (
+if exist "C:\php\php.exe" (                    
     "C:\php\php.exe" artisan serve --host=0.0.0.0 --port=8000
 ) else (
     php artisan serve --host=0.0.0.0 --port=8000

@@ -6,7 +6,7 @@
                 Hubungi <span class="text-[#8DA2E0]">PT. Multi Abadi Aksana.</span>
             </h1>
             <p class="text-xs sm:text-sm md:text-base text-blue-100/85 font-medium leading-relaxed">
-                Hubungi tim resmi PT. Multi Abadi Aksana untuk konsultasi teknis, penjadwalan survei lapangan, maupun permintaan penawaran pengadaan Penerangan Jalan Umum serta Mechanical & Electrical di Sidoarjo, Jawa Timur.
+                Hubungi tim resmi PT. Multi Abadi Aksana untuk konsultasi teknis, penjadwalan survei lapangan, maupun permintaan penawaran pengadaan Penerangan Jalan Umum serta Mechanical & Electrical (termasuk Desain Interior & Eksterior) di Sidoarjo, Jawa Timur.
             </p>
         </div>
     </section>
@@ -26,7 +26,7 @@
                 </div>
                 <h2 class="text-lg md:text-xl font-black uppercase tracking-tight text-primary">WhatsApp Resmi</h2>
                 <p class="text-xs text-text-secondary font-medium leading-relaxed">
-                    Konsultasi teknis dan pengadaan divisi Penerangan Jalan Umum (Solar Cell & PLN) serta Mechanical & Electrical industri.
+                    Konsultasi teknis dan pengadaan divisi Penerangan Jalan Umum (Solar Cell & PLN), Mechanical & Electrical industri (termasuk Interior & Exterior).
                 </p>
             </div>
             <div class="space-y-3 pt-3 border-t border-primary/10">
@@ -98,7 +98,7 @@
                     Formulir Permintaan Penawaran
                 </h2>
                 <p class="text-xs md:text-sm text-text-secondary font-medium">
-                    Isi rincian kebutuhan proyek atau pengadaan sistem PJU & ME Anda untuk dijadwalkan survei maupun penawaran resmi.
+                    Isi rincian kebutuhan proyek atau pengadaan sistem PJU maupun ME (termasuk Interior & Exterior) Anda untuk dijadwalkan survei maupun penawaran resmi.
                 </p>
             </div>
 
@@ -195,7 +195,7 @@
                                 id="subject"
                                 type="text"
                                 wire:model="subject"
-                                placeholder="Misal: Pengadaan Penerangan Jalan Umum / Mechanical & Electrical"
+                                placeholder="Misal: Pengadaan PJU / Fabrikasi ME / Desain Interior"
                                 class="w-full rounded-xl bg-[#F8FAFC] border border-primary/15 px-4 py-3 text-xs md:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/20"
                             />
                         </div>

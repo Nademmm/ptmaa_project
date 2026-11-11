@@ -122,7 +122,7 @@
                                         </div>
                                         <div>
                                             <p class="text-xs font-black uppercase tracking-wider {{ request('divisi') === 'me' && request()->routeIs('products.*') ? 'text-primary' : 'text-text-main' }} group-hover:text-primary leading-tight">Mechanical & Electrical</p>
-                                            <p class="text-[10px] text-text-secondary font-medium leading-tight mt-0.5">Impeller, Blower, Panel & Daya</p>
+                                            <p class="text-[10px] text-text-secondary font-medium leading-tight mt-0.5">Panel, Tangki, Impeller & Interior</p>
                                         </div>
                                     </a>
                                 </div>
@@ -151,7 +151,7 @@
                         id="desktop-product-search"
                         type="text"
                         x-model="searchQuery"
-                        placeholder="Cari PJU, Impeller, Panel..."
+                        placeholder="Cari PJU, Panel, Tangki, Interior..."
                         :class="[
                             scrolled ? 'rounded-[22px]' : 'rounded-xl',
                             ready ? 'navbar-float-transition' : 'transition-none'

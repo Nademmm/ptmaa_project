@@ -11,10 +11,13 @@ class ServicePillarSeeder extends Seeder
 {
     public function run(): void
     {
-        // Hapus pilar lama di luar 2 fokus bisnis utama
+        // Pastikan hanya 2 pilar bisnis resmi PT. Multi Abadi Aksana (Interior & Exterior menjadi bagian dari Mechanical & Electrical)
         ServicePillar::whereNotIn('slug', ['penerangan-jalan-umum', 'mechanical-electrical'])->delete();
 
         $pillars = [
+            // ==========================================
+            // PILAR 1: PENERANGAN JALAN UMUM
+            // ==========================================
             [
                 'name' => 'Penerangan Jalan Umum',
                 'slug' => 'penerangan-jalan-umum',
@@ -53,40 +56,72 @@ class ServicePillarSeeder extends Seeder
                     ],
                 ],
             ],
+
+            // ==========================================
+            // PILAR 2: MECHANICAL & ELECTRICAL
+            // ==========================================
             [
                 'name' => 'Mechanical & Electrical',
                 'slug' => 'mechanical-electrical',
                 'code' => 'Divisi 2',
                 'icon' => 'bx-cog',
-                'short_summary' => 'Solusi rekayasa mekanikal dan elektrikal industri mencakup fabrikasi Impeller & Blower, perakitan panel MDP/SDP/ATS, transformator, genset, serta instalasi daya pabrik.',
-                'description' => 'Divisi rekayasa teknik PT. Multi Abadi Aksana yang melayani kebutuhan pabrik dan fasilitas industri, mulai dari fabrikasi komponen mekanikal presisi (Impeller), hingga instalasi dan pemeliharaan sistem kelistrikan tegangan rendah dan menengah.',
+                'short_summary' => 'Solusi rekayasa mekanikal dan elektrikal industri (Box Panel, wiring panel, PLC, tangki BBM, ducting, silo, struktur baja, MEP, E&I, BAS) serta rancang bangun Interior & Exterior (3D render, built-in furniture, fasad, kanopi, pagar & carport).',
+                'description' => 'Divisi rekayasa teknik PT. Multi Abadi Aksana yang melayani kebutuhan pabrik, fasilitas industri, hunian, dan ruang komersial: fabrikasi panel kelistrikan, tangki dan ducting, perbaikan mekanikal presisi (Impeller), instalasi MEP dan otomasi gedung, hingga desain interior, fasad arsitektur, dan konstruksi eksterior.',
                 'sort_order' => 2,
                 'scopes' => [
                     [
                         'type' => ServiceScopeType::BARANG,
-                        'title' => 'Pengadaan Perangkat Mechanical & Electrical Industri',
-                        'description' => 'Suplai peralatan distribusi daya listrik, hasil fabrikasi mekanikal presisi, serta sistem kontrol dan otomasi industri.',
+                        'title' => 'Pengadaan Panel Elektrikal & Fabrikasi Mekanikal Industri',
+                        'description' => 'Fabrikasi Box panel stainless/aluminium, wiring panel distribusi, tangki BBM, ducting BJLS, silo bahan baku, struktur baja, dan komponen mekanikal.',
                         'items' => [
-                            'Fabrikasi Impeller Industri (Centrifugal Blower, Rotor Blade Stainless Steel, Fan Housing & Ducting)',
-                            'Panel Distribusi Utama (MDP), Sub Distribution Panel (SDP), Panel Otomatis ATS/AMF, dan Panel Kapasitor Bank',
-                            'Komponen Proteksi & Distribusi: ACB, MCCB, MCB, Kontaktor, Kabel Industri (NYA, NYM, NYY, XLPE), dan Cable Tray/Ladder',
-                            'Mesin & Peralatan Utama: Genset Industri, Transformator (Trafo), Motor Listrik 3 Phase, Pompa Industri, dan Sistem HVAC',
-                            'Sistem Kontrol & Otomasi: Inverter VFD, PLC, Star Delta Starter, dan Instrumentasi Daya',
+                            'Fabrikasi Box Panel, Enclosure & Kabinet (Stainless Steel dan Aluminium menyesuaikan standar IEC & IP Rating)',
+                            'Wiring Panel: Panel Distribusi (MDP/SDP), Panel Kontrol, Panel Sinkronisasi, MCC / Switchgear, dan Kapasitor Bank',
+                            'Sistem Otomasi: Customize PLC Programming untuk panel kontrol mesin, panel otomasi industri, dan HMI',
+                            'Fabrikasi Tangki BBM Genset (tangki harian / storage) dan Tangki Pendam BBM bawah tanah',
+                            'Ducting & Exhaust Extention berbahan BJLS dan Carbon Steel untuk genset maupun tata udara HVAC',
+                            'Fabrikasi Silo & Storage bahan baku industri, Conveyor System (belt, screw, roller bucket), dan Struktur Baja pabrik/tower (Custom Order tanpa MOQ)',
+                            'Fabrikasi & Dynamic Balancing Impeller Industri Stainless Steel dan Centrifugal Blower',
                         ],
                         'sort_order' => 1,
                     ],
                     [
                         'type' => ServiceScopeType::JASA,
-                        'title' => 'Jasa Instalasi Mekanikal-Elektrikal, Fabrikasi & Overhaul',
-                        'description' => 'Eksekusi instalasi kelistrikan pabrik, rekondisi komponen mekanikal, serta kontrak pemeliharaan rutin oleh teknisi bersertifikat K3.',
+                        'title' => 'Jasa Konstruksi MEP, E&I, BAS, Instalasi & Maintenance',
+                        'description' => 'Layanan konstruksi instalasi mechanical electrical plumbing, instrumentasi otomatis, otomasi gedung, testing commissioning, serta overhaul pabrik.',
                         'items' => [
-                            'Jasa fabrikasi kustom, rekondisi, penggantian shaft/blade, dan dynamic balancing Impeller blower industri',
-                            'Instalasi jaringan kelistrikan pabrik, gudang logistik, dan fasilitas industri (terminasi panel, penarikan kabel, grounding & penangkal petir)',
-                            'Pemasangan dan integrasi mesin produksi, sistem ventilasi blower/exhaust pabrik, perpipaan industri, dan pompa',
-                            'Pengujian beban kelistrikan (commissioning), audit efisiensi daya, dan troubleshooting gangguan sistem kontrol',
-                            'Jasa perawatan rutin berkala (preventive maintenance) dan overhaul mesin mekanikal-elektrikal di lokasi pabrik klien',
+                            'Konstruksi MEP (Mechanical, Electrical, Plumbing): Tata udara HVAC, ventilasi, pipa air bersih/buangan/drainase, dan distribusi daya gedung',
+                            'E&I (Electrical dan Instrumental): Pemasangan sensor, aktuator, dan kalibrasi parameter kontrol mesin otomatis',
+                            'BAS (Building Automation System): Sistem kendali terpadu pencahayaan, HVAC, keamanan, dan pemantauan energi real-time',
+                            'Installation Service: Pemasangan presisi jalur kabel, panel, dan perpipaan dengan tahapan Testing, Adjusting, and Commissioning (TAC)',
+                            'Maintenance and Retrofit: Perawatan rutin berkala, pencegahan downtime, dan modernisasi teknologi lama menjadi sistem hemat energi',
+                            'Jasa overhaul, balancing dinamis impeller, dan preventive maintenance fasilitas industri di lokasi klien',
                         ],
                         'sort_order' => 2,
+                    ],
+                    [
+                        'type' => ServiceScopeType::BARANG,
+                        'title' => 'Pengadaan Built-In Furniture, Furnish & Material Eksterior',
+                        'description' => 'Penyediaan furnitur kustom terintegrasi dinding, furnish interior lengkap, dan material fasad tahan cuaca ekstrem.',
+                        'items' => [
+                            'Built In Furniture Custom: Kitchen set, lemari full-ceiling, backdrop & panel TV, meja kerja, dan kabinet terintegrasi sudut ruang',
+                            'Furnish Interior: Gordyn blind (blackout & sunscreen), pelapis wallpaper vinyl-backed, serta kaca film tolak panas penahan sinar UV/infra merah',
+                            'Material Finishing Weather Resistant: Cat pelindung cuaca ekstrem, panel ACP (Aluminium Composite Panel), dan batu alam berpelapis proteksi',
+                            'Furnish Eksterior: Kanopi baja/hollow modern, pagar teralis laser cutting/powder coating anti-karat, dan lantai carport anti-selip berbasis beban berat',
+                        ],
+                        'sort_order' => 3,
+                    ],
+                    [
+                        'type' => ServiceScopeType::JASA,
+                        'title' => 'Jasa Desain Arsitektur, 3D Render, Renovasi & Konstruksi Fisik',
+                        'description' => 'Eksekusi perencanaan tata letak denah, pemodelan visual digital, pengerjaan konstruksi interior-eksterior, hingga paket All In One.',
+                        'items' => [
+                            'Lay Out Planning: Analisis teknis peletakan furnitur, arah sirkulasi gerak, dan zonasi fungsional dalam denah 2D berskala',
+                            'Desain 3D Render: Pemodelan visual digital beresolusi tinggi dengan simulasi pencahayaan, tekstur material, dan perpaduan warna nyata',
+                            'Pengerjaan Fisik Interior: Pembongkaran, finishing dinding & lantai, instalasi kelistrikan/sakelar/lighting, hingga perakitan furnitur',
+                            'Desain Fasad Bangunan: Elemen tampilan luar arsitektural yang mengatur pencahayaan alami, sirkulasi udara, dan efisiensi energi',
+                            'Paket All in One Arsitektur: Mulai dari konsep arsitektur, perhitungan struktur, perizinan (PBG/IMB), pengadaan material, hingga serah terima fisik bangunan',
+                        ],
+                        'sort_order' => 4,
                     ],
                 ],
             ],

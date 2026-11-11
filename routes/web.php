@@ -11,6 +11,7 @@ use App\Livewire\Pages\ProductDetailPage;
 use App\Models\Post;
 use App\Models\Product;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
 // Beranda & Profil Korporat
@@ -53,7 +54,7 @@ Route::get('/robots.txt', function () {
 // Dynamic XML Sitemap + Image Sitemap (Google Search Console Standard)
 Route::get('/sitemap.xml', function () {
     $sitemapVersion = (int) Cache::get('seo_sitemap_version', 1);
-    $cacheKey = 'seo_sitemap_xml_v' . $sitemapVersion . '_' . md5(request()->getSchemeAndHttpHost());
+    $cacheKey = 'seo_sitemap_xml_v'.$sitemapVersion.'_'.md5(request()->getSchemeAndHttpHost());
     $xml = Cache::remember($cacheKey, 3600, function (): string {
         $products = Product::where('is_active', true)->orderBy('sort_order')->get();
         $posts = Post::where('is_published', true)->orderByDesc('published_at')->get();
@@ -90,7 +91,7 @@ Route::get('/sitemap.xml', function () {
                 'changefreq' => 'weekly',
                 'lastmod' => $nowIso,
                 'image' => asset('images/projects/me-impeller-rotor-stainless.webp'),
-                'title' => 'Katalog Mechanical & Electrical (ME) Industri',
+                'title' => 'Katalog Mechanical & Electrical (Panel, PLC, Tangki, Interior & Exterior)',
             ],
             [
                 'loc' => route('gallery.index'),
@@ -126,8 +127,8 @@ Route::get('/sitemap.xml', function () {
             ],
         ];
 
-        $out = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
-        $out .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">' . "\n";
+        $out = '<?xml version="1.0" encoding="UTF-8"?>'."\n";
+        $out .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'."\n";
 
         foreach ($staticPages as $page) {
             $loc = htmlspecialchars($page['loc'], ENT_XML1);
@@ -199,7 +200,7 @@ Route::get('/sitemap.xml', function () {
 
 // Decoy / Honeypot: Blokir & catat percobaan akses ke jalur admin standar (/admin, /wp-admin, /login, dll.)
 Route::any('/{decoyPath}/{subpath?}', function () {
-    \Illuminate\Support\Facades\Log::warning('[SECURITY] Percobaan akses ke URL jebakan (Decoy Path) diblokir', [
+    Log::warning('[SECURITY] Percobaan akses ke URL jebakan (Decoy Path) diblokir', [
         'ip' => request()->ip(),
         'path' => request()->path(),
         'user_agent' => request()->userAgent(),
@@ -207,4 +208,4 @@ Route::any('/{decoyPath}/{subpath?}', function () {
 
     abort(404);
 })->where('decoyPath', 'admin|administrator|wp-admin|wp-login\.php|panel|cp|backend|login')
-  ->where('subpath', '.*');
+    ->where('subpath', '.*');

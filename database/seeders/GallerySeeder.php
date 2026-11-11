@@ -140,6 +140,32 @@ class GallerySeeder extends Seeder
                 'is_featured' => false,
                 'sort_order' => 11,
             ],
+
+            // ==========================================
+            // DIVISI 2 (LANJUTAN): INTERIOR & EXTERIOR (BAGIAN MECHANICAL & ELECTRICAL)
+            // ==========================================
+            [
+                'title' => 'Pengerjaan Fisik Interior Custom Kitchen Set & Built-In Furniture',
+                'slug' => 'pengerjaan-fisik-interior-custom-kitchen-set',
+                'category' => 'mechanical_electrical',
+                'location' => 'Surabaya & Sidoarjo, Jawa Timur',
+                'completion_date' => '2026-02-18',
+                'image_path' => 'images/projects/inout-pengerjaan-interior-kitchen.webp',
+                'description' => 'Fabrikasi dan instalasi custom built-in furniture kitchen set menggunakan plywood grade A dengan lapisan HPL anti-scratch, edged PVC rapi, serta fitting engsel soft-close.',
+                'is_featured' => true,
+                'sort_order' => 12,
+            ],
+            [
+                'title' => 'Konstruksi Fasad Arsitektur Modern Gable & Kanopi Weather Resistant',
+                'slug' => 'konstruksi-fasad-arsitektur-modern-kanopi',
+                'category' => 'mechanical_electrical',
+                'location' => 'Jawa Timur',
+                'completion_date' => '2026-02-22',
+                'image_path' => 'images/projects/inout-fasad-gable-minimalis.webp',
+                'description' => 'Aplikasi panel fasad eksterior tahan cuaca dipadukan dengan struktur kanopi carport baja hollow anti-karat berfinishing powder coating berkualitas tinggi.',
+                'is_featured' => true,
+                'sort_order' => 13,
+            ],
         ];
 
         foreach ($galleries as $item) {

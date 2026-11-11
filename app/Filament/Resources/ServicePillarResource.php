@@ -27,11 +27,17 @@ use Illuminate\Support\Str;
 class ServicePillarResource extends Resource
 {
     protected static ?string $model = ServicePillar::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-squares-2x2';
+
     protected static ?string $navigationGroup = 'Katalog & Divisi Bisnis';
+
     protected static ?string $navigationLabel = 'Divisi Bisnis Utama';
+
     protected static ?string $modelLabel = 'Divisi Bisnis';
+
     protected static ?string $pluralModelLabel = 'Divisi Bisnis Utama';
+
     protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
@@ -39,7 +45,7 @@ class ServicePillarResource extends Resource
         return $form
             ->schema([
                 Section::make('Identitas Divisi Bisnis')
-                    ->description('Pengaturan informasi utama untuk divisi Penerangan Jalan Umum maupun Mechanical & Electrical.')
+                    ->description('Pengaturan informasi utama untuk divisi Penerangan Jalan Umum maupun Mechanical & Electrical (termasuk Interior & Exterior).')
                     ->schema([
                         Grid::make(2)
                             ->schema([

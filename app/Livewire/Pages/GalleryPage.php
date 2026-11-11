@@ -32,7 +32,7 @@ class GalleryPage extends Component
         $galleries = $query->orderBy('sort_order')->orderByDesc('completion_date')->get();
 
         View::share([
-            'metaDescription' => 'Dokumentasi portofolio Projek On Duty PT. Multi Abadi Aksana: Pemasangan PJU Tenaga Surya & PLN, Erection Tiang dengan Mobil Crane, serta Fabrikasi Impeller & Perawatan Mekanikal-Elektrikal Pabrik berstandar K3.',
+            'metaDescription' => 'Dokumentasi portofolio Projek On Duty PT. Multi Abadi Aksana: Pemasangan PJU Tenaga Surya & PLN, Erection Tiang dengan Mobil Crane, Fabrikasi Impeller & Perawatan Mekanikal-Elektrikal Pabrik, serta pengerjaan Interior & Exterior berstandar K3.',
             'canonicalUrl' => route('gallery.index'),
             'ogImage' => '/images/projects/pju-crane-erection.webp',
         ]);
@@ -42,4 +42,3 @@ class GalleryPage extends Component
         ]);
     }
 }
-

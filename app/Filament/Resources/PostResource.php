@@ -31,11 +31,17 @@ use Illuminate\Support\Str;
 class PostResource extends Resource
 {
     protected static ?string $model = Post::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-newspaper';
+
     protected static ?string $navigationGroup = 'Portofolio & Publikasi';
+
     protected static ?string $navigationLabel = 'Artikel & Wawasan';
+
     protected static ?string $modelLabel = 'Artikel';
+
     protected static ?string $pluralModelLabel = 'Artikel & Wawasan Teknis';
+
     protected static ?int $navigationSort = 3;
 
     public static function getNavigationBadge(): ?string
@@ -48,7 +54,7 @@ class PostResource extends Resource
         return $form
             ->schema([
                 Section::make('Konten Utama Artikel')
-                    ->description('Publikasikan artikel edukasi teknis seputar Penerangan Jalan Umum dan Mechanical & Electrical.')
+                    ->description('Publikasikan artikel edukasi teknis seputar Penerangan Jalan Umum dan Mechanical & Electrical (termasuk Interior & Exterior).')
                     ->schema([
                         Grid::make(2)
                             ->schema([

@@ -4,6 +4,7 @@ namespace App\Livewire\Pages;
 
 use App\Models\Post;
 use App\Models\PostCategory;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\View;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
@@ -22,7 +23,7 @@ class BlogIndexPage extends Component
 
     public function render()
     {
-        $categories = \Illuminate\Support\Facades\Cache::remember(
+        $categories = Cache::remember(
             'post_categories_all',
             3600,
             fn () => PostCategory::orderBy('name')->get()
@@ -39,7 +40,7 @@ class BlogIndexPage extends Component
         $posts = $query->orderByDesc('published_at')->paginate(9);
 
         View::share([
-            'metaDescription' => 'Wawasan teknis dan panduan pengadaan Penerangan Jalan Umum (PJU All In One, Two In One, Konvensional, PLN), fabrikasi Impeller industri, pemeliharaan panel MDP/SDP, dan standar K3 oleh PT. Multi Abadi Aksana.',
+            'metaDescription' => 'Wawasan teknis dan panduan pengadaan Penerangan Jalan Umum (PJU All In One, Two In One, Konvensional, PLN), fabrikasi Impeller industri, pemeliharaan panel MDP/SDP, desain interior & fasad eksterior, dan standar K3 oleh PT. Multi Abadi Aksana.',
             'canonicalUrl' => route('blog.index'),
             'ogImage' => '/images/projects/pju-k3-gempol-sidoarjo.webp',
         ]);
@@ -50,4 +51,3 @@ class BlogIndexPage extends Component
         ]);
     }
 }
-

@@ -4,6 +4,7 @@ namespace App\Livewire\Pages;
 
 use App\Models\Product;
 use App\Models\ProductCategory;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\View;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
@@ -60,8 +61,8 @@ class ProductCatalogPage extends Component
         }
 
         // Kategori terfilter berdasarkan divisi aktif
-        $categories = \Illuminate\Support\Facades\Cache::remember(
-            'catalog_categories_' . $this->selectedDivision,
+        $categories = Cache::remember(
+            'catalog_categories_'.$this->selectedDivision,
             3600,
             fn () => ProductCategory::with('pillar')
                 ->where('is_active', true)
@@ -82,8 +83,8 @@ class ProductCatalogPage extends Component
         }
 
         // Pencarian kata kunci
-        if (!empty(trim($this->search))) {
-            $searchTerm = '%' . trim($this->search) . '%';
+        if (! empty(trim($this->search))) {
+            $searchTerm = '%'.trim($this->search).'%';
             $query->where(function ($q) use ($searchTerm) {
                 $q->where('name', 'like', $searchTerm)
                     ->orWhere('brand', 'like', $searchTerm)
@@ -100,11 +101,11 @@ class ProductCatalogPage extends Component
 
         $seoTitle = $this->selectedDivision === 'pju'
             ? 'Katalog Penerangan Jalan Umum (Solar Cell & PLN) | PT. Multi Abadi Aksana'
-            : 'Katalog Mechanical & Electrical (ME) Industri | PT. Multi Abadi Aksana';
+            : 'Katalog Mechanical & Electrical (Panel, PLC, Tangki, Interior & Exterior) | PT. Multi Abadi Aksana';
 
         $seoDesc = $this->selectedDivision === 'pju'
             ? 'Katalog spesifikasi pengadaan Penerangan Jalan Umum (PJU) Tenaga Surya All In One, Two In One, Konvensional, Lampu PJU PLN (COB, Osram, Philips, Estika) & Tiang Octagonal PT. Multi Abadi Aksana.'
-            : 'Katalog spesifikasi pengadaan Mechanical & Electrical: Fabrikasi Impeller Blower Stainless Steel, Panel Distribusi Listrik (MDP/SDP/ATS), Transformator, Genset & Sistem Kelistrikan Industri PT. Multi Abadi Aksana.';
+            : 'Katalog Mechanical & Electrical: Fabrikasi Box Panel, Wiring Panel (MDP/SDP/MCC), PLC, Tangki BBM, Ducting BJLS, Silo, Struktur Baja, Impeller, MEP, BAS, serta Desain Interior & Exterior (3D Render, Built-In Furniture, Fasad, Kanopi) PT. Multi Abadi Aksana.';
 
         View::share([
             'title' => $seoTitle,
@@ -112,7 +113,7 @@ class ProductCatalogPage extends Component
             'canonicalUrl' => route('products.index', ['divisi' => $this->selectedDivision]),
             'ogImage' => $this->selectedDivision === 'pju'
                 ? '/images/products/pju-all-in-one.webp'
-                : '/images/projects/me-impeller-rotor-stainless.webp',
+                : '/images/products/me-box-panel-outdoor.webp',
         ]);
 
         return view('livewire.pages.product-catalog-page', [

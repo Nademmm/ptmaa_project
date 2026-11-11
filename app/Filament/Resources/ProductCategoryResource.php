@@ -26,11 +26,17 @@ use Illuminate\Support\Str;
 class ProductCategoryResource extends Resource
 {
     protected static ?string $model = ProductCategory::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-tag';
+
     protected static ?string $navigationGroup = 'Katalog & Divisi Bisnis';
+
     protected static ?string $navigationLabel = 'Kategori Katalog Produk';
+
     protected static ?string $modelLabel = 'Kategori Produk';
+
     protected static ?string $pluralModelLabel = 'Kategori Katalog Produk';
+
     protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
@@ -38,7 +44,7 @@ class ProductCategoryResource extends Resource
         return $form
             ->schema([
                 Section::make('Detail Kategori Katalog Produk')
-                    ->description('Kategori produk yang tampil sebagai filter di bawah divisi Penerangan Jalan Umum maupun Mechanical & Electrical.')
+                    ->description('Kategori produk yang tampil sebagai filter di bawah divisi Penerangan Jalan Umum maupun Mechanical & Electrical (termasuk Interior & Exterior).')
                     ->schema([
                         Grid::make(2)
                             ->schema([

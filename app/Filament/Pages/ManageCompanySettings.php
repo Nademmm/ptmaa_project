@@ -14,10 +14,15 @@ use Filament\Pages\SettingsPage;
 class ManageCompanySettings extends SettingsPage
 {
     protected static ?string $navigationIcon = 'heroicon-o-building-office-2';
+
     protected static ?string $navigationGroup = 'Pengaturan & Administrasi';
+
     protected static ?string $navigationLabel = 'Profil & Kontak Perusahaan';
+
     protected static ?string $title = 'Pengaturan Profil & Kontak PT. Multi Abadi Aksana';
+
     protected static ?int $navigationSort = 1;
+
     protected static string $settings = CompanySettings::class;
 
     public function form(Form $form): Form
@@ -77,7 +82,7 @@ class ManageCompanySettings extends SettingsPage
                                     ->label('Telepon Kantor Resmi'),
                                 TextInput::make('whatsapp_main')
                                     ->required()
-                                    ->label('WhatsApp Resmi Utama (PJU & Mechanical Electrical)'),
+                                    ->label('WhatsApp Resmi Utama (Semua Divisi)'),
                                 TextInput::make('whatsapp_sparepart')
                                     ->required()
                                     ->label('WhatsApp Operasional Teknis & Workshop'),

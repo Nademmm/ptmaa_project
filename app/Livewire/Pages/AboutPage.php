@@ -3,6 +3,7 @@
 namespace App\Livewire\Pages;
 
 use App\Models\ServicePillar;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\View;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
@@ -14,10 +15,10 @@ class AboutPage extends Component
 {
     public function render()
     {
-        $pillars = \Illuminate\Support\Facades\Cache::remember('service_pillars_all', 3600, fn () => ServicePillar::with('scopes')->where('is_active', true)->orderBy('sort_order')->get());
+        $pillars = Cache::remember('service_pillars_all', 3600, fn () => ServicePillar::with('scopes')->where('is_active', true)->orderBy('sort_order')->get());
 
         View::share([
-            'metaDescription' => 'Profil resmi PT. Multi Abadi Aksana (General Trading, Supplier & Contractor di Sidoarjo). Visi, misi, komitmen K3, serta cakupan pengadaan barang dan jasa Penerangan Jalan Umum & Mechanical Electrical.',
+            'metaDescription' => 'Profil resmi PT. Multi Abadi Aksana (General Trading, Supplier & Contractor di Sidoarjo). Visi, misi, komitmen K3, serta cakupan pengadaan barang dan jasa Penerangan Jalan Umum dan Mechanical Electrical (termasuk Interior & Exterior).',
             'canonicalUrl' => route('about'),
             'ogImage' => '/images/banners/corporate-meeting.webp',
         ]);
@@ -27,4 +28,3 @@ class AboutPage extends Component
         ]);
     }
 }
-

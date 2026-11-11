@@ -7,7 +7,7 @@
                     Wawasan <span class="text-[#8DA2E0]">Teknik & Pengadaan.</span>
                 </h1>
                 <p class="text-xs sm:text-sm md:text-base text-blue-100/85 font-medium leading-relaxed">
-                    Artikel teknis seputar konfigurasi PJU Tenaga Surya & PJU PLN (COB, Osram, Philips, Estika), fabrikasi impeller & blower industri, hingga instalasi Mechanical & Electrical dan penerapan K3.
+                    Artikel teknis seputar konfigurasi PJU Tenaga Surya & PJU PLN (COB, Osram, Philips, Estika), fabrikasi impeller & blower industri, instalasi Mechanical & Electrical, desain Interior & Exterior, dan penerapan K3.
                 </p>
             </div>
 

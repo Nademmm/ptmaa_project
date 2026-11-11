@@ -29,16 +29,23 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 
 class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-cube';
+
     protected static ?string $navigationGroup = 'Katalog & Divisi Bisnis';
+
     protected static ?string $navigationLabel = 'Produk & Material';
+
     protected static ?string $modelLabel = 'Produk & Material';
+
     protected static ?string $pluralModelLabel = 'Produk & Material Pengadaan';
+
     protected static ?int $navigationSort = 3;
 
     public static function getNavigationBadge(): ?string
@@ -75,7 +82,7 @@ class ProductResource extends Resource
                                             ->unique(Product::class, 'slug', ignoreRecord: true)
                                             ->label('Slug URL'),
                                         TextInput::make('sub_badge')
-                                            ->placeholder('Contoh: PJU All In One, Impeller & Mekanikal, Electrical & Power')
+                                            ->placeholder('Contoh: PJU All In One, Panel & PLC, Interior Custom, Fasad & Eksterior')
                                             ->label('Label Badge Tipe'),
                                         TextInput::make('brand')
                                             ->placeholder('Contoh: PT. Multi Abadi Aksana / COB / OSRAM / PHILIPS')
@@ -138,12 +145,14 @@ class ProductResource extends Resource
                                     ->rows(3)
                                     ->required()
                                     ->label('Ringkasan Singkat (Tampil di Kartu Katalog)'),
-                                Textarea::make('description')
-                                    ->rows(5)
+                                RichEditor::make('description')
+                                    ->toolbarButtons(['bold', 'italic', 'h3', 'bulletList', 'orderedList', 'undo', 'redo'])
                                     ->required()
+                                    ->columnSpanFull()
                                     ->label('Deskripsi Teknis Lengkap'),
-                                Textarea::make('why_choose_text')
-                                    ->rows(4)
+                                RichEditor::make('why_choose_text')
+                                    ->toolbarButtons(['bold', 'italic', 'bulletList', 'orderedList', 'undo', 'redo'])
+                                    ->columnSpanFull()
                                     ->label('Uraian "Mengapa Memilih Produk Ini?"'),
                             ]),
 
@@ -167,7 +176,7 @@ class ProductResource extends Resource
                                             ->columns(2)
                                             ->collapsible()
                                             ->reorderable()
-                                            ->defaultItems(3)
+                                            ->defaultItems(0)
                                             ->addActionLabel('Tambah Baris Spesifikasi')
                                             ->label('Daftar Spesifikasi Teknis'),
                                     ]),
@@ -184,7 +193,7 @@ class ProductResource extends Resource
                                             ])
                                             ->collapsible()
                                             ->reorderable()
-                                            ->defaultItems(3)
+                                            ->defaultItems(0)
                                             ->addActionLabel('Tambah Poin Keunggulan')
                                             ->label('Daftar Keunggulan Utama'),
                                     ]),
@@ -196,7 +205,7 @@ class ProductResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->modifyQueryUsing(fn ($query) => $query->with('category'))
+            ->modifyQueryUsing(fn ($query) => $query->with('category.pillar'))
             ->defaultSort('sort_order')
             ->columns([
                 TextColumn::make('sort_order')
@@ -218,6 +227,10 @@ class ProductResource extends Resource
                     ->badge()
                     ->color('primary')
                     ->sortable(),
+                TextColumn::make('division_name')
+                    ->label('Divisi')
+                    ->badge()
+                    ->color(fn (Product $record): string => $record->division === 'pju' ? 'warning' : 'info'),
                 TextColumn::make('sub_badge')
                     ->badge()
                     ->color('gray')
@@ -236,6 +249,15 @@ class ProductResource extends Resource
                 SelectFilter::make('product_category_id')
                     ->relationship('category', 'name')
                     ->label('Filter Kategori'),
+                SelectFilter::make('division')
+                    ->label('Filter Divisi')
+                    ->options([
+                        'pju' => 'Penerangan Jalan Umum',
+                        'me' => 'Mechanical & Electrical (termasuk Interior & Exterior)',
+                    ])
+                    ->query(fn (Builder $query, array $data) => filled($data['value'] ?? null)
+                        ? $query->whereHas('category', fn (Builder $c) => $c->forDivision($data['value']))
+                        : $query),
                 SelectFilter::make('availability_status')
                     ->options(ProductAvailability::class)
                     ->label('Status Ketersediaan'),

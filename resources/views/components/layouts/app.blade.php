@@ -6,8 +6,8 @@
     <meta name="theme-color" content="#1B1B6C">
     @php
         $seoTitle = $title ?? 'PT. Multi Abadi Aksana | Spesialis PJU Tenaga Surya, PJU PLN & Mechanical Electrical Sidoarjo';
-        $seoDescription = $metaDescription ?? 'PT. Multi Abadi Aksana: Perusahaan General Trading, Supplier & Kontraktor di Sidoarjo, Jawa Timur. Spesialis Pengadaan dan Konstruksi Penerangan Jalan Umum (Solar Cell & PLN), Fabrikasi Impeller, serta Panel Distribusi Listrik Mechanical & Electrical berstandar K3.';
-        $seoKeywords = $metaKeywords ?? 'PT Multi Abadi Aksana, Penerangan Jalan Umum, PJU Tenaga Surya, PJU All In One, PJU Two In One, PJU PLN, Tiang PJU Octagonal, Kontraktor PJU Sidoarjo, Mechanical Electrical Jawa Timur, Fabrikasi Impeller Blower, Panel MDP SDP ATS, Rekayasa Elektrikal Industri';
+        $seoDescription = $metaDescription ?? 'PT. Multi Abadi Aksana: Perusahaan General Trading, Supplier & Kontraktor di Sidoarjo, Jawa Timur. Pengadaan dan Konstruksi Penerangan Jalan Umum (Solar Cell & PLN), Mechanical & Electrical (Panel, PLC, Tangki, Ducting, BAS, termasuk Desain Interior & Exterior) berstandar K3.';
+        $seoKeywords = $metaKeywords ?? 'PT Multi Abadi Aksana, Penerangan Jalan Umum, PJU Tenaga Surya, PJU All In One, PJU Two In One, PJU PLN, Tiang PJU Octagonal, Kontraktor PJU Sidoarjo, Mechanical Electrical Jawa Timur, Fabrikasi Impeller Blower, Panel MDP SDP ATS, Rekayasa Elektrikal Industri, Desain Interior Sidoarjo, Built-In Furniture, Fasad Arsitektur, Kanopi Carport';
         $seoCanonical = $canonicalUrl ?? url()->current();
         $seoOgType = $ogType ?? 'website';
         $seoOgImage = isset($ogImage) && !empty($ogImage)
@@ -87,10 +87,9 @@
                     "height": 64
                 },
                 "image": "{{ asset('images/projects/pju-k3-gempol-sidoarjo.webp') }}",
-                "description": "Perusahaan General Trading, Supplier, dan Kontraktor terintegrasi di Sidoarjo, Jawa Timur untuk pengadaan dan konstruksi Penerangan Jalan Umum (Solar Cell & PLN) serta sistem Mechanical & Electrical industri.",
+                "description": "Perusahaan General Trading, Supplier, dan Kontraktor terintegrasi di Sidoarjo, Jawa Timur untuk pengadaan dan konstruksi Penerangan Jalan Umum (Solar Cell & PLN) sistem Mechanical & Electrical industri (termasuk Desain Interior & Exterior).",
                 "email": "ptmultiabadiaksana15@gmail.com",
                 "telephone": "+62-823-4297-9898",
-                "priceRange": "$$$",
                 "address": [
                     {
                         "@@type": "PostalAddress",
@@ -129,6 +128,8 @@
                 },
                 "sameAs": [
                     "https://www.instagram.com/pt.multiabadiaksana",
+                    "https://www.instagram.com/maa.mechanicalelektrical",
+                    "https://www.instagram.com/maa.in.outspace",
                     "https://wa.me/6282342979898"
                 ]
             },

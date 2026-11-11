@@ -5,6 +5,7 @@ namespace App\Livewire\Pages;
 use App\Enums\InquiryPipelineStatus;
 use App\Models\ContactInquiry;
 use App\Models\ServicePillar;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\View;
 use Illuminate\Validation\ValidationException;
@@ -46,10 +47,11 @@ class ContactPage extends Component
     {
         if (! empty($this->website_url_trap)) {
             $this->isSubmitted = true;
+
             return;
         }
 
-        $rateKey = 'contact-inquiry:' . request()->ip();
+        $rateKey = 'contact-inquiry:'.request()->ip();
         if (RateLimiter::tooManyAttempts($rateKey, 5)) {
             $seconds = RateLimiter::availableIn($rateKey);
             throw ValidationException::withMessages([
@@ -88,10 +90,10 @@ class ContactPage extends Component
 
     public function render()
     {
-        $pillars = \Illuminate\Support\Facades\Cache::remember('service_pillars_all', 3600, fn () => ServicePillar::with('scopes')->where('is_active', true)->orderBy('sort_order')->get());
+        $pillars = Cache::remember('service_pillars_all', 3600, fn () => ServicePillar::with('scopes')->where('is_active', true)->orderBy('sort_order')->get());
 
         View::share([
-            'metaDescription' => 'Hubungi kantor pusat (Kec. Taman, Sidoarjo) dan workshop teknis (Sukodono, Sidoarjo) PT. Multi Abadi Aksana via WhatsApp resmi +62 823-4297-9898 atau formulir permintaan penawaran proyek PJU & Mechanical Electrical.',
+            'metaDescription' => 'Hubungi kantor pusat (Kec. Taman, Sidoarjo) dan workshop teknis (Sukodono, Sidoarjo) PT. Multi Abadi Aksana via WhatsApp resmi +62 823-4297-9898 atau formulir permintaan penawaran proyek PJU dan Mechanical Electrical (termasuk Interior & Exterior).',
             'canonicalUrl' => route('contact'),
             'ogImage' => '/assets/logo.webp',
         ]);
@@ -101,4 +103,3 @@ class ContactPage extends Component
         ]);
     }
 }
-
