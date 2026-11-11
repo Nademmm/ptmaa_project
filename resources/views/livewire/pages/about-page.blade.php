@@ -122,11 +122,11 @@
 
     <!-- Why You Should Choose Us -->
     <section class="space-y-6 md:space-y-8">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div class="space-y-2 max-w-2xl">
             <h2 class="text-2xl sm:text-4xl font-black uppercase tracking-tight text-primary">
                 Nilai Keunggulan PT. Multi Abadi Aksana
             </h2>
-            <p class="text-xs md:text-sm text-text-secondary font-medium max-w-md">
+            <p class="text-xs md:text-sm text-text-secondary font-medium leading-relaxed">
                 Tiga fondasi layanan utama kami dalam setiap proyek pengadaan barang dan jasa konstruksi.
             </p>
         </div>
@@ -166,11 +166,11 @@
 
     <!-- 2 Divisi Bisnis Utama -->
     <section class="space-y-8">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div class="space-y-2 max-w-2xl">
             <h2 class="text-2xl sm:text-4xl font-black uppercase tracking-tight text-primary">
                 2 Divisi Layanan Utama
             </h2>
-            <p class="text-xs md:text-sm text-text-secondary font-medium max-w-md">
+            <p class="text-xs md:text-sm text-text-secondary font-medium leading-relaxed">
                 Fokus kompetensi PT. Multi Abadi Aksana dalam pengadaan barang dan jasa untuk sektor infrastruktur jalan dan fasilitas industri.
             </p>
         </div>
@@ -279,11 +279,11 @@
 
     <!-- The Process (4-Step Workflow) -->
     <section class="bg-[#0F1048] p-7 sm:p-10 md:p-12 rounded-3xl md:rounded-[44px] text-white shadow-2xl space-y-8">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div class="space-y-2 max-w-2xl">
             <h2 class="text-2xl sm:text-4xl font-black uppercase tracking-tight">
                 Alur Kemitraan & Pengadaan
             </h2>
-            <p class="text-xs md:text-sm text-blue-100/80 max-w-md font-medium">
+            <p class="text-xs md:text-sm text-blue-100/80 font-medium leading-relaxed">
                 Empat tahapan kerja sistematis PT. Multi Abadi Aksana dari diskusi awal hingga kesepakatan dan pengiriman/instalasi.
             </p>
         </div>

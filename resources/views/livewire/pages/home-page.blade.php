@@ -132,11 +132,11 @@
         x-data="{ activePillar: 0 }"
         class="space-y-8 md:space-y-10"
     >
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+        <div class="space-y-2.5 max-w-3xl">
             <h2 class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase leading-none text-text-main">
                 2 Fokus Bisnis <span class="text-gradient">Barang & Jasa.</span>
             </h2>
-            <p class="text-xs md:text-sm text-text-secondary font-medium max-w-md">
+            <p class="text-xs md:text-sm text-text-secondary font-medium leading-relaxed">
                 Pilih divisi utama di bawah ini untuk melihat rincian cakupan <strong>Pengadaan Barang</strong> dan <strong>Pengadaan Jasa</strong> PT. Multi Abadi Aksana.
             </p>
         </div>

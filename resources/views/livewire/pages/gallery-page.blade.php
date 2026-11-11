@@ -164,7 +164,7 @@
                         class="w-full h-12 bg-primary text-white text-center rounded-xl text-xs font-black uppercase tracking-wider hover:bg-primary-dark transition-all flex items-center justify-center gap-2 leading-none"
                     >
                         <i class="bx bxl-whatsapp text-lg leading-none"></i>
-                        <span>Konsultasikan Proyek Serupa</span>
+                        <span>Diskusi Lebih Lanjut</span>
                     </a>
                 </div>
             </div>
