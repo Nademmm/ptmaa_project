@@ -1,0 +1,118 @@
+name: CI/CD Test & Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
+jobs:
+  test-and-build:
+    name: Test & Build Assets
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup PHP 8.3
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: sqlite3, pdo_sqlite, gd, intl, mbstring, xml, zip, curl, bcmath
+          tools: composer:v2
+          coverage: none
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Get Composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> "$GITHUB_OUTPUT"
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Install PHP dependencies
+        run: composer install --prefer-dist --no-interaction --no-progress
+
+      - name: Install Node dependencies & build Vite assets
+        run: |
+          npm ci
+          npm run build
+
+      - name: Prepare Laravel testing environment
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+          php artisan filament:assets
+
+      - name: Run automated PHPUnit tests
+        run: php artisan test
+
+      - name: Package production Vite build
+        run: tar -czf ptmaa_build.tar.gz -C public build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ptmaa-build
+          path: ptmaa_build.tar.gz
+          retention-days: 1
+
+  deploy:
+    name: Deploy to Production VPS
+    needs: test-and-build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download built Vite assets
+        uses: actions/download-artifact@v4
+        with:
+          name: ptmaa-build
+
+      - name: Verify required GitHub Secrets
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+        run: |
+          if [ -z "$VPS_HOST" ] || [ -z "$VPS_USER" ] || [ -z "$VPS_SSH_KEY" ]; then
+            echo "ERROR: GitHub Secrets (VPS_HOST, VPS_USER, VPS_SSH_KEY) belum diatur di Repository Settings -> Secrets and variables -> Actions."
+            exit 1
+          fi
+
+      - name: Setup SSH configuration
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "$VPS_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
+      - name: Upload built Vite bundle & run remote deploy
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+        run: |
+          scp -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes ptmaa_build.tar.gz "${VPS_USER}@${VPS_HOST}:/tmp/ptmaa_build.tar.gz"
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes "${VPS_USER}@${VPS_HOST}" "sudo /usr/local/bin/ptmaa-deploy"
+
+      - name: Clean up SSH key
+        if: always()
+        run: rm -f ~/.ssh/deploy_key
