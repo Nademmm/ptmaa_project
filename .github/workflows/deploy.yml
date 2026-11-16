@@ -88,8 +88,11 @@ jobs:
           VPS_USER: ${{ secrets.VPS_USER }}
           VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
         run: |
+          echo "VPS_HOST    : $([ -n "$VPS_HOST" ] && echo OK || echo KOSONG)"
+          echo "VPS_USER    : $([ -n "$VPS_USER" ] && echo OK || echo KOSONG)"
+          echo "VPS_SSH_KEY : $([ -n "$VPS_SSH_KEY" ] && echo OK || echo KOSONG)"
           if [ -z "$VPS_HOST" ] || [ -z "$VPS_USER" ] || [ -z "$VPS_SSH_KEY" ]; then
-            echo "ERROR: GitHub Secrets (VPS_HOST, VPS_USER, VPS_SSH_KEY) belum diatur di Repository Settings -> Secrets and variables -> Actions."
+            echo "ERROR: Semua 3 Repository Secrets (VPS_HOST, VPS_USER, VPS_SSH_KEY) wajib diisi di tab Secrets -> Repository secrets."
             exit 1
           fi
 
