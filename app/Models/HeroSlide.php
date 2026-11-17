@@ -43,7 +43,7 @@ class HeroSlide extends Model
 
         if (file_exists(public_path('storage/' . $cleanPath))) {
             $ver = @filemtime(public_path('storage/' . $cleanPath)) ?: 'k3';
-            return asset('storage/' . $cleanPath) . '?v=' . $ver;
+            return '/storage/' . $cleanPath . '?v=' . $ver;
         }
 
         if (file_exists(public_path($cleanPath))) {
@@ -51,7 +51,7 @@ class HeroSlide extends Model
             return '/' . $cleanPath . '?v=' . $ver;
         }
 
-        return asset('storage/' . $cleanPath) . '?v=k3';
+        return '/storage/' . $cleanPath . '?v=k3';
     }
 
     public function getObjectPositionStyleAttribute(): string

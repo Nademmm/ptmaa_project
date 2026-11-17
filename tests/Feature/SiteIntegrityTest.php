@@ -121,6 +121,15 @@ class SiteIntegrityTest extends TestCase
         $this->assertSame(1, substr_count($response->getContent(), 'Kembali ke Beranda'));
     }
 
+    public function test_resolved_storage_urls_are_root_relative_and_not_host_locked(): void
+    {
+        $heroUrl = (new \App\Models\HeroSlide(['image_path' => 'hero-slides/contoh.webp']))->image_url;
+        $storageUrl = Product::resolvePublicImageUrl('products/custom.webp');
+
+        $this->assertStringStartsWith('/storage/', $heroUrl);
+        $this->assertStringStartsWith('/storage/', $storageUrl);
+    }
+
     public function test_pages_do_not_contain_em_dash(): void
     {
         foreach (['/', '/about', '/products?divisi=me', '/gallery', '/blog', '/contact'] as $uri) {
