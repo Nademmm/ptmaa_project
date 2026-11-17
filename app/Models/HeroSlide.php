@@ -31,27 +31,11 @@ class HeroSlide extends Model
 
     public function getImageUrlAttribute(): string
     {
-        if (empty($this->image_path)) {
-            return '/images/projects/pju-k3-gempol-sidoarjo.webp';
-        }
-
-        if (str_starts_with($this->image_path, 'http://') || str_starts_with($this->image_path, 'https://')) {
-            return $this->image_path;
-        }
-
-        $cleanPath = ltrim($this->image_path, '/');
-
-        if (file_exists(public_path('storage/' . $cleanPath))) {
-            $ver = @filemtime(public_path('storage/' . $cleanPath)) ?: 'k3';
-            return '/storage/' . $cleanPath . '?v=' . $ver;
-        }
-
-        if (file_exists(public_path($cleanPath))) {
-            $ver = @filemtime(public_path($cleanPath)) ?: 'k3';
-            return '/' . $cleanPath . '?v=' . $ver;
-        }
-
-        return '/storage/' . $cleanPath . '?v=k3';
+        return Product::resolvePublicImageUrl(
+            $this->image_path,
+            '/images/projects/pju-k3-gempol-sidoarjo.webp',
+            true
+        );
     }
 
     public function getObjectPositionStyleAttribute(): string

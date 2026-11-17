@@ -59,7 +59,7 @@ class Product extends Model
         return $this->division === 'pju' ? 'Penerangan Jalan Umum' : 'Mechanical & Electrical';
     }
 
-    public static function resolvePublicImageUrl(?string $path, string $fallback = '/images/products/pju-all-in-one.webp'): string
+    public static function resolvePublicImageUrl(?string $path, string $fallback = '/images/products/pju-all-in-one.webp', bool $preferStorageFirst = false): string
     {
         if (empty($path)) {
             return $fallback;
@@ -70,15 +70,16 @@ class Product extends Model
         }
 
         $cleanPath = ltrim($path, '/');
+        $candidates = $preferStorageFirst
+            ? ['storage/' . $cleanPath, $cleanPath]
+            : [$cleanPath, 'storage/' . $cleanPath];
 
-        if (file_exists(public_path($cleanPath))) {
-            $ver = @filemtime(public_path($cleanPath)) ?: 'k3';
-            return '/' . $cleanPath . '?v=' . $ver;
-        }
+        foreach ($candidates as $candidate) {
+            if (file_exists(public_path($candidate))) {
+                $ver = @filemtime(public_path($candidate)) ?: 'k3';
 
-        if (file_exists(public_path('storage/' . $cleanPath))) {
-            $ver = @filemtime(public_path('storage/' . $cleanPath)) ?: 'k3';
-            return '/storage/' . $cleanPath . '?v=' . $ver;
+                return '/' . $candidate . '?v=' . $ver;
+            }
         }
 
         return '/storage/' . $cleanPath . '?v=k3';

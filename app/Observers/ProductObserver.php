@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 
@@ -24,21 +25,24 @@ class ProductObserver
 
     public function saved(Product $product): void
     {
-        Cache::forget('catalog_categories');
-        Cache::forget('catalog_categories_pju');
-        Cache::forget('catalog_categories_me');
-        Cache::forget('featured_products');
-        Cache::forget("product_{$product->slug}");
-        Cache::increment('seo_sitemap_version');
+        $this->clearCatalogCache($product);
     }
 
     public function deleted(Product $product): void
     {
-        Cache::forget('catalog_categories');
-        Cache::forget('catalog_categories_pju');
-        Cache::forget('catalog_categories_me');
-        Cache::forget('featured_products');
+        $this->clearCatalogCache($product);
+    }
+
+    private function clearCatalogCache(Product $product): void
+    {
+        ProductCategory::clearCatalogCache();
         Cache::forget("product_{$product->slug}");
+
+        $originalSlug = $product->getOriginal('slug');
+        if ($originalSlug && $originalSlug !== $product->slug) {
+            Cache::forget("product_{$originalSlug}");
+        }
+
         Cache::increment('seo_sitemap_version');
     }
 }

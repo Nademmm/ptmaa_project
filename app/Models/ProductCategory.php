@@ -33,20 +33,17 @@ class ProductCategory extends Model
 
     protected static function booted(): void
     {
-        static::saved(function (): void {
-            Cache::forget('footer_categories');
-            Cache::forget('catalog_categories');
-            Cache::forget('catalog_categories_pju');
-            Cache::forget('catalog_categories_me');
-            Cache::forget('featured_products');
-        });
-        static::deleted(function (): void {
-            Cache::forget('footer_categories');
-            Cache::forget('catalog_categories');
-            Cache::forget('catalog_categories_pju');
-            Cache::forget('catalog_categories_me');
-            Cache::forget('featured_products');
-        });
+        static::saved(fn () => self::clearCatalogCache());
+        static::deleted(fn () => self::clearCatalogCache());
+    }
+
+    public static function clearCatalogCache(): void
+    {
+        Cache::forget('footer_categories');
+        Cache::forget('catalog_categories');
+        Cache::forget('catalog_categories_pju');
+        Cache::forget('catalog_categories_me');
+        Cache::forget('featured_products');
     }
 
     public function scopeForDivision(Builder $query, string $division): Builder

@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Enums\InquiryPipelineStatus;
 use App\Filament\Resources\ContactInquiryResource\Pages;
 use App\Models\ContactInquiry;
+use App\Services\WhatsAppGeneratorService;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -165,10 +166,7 @@ class ContactInquiryResource extends Resource
                     ->icon('heroicon-o-chat-bubble-oval-left-ellipsis')
                     ->color('success')
                     ->url(function (ContactInquiry $record): string {
-                        $phone = preg_replace('/[^0-9]/', '', $record->whatsapp_number);
-                        if (str_starts_with($phone, '0')) {
-                            $phone = '62' . substr($phone, 1);
-                        }
+                        $phone = WhatsAppGeneratorService::formatPhoneNumber($record->whatsapp_number);
                         $text = urlencode("Halo Bapak/Ibu {$record->full_name}, kami dari Tim Engineering PT. Multi Abadi Aksana menindaklanjuti konsultasi Anda terkait: \"{$record->subject}\".");
                         return "https://wa.me/{$phone}?text={$text}";
                     })

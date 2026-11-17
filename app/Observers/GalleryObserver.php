@@ -9,11 +9,15 @@ class GalleryObserver
 {
     public function saved(Gallery $gallery): void
     {
-        Cache::forget('gallery_projects_all');
-        Cache::forget('gallery_projects_featured');
+        $this->clearCache();
     }
 
     public function deleted(Gallery $gallery): void
+    {
+        $this->clearCache();
+    }
+
+    private function clearCache(): void
     {
         Cache::forget('gallery_projects_all');
         Cache::forget('gallery_projects_featured');

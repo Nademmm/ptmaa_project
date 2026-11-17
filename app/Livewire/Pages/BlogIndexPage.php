@@ -21,6 +21,11 @@ class BlogIndexPage extends Component
     #[Url(as: 'kategori', except: 'semua')]
     public string $selectedCategory = 'semua';
 
+    public function updatedSelectedCategory(): void
+    {
+        $this->resetPage();
+    }
+
     public function render()
     {
         $categories = Cache::remember(

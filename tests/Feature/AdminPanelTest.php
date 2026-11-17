@@ -203,6 +203,8 @@ class AdminPanelTest extends TestCase
 
     public function test_gallery_admin_uses_the_two_division_categories_only(): void
     {
+        \Illuminate\Support\Facades\Storage::fake('public');
+
         Livewire::test(CreateGallery::class)
             ->fillForm([
                 'title' => 'Dokumentasi Interior Uji Admin',
