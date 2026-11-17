@@ -14,12 +14,7 @@
     <!-- Direct Contact Cards (WhatsApp Resmi, Email Resmi, Kantor & Workshop Sidoarjo) -->
     <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <!-- Official WhatsApp -->
-        <a
-            href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai pengadaan barang & jasa.') }}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="bg-white p-6 sm:p-7 rounded-3xl border border-primary/10 shadow-lg shadow-primary/5 flex flex-col justify-between group hover:border-primary/35 transition-all space-y-5"
-        >
+        <div class="bg-white p-6 sm:p-7 rounded-3xl border border-primary/10 shadow-lg shadow-primary/5 flex flex-col justify-between hover:border-primary/35 transition-all space-y-5">
             <div class="space-y-3">
                 <div class="w-11 h-11 bg-primary text-white rounded-xl flex items-center justify-center text-2xl">
                     <i class="bx bxl-whatsapp"></i>
@@ -29,16 +24,33 @@
                     Konsultasi teknis dan pengadaan divisi Penerangan Jalan Umum (Solar Cell & PLN), Mechanical & Electrical industri (termasuk Interior & Exterior).
                 </p>
             </div>
-            <div class="space-y-3 pt-3 border-t border-primary/10">
-                <p class="text-sm md:text-base font-black text-text-main">
-                    +62 823-4297-9898
-                </p>
-                <div class="w-full h-11 bg-primary text-white text-[11px] font-black uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 group-hover:bg-primary-dark transition-colors leading-none">
-                    <i class="bx bxl-whatsapp text-base leading-none"></i>
-                    <span>Hubungi Kami</span>
-                </div>
+            <div class="space-y-2.5 pt-3 border-t border-primary/10">
+                <a
+                    href="https://wa.me/6282342979898?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai pengadaan barang & jasa.') }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-full h-11 px-4 bg-primary text-white text-xs font-black rounded-xl flex items-center justify-between gap-2 hover:bg-primary-dark transition-colors leading-none"
+                >
+                    <span class="flex items-center gap-2">
+                        <i class="bx bxl-whatsapp text-base leading-none"></i>
+                        <span>+62 823-4297-9898</span>
+                    </span>
+                    <span class="text-[10px] uppercase tracking-wider opacity-85">Chat WA</span>
+                </a>
+                <a
+                    href="https://wa.me/6282234574467?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai pengadaan barang & jasa.') }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-full h-11 px-4 bg-primary/10 text-primary text-xs font-black rounded-xl flex items-center justify-between gap-2 hover:bg-primary hover:text-white transition-colors leading-none"
+                >
+                    <span class="flex items-center gap-2">
+                        <i class="bx bxl-whatsapp text-base leading-none"></i>
+                        <span>+62 822-3457-4467</span>
+                    </span>
+                    <span class="text-[10px] uppercase tracking-wider opacity-85">Chat WA</span>
+                </a>
             </div>
-        </a>
+        </div>
 
         <!-- Official Email -->
         <a

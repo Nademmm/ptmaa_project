@@ -113,13 +113,14 @@
                             Safira Stone Resort A2-01, Masangan Wetan, Sukodono, Sidoarjo
                         </span>
                     </p>
-                    <p class="flex items-start gap-3">
+                    <div class="flex items-start gap-3">
                         <i class="bx bxl-whatsapp text-primary text-lg shrink-0 mt-0.5"></i>
-                        <span>
+                        <div class="flex flex-col gap-1">
                             <strong class="block text-text-main text-[11px] uppercase tracking-wider">Kontak Resmi:</strong>
                             <a href="https://wa.me/6282342979898" target="_blank" rel="noopener noreferrer" class="hover:text-primary font-bold">+62 823-4297-9898</a>
-                        </span>
-                    </p>
+                            <a href="https://wa.me/6282234574467" target="_blank" rel="noopener noreferrer" class="hover:text-primary font-bold">+62 822-3457-4467</a>
+                        </div>
+                    </div>
                     <p class="flex items-center gap-3">
                         <i class="bx bx-envelope text-primary text-lg shrink-0"></i>
                         <a href="mailto:ptmultiabadiaksana15@gmail.com" class="hover:text-primary font-bold break-all">ptmultiabadiaksana15@gmail.com</a>
