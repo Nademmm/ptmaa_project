@@ -35,7 +35,6 @@
                         <i class="bx bxl-whatsapp text-base leading-none"></i>
                         <span>+62 823-4297-9898</span>
                     </span>
-                    <span class="text-[10px] uppercase tracking-wider opacity-85">Chat WA</span>
                 </a>
                 <a
                     href="https://wa.me/6282234574467?text={{ urlencode('Halo Tim PT. Multi Abadi Aksana, saya ingin berkonsultasi mengenai pengadaan barang & jasa.') }}"
@@ -47,7 +46,6 @@
                         <i class="bx bxl-whatsapp text-base leading-none"></i>
                         <span>+62 822-3457-4467</span>
                     </span>
-                    <span class="text-[10px] uppercase tracking-wider opacity-85">Chat WA</span>
                 </a>
             </div>
         </div>
