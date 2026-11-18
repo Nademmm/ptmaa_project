@@ -251,4 +251,15 @@ class AdminPanelTest extends TestCase
     {
         Livewire::test(CreateServicePillar::class)->assertSuccessful();
     }
+
+    public function test_admin_panel_renders_mobile_sidebar_close_button_and_scroll_containment(): void
+    {
+        $html = $this->get(Filament::getPanel('admin')->getUrl())->assertOk()->getContent();
+
+        $this->assertStringContainsString('.fi-mobile-sidebar-close', $html);
+        $this->assertStringContainsString('.fi-sidebar-close-overlay', $html);
+        $this->assertStringContainsString('overscroll-behavior: contain;', $html);
+        $this->assertStringContainsString('Tutup menu navigasi', $html);
+        $this->assertStringContainsString('__ptmaaAdminMobileSidebarReady', $html);
+    }
 }

@@ -116,8 +116,68 @@ class AdminPanelProvider extends PanelProvider
                             border: 1px solid rgba(27, 27, 108, 0.1) !important;
                             box-shadow: 0 20px 40px -15px rgba(27, 27, 108, 0.08) !important;
                         }
+                        .fi-mobile-sidebar-close {
+                            display: none;
+                        }
+                        @media (max-width: 1023.98px) {
+                            .fi-sidebar {
+                                height: 100vh;
+                                height: 100dvh !important;
+                                max-height: 100dvh !important;
+                                overscroll-behavior: contain;
+                            }
+                            .fi-sidebar-header {
+                                gap: 0.5rem;
+                                padding-inline: 1rem 0.75rem !important;
+                            }
+                            .fi-sidebar-header > div:first-child {
+                                min-width: 0;
+                                flex: 1 1 auto;
+                            }
+                            .fi-sidebar-nav {
+                                min-height: 0;
+                                overscroll-behavior: contain;
+                                -webkit-overflow-scrolling: touch;
+                                touch-action: pan-y;
+                            }
+                            .fi-sidebar-close-overlay {
+                                overflow: hidden;
+                                overscroll-behavior: contain;
+                                touch-action: none;
+                            }
+                            .fi-sidebar.fi-sidebar-open .fi-mobile-sidebar-close {
+                                display: inline-flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin-inline-start: auto;
+                                flex-shrink: 0;
+                                width: 44px;
+                                height: 44px;
+                                min-width: 44px;
+                                min-height: 44px;
+                                border-radius: 0.75rem;
+                                color: #334155;
+                                background-color: transparent;
+                                border: 1px solid rgba(27, 27, 108, 0.12);
+                                cursor: pointer;
+                                transition: background-color 150ms ease, color 150ms ease;
+                            }
+                            .fi-sidebar.fi-sidebar-open .fi-mobile-sidebar-close:hover,
+                            .fi-sidebar.fi-sidebar-open .fi-mobile-sidebar-close:active {
+                                background-color: #F1F5F9;
+                                color: #1B1B6C;
+                            }
+                            .fi-sidebar.fi-sidebar-open .fi-mobile-sidebar-close:focus-visible {
+                                outline: 2px solid #1B1B6C;
+                                outline-offset: 2px;
+                            }
+                        }
                     </style>
                 ')
+            )
+            ->renderHook(
+                PanelsRenderHook::BODY_END,
+                fn (): HtmlString => new HtmlString(view('filament.partials.mobile-sidebar-script')->render())
             )
             ->navigationGroups([
                 NavigationGroup::make()
