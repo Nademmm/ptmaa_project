@@ -163,3 +163,30 @@
         width: calc(100% - 3.5rem) !important;
     }
 }
+
+dialog.project-detail-dialog {
+    margin: auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    width: 100%;
+    max-width: min(56rem, calc(100vw - 2rem));
+    max-height: calc(100dvh - 2rem);
+    overflow: visible;
+}
+
+dialog.project-detail-dialog:not([open]) {
+    display: none;
+}
+
+dialog.project-detail-dialog:modal {
+    overscroll-behavior: contain;
+}
+
+dialog.project-detail-dialog::backdrop {
+    background-color: rgba(15, 16, 72, 0.65);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    overflow: hidden;
+    overscroll-behavior: contain;
+}

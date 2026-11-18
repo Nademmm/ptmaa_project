@@ -69,6 +69,11 @@ class SiteIntegrityTest extends TestCase
 
     public function test_gallery_filters_cover_all_divisions(): void
     {
+        $html = $this->get(route('gallery.index'))->assertOk()->getContent();
+        $this->assertStringContainsString('project-detail-dialog', $html);
+        $this->assertStringContainsString('closedby="any"', $html);
+        $this->assertStringNotContainsString('Detail Dokumentasi', $html);
+
         foreach (['semua', 'pju', 'mechanical_electrical'] as $category) {
             $this->get(route('gallery.index', ['kategori' => $category]))->assertOk();
         }
