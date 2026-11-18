@@ -21,6 +21,7 @@ class GalleryObserver
     {
         Cache::forget('gallery_projects_all');
         Cache::forget('gallery_projects_featured');
+        Cache::increment('seo_sitemap_version');
     }
 }
 

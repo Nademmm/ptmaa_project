@@ -130,6 +130,33 @@ class SiteIntegrityTest extends TestCase
         $this->assertStringStartsWith('/storage/', $storageUrl);
     }
 
+    public function test_google_search_console_seo_requirements(): void
+    {
+        $pjuHtml = $this->get('/products?divisi=pju')->assertOk()->getContent();
+        $meHtml = $this->get('/products?divisi=me')->assertOk()->getContent();
+
+        $this->assertStringContainsString('<title>Katalog Penerangan Jalan Umum', $pjuHtml);
+        $this->assertStringContainsString('<title>Katalog Mechanical &amp; Electrical', $meHtml);
+
+        $searchHtml = $this->get('/products?divisi=pju&cari=solar')->assertOk()->getContent();
+        $this->assertStringContainsString('<meta name="robots" content="noindex, follow">', $searchHtml);
+
+        $product = Product::where('is_active', true)->firstOrFail();
+        $productHtml = $this->get(route('products.show', $product->slug))->assertOk()->getContent();
+        $this->assertStringContainsString('"@type":"Service"', $productHtml);
+        $this->assertStringNotContainsString('"@type":"Offer"', $productHtml);
+
+        $robots = $this->get('/robots.txt')->assertOk()->getContent();
+        $this->assertStringContainsString('Allow: /livewire/livewire.min.js', $robots);
+        $this->assertStringContainsString('Disallow: /livewire/update', $robots);
+
+        $xmlString = $this->get('/sitemap.xml')->assertOk()->getContent();
+        $this->assertNotFalse(@simplexml_load_string($xmlString));
+        foreach (Gallery::take(3)->get() as $gallery) {
+            $this->assertStringContainsString(htmlspecialchars($gallery->title, ENT_XML1), $xmlString);
+        }
+    }
+
     public function test_pages_do_not_contain_em_dash(): void
     {
         foreach (['/', '/about', '/products?divisi=me', '/gallery', '/blog', '/contact'] as $uri) {

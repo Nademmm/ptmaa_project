@@ -32,6 +32,8 @@
                     'logo' => [
                         '@type' => 'ImageObject',
                         'url' => asset('assets/logo.webp'),
+                        'width' => 160,
+                        'height' => 106,
                     ],
                 ],
                 'mainEntityOfPage' => [

@@ -1,12 +1,6 @@
 @php
     $mainImg = $product->thumbnail_url;
     $galleryList = $product->gallery_urls;
-    $fullImgUrl = str_starts_with($mainImg, 'http') ? $mainImg : url($mainImg);
-    $schemaAvailability = match ($product->availability_status?->value ?? 'tersedia') {
-        'pre_order' => 'https://schema.org/PreOrder',
-        'custom' => 'https://schema.org/MadeToOrder',
-        default => 'https://schema.org/InStock',
-    };
 @endphp
 
 @push('head')
@@ -16,28 +10,25 @@
         '@context' => 'https://schema.org',
         '@graph' => [
             [
-                '@type' => 'Product',
+                '@type' => 'Service',
                 'name' => $product->name,
+                'serviceType' => $product->category?->name ?? $product->division_name,
                 'description' => trim(strip_tags((string) ($product->short_summary ?: $product->description))),
+                'url' => route('products.show', $product->slug),
                 'image' => collect($galleryList)->map(fn ($img) => str_starts_with($img, 'http') ? $img : url($img))->values()->all(),
-                'sku' => $product->slug,
                 'category' => $product->category?->name ?? $product->division_name,
                 'brand' => [
                     '@type' => 'Brand',
                     'name' => $product->brand ?: 'PT. Multi Abadi Aksana',
                 ],
-                'manufacturer' => [
+                'provider' => [
                     '@type' => 'Organization',
                     'name' => 'PT. Multi Abadi Aksana',
+                    'url' => url('/'),
                 ],
-                'offers' => [
-                    '@type' => 'Offer',
-                    'url' => route('products.show', $product->slug),
-                    'availability' => $schemaAvailability,
-                    'seller' => [
-                        '@type' => 'Organization',
-                        'name' => 'PT. Multi Abadi Aksana',
-                    ],
+                'areaServed' => [
+                    '@type' => 'Country',
+                    'name' => 'Indonesia',
                 ],
             ],
             [

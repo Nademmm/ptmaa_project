@@ -7,13 +7,11 @@ use App\Models\ProductCategory;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\View;
 use Livewire\Attributes\Layout;
-use Livewire\Attributes\Title;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 #[Layout('components.layouts.app')]
-#[Title('Katalog Produk & Material Pengadaan | PT. Multi Abadi Aksana')]
 class ProductCatalogPage extends Component
 {
     use WithPagination;
@@ -99,18 +97,31 @@ class ProductCatalogPage extends Component
             ? 'Penerangan Jalan Umum'
             : 'Mechanical & Electrical';
 
-        $seoTitle = $this->selectedDivision === 'pju'
-            ? 'Katalog Penerangan Jalan Umum (Solar Cell & PLN) | PT. Multi Abadi Aksana'
-            : 'Katalog Mechanical & Electrical (Panel, PLC, Tangki, Interior & Exterior) | PT. Multi Abadi Aksana';
+        $activeCatModel = $this->selectedCategory !== 'semua'
+            ? $categories->firstWhere('slug', $this->selectedCategory)
+            : null;
+
+        if ($activeCatModel) {
+            $seoTitle = "{$activeCatModel->name} ({$activeDivisionName}) | PT. Multi Abadi Aksana";
+            $canonicalUrl = route('products.index', ['divisi' => $this->selectedDivision, 'kategori' => $activeCatModel->slug]);
+        } else {
+            $seoTitle = $this->selectedDivision === 'pju'
+                ? 'Katalog Penerangan Jalan Umum (Solar Cell & PLN) | PT. Multi Abadi Aksana'
+                : 'Katalog Mechanical & Electrical (Panel, PLC, Tangki, Interior & Exterior) | PT. Multi Abadi Aksana';
+            $canonicalUrl = route('products.index', ['divisi' => $this->selectedDivision]);
+        }
 
         $seoDesc = $this->selectedDivision === 'pju'
             ? 'Katalog spesifikasi pengadaan Penerangan Jalan Umum (PJU) Tenaga Surya All In One, Two In One, Konvensional, Lampu PJU PLN (COB, Osram, Philips, Estika) & Tiang Octagonal PT. Multi Abadi Aksana.'
             : 'Katalog Mechanical & Electrical: Fabrikasi Box Panel, Wiring Panel (MDP/SDP/MCC), PLC, Tangki BBM, Ducting BJLS, Silo, Struktur Baja, Impeller, MEP, BAS, serta Desain Interior & Exterior (3D Render, Built-In Furniture, Fasad, Kanopi) PT. Multi Abadi Aksana.';
 
+        $isSearchQuery = trim($this->search) !== '';
+
         View::share([
             'title' => $seoTitle,
             'metaDescription' => $seoDesc,
-            'canonicalUrl' => route('products.index', ['divisi' => $this->selectedDivision]),
+            'canonicalUrl' => $canonicalUrl,
+            'robotsMeta' => $isSearchQuery ? 'noindex, follow' : null,
             'ogImage' => $this->selectedDivision === 'pju'
                 ? '/images/products/pju-all-in-one.webp'
                 : '/images/products/me-box-panel-outdoor.webp',
@@ -120,6 +131,6 @@ class ProductCatalogPage extends Component
             'categories' => $categories,
             'products' => $products,
             'activeDivisionName' => $activeDivisionName,
-        ]);
+        ])->title($seoTitle);
     }
 }

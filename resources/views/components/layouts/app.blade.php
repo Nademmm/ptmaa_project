@@ -18,8 +18,9 @@
     <meta name="description" content="{{ $seoDescription }}">
     <meta name="keywords" content="{{ $seoKeywords }}">
     <meta name="author" content="PT. Multi Abadi Aksana">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    @php($seoRobots = $robotsMeta ?? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1')
+    <meta name="robots" content="{{ $seoRobots }}">
+    <meta name="googlebot" content="{{ $seoRobots }}">
 
     <!-- Geo & Local Business SEO Meta (Sidoarjo, Jawa Timur) -->
     <meta name="geo.region" content="ID-JI">
@@ -83,8 +84,8 @@
                 "logo": {
                     "@@type": "ImageObject",
                     "url": "{{ asset('assets/logo.webp') }}",
-                    "width": 105,
-                    "height": 64
+                    "width": 160,
+                    "height": 106
                 },
                 "image": "{{ asset('images/projects/pju-k3-gempol-sidoarjo.webp') }}",
                 "description": "Perusahaan General Trading, Supplier, dan Kontraktor terintegrasi di Sidoarjo, Jawa Timur untuk pengadaan dan konstruksi Penerangan Jalan Umum (Solar Cell & PLN) sistem Mechanical & Electrical industri (termasuk Desain Interior & Exterior).",
@@ -118,19 +119,30 @@
                     "@@type": "Country",
                     "name": "Indonesia"
                 },
-                "contactPoint": {
-                    "@@type": "ContactPoint",
-                    "telephone": "+62-823-4297-9898",
-                    "contactType": "sales",
-                    "email": "ptmultiabadiaksana15@gmail.com",
-                    "areaServed": "ID",
-                    "availableLanguage": ["Indonesian"]
-                },
+                "contactPoint": [
+                    {
+                        "@@type": "ContactPoint",
+                        "telephone": "+62-823-4297-9898",
+                        "contactType": "sales",
+                        "email": "ptmultiabadiaksana15@gmail.com",
+                        "areaServed": "ID",
+                        "availableLanguage": ["Indonesian"]
+                    },
+                    {
+                        "@@type": "ContactPoint",
+                        "telephone": "+62-822-3457-4467",
+                        "contactType": "customer service",
+                        "email": "ptmultiabadiaksana15@gmail.com",
+                        "areaServed": "ID",
+                        "availableLanguage": ["Indonesian"]
+                    }
+                ],
                 "sameAs": [
                     "https://www.instagram.com/pt.multiabadiaksana",
                     "https://www.instagram.com/maa.mechanicalelektrical",
                     "https://www.instagram.com/maa.in.outspace",
-                    "https://wa.me/6282342979898"
+                    "https://wa.me/6282342979898",
+                    "https://wa.me/6282234574467"
                 ]
             },
             {

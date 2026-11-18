@@ -32,14 +32,18 @@ Route::get('/blog/{slug}', BlogDetailPage::class)->name('blog.show');
 // Kontak, Konsultasi, & Permintaan Survei Lapangan
 Route::get('/contact', ContactPage::class)->name('contact');
 
-// Dynamic robots.txt with valid absolute Sitemap URL (Lighthouse & RFC 9309 Compliant)
+// Dynamic robots.txt with valid absolute Sitemap URL (Google Search Console & RFC 9309 Compliant)
 Route::get('/robots.txt', function () {
     $sitemapUrl = url('/sitemap.xml');
+    $adminPath = trim((string) config('app.admin_panel_path', 'portal-internal-maa-9x7k2v'), '/');
     $content = implode("\n", [
         'User-agent: *',
         'Allow: /',
-        'Disallow: /livewire/',
-        'Disallow: /portal-internal-maa-9x7k2v/',
+        'Allow: /livewire/livewire.min.js',
+        'Allow: /livewire/livewire.js',
+        'Disallow: /livewire/update',
+        'Disallow: /livewire/upload-file',
+        "Disallow: /{$adminPath}/",
         '',
         "Sitemap: {$sitemapUrl}",
         '',
@@ -47,7 +51,6 @@ Route::get('/robots.txt', function () {
 
     return response($content, 200, [
         'Content-Type' => 'text/plain; charset=UTF-8',
-        'X-Robots-Tag' => 'all',
     ]);
 })->name('robots');
 
@@ -58,72 +61,114 @@ Route::get('/sitemap.xml', function () {
     $xml = Cache::remember($cacheKey, 3600, function (): string {
         $products = Product::where('is_active', true)->orderBy('sort_order')->get();
         $posts = Post::where('is_published', true)->orderByDesc('published_at')->get();
-        $nowIso = now()->toAtomString();
+        $galleries = \App\Models\Gallery::orderBy('sort_order')->get();
+
+        $latestProductTs = $products->max('updated_at');
+        $latestPostTs = $posts->max('updated_at');
+        $latestGalleryTs = $galleries->max('updated_at');
+        $latestOverall = collect([$latestProductTs, $latestPostTs, $latestGalleryTs])->filter()->max() ?? now();
 
         $staticPages = [
             [
                 'loc' => route('home'),
                 'priority' => '1.0',
                 'changefreq' => 'daily',
-                'lastmod' => $nowIso,
-                'image' => asset('images/projects/pju-k3-gempol-sidoarjo.webp'),
-                'title' => 'PT. Multi Abadi Aksana - Spesialis PJU & Mechanical Electrical',
+                'lastmod' => $latestOverall->toAtomString(),
+                'images' => [
+                    [
+                        'loc' => asset('images/projects/pju-k3-gempol-sidoarjo.webp'),
+                        'title' => 'PT. Multi Abadi Aksana - Spesialis PJU & Mechanical Electrical',
+                    ],
+                ],
             ],
             [
                 'loc' => route('products.index'),
                 'priority' => '0.9',
                 'changefreq' => 'weekly',
-                'lastmod' => $nowIso,
-                'image' => asset('images/products/pju-all-in-one.webp'),
-                'title' => 'Katalog Produk Penerangan Jalan Umum & Mechanical Electrical',
+                'lastmod' => ($latestProductTs ?? $latestOverall)->toAtomString(),
+                'images' => [
+                    [
+                        'loc' => asset('images/products/pju-all-in-one.webp'),
+                        'title' => 'Katalog Produk Penerangan Jalan Umum & Mechanical Electrical',
+                    ],
+                ],
             ],
             [
                 'loc' => route('products.index', ['divisi' => 'pju']),
                 'priority' => '0.9',
                 'changefreq' => 'weekly',
-                'lastmod' => $nowIso,
-                'image' => asset('images/products/pju-all-in-one.webp'),
-                'title' => 'Katalog Penerangan Jalan Umum (Solar Cell & PLN)',
+                'lastmod' => ($latestProductTs ?? $latestOverall)->toAtomString(),
+                'images' => [
+                    [
+                        'loc' => asset('images/products/pju-all-in-one.webp'),
+                        'title' => 'Katalog Penerangan Jalan Umum (Solar Cell & PLN)',
+                    ],
+                ],
             ],
             [
                 'loc' => route('products.index', ['divisi' => 'me']),
                 'priority' => '0.9',
                 'changefreq' => 'weekly',
-                'lastmod' => $nowIso,
-                'image' => asset('images/projects/me-impeller-rotor-stainless.webp'),
-                'title' => 'Katalog Mechanical & Electrical (Panel, PLC, Tangki, Interior & Exterior)',
+                'lastmod' => ($latestProductTs ?? $latestOverall)->toAtomString(),
+                'images' => [
+                    [
+                        'loc' => asset('images/products/me-box-panel-outdoor.webp'),
+                        'title' => 'Katalog Mechanical & Electrical (Panel, PLC, Tangki, Interior & Exterior)',
+                    ],
+                ],
             ],
             [
                 'loc' => route('gallery.index'),
                 'priority' => '0.8',
                 'changefreq' => 'weekly',
-                'lastmod' => $nowIso,
-                'image' => asset('images/projects/pju-crane-erection.webp'),
-                'title' => 'Portofolio Projek On Duty PT. Multi Abadi Aksana',
+                'lastmod' => ($latestGalleryTs ?? $latestOverall)->toAtomString(),
+                'images' => $galleries->isNotEmpty()
+                    ? $galleries->map(fn ($g) => [
+                        'loc' => explode('?', str_starts_with($g->image_url, 'http') ? $g->image_url : url($g->image_url))[0],
+                        'title' => $g->title,
+                    ])->all()
+                    : [
+                        [
+                            'loc' => asset('images/projects/pju-crane-erection.webp'),
+                            'title' => 'Portofolio Projek On Duty PT. Multi Abadi Aksana',
+                        ],
+                    ],
             ],
             [
                 'loc' => route('about'),
                 'priority' => '0.8',
                 'changefreq' => 'monthly',
-                'lastmod' => $nowIso,
-                'image' => asset('images/banners/corporate-meeting.webp'),
-                'title' => 'Profil Perusahaan & 2 Divisi Layanan PT. Multi Abadi Aksana',
+                'lastmod' => $latestOverall->toAtomString(),
+                'images' => [
+                    [
+                        'loc' => asset('images/banners/corporate-meeting.webp'),
+                        'title' => 'Profil Perusahaan & 2 Divisi Layanan PT. Multi Abadi Aksana',
+                    ],
+                ],
             ],
             [
                 'loc' => route('blog.index'),
                 'priority' => '0.8',
                 'changefreq' => 'weekly',
-                'lastmod' => $nowIso,
-                'image' => asset('images/projects/pju-k3-gempol-sidoarjo.webp'),
-                'title' => 'Wawasan Teknis & Artikel Pengadaan PT. Multi Abadi Aksana',
+                'lastmod' => ($latestPostTs ?? $latestOverall)->toAtomString(),
+                'images' => [
+                    [
+                        'loc' => asset('images/projects/pju-k3-gempol-sidoarjo.webp'),
+                        'title' => 'Wawasan Teknis & Artikel Pengadaan PT. Multi Abadi Aksana',
+                    ],
+                ],
             ],
             [
                 'loc' => route('contact'),
                 'priority' => '0.8',
                 'changefreq' => 'monthly',
-                'lastmod' => $nowIso,
-                'image' => asset('assets/logo.webp'),
-                'title' => 'Hubungi Kantor & Workshop PT. Multi Abadi Aksana Sidoarjo',
+                'lastmod' => $latestOverall->toAtomString(),
+                'images' => [
+                    [
+                        'loc' => asset('assets/logo.webp'),
+                        'title' => 'Hubungi Kantor & Workshop PT. Multi Abadi Aksana Sidoarjo',
+                    ],
+                ],
             ],
         ];
 
@@ -132,17 +177,19 @@ Route::get('/sitemap.xml', function () {
 
         foreach ($staticPages as $page) {
             $loc = htmlspecialchars($page['loc'], ENT_XML1);
-            $imgLoc = htmlspecialchars($page['image'], ENT_XML1);
-            $imgTitle = htmlspecialchars($page['title'], ENT_XML1);
             $out .= "  <url>\n";
             $out .= "    <loc>{$loc}</loc>\n";
             $out .= "    <lastmod>{$page['lastmod']}</lastmod>\n";
             $out .= "    <changefreq>{$page['changefreq']}</changefreq>\n";
             $out .= "    <priority>{$page['priority']}</priority>\n";
-            $out .= "    <image:image>\n";
-            $out .= "      <image:loc>{$imgLoc}</image:loc>\n";
-            $out .= "      <image:title>{$imgTitle}</image:title>\n";
-            $out .= "    </image:image>\n";
+            foreach ($page['images'] as $img) {
+                $imgLoc = htmlspecialchars($img['loc'], ENT_XML1);
+                $imgTitle = htmlspecialchars($img['title'], ENT_XML1);
+                $out .= "    <image:image>\n";
+                $out .= "      <image:loc>{$imgLoc}</image:loc>\n";
+                $out .= "      <image:title>{$imgTitle}</image:title>\n";
+                $out .= "    </image:image>\n";
+            }
             $out .= "  </url>\n";
         }
 

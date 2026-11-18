@@ -42,10 +42,14 @@ class AppServiceProvider extends ServiceProvider
         ServicePillar::observe(ServicePillarObserver::class);
         Gallery::observe(GalleryObserver::class);
 
-        // Set default SEO X-Robots-Tag header for public pages
+        // Set default SEO X-Robots-Tag header only for normal indexable HTML pages
         if (! $this->app->runningInConsole() && ! headers_sent()) {
             $uri = $_SERVER['REQUEST_URI'] ?? '/';
-            if (! str_starts_with($uri, '/portal-internal-maa-9x7k2v') && ! str_starts_with($uri, '/livewire')) {
+            $adminPath = '/' . trim((string) config('app.admin_panel_path', 'portal-internal-maa-9x7k2v'), '/');
+            $skipPaths = [$adminPath, '/livewire', '/robots.txt', '/sitemap.xml', '/up'];
+            $isSkipped = collect($skipPaths)->contains(fn (string $p) => str_starts_with($uri, $p));
+
+            if (! $isSkipped && ! str_contains($uri, 'cari=')) {
                 header('X-Robots-Tag: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
             }
         }
