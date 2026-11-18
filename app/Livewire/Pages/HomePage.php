@@ -39,7 +39,7 @@ class HomePage extends Component
                 [
                     'image' => '/images/projects/pju-k3-gempol-sidoarjo.webp',
                     'title' => 'Spesialis Penerangan Jalan Umum & Mechanical Electrical',
-                    'desc' => 'Mitra strategis pengadaan dan konstruksi Penerangan Jalan Umum (Solar Cell & PLN) serta rekayasa Mechanical & Electrical industri, termasuk Desain Interior & Exterior, di Indonesia.',
+                    'desc' => 'Mitra strategis pengadaan dan konstruksi Penerangan Jalan Umum (Solar Cell & PLN) serta rekayasa Mechanical & Electrical gedung & industri (instalasi & maintenance listrik hotel, apartemen, perkantoran, serta perakitan panel besar LVMDP/MDP/SDP/MCC), termasuk Desain Interior & Exterior, di Indonesia.',
                     'object_position' => 'center 15%',
                 ],
             ];
@@ -51,7 +51,7 @@ class HomePage extends Component
         $latestPosts = Cache::remember('latest_posts_home', 3600, fn () => Post::with('category')->where('is_published', true)->orderByDesc('published_at')->take(3)->get());
 
         View::share([
-            'metaDescription' => 'PT. Multi Abadi Aksana: Mitra strategis Pengadaan Barang, Konstruksi Penerangan Jalan Umum (PJU Tenaga Surya & PJU PLN), Rekayasa Mechanical & Electrical Industri (termasuk Desain Interior & Exterior) di Sidoarjo, Jawa Timur.',
+            'metaDescription' => 'PT. Multi Abadi Aksana: Mitra strategis Pengadaan Barang, Konstruksi Penerangan Jalan Umum (PJU Tenaga Surya & PJU PLN), serta Mechanical & Electrical gedung & industri (instalasi/maintenance listrik hotel, apartemen, perkantoran, perakitan panel kapasitas besar LVMDP/MDP/SDP/MCC, hingga Desain Interior & Exterior) di Sidoarjo, Jawa Timur.',
             'canonicalUrl' => route('home'),
             'ogImage' => $heroSlides[0]['image'] ?? '/images/projects/pju-k3-gempol-sidoarjo.webp',
         ]);

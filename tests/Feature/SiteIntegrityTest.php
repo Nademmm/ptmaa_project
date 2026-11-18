@@ -168,4 +168,29 @@ class SiteIntegrityTest extends TestCase
             $this->assertStringNotContainsString('—', $this->get($uri)->getContent(), "Em dash ditemukan di {$uri}");
         }
     }
+
+    public function test_me_division_highlights_building_electrical_maintenance_and_large_panels(): void
+    {
+        $migration = require database_path('migrations/2026_11_18_000001_update_me_building_electrical_and_large_panels_copy.php');
+        $migration->up();
+
+        foreach (['/', '/about', '/products?divisi=me'] as $uri) {
+            $html = $this->get($uri)->assertOk()->getContent();
+            $this->assertStringContainsString('LVMDP', $html, "Istilah panel besar LVMDP tidak ada di {$uri}");
+            $this->assertStringContainsString('hotel', strtolower($html), "Cakupan hotel tidak ada di {$uri}");
+            $this->assertStringContainsString('apartemen', strtolower($html), "Cakupan apartemen tidak ada di {$uri}");
+            $this->assertStringContainsString('maintenance', strtolower($html), "Cakupan maintenance tidak ada di {$uri}");
+        }
+
+        $this->get('/products/fabrikasi-box-panel-wiring-plc-industri')
+            ->assertOk()
+            ->assertSee('LVMDP')
+            ->assertSee('Kapasitas Besar');
+
+        $this->get('/products/konstruksi-mep-ei-bas-tac')
+            ->assertOk()
+            ->assertSee('Hotel')
+            ->assertSee('Apartemen')
+            ->assertSee('Maintenance');
+    }
 }

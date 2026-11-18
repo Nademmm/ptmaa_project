@@ -107,13 +107,13 @@ class ProductCatalogPage extends Component
         } else {
             $seoTitle = $this->selectedDivision === 'pju'
                 ? 'Katalog Penerangan Jalan Umum (Solar Cell & PLN) | PT. Multi Abadi Aksana'
-                : 'Katalog Mechanical & Electrical (Panel, PLC, Tangki, Interior & Exterior) | PT. Multi Abadi Aksana';
+                : 'Katalog Mechanical & Electrical (Listrik Gedung, Panel Besar LVMDP/MDP & Interior) | PT. Multi Abadi Aksana';
             $canonicalUrl = route('products.index', ['divisi' => $this->selectedDivision]);
         }
 
         $seoDesc = $this->selectedDivision === 'pju'
             ? 'Katalog spesifikasi pengadaan Penerangan Jalan Umum (PJU) Tenaga Surya All In One, Two In One, Konvensional, Lampu PJU PLN (COB, Osram, Philips, Estika) & Tiang Octagonal PT. Multi Abadi Aksana.'
-            : 'Katalog Mechanical & Electrical: Fabrikasi Box Panel, Wiring Panel (MDP/SDP/MCC), PLC, Tangki BBM, Ducting BJLS, Silo, Struktur Baja, Impeller, MEP, BAS, serta Desain Interior & Exterior (3D Render, Built-In Furniture, Fasad, Kanopi) PT. Multi Abadi Aksana.';
+            : 'Katalog Mechanical & Electrical: Instalasi dan maintenance listrik gedung (hotel, apartemen, perkantoran, mall), Fabrikasi Box & Wiring Panel Kapasitas Besar (LVMDP, MDP, SDP, MCC/Switchgear, Kapasitor Bank, Sinkronisasi Genset), PLC, Tangki BBM, Ducting, Silo, Impeller, MEP, BAS, serta Desain Interior & Exterior PT. Multi Abadi Aksana.';
 
         $isSearchQuery = trim($this->search) !== '';
 

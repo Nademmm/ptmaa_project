@@ -57,8 +57,8 @@ class HeroSlideSeeder extends Seeder
                 'is_active' => true,
             ],
             [
-                'title' => 'Rekayasa Mechanical & Electrical Industri',
-                'subtitle' => 'Layanan fabrikasi Impeller stainless steel, sistem blower pabrik, perakitan panel distribusi MDP/SDP/ATS, hingga instalasi daya industri.',
+                'title' => 'Rekayasa Mechanical & Electrical Gedung & Industri',
+                'subtitle' => 'Layanan instalasi dan maintenance listrik gedung (hotel, apartemen, perkantoran), perakitan panel berkapasitas besar (LVMDP, MDP/SDP, MCC, ATS/AMF), hingga fabrikasi Impeller industri.',
                 'image_path' => 'hero-slides/me-impeller-rotor-stainless.webp',
                 'object_position' => 'center 25%',
                 'sort_order' => 4,

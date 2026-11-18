@@ -376,7 +376,7 @@
                     Produk & <span class="text-gradient">Material Unggulan.</span>
                 </h2>
                 <p class="text-xs md:text-sm text-text-secondary font-medium">
-                    Etalase spesifikasi pengadaan Penerangan Jalan Umum Tenaga Surya, Lampu Jalan PLN, Fabrikasi Impeller, unit Mechanical & Electrical, serta layanan Desain Interior & Exterior PT. Multi Abadi Aksana.
+                    Etalase spesifikasi pengadaan Penerangan Jalan Umum Tenaga Surya, Lampu Jalan PLN, Perakitan Panel Besar (LVMDP/MDP/SDP/MCC), Instalasi &amp; Maintenance Listrik Gedung (Hotel, Apartemen, Kantor), Fabrikasi Impeller, serta Desain Interior &amp; Exterior PT. Multi Abadi Aksana.
                 </p>
             </div>
             <div class="flex flex-wrap items-center gap-2.5 shrink-0">

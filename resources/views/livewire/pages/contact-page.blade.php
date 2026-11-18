@@ -6,7 +6,7 @@
                 Hubungi <span class="text-[#8DA2E0]">PT. Multi Abadi Aksana.</span>
             </h1>
             <p class="text-xs sm:text-sm md:text-base text-blue-100/85 font-medium leading-relaxed">
-                Hubungi tim resmi PT. Multi Abadi Aksana untuk konsultasi teknis, penjadwalan survei lapangan, maupun permintaan penawaran pengadaan Penerangan Jalan Umum serta Mechanical & Electrical (termasuk Desain Interior & Eksterior) di Sidoarjo, Jawa Timur.
+                Hubungi tim resmi PT. Multi Abadi Aksana untuk konsultasi teknis, penjadwalan survei lapangan, maupun permintaan penawaran pengadaan Penerangan Jalan Umum serta Mechanical &amp; Electrical (instalasi &amp; maintenance listrik gedung hotel/apartemen/kantor, panel kapasitas besar LVMDP/MDP, hingga Desain Interior &amp; Eksterior) di Sidoarjo, Jawa Timur.
             </p>
         </div>
     </section>
@@ -21,7 +21,7 @@
                 </div>
                 <h2 class="text-lg md:text-xl font-black uppercase tracking-tight text-primary">WhatsApp Resmi</h2>
                 <p class="text-xs text-text-secondary font-medium leading-relaxed">
-                    Konsultasi teknis dan pengadaan divisi Penerangan Jalan Umum (Solar Cell & PLN), Mechanical & Electrical industri (termasuk Interior & Exterior).
+                    Konsultasi teknis dan pengadaan divisi Penerangan Jalan Umum (Solar Cell & PLN), instalasi & maintenance listrik gedung (hotel, apartemen, perkantoran), panel kapasitas besar, serta Desain Interior & Exterior.
                 </p>
             </div>
             <div class="space-y-2.5 pt-3 border-t border-primary/10">
