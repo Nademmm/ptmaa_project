@@ -113,7 +113,7 @@ Route::get('/sitemap.xml', function () {
                 'images' => [
                     [
                         'loc' => asset('images/products/me-box-panel-outdoor.webp'),
-                        'title' => 'Katalog Mechanical & Electrical (Panel, PLC, Tangki, Interior & Exterior)',
+                        'title' => 'Katalog Mechanical & Electrical (Panel Besar LVMDP, Otomasi PLC, Impeller, MEP & BAS)',
                     ],
                 ],
             ],

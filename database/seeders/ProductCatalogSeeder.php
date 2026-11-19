@@ -58,17 +58,6 @@ class ProductCatalogSeeder extends Seeder
             'is_active' => true,
         ]);
 
-        $catMeFabrikasi = $upsertCategory([
-            'service_pillar_id' => $mePillar?->id,
-            'name' => 'Fabrikasi Tangki, Ducting & Struktur Baja',
-            'slug' => 'fabrikasi-tangki-ducting-baja',
-            'icon' => 'heroicon-o-wrench-screwdriver',
-            'description' => 'Fabrikasi tangki BBM genset, tangki pendam, ducting exhaust BJLS, silo bahan baku, conveyor system, dan struktur baja industri tanpa MOQ.',
-            'contact_phone' => '082342979898',
-            'sort_order' => 4,
-            'is_active' => true,
-        ]);
-
         $catMeImpeller = $upsertCategory([
             'service_pillar_id' => $mePillar?->id,
             'name' => 'Sistem Mekanikal Blower & Impeller',
@@ -76,7 +65,7 @@ class ProductCatalogSeeder extends Seeder
             'icon' => 'heroicon-o-cog',
             'description' => 'Fabrikasi rotor impeller stainless steel, centrifugal blower unit industri PGIC-E34, dynamic balancing, dan rekondisi housing.',
             'contact_phone' => '082342979898',
-            'sort_order' => 5,
+            'sort_order' => 4,
             'is_active' => true,
         ]);
 
@@ -87,32 +76,7 @@ class ProductCatalogSeeder extends Seeder
             'icon' => 'heroicon-o-bolt',
             'description' => 'Instalasi dan maintenance listrik gedung bertingkat (hotel, apartemen, perkantoran, mall, rumah sakit), konstruksi MEP (HVAC, plumbing, daya), E&I instrumen sensor, BAS, serta Testing Commissioning (TAC).',
             'contact_phone' => '082342979898',
-            'sort_order' => 6,
-            'is_active' => true,
-        ]);
-
-        // ==========================================
-        // KATEGORI DIVISI 2 (LANJUTAN): INTERIOR & EXTERIOR (BAGIAN MECHANICAL & ELECTRICAL)
-        // ==========================================
-        $catInoutInterior = $upsertCategory([
-            'service_pillar_id' => $mePillar?->id,
-            'name' => 'Desain & Pengerjaan Interior',
-            'slug' => 'desain-pengerjaan-interior',
-            'icon' => 'heroicon-o-home',
-            'description' => 'Lay Out Planning denah 2D, pemodelan 3D render digital, pengerjaan konstruksi fisik interior, built-in furniture, gordyn, wallpaper & kaca film.',
-            'contact_phone' => '082342979898',
-            'sort_order' => 7,
-            'is_active' => true,
-        ]);
-
-        $catInoutExterior = $upsertCategory([
-            'service_pillar_id' => $mePillar?->id,
-            'name' => 'Arsitektur & Konstruksi Exterior',
-            'slug' => 'arsitektur-konstruksi-exterior',
-            'icon' => 'heroicon-o-building-office-2',
-            'description' => 'Desain fasad bangunan modern, finishing weather resistant (ACP/batu alam), paket All In One arsitektur (izin PBG/IMB), kanopi, pagar teralis & carport.',
-            'contact_phone' => '082342979898',
-            'sort_order' => 8,
+            'sort_order' => 5,
             'is_active' => true,
         ]);
 
@@ -333,40 +297,6 @@ class ProductCatalogSeeder extends Seeder
         ]);
 
         $upsertProduct([
-            'product_category_id' => $catMeFabrikasi->id,
-            'name' => 'Fabrikasi Tangki BBM, Ducting BJLS, Silo & Struktur Baja Industri',
-            'slug' => 'fabrikasi-tangki-bbm-ducting-silo-baja',
-            'sub_badge' => 'Fabrikasi Industri',
-            'brand' => 'PT. Multi Abadi Aksana',
-            'availability_status' => ProductAvailability::CUSTOM,
-            'thumbnail_image' => 'images/products/me-tangki-bbm-silo.webp',
-            'gallery_images' => [
-                'images/products/me-tangki-bbm-silo.webp',
-                'images/products/me-ducting-exhaust-bjls.webp',
-                'images/products/me-steel-structure-baja.webp',
-            ],
-            'short_summary' => 'Fabrikasi tangki BBM genset, tangki pendam bawah tanah, ducting exhaust BJLS, silo bahan baku industri, conveyor system, dan struktur baja tanpa batasan MOQ.',
-            'description' => 'Sesuai spesifikasi Proposal Mechanical Electrical PT. Multi Abadi Aksana, divisi fabrikasi kami memproduksi tangki bahan bakar minyak (harian dan penampungan genset), tangki pendam BBM bawah tanah, ducting dan exhaust extension berbahan BJLS maupun carbon steel untuk tata udara HVAC dan ruang genset, tangki silo bahan baku, conveyor system (belt, screw, roller bucket), serta struktur baja untuk bangunan pabrik dan tower. Seluruh pengerjaan menerima Custom Order tanpa minimum quantity (MOQ).',
-            'why_choose_text' => 'Kapasitas workshop fleksibel yang siap melayani pesanan khusus (Custom Order) tanpa syarat MOQ, dengan pengelasan dan pelapisan material anti-korosi berdaya tahan tinggi.',
-            'specifications' => [
-                ['label' => 'Varian Tangki BBM', 'value' => 'Tangki Duduk (Storage Genset) & Tangki Pendam Bawah Tanah'],
-                ['label' => 'Ducting & Exhaust', 'value' => 'Bahan BJLS & Carbon Steel untuk Genset, Fan Blower & HVAC'],
-                ['label' => 'Storage & Conveyor', 'value' => 'Silo Bahan Baku, Belt Conveyor, Screw & Roller Bucket'],
-                ['label' => 'Struktur Baja', 'value' => 'Rangka Bangunan Pabrik, Gudang, Mezzanine & Tower'],
-                ['label' => 'Ketentuan Pemesanan', 'value' => 'Menerima Custom Order Tanpa Minimum of Quantity (MOQ)'],
-            ],
-            'advantages' => [
-                ['point' => 'Fabrikasi presisi sesuai gambar kerja teknis (approval drawing)'],
-                ['point' => 'Tanpa batasan minimum order, fleksibel untuk proyek skala kecil hingga pabrik besar'],
-                ['point' => 'Pengujian kebocoran (leak test) dan pelapisan cat pelindung industri'],
-            ],
-            'is_featured' => true,
-            'has_warranty_badge' => true,
-            'has_eco_k3_badge' => true,
-            'sort_order' => 7,
-        ]);
-
-        $upsertProduct([
             'product_category_id' => $catMeImpeller->id,
             'name' => 'Fabrikasi & Perbaikan Impeller Industri & Blower Pabrik',
             'slug' => 'fabrikasi-perbaikan-impeller-industri',
@@ -395,10 +325,10 @@ class ProductCatalogSeeder extends Seeder
                 ['point' => 'Material berkualitas tinggi sesuai spesifikasi teknis dan standar keselamatan'],
                 ['point' => 'Didukung layanan preventive maintenance berkala untuk mencegah downtime'],
             ],
-            'is_featured' => false,
+            'is_featured' => true,
             'has_warranty_badge' => true,
             'has_eco_k3_badge' => true,
-            'sort_order' => 8,
+            'sort_order' => 7,
         ]);
 
         $upsertProduct([
@@ -432,143 +362,7 @@ class ProductCatalogSeeder extends Seeder
             'is_featured' => true,
             'has_warranty_badge' => true,
             'has_eco_k3_badge' => true,
-            'sort_order' => 9,
-        ]);
-
-        // ==========================================
-        // PRODUK PILAR 2 (LANJUTAN): INTERIOR & EXTERIOR
-        // ==========================================
-
-        $upsertProduct([
-            'product_category_id' => $catInoutInterior->id,
-            'name' => 'Desain Interior 3D, Lay Out Planning & Built-In Furniture Custom',
-            'slug' => 'desain-interior-3d-layout-builtin-furniture',
-            'sub_badge' => 'Interior & Furniture',
-            'brand' => 'PT. Multi Abadi Aksana (In & Out Space)',
-            'availability_status' => ProductAvailability::CUSTOM,
-            'thumbnail_image' => 'images/products/inout-builtin-furniture.webp',
-            'gallery_images' => [
-                'images/products/inout-builtin-furniture.webp',
-                'images/products/inout-desain-3d-render.webp',
-                'images/products/inout-furnish-interior.webp',
-                'images/projects/inout-pengerjaan-interior-kitchen.webp',
-            ],
-            'short_summary' => 'Tahap analisis layout 2D berskala, desain visual 3D render beresolusi tinggi, pengerjaan konstruksi fisik, serta pembuatan Built In Furniture custom.',
-            'description' => 'Berdasarkan dokumen Proposal Interior & Exterior PT. Multi Abadi Aksana, kami melayani Lay Out Planning sebagai tahap analisis teknis tata letak furnitur, arah sirkulasi gerak, dan pembagian zona ruang secara proporsional. Dilanjutkan Desain 3D Render beresolusi tinggi yang menampilkan gambaran nyata hasil akhir lengkap dengan pencahayaan, tekstur material, dan paduan warna. Tahap fisik diwujudkan melalui pembuatan Built In Furniture custom-made (kitchen set, lemari full-ceiling, backdrop TV) yang memaksimalkan setiap inci sudut ruang, serta pengerjaan interior menyeluruh (pembongkaran, finishing dinding/lantai, hingga instalasi ME).',
-            'why_choose_text' => 'Mengoptimalkan ruang hunian dan komersial Anda secara maksimal melalui perencanaan berskala presisi, visualisasi 3D realistis sebelum mulai kerja, serta fabrikasi furnitur kustom berkualitas tinggi.',
-            'specifications' => [
-                ['label' => 'Perencanaan Ruang', 'value' => 'Lay Out Planning Denah 2D Berskala & Analisis Sirkulasi Gerak'],
-                ['label' => 'Pemodelan Visual', 'value' => 'Desain 3D Render Digital High-Resolution (Lighting, Tekstur & Warna)'],
-                ['label' => 'Built-In Furniture', 'value' => 'Kitchen Set, Lemari Full-Ceiling, Panel TV, Meja Kerja & Rak Multifungsi'],
-                ['label' => 'Pengerjaan Interior', 'value' => 'Pembongkaran, Finishing Dinding & Lantai, Instalasi ME & Perakitan'],
-            ],
-            'advantages' => [
-                ['point' => 'Memaksimalkan setiap inci sudut ruangan yang tersisa dengan furnitur custom-made'],
-                ['point' => 'Visualisasi 3D yang sangat nyata membantu Anda melihat hasil akhir sebelum eksekusi fisik'],
-                ['point' => 'Pengerjaan terpadu satu atap mencakup sipil, elektrikal, finishing lantai, hingga furnitur'],
-            ],
-            'is_featured' => true,
-            'has_warranty_badge' => true,
-            'has_eco_k3_badge' => false,
-            'sort_order' => 10,
-        ]);
-
-        $upsertProduct([
-            'product_category_id' => $catInoutInterior->id,
-            'name' => 'Pengadaan Furnish Interior (Gordyn Blind, Wallpaper & Kaca Film)',
-            'slug' => 'furnish-interior-gordyn-wallpaper-kaca-film',
-            'sub_badge' => 'Furnish Interior',
-            'brand' => 'PT. Multi Abadi Aksana (In & Out Space)',
-            'availability_status' => ProductAvailability::TERSEDIA,
-            'thumbnail_image' => 'images/products/inout-furnish-interior.webp',
-            'gallery_images' => [
-                'images/products/inout-furnish-interior.webp',
-                'images/products/inout-builtin-furniture.webp',
-            ],
-            'short_summary' => 'Solusi terintegrasi untuk fungsi pencahayaan, privasi, estetika, dan efisiensi energi: gordyn blind blackout/sunscreen, pelapis wallpaper vinyl, dan kaca film penahan panas UV.',
-            'description' => 'Sesuai Proposal Interior & Exterior PT. Multi Abadi Aksana, layanan Furnish Interior mengoptimalkan fungsi pencahayaan, privasi, dan estetika pada ruang komersial maupun hunian. Lingkup kerjanya mencakup survei dan pengukuran presisi di lapangan, pemilihan material spesifik seperti kain blackout/sunscreen, pelapis dinding vinyl-backed bertekstur, hingga kaca film penahan panas matahari (UV/infra merah) untuk menurunkan beban pendingin ruangan (AC).',
-            'why_choose_text' => 'Mengurangi radiasi panas matahari dan meningkatkan privasi ruangan dengan material pilihan yang awet dan pemasangan rapi bergaransi.',
-            'specifications' => [
-                ['label' => 'Jenis Gordyn / Blind', 'value' => 'Roller Blind, Vertical Blind, Wooden Blind, Kain Blackout & Sunscreen'],
-                ['label' => 'Pelapis Dinding', 'value' => 'Wallpaper Vinyl-Backed Tahan Lembap dengan Aneka Pilihan Motif'],
-                ['label' => 'Kaca Film Pelindung', 'value' => 'Kaca Film Tolak Panas (Penahan Sinar UV & Infra Merah) & Kaca Film Artistik'],
-                ['label' => 'Jasa Terkait', 'value' => 'Survei Pengukuran di Lokasi, Fabrikasi Kustom & Instalasi Profesional'],
-            ],
-            'advantages' => [
-                ['point' => 'Membantu penghematan energi pendingin ruangan berkat penolak panas sinar UV'],
-                ['point' => 'Menjaga privasi ruang kerja maupun ruang keluarga tanpa mengorbankan estetika'],
-                ['point' => 'Pengukuran presisi di lokasi sehingga hasil pemasangan pas dan rapi'],
-            ],
-            'is_featured' => false,
-            'has_warranty_badge' => true,
-            'has_eco_k3_badge' => false,
-            'sort_order' => 11,
-        ]);
-
-        $upsertProduct([
-            'product_category_id' => $catInoutExterior->id,
-            'name' => 'Desain Fasad Arsitektur Weather Resistant & Paket All in One Bangunan',
-            'slug' => 'desain-fasad-arsitektur-weather-resistant-all-in-one',
-            'sub_badge' => 'Fasad & Arsitektur',
-            'brand' => 'PT. Multi Abadi Aksana (In & Out Space)',
-            'availability_status' => ProductAvailability::CUSTOM,
-            'thumbnail_image' => 'images/products/inout-fasad-arsitektur-modern.webp',
-            'gallery_images' => [
-                'images/products/inout-fasad-arsitektur-modern.webp',
-                'images/products/inout-fasad-weather-resisten.webp',
-                'images/projects/inout-fasad-gable-minimalis.webp',
-            ],
-            'short_summary' => 'Perancangan fasad bangunan modern sebagai identitas visual utama, aplikasi material weather resistant (ACP/batu alam), serta paket All In One berizin PBG/IMB.',
-            'description' => 'Dalam Proposal Interior & Exterior PT. Multi Abadi Aksana, fasad bangunan adalah benteng perlindungan pertama dan identitas visual utama yang dirancang untuk mengatur pencahayaan alami, sirkulasi udara, serta efisiensi energi. Kami menerapkan material berstandar Weather Resistant dengan ketahanan tinggi terhadap terik sinar UV, hujan deras, dan kelembapan ekstrem (cat khusus eksterior, panel ACP, dan batu alam berpelapis pelindung). Didukung Paket All In One yang mencakup konsep arsitektur, perhitungan struktur, gambar kerja teknis, pengurusan izin (PBG/IMB), pemilihan material, hingga eksekusi konstruksi fisik di lapangan.',
-            'why_choose_text' => 'Fasad bangunan yang tidak hanya menawan secara visual namun juga tangguh menghadapi cuaca tropis serta ramah energi, didukung kemudahan perizinan PBG/IMB.',
-            'specifications' => [
-                ['label' => 'Perancangan Fasad', 'value' => 'Fasad Bangunan Modern, Pengatur Pencahayaan Alami & Sirkulasi Udara'],
-                ['label' => 'Standar Weather Resistant', 'value' => 'Panel ACP, Cat Pelindung UV/Hujan Ekstrem, Batu Alam Coating'],
-                ['label' => 'Paket All In One', 'value' => 'Konsep Arsitektur, Hitungan Struktur, Gambar Kerja & Pengurusan PBG/IMB'],
-                ['label' => 'Eksekusi Lapangan', 'value' => 'Pengadaan Material Tahan Cuaca & Konstruksi Fisik Menyeluruh'],
-            ],
-            'advantages' => [
-                ['point' => 'Material tahan cuaca ekstrem menjaga tampilan bangunan tetap prima bertahun-tahun'],
-                ['point' => 'Desain arsitektur modern memaksimalkan pencahayaan dan sirkulasi alami'],
-                ['point' => 'Layanan All In One memudahkan Anda tanpa repot mengurus izin PBG/IMB terpisah'],
-            ],
-            'is_featured' => true,
-            'has_warranty_badge' => true,
-            'has_eco_k3_badge' => false,
-            'sort_order' => 12,
-        ]);
-
-        $upsertProduct([
-            'product_category_id' => $catInoutExterior->id,
-            'name' => 'Konstruksi Eksterior (Kanopi Modern, Pagar Teralis Laser Cutting & Carport)',
-            'slug' => 'konstruksi-eksterior-kanopi-pagar-teralis-carport',
-            'sub_badge' => 'Eksterior & Kanopi',
-            'brand' => 'PT. Multi Abadi Aksana (In & Out Space)',
-            'availability_status' => ProductAvailability::TERSEDIA,
-            'thumbnail_image' => 'images/products/inout-kanopi-pagar-carport.webp',
-            'gallery_images' => [
-                'images/products/inout-kanopi-pagar-carport.webp',
-                'images/products/inout-fasad-weather-resisten.webp',
-                'images/projects/inout-fasad-gable-minimalis.webp',
-            ],
-            'short_summary' => 'Pekerjaan struktur luar pengaman dan estetika bangunan: kanopi rangka baja, pagar teralis laser cutting anti-karat, dan penutup lantai carport anti-selip.',
-            'description' => 'Sesuai Proposal Interior & Exterior PT. Multi Abadi Aksana, layanan Furnish Exterior mengombinasikan fungsi keamanan, perlindungan cuaca, dan penguatan estetika fasad. Proses pengerjaan meliputi survei lapangan dan perhitungan elevasi, pembuatan gambar kerja (approval drawing), fabrikasi presisi di workshop (pengelasan, laser cutting motif modern, pelapisan cat anti-karat / powder coating), hingga instalasi struktur kanopi, pagar teralis, serta pengerjaan penutup lantai carport anti-selip berbasis beban berat.',
-            'why_choose_text' => 'Konstruksi kokoh berbahan baja galvanis dengan finishing cat powder coating tahan karat dan desain laser cutting artistik yang mempercantik hunian Anda.',
-            'specifications' => [
-                ['label' => 'Rangka Kanopi', 'value' => 'Hollow Galvanis, Baja WF, Atap Alderon, Polycarbonate & Kaca Tempered'],
-                ['label' => 'Pagar & Teralis', 'value' => 'Besi Hollow, Ornamen Laser Cutting Custom, Finishing Powder Coating Anti-Karat'],
-                ['label' => 'Area Carport', 'value' => 'Pengecoran Lantai, Paving Block / Batu Alam, Keramik Anti-Selip Tahan Beban'],
-                ['label' => 'Tahapan Kerja', 'value' => 'Survei Elevasi, Approval Drawing, Fabrikasi Workshop & Instalasi Lapangan'],
-            ],
-            'advantages' => [
-                ['point' => 'Finishing powder coating anti-karat menjamin daya tahan jangka panjang di area terbuka'],
-                ['point' => 'Desain teralis laser cutting dapat disesuaikan dengan konsep arsitektur bangunan'],
-                ['point' => 'Lantai carport kuat menahan beban kendaraan roda empat tanpa retak'],
-            ],
-            'is_featured' => true,
-            'has_warranty_badge' => true,
-            'has_eco_k3_badge' => false,
-            'sort_order' => 13,
+            'sort_order' => 8,
         ]);
     }
 }

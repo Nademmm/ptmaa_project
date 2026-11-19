@@ -113,7 +113,7 @@ class ProductCatalogPage extends Component
 
         $seoDesc = $this->selectedDivision === 'pju'
             ? 'Katalog spesifikasi pengadaan Penerangan Jalan Umum (PJU) Tenaga Surya All In One, Two In One, Konvensional, Lampu PJU PLN (COB, Osram, Philips, Estika) & Tiang Octagonal PT. Multi Abadi Aksana.'
-            : 'Katalog Mechanical & Electrical: Instalasi dan maintenance listrik gedung (hotel, apartemen, perkantoran, mall), Fabrikasi Box & Wiring Panel Kapasitas Besar (LVMDP, MDP, SDP, MCC/Switchgear, Kapasitor Bank, Sinkronisasi Genset), PLC, Tangki BBM, Ducting, Silo, Impeller, MEP, BAS, serta Desain Interior & Exterior PT. Multi Abadi Aksana.';
+            : 'Katalog Mechanical & Electrical: Instalasi dan maintenance listrik gedung (hotel, apartemen, perkantoran, mall), Fabrikasi Box & Wiring Panel Kapasitas Besar (LVMDP, MDP, SDP, MCC/Switchgear, Kapasitor Bank, Sinkronisasi Genset), PLC, Impeller & Centrifugal Blower, Konstruksi MEP, E&I, dan Building Automation System (BAS) PT. Multi Abadi Aksana.';
 
         $isSearchQuery = trim($this->search) !== '';
 

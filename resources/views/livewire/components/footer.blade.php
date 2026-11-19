@@ -20,7 +20,7 @@
                     </a>
                 </div>
                 <p class="text-xs md:text-sm text-text-secondary leading-relaxed font-medium">
-                    Perusahaan General Trading, Supplier, dan Kontraktor terintegrasi. Mitra terpercaya untuk pengadaan dan konstruksi Penerangan Jalan Umum (Solar Cell & PLN) serta layanan Mechanical & Electrical gedung dan industri: instalasi dan maintenance listrik gedung (hotel, apartemen, perkantoran), perakitan panel berkapasitas besar (LVMDP, MDP/SDP, MCC), PLC, tangki, ducting, MEP, BAS, termasuk desain Interior & Exterior berstandar K3.
+                    Perusahaan General Trading, Supplier, dan Kontraktor terintegrasi. Mitra terpercaya untuk pengadaan dan konstruksi Penerangan Jalan Umum (Solar Cell & PLN) serta layanan Mechanical & Electrical gedung dan industri: instalasi dan maintenance listrik gedung (hotel, apartemen, perkantoran), perakitan panel berkapasitas besar (LVMDP, MDP/SDP, MCC), PLC, ducting, impeller, MEP, BAS, serta pengerjaan fisik interior & fasad berstandar K3.
                 </p>
                 <div class="flex gap-2.5">
                     <a

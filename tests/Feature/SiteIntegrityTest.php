@@ -193,4 +193,44 @@ class SiteIntegrityTest extends TestCase
             ->assertSee('Apartemen')
             ->assertSee('Maintenance');
     }
+
+    public function test_checked_me_categories_products_and_scopes_are_removed(): void
+    {
+        $migration = require database_path('migrations/2026_11_19_000001_remove_checked_me_categories_products_and_scopes.php');
+        $migration->up();
+
+        $removedTexts = [
+            'Lay Out Planning:',
+            'Desain 3D Render:',
+            'Fabrikasi Tangki BBM Genset',
+            'Fabrikasi Silo & Storage bahan baku industri',
+            'Furnish Interior:',
+            'Material Finishing Weather Resistant:',
+            'Furnish Eksterior:',
+            'Fabrikasi Tangki, Ducting &amp; Struktur Baja',
+            'Fabrikasi Tangki, Ducting & Struktur Baja',
+            'Desain &amp; Pengerjaan Interior',
+            'Desain & Pengerjaan Interior',
+            'Arsitektur &amp; Konstruksi Exterior',
+            'Arsitektur & Konstruksi Exterior',
+            'DESAIN INTERIOR 3D, LAY OUT PLANNING',
+        ];
+
+        foreach (['/', '/about', '/products?divisi=me'] as $uri) {
+            $html = $this->get($uri)->assertOk()->getContent();
+            foreach ($removedTexts as $text) {
+                $this->assertStringNotContainsString($text, $html, "Item terhapus '{$text}' masih tampil di {$uri}");
+            }
+        }
+
+        foreach ([
+            'fabrikasi-tangki-bbm-ducting-silo-baja',
+            'desain-interior-3d-layout-builtin-furniture',
+            'furnish-interior-gordyn-wallpaper-kaca-film',
+            'desain-fasad-arsitektur-weather-resistant-all-in-one',
+            'konstruksi-eksterior-kanopi-pagar-teralis-carport',
+        ] as $slug) {
+            $this->get(route('products.show', $slug))->assertNotFound();
+        }
+    }
 }

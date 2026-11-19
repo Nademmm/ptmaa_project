@@ -74,10 +74,14 @@ class AdminPanelTest extends TestCase
             ServicePillar::orderBy('slug')->pluck('slug')->all()
         );
 
-        foreach (['desain-pengerjaan-interior', 'arsitektur-konstruksi-exterior'] as $slug) {
+        foreach (['panel-elektrikal-otomasi-plc', 'mekanikal-blower-impeller', 'konstruksi-mep-ei-bas'] as $slug) {
             $category = ProductCategory::with('pillar')->where('slug', $slug)->firstOrFail();
             $this->assertSame('mechanical-electrical', $category->pillar->slug);
             $this->assertSame('me', $category->division);
+        }
+
+        foreach (['fabrikasi-tangki-ducting-baja', 'desain-pengerjaan-interior', 'arsitektur-konstruksi-exterior'] as $removedSlug) {
+            $this->assertDatabaseMissing('product_categories', ['slug' => $removedSlug]);
         }
 
         $meScopes = ServicePillar::where('slug', 'mechanical-electrical')->firstOrFail()->scopes;
@@ -110,47 +114,47 @@ class AdminPanelTest extends TestCase
         }
     }
 
-    public function test_admin_can_create_a_new_interior_product_under_me_and_it_appears_publicly(): void
+    public function test_admin_can_create_a_new_me_product_and_it_appears_publicly(): void
     {
-        $category = ProductCategory::where('slug', 'desain-pengerjaan-interior')->firstOrFail();
+        $category = ProductCategory::where('slug', 'panel-elektrikal-otomasi-plc')->firstOrFail();
 
         Livewire::test(CreateProduct::class)
             ->fillForm([
                 'product_category_id' => $category->getKey(),
-                'name' => 'Pengerjaan Kitchen Set Custom Uji Admin',
-                'slug' => 'pengerjaan-kitchen-set-custom-uji-admin',
-                'short_summary' => 'Kitchen set custom plywood HPL.',
-                'description' => '<p>Kitchen set custom dengan finishing HPL anti-gores.</p>',
+                'name' => 'Panel AMF Genset Custom Uji Admin',
+                'slug' => 'panel-amf-genset-custom-uji-admin',
+                'short_summary' => 'Panel AMF sinkronisasi genset industri.',
+                'description' => '<p>Panel AMF kapasitas besar dengan standar IEC.</p>',
                 'is_active' => true,
             ])
             ->call('create')
             ->assertHasNoFormErrors();
 
-        $product = Product::where('slug', 'pengerjaan-kitchen-set-custom-uji-admin')->firstOrFail();
+        $product = Product::where('slug', 'panel-amf-genset-custom-uji-admin')->firstOrFail();
         $this->assertSame('me', $product->division);
         $this->assertSame('Mechanical & Electrical', $product->division_name);
 
-        $this->get(route('products.index', ['divisi' => 'me', 'kategori' => 'desain-pengerjaan-interior']))
+        $this->get(route('products.index', ['divisi' => 'me', 'kategori' => 'panel-elektrikal-otomasi-plc']))
             ->assertOk()
-            ->assertSee('Pengerjaan Kitchen Set Custom Uji Admin');
+            ->assertSee('Panel AMF Genset Custom Uji Admin');
 
-        $this->get(route('products.show', $product->slug))->assertOk()->assertSee('anti-gores');
+        $this->get(route('products.show', $product->slug))->assertOk()->assertSee('standar IEC');
 
-        $this->get('/sitemap.xml')->assertSee('pengerjaan-kitchen-set-custom-uji-admin');
+        $this->get('/sitemap.xml')->assertSee('panel-amf-genset-custom-uji-admin');
     }
 
     public function test_admin_edit_of_a_product_is_reflected_publicly_without_stale_cache(): void
     {
-        $product = Product::where('slug', 'furnish-interior-gordyn-wallpaper-kaca-film')->firstOrFail();
+        $product = Product::where('slug', 'fabrikasi-perbaikan-impeller-industri')->firstOrFail();
 
         $this->get(route('products.index', ['divisi' => 'me']))->assertSee($product->name);
 
         Livewire::test(EditProduct::class, ['record' => $product->getKey()])
-            ->fillForm(['name' => 'Furnish Interior Edit Uji Admin'])
+            ->fillForm(['name' => 'Impeller Centrifugal Edit Uji Admin'])
             ->call('save')
             ->assertHasNoFormErrors();
 
-        $this->get(route('products.index', ['divisi' => 'me']))->assertSee('Furnish Interior Edit Uji Admin');
+        $this->get(route('products.index', ['divisi' => 'me']))->assertSee('Impeller Centrifugal Edit Uji Admin');
     }
 
     public function test_product_list_can_be_filtered_by_division(): void

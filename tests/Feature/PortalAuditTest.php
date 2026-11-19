@@ -46,7 +46,7 @@ class PortalAuditTest extends TestCase
         $this->assertDatabaseMissing('service_pillars', ['slug' => 'interior-exterior']);
         $this->assertDatabaseMissing('product_categories', ['slug' => 'sparepart-equipment']);
         $this->assertDatabaseMissing('post_categories', ['slug' => 'sparepart-konstruksi-k3']);
-        $this->assertEquals(13, Product::count());
+        $this->assertEquals(8, Product::count());
         $this->assertEquals(13, Gallery::count());
         $this->assertEquals(4, Post::count());
     }

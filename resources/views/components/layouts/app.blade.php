@@ -6,8 +6,8 @@
     <meta name="theme-color" content="#1B1B6C">
     @php
         $seoTitle = $title ?? 'PT. Multi Abadi Aksana | Spesialis PJU Tenaga Surya, PJU PLN & Mechanical Electrical Sidoarjo';
-        $seoDescription = $metaDescription ?? 'PT. Multi Abadi Aksana: Perusahaan General Trading, Supplier & Kontraktor di Sidoarjo, Jawa Timur. Pengadaan dan Konstruksi Penerangan Jalan Umum (Solar Cell & PLN), instalasi dan maintenance listrik gedung (hotel, apartemen, perkantoran), perakitan panel kapasitas besar (LVMDP, MDP/SDP, MCC), PLC, Tangki, Ducting, MEP, BAS, serta Desain Interior & Exterior.';
-        $seoKeywords = $metaKeywords ?? 'PT Multi Abadi Aksana, Penerangan Jalan Umum, PJU Tenaga Surya, PJU All In One, PJU Two In One, PJU PLN, Tiang PJU Octagonal, Kontraktor PJU Sidoarjo, Mechanical Electrical Jawa Timur, Instalasi Listrik Gedung Hotel Apartemen, Maintenance Listrik Gedung, Fabrikasi Panel Besar LVMDP MDP SDP ATS, MCC Switchgear, Kapasitor Bank, Fabrikasi Impeller Blower, Desain Interior Sidoarjo, Built-In Furniture, Fasad Arsitektur, Kanopi Carport';
+        $seoDescription = $metaDescription ?? 'PT. Multi Abadi Aksana: Perusahaan General Trading, Supplier & Kontraktor di Sidoarjo, Jawa Timur. Pengadaan dan Konstruksi Penerangan Jalan Umum (Solar Cell & PLN), instalasi dan maintenance listrik gedung (hotel, apartemen, perkantoran), perakitan panel kapasitas besar (LVMDP, MDP/SDP, MCC), PLC, Ducting, Impeller & Blower, MEP, BAS, serta Built-In Furniture & Arsitektur.';
+        $seoKeywords = $metaKeywords ?? 'PT Multi Abadi Aksana, Penerangan Jalan Umum, PJU Tenaga Surya, PJU All In One, PJU Two In One, PJU PLN, Tiang PJU Octagonal, Kontraktor PJU Sidoarjo, Mechanical Electrical Jawa Timur, Instalasi Listrik Gedung Hotel Apartemen, Maintenance Listrik Gedung, Fabrikasi Panel Besar LVMDP MDP SDP ATS, MCC Switchgear, Kapasitor Bank, Fabrikasi Impeller Blower, Built-In Furniture, Fasad Arsitektur';
         $seoCanonical = $canonicalUrl ?? url()->current();
         $seoOgType = $ogType ?? 'website';
         $seoOgImage = isset($ogImage) && !empty($ogImage)
@@ -88,7 +88,7 @@
                     "height": 106
                 },
                 "image": "{{ asset('images/projects/pju-k3-gempol-sidoarjo.webp') }}",
-                "description": "Perusahaan General Trading, Supplier, dan Kontraktor terintegrasi di Sidoarjo, Jawa Timur untuk pengadaan dan konstruksi Penerangan Jalan Umum (Solar Cell & PLN) serta layanan Mechanical & Electrical gedung dan industri (instalasi & maintenance listrik hotel, apartemen, perkantoran, perakitan panel kapasitas besar LVMDP/MDP/SDP/MCC, tangki, impeller, MEP, BAS, serta Desain Interior & Exterior).",
+                "description": "Perusahaan General Trading, Supplier, dan Kontraktor terintegrasi di Sidoarjo, Jawa Timur untuk pengadaan dan konstruksi Penerangan Jalan Umum (Solar Cell & PLN) serta layanan Mechanical & Electrical gedung dan industri (instalasi & maintenance listrik hotel, apartemen, perkantoran, perakitan panel kapasitas besar LVMDP/MDP/SDP/MCC, ducting, impeller, MEP, BAS, serta pengerjaan fisik interior, built-in furniture & fasad arsitektur).",
                 "email": "ptmultiabadiaksana15@gmail.com",
                 "telephone": "+62-823-4297-9898",
                 "address": [
