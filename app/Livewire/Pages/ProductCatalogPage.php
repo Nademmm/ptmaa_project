@@ -131,6 +131,6 @@ class ProductCatalogPage extends Component
             'categories' => $categories,
             'products' => $products,
             'activeDivisionName' => $activeDivisionName,
-        ])->title($seoTitle);
+        ]);
     }
 }
